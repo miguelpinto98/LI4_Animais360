@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="utf-8">
+        <title>Animais 360</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="x-pjax-version" content="v173">
+        <link rel="shortcut icon" href="ico/favico.png">
+        <link rel="shortcut icon" href="http://wrapui.com/items/preview/stilearn-admin/ico/favico.ico">
+        <link rel="stylesheet" href="styles/9281c719.vendor.css"/>        
+        <link rel="stylesheet" href="styles/3fc417cd.main.css"/>
+
+     <style>
+      #map_canvas {
+        width: 1150px;
+        height: 600px;
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script>
+      function initialize() {
+        var map_canvas = document.getElementById('map_canvas');
+        var map_options = {
+          center: new google.maps.LatLng(44.5403, -78.5463),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(map_canvas, map_options)
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+
+
+    </head>
+
+
+
+    <body class="animated fadeIn">
+
+        <!-- header-->
+            <header class="header">
+            <div class="header-brand">
+                <a data-pjax=".content-body" href="index.php.html">
+                    <img class="brand-logo" src="images/dummy/8986f28e.stilearn-logo.png" alt="Stilearn Admin Sample Logo">
+                </a>
+            </div>
+            <div class="header-profile">
+                <div class="profile-nav">
+                    <span class="profile-username">Utilizador</span>
+                    <a href="index.php.html#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-angle-down"></span>
+                    </a>
+                    <ul class="dropdown-menu animated flipInX pull-right" role="menu">
+                        <li><a href="index.php.html#"><i class="fa fa-user"></i> Perfil</a></li>
+                        <li><a href="index.php.html#"><i class="fa fa-envelope"></i> Caixa de Entrada</a></li>
+                        <li class="divider"></li>
+                        <li><a href="index.php.html#"><i class="fa fa-sign-out"></i> Sair</a></li>
+                    </ul>
+                </div>
+                <div class="profile-picture">
+                    <img alt="me" src="images/dummy/0c31c9dc.profile.jpg">
+                </div>
+            </div>
+
+            <form role="form" class="form-inline">
+                <button type="button" class="btn btn-default btn-expand-search"><i class="fa fa-search"></i></button>
+                <div class="toggle-search">
+                    <input type="text" class="form-control" placeholder="Search something">    
+                    <button type="button" class="btn btn-default btn-collapse-search"><i class="fa fa-times"></i></button>
+                </div>
+            </form>
+
+           
+            <ul class="hidden-xs header-menu pull-right">
+                <li>
+                    <a href="index.php.html#" title="Notifications" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                        <span class="badge badge-success">4</span>
+                        <i class="header-menu-icon icon-only fa fa-warning"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-extend animated fadeInDown pull-right" role="menu">
+                        <li class="dropdown-header">Notificações</li>
+                        <li class="notif-minimal" data-toggle="niceScroll" data-scroll-cursorcolor="#ecf0f1">
+
+                            <a class="notif-item" href="index.php.html#">
+                                <div class="notif-ico bg-primary">
+                                    <i class="fa fa-heart-o"></i>
+                                </div>
+                                <p class="notif-text"><span class="text-bold">Evelyn</span> favorite your Post</p>
+                            </a>
+
+                            <!-- /
+                                bg-primary: verde nheca
+                                bg-warning: laranja
+                                bg-sucess:verde
+                                bg-danger:vermelho
+                                bg-info: azul
+
+                                fa-heart-o, fa-user, fa-shopping-cart, fa-comment-o, fa-twitter, fa-cloud-upload
+                        -->
+
+                        </li>
+                        <li class="dropdown-footer bg-cloud">
+                            <a class="view-all" tabindex="-1" href="cc.html#">
+                                <i class="fa fa-angle-right pull-right"></i> Ver todas as notificações
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="index.php.html#" title="Inboxs" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                        <span class="badge badge-warning animated animated-repeat flash">3</span>
+                        <i class="header-menu-icon icon-only fa fa-envelope-o"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-extend animated fadeInDown pull-right" role="menu">
+                        <li class="dropdown-header">Tens 3 mensagens</li><!-- /dropdown-header -->
+                        <li class="notif-media" data-toggle="niceScroll" data-scroll-cursorcolor="#ecf0f1">
+                            <a class="notif-item" href="index.php.html#">
+                                <div class="notif-img pull-left">
+                                    <img src="images/dummy/8af46bf8.uifaces21.jpg" alt="" class="img-circle">
+                                </div>
+                                <h3 class="notif-heading">Pessoa <small>xx min</small></h3>
+                                <p class="notif-text">Mensagem</p>
+                            </a>
+                        </li>
+                        <li class="dropdown-footer bg-cloud">
+                            <a class="view-all" tabindex="-1" href="index.php.html#">
+                                <i class="fa fa-angle-right pull-right"></i> Ver todas as mensagens
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            </header>
+        <!-- header-->
+
+
+        
+        
+        <section class="section">
+
+        <!-- barra navegação esquerda -->
+            <aside class="side-left">
+                <ul class="sidebar">
+                    <li>
+                        <a href="index.php.html" data-pjax=".content-body">
+                            <i class="sidebar-icon fa fa-home"></i>
+                            <span class="sidebar-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="regras.php.html">
+                            <i class="sidebar-icon fa fa-magnet"></i>
+                            <span class="sidebar-text">Regras</span>
+                        </a>
+                    </li>
+                      <li>
+                        <a href="jogo.php.html">
+                            <i class="sidebar-icon fa fa-magnet"></i>
+                            <span class="sidebar-text">Jogar</span>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+        <!-- barra navegação esquerda -->
+
+            <div class="content">
+                <div class="content-header">
+                    <h2 class="content-title"><i class="fa fa-home"></i> Jogar</h2>
+                </div>
+            
+
+                <div class="content-body">      
+                    <div id="error-placement"></div>
+                       <div id="panel-navbar" class="panel panel-default">
+                            <div class="panel-heading bg-white">CENAS</div> <br>
+                             <div class="progress" style="margin: 0 auto; width: 80%">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%"></div>
+                            </div>
+
+
+                            <div class="panel-body"> <br>
+                                <nav class="navbar navbar-default" role="navigation">     
+                                    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                                        <ul class="nav navbar-nav">
+                                            <li class=""><a href="navs-navbar.php.html#">Ajuda1</a></li>
+                                            <li class=""><a href="navs-navbar.php.html#">Ajuda2</a></li>
+                                            <li class=""><a href="navs-navbar.php.html#">Ajuda3</a></li> <!--active-->
+                                            <li class="dropdown">
+                                                <a href="navs-navbar.php.html#" class="dropdown-toggle" data-toggle="dropdown">Ajudas <b class="caret"></b></a>
+                                                <ul class="dropdown-menu animated fadeInDown" role="menu">
+                                                    <li><a href="navs-navbar.php.html#">Action</a></li>
+                                                    <li><a href="navs-navbar.php.html#">Another action</a></li>
+                                                    <li><a href="navs-navbar.php.html#">Something else here</a></li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="navs-navbar.php.html#">Separated link</a></li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="navs-navbar.php.html#">One more separated link</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+
+                                       
+
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li class="dropdown">
+                                                <a href="navs-navbar.php.html#" class="dropdown-toggle" data-toggle="dropdown">Próximos Destinos <b class="caret"></b></a>
+                                                <ul class="dropdown-menu animated fadeInDown" role="menu">
+                                                    <li><a href="navs-navbar.php.html#">Action</a></li>
+                                                    <li><a href="navs-navbar.php.html#">Another action</a></li>
+                                                    <li><a href="navs-navbar.php.html#">Something else here</a></li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="navs-navbar.php.html#">Separated link</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                                <br>
+                            </div>
+                        </div>
+
+
+                         <div id="map_canvas"></div>
+                   </div>
+            </div>
+
+        </section>
+        
+
+
+
+        <!-- footer -->
+            <a rel="to-top" href="index.php.html#top"><i class="fa fa-arrow-up"></i></a>
+            <footer>
+                <p><small><a>Animais 360 &copy;</a>
+                    Desenvolvido por Diana Lemos, Mariana Medeiros, Mário Leite e Miguel Pinto.
+                </small></p>
+            </footer>
+        <!-- footer -->
+
+
+
+        <!-- ========================= javascript ============================= -->
+        <script src="scripts/39914ff3.vendor-main.js"></script>        
+        <script src="scripts/756399db.vendor-usefull.js"></script>
+        <script src="scripts/e7058f60.vendor-form.js"></script>        
+        <script src="scripts/fc9d433c.vendor-editor.js"></script>        
+        <script src="scripts/2ce1156c.vendor-graph.js"></script>    
+        <script src="scripts/37a77790.vendor-table.js"></script>
+        <script src="scripts/1581b2aa.vendor-maps.js"></script>        
+        <script src="scripts/5f4fd25b.vendor-util.js"></script>
+        <script src="scripts/5917523f.main.js"></script>
+        <script src="scripts/89c3d6c9.initializer.js"></script>
+        
+        <script>
+          (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+          function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+          e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+          e.src='//www.google-analytics.com/analytics.js';
+          r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+          ga('create','UA-48454066-1');ga('send','pageview');
+        </script>
+
+    </body>
+</html>
