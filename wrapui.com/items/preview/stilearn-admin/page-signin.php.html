@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Stilearn Admin Bootstrap</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="stilearning">
+
+        <meta http-equiv="x-pjax-version" content="v173">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- fav and touch icons -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/favico-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/favico-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/favico-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="ico/favico-57-precomposed.png">
+        <link rel="shortcut icon" href="ico/favico.png">
+        <link rel="shortcut icon" href="http://wrapui.com/items/preview/stilearn-admin/ico/favico.ico">
+
+        <link rel="stylesheet" href="styles/9281c719.vendor.css"/>        
+        <link rel="stylesheet" href="styles/3fc417cd.main.css"/>
+        
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body class="animated fadeIn">		
+
+		<div class="content content-full">
+			<div class="container">
+				<div class="signin-wrapper">
+					<div class="tab-content">
+						<div class="row tab-pane fade in active" id="signin">
+							<div class="col-md-offset-1 col-md-6 hidden-sm hidden-xs">
+								<div id="carousel-example" class="carousel slide" data-ride="carousel">
+							      	<ol class="carousel-indicators">
+								        <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+								        <li data-target="#carousel-example" data-slide-to="1"></li>
+								        <li data-target="#carousel-example" data-slide-to="2"></li>
+								        <li data-target="#carousel-example" data-slide-to="3"></li>
+								        <li data-target="#carousel-example" data-slide-to="4"></li>
+							      	</ol>
+							      	<div class="carousel-inner">
+								        <div class="item active">
+								          	<img src="images/dummy/7b14b475.img7.png" alt="Slide image">
+								        </div>
+								        <div class="item">
+								          	<img src="images/dummy/1166769f.img11.png" alt="Slide image">
+								        </div>
+								        <div class="item">
+								          	<img src="images/dummy/2590d12d.img2.png" alt="Slide image">
+								        </div>
+								        <div class="item">
+								          	<img src="images/dummy/4e81cd8d.img6.png" alt="Slide image">
+								        </div>
+								        <div class="item">
+								          	<img src="images/dummy/3e4d8287.img3.png" alt="Slide image">
+								        </div>
+							      	</div>
+							      	<a class="left carousel-control" href="page-signin.php.html#carousel-example" data-slide="prev">
+							        	<span class="glyphicon glyphicon-chevron-left"></span>
+							      	</a>
+							      	<a class="right carousel-control" href="page-signin.php.html#carousel-example" data-slide="next">
+							        	<span class="glyphicon glyphicon-chevron-right"></span>
+							      	</a>
+							    </div>
+							</div><!--/cols-->
+
+							<div class="col-md-offset-1 col-md-4 col-sm-offset-2 col-sm-8">							
+								<div class="signin">
+									<div class="signin-brand">
+										<a href="page-signin.php.html">
+											<img class="lazy" data-original="images/dummy/48f4bb8e.Stilearn-logo-primary.png" alt="Sign In">
+										</a>
+									</div><!--/signin-brand-->
+
+									<form action="index.php" method="POST" data-validate="form" role="form" id="signin-form">
+										<p><small>Stilearn Admin account. <a href="page-signin.php.html#">Learn more?</a></small></p>
+										<div class="form-group">
+											<div class="input-group input-group-in">
+												<span class="input-group-addon text-muted">@</span>
+												<input type="text" class="form-control" name="username" required="" minlength="4" placeholder="johndoe" autocomplete="off">
+											</div><!--/input-group-->
+										</div><!--/form-group-->
+
+										<div class="form-group">
+											<div class="input-group input-group-in">
+												<span class="input-group-addon text-muted"><i class="fa fa-circle-o"></i></span>
+												<input type="password" class="form-control" name="password" required="" minlength="4" placeholder="Password">
+											</div><!--/input-group-->
+										</div><!--/form-group-->
+
+										<div class="form-group">
+											<div class="nice-checkbox">
+												<input class="checkbox-o" type="checkbox" name="keep-signin" id="keep-signin">
+												<label for="keep-signin">Keep me sign in</label>
+											</div>
+										</div><!--/form-group-->
+
+										<div class="form-group form-actions">
+											<input type="submit" class="hidden-sm btn btn-primary" value="Sign In">
+											<input type="submit" class="visible-sm btn btn-lg btn-block btn-primary" value="Sign In">
+										</div><!--/form-group-->
+
+										<p>
+											<small>
+												<a href="page-signin.php.html#modalRecover" data-toggle="modal">Can't Access your Account?</a><br>
+												<a href="page-signin.php.html#" class="hidden-sm">Sign in with another account?</a>
+											</small>
+										</p>
+										<p class="hidden-sm">
+											<a href="page-signin.php.html#" rel="tooltip" title="Signin with Twitter account" class="btn btn-sm btn-info"><span class="fa fa-twitter"></span></a>
+											<a href="page-signin.php.html#" rel="tooltip" title="Signin with Google account" class="btn btn-sm btn-danger"><span class="fa fa-google-plus"></span></a>
+											<a href="page-signin.php.html#" rel="tooltip" title="Signin with Github account" class="btn btn-sm btn-cloud"><span class="fa fa-github"></span></a>
+										</p>
+
+										<p class="margin-top"><small>Don't have a account? <a data-toggle="tab" href="page-signin.php.html#signup"><strong>Creata an Account</strong></a></small></p>
+									</form><!--/#signin-form-->
+								</div><!--/signin-->
+
+
+								<!-- modalRecover -->
+	                            <div class="modal fade" id="modalRecover" tabindex="-1" role="dialog" aria-labelledby="modalRecoverLabel" aria-hidden="true">
+	                                <div class="modal-dialog">
+	                                    <div class="modal-content">
+	                                        <div class="modal-header">
+	                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                                            <h4 class="modal-title" id="modalRecoverLabel">Reset Password</h4>
+	                                        </div>
+	                                        <div class="modal-body">
+	                                            <form action="index.php" method="POST" data-validate="form" role="form" id="recover-form">
+													<div class="form-group">
+														<div class="input-group input-group-in">
+															<span class="input-group-addon text-muted">@</span>
+															<input type="email" class="form-control" name="recover" required="" autocomplete="off">
+														</div><!--/input-group-->
+													</div><!--/form-group-->
+													<p class="text-muted"><small>Enter your username or email address and we will send you a link to reset your password.</small></p>
+												</form>
+	                                        </div>
+
+	                                        <div class="modal-footer">
+	                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                                            <button type="button" class="btn btn-primary">Send reset link</button>
+	                                        </div>
+	                                    </div><!-- /.modal-content -->
+	                                </div><!-- /.modal-dialog -->
+	                            </div><!-- /.modal -->
+
+								
+							</div><!--/cols-->
+						</div><!--/row-->
+
+						<div class="signup tab-pane fade" id="signup">
+							<div class="signup-brand">
+								<img src="images/dummy/782e8c3f.stilearn-logo2.png" alt="Sign up">
+							</div>
+							<h1 class="text-lead">Create an account</h1>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, ad, sint, ea, dicta dolor nesciunt adipisci molestias molestiae ex fugit sunt quia praesentium? Deserunt atque tenetur mollitia perspiciatis doloribus sint. By creating an account you agree to the <a href="page-signin.php.html#">Terms of Use</a> and <a href="page-signin.php.html#">Privacy Policy</a>.</p>
+							<p>Already have an account, please <a data-toggle="tab" href="page-signin.php.html#signin">Signin</a>.</p>
+
+							<form id="signup-form" data-validate="form" action="index.php" role="form">
+								<div class="row">
+									<div class="col-sm-5">
+										<div class="form-group">
+											<label class="control-label text-inverse" for="usernameUp">Username</label>
+											<input type="text" class="form-control" name="usernameUp" id="usernameUp" required="" minlength="4" maxlength="12" autocomplete="off">
+											<p class="helper-block text-muted"><small>May contain letters, digits, dashes and underscores, and should be between 4 and 12 characters long.</small></p>
+										</div>
+
+										<div class="form-group">
+											<label class="control-label text-inverse" for="emailUp">Email</label>
+											<input type="email" class="form-control" name="emailUp" id="emailUp" required="" autocomplete="off">
+											<p class="helper-block text-muted"><small><strong>Type carefully!</strong> You will be sent a confirmation email.</small></p>
+										</div>
+
+										<div class="form-group">
+											<label class="control-label text-inverse" for="passwordUp">Password</label>
+											<input type="password" class="form-control" name="passwordUp" id="passwordUp" required="" minlength="4">
+											<p class="helper-block text-muted"><small>The longer the better. Include numbers for protein.</small></p>
+										</div>
+
+										<div class="form-group">
+											<label class="control-label text-inverse" for="cpasswordUp">Confirm Password</label>
+											<input type="password" class="form-control" name="cpasswordUp" id="cpasswordUp" equalto="#passwordUp">
+											<p class="helper-block text-muted"><small>Enter your password again!</small></p>
+										</div>
+
+										<div class="form-group margin-top">
+											<div class="nice-checkbox">
+												<input class="checkbox-o" type="checkbox" name="newsletter" id="newsletter" checked="checked">
+												<label for="newsletter">Sign me up for the newsletter</label>
+											</div>
+										</div>
+
+										<div class="form-group form-actions">
+											<input type="submit" class="btn btn-primary" value="Create account">
+										</div><!--/form-group-->
+
+									</div><!--/cols-->
+								</div><!--/row-->
+
+							</form><!--/#signup-form-->
+						</div><!--/#signup-->
+
+					</div><!--/tab-content-->
+
+					<div class="signin-footer">
+						<ul class="list-inline pull-right">
+							<li><a href="page-signin.php.html#">Knowledge base</a></li>
+						</ul>
+						<ul class="list-inline">
+							<li>&copy; 2014 Stilearning</li>
+							<li><a href="page-signin.php.html#">Terms of Use</a></li>
+							<li><a href="page-signin.php.html#">Privacy Policy</a></li>
+						</ul>
+					</div>
+
+				</div><!--/signin-wapper-->
+
+			</div><!--/container-->
+		</div><!--/content-->
+
+
+
+        <!-- javascript
+        ================================================== -->
+        <script src="scripts/39914ff3.vendor-main.js"></script>        
+        <script src="scripts/756399db.vendor-usefull.js"></script>
+        <script src="scripts/e7058f60.vendor-form.js"></script>        
+        <script src="scripts/fc9d433c.vendor-editor.js"></script>        
+        <!--[if lte IE 8]>
+        <script src="scripts/eae815b5.excanvas.js"></script>
+        <![endif]-->
+        <script src="scripts/2ce1156c.vendor-graph.js"></script>    
+        <script src="scripts/37a77790.vendor-table.js"></script>
+        <script src="scripts/1581b2aa.vendor-maps.js"></script>        
+        <script src="scripts/5f4fd25b.vendor-util.js"></script>
+
+
+        <!-- required stilearn template js -->
+        <script src="scripts/5917523f.main.js"></script>
+        <!-- This scripts will be reload after pjax or if popstate event is active (use with class .re-execute) -->
+        <script src="scripts/89c3d6c9.initializer.js"></script>
+        
+        <script>
+          (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+          function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+          e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+          e.src='//www.google-analytics.com/analytics.js';
+          r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+          ga('create','UA-48454066-1');ga('send','pageview');
+        </script>
+
+    </body>
+</html>
