@@ -121,7 +121,7 @@
                     <li>
                         <a href="index.php.html" data-pjax=".content-body" style="background-color:#3498DB;">
                             <i class="sidebar-icon fa fa-dashboard"></i>
-                            <span class="sidebar-text">Dashboard</span>
+                            <span class="sidebar-text">Dashboard / Estatísticas Gerais</span>
                         </a>
                     </li>
                     <li>
@@ -142,112 +142,123 @@
 
             <div class="content">
                 <div class="content-header">
-                    <h2 class="content-title"><i class="fa fa-home"></i> Bem-vindo.</h2>
+                    <h2 class="content-title"><i class="fa fa-dashboard"></i> Dashboard / Estatísticas Gerais</h2>
                 </div>
-            
-
-                <div class="content-body">      
-                    <div id="error-placement"></div>
-                    <div class="row margin-top">
-                        <div class="col-md-12 margin-bottom">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a href="index.php.html#system-stats" data-toggle="tab">As minhas estatísticas</a></li>
-                                <li><a href="index.php.html#server-stats" data-toggle="tab">Estatísticas gerais</a></li>
-                            </ul>
+                <div class="content-body">
+                    <div id="panel-tablesorter" class="panel panel-default">
+                        <div class="panel-heading bg-white">
+                            <div class="panel-actions">
+                                <button data-refresh="#panel-tablesorter" title="refresh" class="btn-panel">
+                                    <i class="fa fa-refresh"></i>
+                                </button>
+                                <button data-expand="#panel-tablesorter" title="expand" class="btn-panel">
+                                    <i class="fa fa-expand"></i>
+                                </button>
+                                <button data-collapse="#panel-tablesorter" title="collapse" class="btn-panel">
+                                    <i class="fa fa-caret-down"></i>
+                                </button>
+                            </div>
+                            <h3 class="panel-title">Tabela Geral</h3>
                         </div>
 
-                        
-                        <div class="tab-content">
-                            <div id="system-stats" class="tab-pane fade active in">
-                                <!--/caixa-->
-                                    <div class="col-md-4">
-                                        <div id="overall-orders" class="panel panel-danger bg-danger">
-                                            <div class="panel-body">
-                                                <div class="panel-actions-fly">
-                                                    <button data-refresh="#overall-orders" data-error-place="#error-placement" title="refresh" class="btn-panel">
-                                                        <i class="glyphicon glyphicon-refresh"></i>
-                                                    </button>
-                                                    <a href="index.php.html#" title="Go to system stats page" class="btn-panel">
-                                                        <i class="glyphicon glyphicon-stats"></i>
-                                                    </a>
-                                                </div>
+                        <div class="panel-body">
+                            <div class="table-responsive table-responsive-datatables">
+                                <table class="tablesorter table table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Nome Utilizador</th>
+                                            <th>Dificuldade</th>
+                                            <th>Voltas Realizadas</th>
+                                            <th>Pontuação Máxima</th>
+                                            <th>Continente Preferido</th>
+                                            <th>Outras cenas</th>
+                                        </tr>
+                                    </thead>
 
-                                                <p class="lead">Orders</p>
+                                    <tbody>
+                                        <tr>
+                                            <td>63linda</td>
+                                            <td>Difícil</td>
+                                            <td>5</td>
+                                            <td class="center">921</td>
+                                            <td class="center">África</td>
+                                            <td class="center">xxx</td>
+                                        </tr>
 
-                                                <ul class="list-percentages row">
-                                                    <li class="col-xs-4">
-                                                        <p class="text-ellipsis">Total Revenue</p>
-                                                        <p class="text-lg"><strong>1,954,452</strong></p>
-                                                    </li>
-                                                    <li class="col-xs-4">
-                                                        <p class="text-ellipsis">Last Month</p>
-                                                        <p class="text-lg"><strong>43,671</strong></p>
-                                                    </li>
-                                                    <li class="col-xs-4">
-                                                        <p class="text-ellipsis">Today</p>
-                                                        <p class="text-lg"><strong>1,219</strong></p>
-                                                    </li>
-                                                </ul>
-                                                <p class="helper-block">
-                                                    <div class="progress progress-xs progress-flat progress-inverse-inverse">
-                                                        <div class="progress-bar progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                                            <span class="sr-only">60% Complete (inverse)</span>
-                                                        </div>
-                                                    </div>
-                                                    </p><p class="text-ellipsis"><i class="fa fa-caret-down"></i> 386 &nbsp;&nbsp; -5<sup>%</sup> <small>Looks not good! try increasing your product</small></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <!--/caixa-->
-                            </div>
+                                         <tr>
+                                            <td>63linda</td>
+                                            <td>Médio</td>
+                                            <td>10</td>
+                                            <td class="center">100</td>
+                                            <td class="center">Europa</td>
+                                            <td class="center">xxx</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>57</td>
+                                            <td>Difícil</td>
+                                            <td>2</td>
+                                            <td class="center">570</td>
+                                            <td class="center">Europa</td>
+                                            <td class="center">xxx</td>
+                                        </tr>
 
-                            <div id="server-stats" class="tab-pane fade">
-                                <!--/caixa-->
-                                    <div class="col-md-4">
-                                        <div id="overall-phisicmem" class="panel panel-danger bg-danger">
-                                            <div class="panel-body">
-                                                <div class="panel-actions-fly">
-                                                    <button data-refresh="#overall-phisicmem" data-error-place="#error-placement" title="refresh" class="btn-panel">
-                                                        <i class="glyphicon glyphicon-refresh"></i>
-                                                    </button><!--/btn-panel-->
-                                                    <a href="index.php.html#" title="Go to server stats page" class="btn-panel">
-                                                        <i class="glyphicon glyphicon-stats"></i>
-                                                    </a>
-                                                </div>
+                                          <tr>
+                                            <td>57</td>
+                                            <td>Médio</td>
+                                            <td>5</td>
+                                            <td class="center">200</td>
+                                            <td class="center">Ásia</td>
+                                            <td class="center">xxx</td>
+                                        </tr>
 
-                                                <p class="lead">Physical Memory</p>
 
-                                                <p>
-                                                    <div class="easyPieChart" data-barcolor="#232332" data-trackcolor="#ecf0f1" data-scalecolor="#ecf0f1" data-percent="45" data-size="120">
-                                                        <span>45%</span>
-                                                    </div>
-                                                    </p><p class="text-ellipsis text-center">Physical Memory Usage 457 MB / 1 GB</p>       
-                                            </div>
-                                        </div>
-                                    </div>
-                                <!--/caixa-->
+                                        <tr>
+                                            <td>98</td>
+                                            <td>Fácil</td>
+                                            <td>9</td>
+                                            <td class="center">98</td>
+                                            <td class="center">Europa</td>
+                                            <td class="center">xxx</td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>80</td>
+                                            <td>Fácil</td>
+                                            <td>8</td>
+                                            <td class="center">80</td>
+                                            <td class="center">Europa</td>
+                                            <td class="center">xxx</td>
+                                        </tr>
+                                    </tbody>
+                                    
+                                    
+                                    <tfoot>
+                                        <tr>
+                                            <th colspan="6" class="ts-pager form-horizontal">
+                                                <button type="button" class="btn btn-default btn-sm first"><i class="icon-step-backward fa fa-angle-double-left"></i></button>
+                                                <button type="button" class="btn btn-default btn-sm prev"><i class="icon-arrow-left fa fa-angle-left"></i></button>
+                                                <span class="pagedisplay"></span>
+                                                <button type="button" class="btn btn-default btn-sm next"><i class="icon-arrow-right fa fa-angle-right"></i></button>
+                                                <button type="button" class="btn btn-default btn-sm last"><i class="icon-step-forward fa fa-angle-double-right"></i></button>
+                                                <select class="pagesize input-sm" title="Select page size">
+                                                    <option value="5" selected="selected">5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                </select>
+                                                <select class="pagenum input-sm" title="Select page number"></select>
+                                            </th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-                 
-
-                    
-                    <div class="divider-content"><span></span>
-                    </div>
-
-
-
-
-
-                    </div><!--/content-body -->
-            </div><!--/content -->
-
-        </section><!--/content section -->
+                </div>
+            </div>
+         </section>
         
 
 
