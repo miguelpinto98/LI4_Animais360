@@ -28,12 +28,11 @@
                         <h1 class="">
                             <span class="text-lg text-uppercase">Animais 360</span>
                         </h1>
-
                         <p class="lead text-uppercase"><span class="text-lg">Um espetacular jogo de estratégia que te leva a testar o limite dos teus conhecimentos.</span></p><br>
 
                         <p class="flipInX">
-                            <a target="_blank" href="https://wrapbootstrap.com/theme/stilearn-admin-template-WB0TFD2S0" class="btn btn-lg btn-rounded btn-transparent margin-bottom">APRENDE MAIS</a>
-                            <a href="login.php.html" class="btn btn-lg btn-rounded btn-transparent margin-bottom margin-left">JOGAR AGORA</a>
+                            <a href="#tools" class="btn btn-lg btn-rounded btn-transparent margin-bottom">APRENDE MAIS</a>
+                            <a href="@Url.Action("Login", "Account")" class="btn btn-lg btn-rounded btn-transparent margin-bottom margin-left">JOGAR AGORA</a>
                         </p>
                     </div>
                 </div>
@@ -59,7 +58,7 @@
 
 
     <svg class="bg-cloud" xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 100 102" preserveaspectratio="none">
-        <path class="bg-white" d="M0 0 L50 100 L100 0 Z"/>
+        <path class="bg-white" d="M0 0 L50 100 L100 0 Z" />
     </svg>
 
     <!--/-tutorial-->
@@ -76,7 +75,7 @@
     <!--/-tutorial-->
 
     <svg class="bg-cloud" xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 100 100" preserveaspectratio="none">
-        <path class="bg-inverse" d="M0 100 C 20 0 50 0 100 100 Z"/>
+        <path class="bg-inverse" d="M0 100 C 20 0 50 0 100 100 Z" />
     </svg>
 
     <!--/-regras-->
@@ -134,7 +133,7 @@
             <h2 class="text-center"><span>Estatísticas Gerais</span></h2>
             <div class="content-header-extra" style="margin-top:65px;">
                 <a class="item-ch-extra">
-                    <div class="data-text text-success"><p class="text-muted">Membros</p>765</div>
+                    <div class="data-text text-success"><p class="text-muted">Membros</p>@ViewBag.numero</div>
                 </a>
                 <div class="divider" style="margin-left:50px; margin-right:50px;"></div>
                 <a class="item-ch-extra">
@@ -153,16 +152,11 @@
     </section>
     <!--/-estatisticas-->
 
-
-
     <svg class="bg-warning" xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 100 100" preserveaspectratio="none">
         <path class="no-stroke" fill="#ecf0f1" d="M50 100 C49 80 47 0 40 0 L47 0 Z" />
         <path class="no-stroke" fill="#ecf0f1" d="M50 100 C51 80 53 0 60 0 L53 0 Z" />
         <path class="bg-cloud no-stroke" d="M47 0 L50 100 L53 0 Z" />
     </svg>
-
-
-
 
     <!--/-final-->
     <section class="section-content bg-warning" style="padding:50px;">
@@ -174,7 +168,7 @@
             <br>
             <div class="text-center margin-top">
                 <div class="float-shadow">
-                    <a href="login.php.html" class="btn btn-lg btn-rounded btn-transparent margin-left">
+                    <a href="@Url.Action("Login", "Account")" class="btn btn-lg btn-rounded btn-transparent margin-left">
                         <span class="text-lg">JOGAR AGORA</span>
                     </a>
                 </div>

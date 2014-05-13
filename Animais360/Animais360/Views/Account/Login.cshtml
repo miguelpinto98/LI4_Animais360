@@ -1,7 +1,7 @@
-﻿@model Animais360.Models.LoginViewModel
+﻿@model Animais360.Models.LoginModel
 
 @{
-    ViewBag.Title = "Entrar";
+    ViewBag.Title = "Log in";
 }
 
 <header class="header" style="height:80px;">
@@ -17,47 +17,54 @@
                 <div class="row tab-pane fade in active" id="signin">
                     <div class="col-md-offset-5">
                         <div class="signin">
-                        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, 
-                            FormMethod.Post, new { @class = "form-horizontal", role = "form", id="signin-form" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            @Html.ValidationSummary(true)
-                            
-                            <div class="form-group">
-                                <div class="input-group input-group-in">
-                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", name="UserName", required = "", placeholder = " E-mail", autocomplete = "on" })
-                                    @Html.ValidationMessageFor(m => m.UserName)
+                            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl },
+                            FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "signin-form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary(true)
+
+                                <div class="form-group">
+                                    <div class="input-group input-group-in">
+                                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", name = "UserName", required = "", placeholder = " E-mail", autocomplete = "on" })
+                                        @Html.ValidationMessageFor(m => m.UserName)
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group input-group-in">
-                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", name="Password", required="", minlength="4", placeholder="Password" })
-                                    @Html.ValidationMessageFor(m => m.Password)
+                                <div class="form-group">
+                                    <div class="input-group input-group-in">
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", name = "Password", required = "", minlength = "4", placeholder = "Password" })
+                                        @Html.ValidationMessageFor(m => m.Password)
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="nice-checkbox">
-                                    <input class="checkbox-o" type="checkbox" name="keep-signin" id="keep-signin">
-                                    <label for="keep-signin">Manter sessão iniciada.</label>
-                                    @Html.CheckBoxFor(m => m.RememberMe, new { @class = "checkbox-o" })
+                                <div class="form-group">
+                                    <div class="nice-checkbox">
+                                        <input class="checkbox-o" type="checkbox" name="keep-signin" id="keep-signin">
+                                        <label for="keep-signin">Manter sessão iniciada.</label>
+                                        @Html.CheckBoxFor(m => m.RememberMe, new { @class = "checkbox-o" })
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group form-actions">
-                                <input type="submit" class="hidden-sm btn btn-primary" value="Entrar">
-                                <input type="submit" class="visible-sm btn btn-lg btn-block btn-primary" value="Entrar">
-                            </div>
-                            
-                            <p>
-                                <small>
-                                    <a href="#modalRecover" data-toggle="modal">Esqueceste-te da password?</a><br>
-                                </small>
-                            </p>
-                            <p class="margin-top"><small> Ainda não estás registado? <a data-toggle="tab"><strong>
-                                @Html.ActionLink("Cria uma conta.", "Register")</strong></a></small></p>
+                                <div class="form-group form-actions">
+                                    <input type="submit" class="hidden-sm btn btn-primary" value="Entrar">
+                                    <input type="submit" class="visible-sm btn btn-lg btn-block btn-primary" value="Entrar">
+                                </div>
+
+                                <p>
+                                    <small>
+                                        <a href="#modalRecover" data-toggle="modal">Esqueceste-te da password?</a><br>
+                                    </small>
+                                </p>
+                                <p class="margin-top">
+                                    <small>
+                                        Ainda não estás registado? <a data-toggle="tab">
+                                            <strong>
+                                                @Html.ActionLink("Cria uma conta.", "Register")
+                                            </strong>
+                                        </a>
+                                    </small>
+                                </p>
                             }
                         </div>
 
-                        <!-- Recuperar Pass -->
+                        <!-- Recuperar Pass  NAO ATIVADO -->
                         <div class="modal fade" id="modalRecover" tabindex="-1" role="dialog" aria-labelledby="modalRecoverLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
