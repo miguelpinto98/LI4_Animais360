@@ -1,0 +1,102 @@
+﻿@model Animais360.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Entrar";
+}
+
+<header class="header" style="height:80px;">
+    <div class="header-brand" style="margin-left:520px; margin-top:12px;">
+        <img class="brand-logo" src="/../Content/images/logo.png" alt="Animais 360">
+    </div>
+</header>
+
+<div class="content content-full">
+    <div class="container">
+        <div class="signin-wrapper">
+            <div class="tab-content">
+                <div class="row tab-pane fade in active" id="signin">
+                    <div class="col-md-offset-5">
+                        <div class="signin">
+                        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, 
+                            FormMethod.Post, new { @class = "form-horizontal", role = "form", id="signin-form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+                            
+                            <div class="form-group">
+                                <div class="input-group input-group-in">
+                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", name="UserName", required = "", placeholder = " E-mail", autocomplete = "on" })
+                                    @Html.ValidationMessageFor(m => m.UserName)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group input-group-in">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", name="Password", required="", minlength="4", placeholder="Password" })
+                                    @Html.ValidationMessageFor(m => m.Password)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="nice-checkbox">
+                                    <input class="checkbox-o" type="checkbox" name="keep-signin" id="keep-signin">
+                                    <label for="keep-signin">Manter sessão iniciada.</label>
+                                    @Html.CheckBoxFor(m => m.RememberMe, new { @class = "checkbox-o" })
+                                </div>
+                            </div>
+                            <div class="form-group form-actions">
+                                <input type="submit" class="hidden-sm btn btn-primary" value="Entrar">
+                                <input type="submit" class="visible-sm btn btn-lg btn-block btn-primary" value="Entrar">
+                            </div>
+                            
+                            <p>
+                                <small>
+                                    <a href="#modalRecover" data-toggle="modal">Esqueceste-te da password?</a><br>
+                                </small>
+                            </p>
+                            <p class="margin-top"><small> Ainda não estás registado? <a data-toggle="tab"><strong>
+                                @Html.ActionLink("Cria uma conta.", "Register")</strong></a></small></p>
+                            }
+                        </div>
+
+                        <!-- Recuperar Pass -->
+                        <div class="modal fade" id="modalRecover" tabindex="-1" role="dialog" aria-labelledby="modalRecoverLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title" id="modalRecoverLabel">Alterar Password</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="index.php" method="POST" data-validate="form" role="form" id="recover-form">
+                                            <div class="form-group">
+                                                <div class="input-group input-group-in">
+                                                    <input type="email" class="form-control" name="recover" required="" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <p class="text-muted"><small>Insere o teu nome de utilizador ou o teu e-mail. Receberás um e-mail com instruções de como poderás alterar a tua password.</small></p>
+                                        </form>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                                        <button type="button" class="btn btn-primary">Enviar link de alteração de password</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Recuperar Pass -->
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rodapé -->
+            <div class="signin-footer">
+                <ul class="list-inline">
+                    <li>Animais 360&copy;</li>
+                    <li>@Html.ActionLink("Regressar à Página Inicial", "Index", "Home")</li>
+                </ul>
+            </div>
+            <!-- Rodape-->
+        </div>
+    </div>
+</div>

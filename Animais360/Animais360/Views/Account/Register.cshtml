@@ -1,0 +1,106 @@
+﻿@model Animais360.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Registar";
+}
+
+<header class="header" style="height:80px;">
+    <div class="header-brand" style="margin-left:520px; margin-top:12px;">
+        <img class="brand-logo" src="/../Content/images/logo.png" alt="Animais 360">
+    </div>
+</header>
+
+<div class="content content-full">
+    <div class="container">
+        <div class="signin-wrapper">
+            <div class="tab-content">
+                <div class="row tab-pane fade in active" id="signin">
+                    <div class="col-md-offset-5">
+
+                        <div class="signup" id="signup">
+                            <h1 class="text-lead">Regista-te</h1>
+                            <p>Se já tens conta entra<a data-toggle="tab" href="page-signin.php.html#signin"> aqui</a>.</p>
+
+                            <form id="signup-form" data-validate="form" action="index.php" role="form">
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <label class="control-label text-inverse" for="usernameUp">Nome de Utilizador</label>
+                                            <input type="text" class="form-control" name="usernameUp" id="usernameUp" required="" minlength="8" maxlength="12" autocomplete="off">
+                                            <p class="helper-block text-muted"><small>Deve conter letras, dígitos e símbolos. Mínimo de 8 caracteres.</small></p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label text-inverse" for="emailUp">E-mail</label>
+                                            <input type="email" class="form-control" name="emailUp" id="emailUp" required="" autocomplete="off">
+                                            <p class="helper-block text-muted"><small> Receberás um e-mail de confirmação.</small></p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label text-inverse" for="passwordUp">Password</label>
+                                            <input type="password" class="form-control" name="passwordUp" id="passwordUp" required="" minlength="4">
+                                            <p class="helper-block text-muted"><small>Mínimo de 8 caracteres.</small></p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label text-inverse" for="cpasswordUp">Confirmar Password</label>
+                                            <input type="password" class="form-control" name="cpasswordUp" id="cpasswordUp" equalto="#passwordUp">
+                                            <p class="helper-block text-muted"><small>Digita a password novamente.</small></p>
+                                        </div>
+
+                                        <div class="form-group form-actions">
+                                            <input type="submit" class="btn btn-primary" value="Criar conta">
+                                        </div><!--/form-group-->
+
+                                    </div><!--/cols-->
+                                </div><!--/row-->
+                            </form>
+                        </div>
+                        <!-- Registar-->
+                    </div>
+
+                    <!-- Rodapé -->
+                    <div class="signin-footer">
+                        <ul class="list-inline">
+                            <li>Animais 360&copy;</li>
+                            <li><a href="paginicial.php.html#">Regressar à Página Inicial</a></li>
+                        </ul>
+                    </div>
+                    <!-- Rodape-->
+                </div>
+            </div>
+        </div>
+
+
+
+
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <h4>Create a new account.</h4>
+            <hr />
+            @Html.ValidationSummary()
+            <div class="form-group">
+                @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-default" value="Register" />
+                </div>
+            </div>
+        }
+
