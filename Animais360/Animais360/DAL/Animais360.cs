@@ -13,5 +13,8 @@ namespace Animais360.Models
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Continente> Continentes { get; set; }
+
+        public DbSet<Pais> Pais { get; set; }
     }
 }
