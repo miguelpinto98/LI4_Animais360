@@ -18,7 +18,7 @@
             <header class="header">
             <div class="header-brand">
                 <a data-pjax=".content-body" href="index.php.html">
-                    <img class="brand-logo" src="assets/images/logo.png" alt="Stilearn Admin Sample Logo">
+                    <img class="brand-logo" src="assets/images/logo.png">
                 </a>
             </div>
             <div class="header-profile">
@@ -28,7 +28,7 @@
                         <span class="fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu animated flipInX pull-right" role="menu">
-                        <li><a href="index.php.html#"><i class="fa fa-user"></i> Perfil</a></li>
+                        <li><a href="perfil.php.html#"><i class="fa fa-user"></i> Perfil</a></li>
                         <li><a href="index.php.html#"><i class="fa fa-envelope"></i> Caixa de Entrada</a></li>
                         <li class="divider"></li>
                         <li><a href="index.php.html#"><i class="fa fa-sign-out"></i> Sair</a></li>
@@ -150,10 +150,10 @@
                     <div class="row margin-top">
                         <div class="col-md-12 margin-bottom">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="index.php.html#sobremim" data-toggle="tab">Sobre mim</a></li>
-                                <li><a href="index.php.html#historico" data-toggle="tab">Histórico</a></li>
-                                <li><a href="index.php.html#crachas" data-toggle="tab">Crachás</a></li>
-                                <li><a href="index.php.html#gerirconta" data-toggle="tab">Gerir conta</a></li>
+                                <li class="active"><a href="perfil.php.html#sobremim" data-toggle="tab">Sobre mim</a></li>
+                                <li><a href="perfil.php.html#historico" data-toggle="tab">Histórico</a></li>
+                                <li><a href="perfil.php.html#crachas" data-toggle="tab">Crachás</a></li>
+                                <li><a href="perfil.php.html#gerirconta" data-toggle="tab">Gerir conta</a></li>
                             </ul>
                         </div>
 
@@ -161,10 +161,10 @@
                         <div class="tab-content">
                             
                             <!--/sobre mim-->   
-                                <div id="sobremim" class="tab-pane fade active in">
+                                <div id="sobremim" class="tab-pane active in">
                                     <div class="row">
                                         <div class="col-md-5">
-                                            <div id="contentfeeds2" class="panel panel-animated panel-default">
+                                            <div id="contentfeeds2" class="panel panel-default">
                                                 <div class="panel-body bordered-bottom bg-danger">
                                                     <div class="profile-line clearfix">
                                                         <img class="img-circle pull-left" src="assets/images/users/user.jpg" alt="uifaces19" width="120px" width="120px">
@@ -182,7 +182,7 @@
 
 
                                         <div class="col-md-6">
-                                            <div id="contentfeeds2" class="panel panel-animated panel-default">
+                                            <div id="contentfeeds2" class="panel panel-default">
                                                 <div class="panel-body bordered-bottom bg-success">
                                                     <div class="profile-line clearfix" style="height:113px;">
                                                         <div class="text-14" style="font-size:42px; padding-top:20px;padding-left:10px;"><strong>As Minhas Estatísticas</strong></div>
@@ -216,7 +216,7 @@
 
 
                             <!--/historico-->
-                                <div id="historico" class="tab-pane fade">
+                                <div id="historico" class="tab-pane">
                                     <!--/caixa-->
                                         <div class="col-md-4">
                                             <div id="overall-users" class="panel panel-info bg-info">
@@ -312,36 +312,15 @@
                             <!--/historico-->
 
                             <!--/crachas-->
-                                <div id="crachas" class="tab-pane fade">
+                                <div id="crachas" class="tab-pane">
                                     <!--/caixa-->
-                                        <div class="col-md-4">
-                                            <div id="overall-phisicmem" class="panel panel-danger bg-danger">
-                                                <div class="panel-body">
-                                                    <div class="panel-actions-fly">
-                                                        <button data-refresh="#overall-phisicmem" data-error-place="#error-placement" title="refresh" class="btn-panel">
-                                                            <i class="glyphicon glyphicon-refresh"></i>
-                                                        </button><!--/btn-panel-->
-                                                        <a href="index.php.html#" title="Go to server stats page" class="btn-panel">
-                                                            <i class="glyphicon glyphicon-stats"></i>
-                                                        </a>
-                                                    </div>
-
-                                                    <p class="lead">Physical Memory</p>
-
-                                                    <p>
-                                                        <div class="easyPieChart" data-barcolor="#232332" data-trackcolor="#ecf0f1" data-scalecolor="#ecf0f1" data-percent="45" data-size="120">
-                                                            <span>45%</span>
-                                                        </div>
-                                                        </p><p class="text-ellipsis text-center">Physical Memory Usage 457 MB / 1 GB</p>       
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                     <!--/caixa-->
                                 </div>
                             <!--/crachas-->
 
                             <!--/gerir conta-->
-                                <div id="gerirconta" class="tab-pane fade">
+                                <div id="gerirconta" class="tab-pane">
                                     <div class="col-md-4">
                                         muda as cenas
                                     </div>
@@ -359,7 +338,7 @@
 
 
        <!-- footer -->
-             <a rel="to-top" href="index.php.html#top"><i class="fa fa-arrow-up"></i></a>
+             <a rel="to-top" href="perfil.php.html#top"><i class="fa fa-arrow-up"></i></a>
             <footer>
                 <p style="margin-left:320px;"><small><a>Animais 360 &copy;</a>
                     Desenvolvido por Diana Lemos, Mariana Medeiros, Mário Leite e Miguel Pinto.
@@ -368,27 +347,9 @@
         <!-- footer -->
 
 
-
-        <!-- ========================= javascript ============================= -->
-        <script src="assets/scripts/39914ff3.vendor-main.js"></script>        
-        <script src="assets/scripts/756399db.vendor-usefull.js"></script>
-        <script src="assets/scripts/e7058f60.vendor-form.js"></script>        
-        <script src="assets/scripts/fc9d433c.vendor-editor.js"></script>        
-        <script src="assets/scripts/2ce1156c.vendor-graph.js"></script>    
-        <script src="assets/scripts/37a77790.vendor-table.js"></script>
-        <script src="assets/scripts/1581b2aa.vendor-maps.js"></script>        
-        <script src="assets/scripts/5f4fd25b.vendor-util.js"></script>
-        <script src="assets/scripts/5917523f.main.js"></script>
-        <script src="assets/scripts/89c3d6c9.initializer.js"></script>
+        <script src="assets/scripts/39914ff3.vendor-main.js"></script>      
+        <script src="assets/scripts/e7058f60.vendor-form.js"></script>    
         
-        <script>
-          (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-          function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-          e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-          e.src='//www.google-analytics.com/analytics.js';
-          r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-          ga('create','UA-48454066-1');ga('send','pageview');
-        </script>
-
+     
     </body>
 </html>
