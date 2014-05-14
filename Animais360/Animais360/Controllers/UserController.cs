@@ -17,6 +17,13 @@ namespace Animais360.Controllers
     [InitializeSimpleMembership]
     public class UserController : Controller
     {
+
+        public ActionResult Perfil()
+        {
+            return View();
+        }
+
+
         //
         // GET: /Account/Login
 
