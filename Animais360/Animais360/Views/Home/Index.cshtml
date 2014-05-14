@@ -2,185 +2,191 @@
     ViewBag.Title = "Index";
 }
 
-<div class="frontend-page">
-    <header id="home">
-        <!-- BARRA TOPO -->
-        <nav class="navbar navbar-inverse no-border" role="navigation" data-spy="affix" data-offset-top="674">
-            <div class="container">
-                <div class="collapse navbar-collapse" id="comingsoon-navbar">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a class="scroll" style="color:#ffffff" href="#home">Início</a></li>
-                        <li><a class="scroll" style="color:#ffffff" href="#about">Sobre</a></li>
-                        <li><a class="scroll" style="color:#ffffff" href="#tools">Tutorial</a></li>
-                        <li><a class="scroll" style="color:#ffffff" href="#features">Regras</a></li>
-                        <li><a class="scroll" style="color:#ffffff" href="#estat">Estatísticas</a></li>
-                        <li>@Html.ActionLink("Entrar", "Login", "Account")</li>
-                    </ul>
+@if (!Request.IsAuthenticated) {
+    <div class="frontend-page">
+        <header id="home">
+            <!-- BARRA TOPO -->
+            <nav class="navbar navbar-inverse no-border" role="navigation" data-spy="affix" data-offset-top="674">
+                <div class="container">
+                    <div class="collapse navbar-collapse" id="comingsoon-navbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a class="scroll" style="color:#ffffff" href="#home">Início</a></li>
+                            <li><a class="scroll" style="color:#ffffff" href="#about">Sobre</a></li>
+                            <li><a class="scroll" style="color:#ffffff" href="#tools">Tutorial</a></li>
+                            <li><a class="scroll" style="color:#ffffff" href="#features">Regras</a></li>
+                            <li><a class="scroll" style="color:#ffffff" href="#estat">Estatísticas</a></li>
+                            <li>@Html.ActionLink("Entrar", "Login", "User")</li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- BARRA TOPO -->
+
+            <div class="header-caption">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h1 class="">
+                                <span class="text-lg text-uppercase">Animais 360</span>
+                            </h1>
+                            <p class="lead text-uppercase"><span class="text-lg">Um espetacular jogo de estratégia que te leva a testar o limite dos teus conhecimentos.</span></p><br>
+
+                            <p class="flipInX">
+                                <a href="#tools" class="btn btn-lg btn-rounded btn-transparent margin-bottom">APRENDE MAIS</a>
+                                <a href="@Url.Action("Login", "User")" class="btn btn-lg btn-rounded btn-transparent margin-bottom margin-left">JOGAR AGORA</a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
-        <!-- BARRA TOPO -->
+        </header>
 
-        <div class="header-caption">
+        <!--/-sobre-->
+        <section id="about" class="section-content">
             <div class="container">
+                <h2 class="text-center"><span>Sobre</span></h2>
                 <div class="row">
-                    <div class="col-md-7">
-                        <h1 class="">
-                            <span class="text-lg text-uppercase">Animais 360</span>
-                        </h1>
-                        <p class="lead text-uppercase"><span class="text-lg">Um espetacular jogo de estratégia que te leva a testar o limite dos teus conhecimentos.</span></p><br>
-
-                        <p class="flipInX">
-                            <a href="#tools" class="btn btn-lg btn-rounded btn-transparent margin-bottom">APRENDE MAIS</a>
-                            <a href="@Url.Action("Login", "Account")" class="btn btn-lg btn-rounded btn-transparent margin-bottom margin-left">JOGAR AGORA</a>
-                        </p>
+                    <div class="col-sm-offset-1 col-sm-10">
+                        <div class="caption-showcase">
+                            <p style="margin-left:16px;"><strong>Animais 360</strong> é um jogo de estratégia que possibilita ao jogador vestir a pele de uma personagem aventureira que enfrenta verdadeiros desafios com o objetivo de obter o título de conquistador do Mundo. Para que tal aconteça, a personagem terá de percorrer todos os continentes do planeta, mostrando que tudo sabe sobre os animais e as reservas naturais que o jogo contempla.</p><br>
+                            <p style="margin-left:16px;">Para qualquer informação, <a target="_blank" href="mailto:63msim@gmail.com">contacta-nos.</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
+        </section>
+        <!--/-sobre-->
 
-    <!--/-sobre-->
-    <section id="about" class="section-content">
-        <div class="container">
-            <h2 class="text-center"><span>Sobre</span></h2>
-            <div class="row">
-                <div class="col-sm-offset-1 col-sm-10">
-                    <div class="caption-showcase">
-                        <p style="margin-left:16px;"><strong>Animais 360</strong> é um jogo de estratégia que possibilita ao jogador vestir a pele de uma personagem aventureira que enfrenta verdadeiros desafios com o objetivo de obter o título de conquistador do Mundo. Para que tal aconteça, a personagem terá de percorrer todos os continentes do planeta, mostrando que tudo sabe sobre os animais e as reservas naturais que o jogo contempla.</p><br>
-                        <p style="margin-left:16px;">Para qualquer informação, <a target="_blank" href="mailto:63msim@gmail.com">contacta-nos.</a></p>
+
+        <svg class="bg-cloud" xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 100 102" preserveaspectratio="none">
+            <path class="bg-white" d="M0 0 L50 100 L100 0 Z" />
+        </svg>
+
+        <!--/-tutorial-->
+        <section id="tools" class="section-content bg-cloud">
+            <div class="container">
+                <h2 class="text-center"><span>Tutorial</span></h2>
+                <div class="row text-center">
+                    <div class="col-sm-12 wow" data-wow-delay="0.5s">
+                        <embed width="900" height="500" src="http://www.youtube.com/v/XGSy3_Czz8k?rel=0" type="application/x-shockwave-flash"></embed>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!--/-sobre-->
+        </section>
+        <!--/-tutorial-->
 
+        <svg class="bg-cloud" xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 100 100" preserveaspectratio="none">
+            <path class="bg-inverse" d="M0 100 C 20 0 50 0 100 100 Z" />
+        </svg>
 
-    <svg class="bg-cloud" xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 100 102" preserveaspectratio="none">
-        <path class="bg-white" d="M0 0 L50 100 L100 0 Z" />
-    </svg>
-
-    <!--/-tutorial-->
-    <section id="tools" class="section-content bg-cloud">
-        <div class="container">
-            <h2 class="text-center"><span>Tutorial</span></h2>
-            <div class="row text-center">
-                <div class="col-sm-12 wow" data-wow-delay="0.5s">
-                    <embed width="900" height="500" src="http://www.youtube.com/v/XGSy3_Czz8k?rel=0" type="application/x-shockwave-flash"></embed>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--/-tutorial-->
-
-    <svg class="bg-cloud" xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 100 100" preserveaspectratio="none">
-        <path class="bg-inverse" d="M0 100 C 20 0 50 0 100 100 Z" />
-    </svg>
-
-    <!--/-regras-->
-    <section id="features" class="section-content bg-inverse">
-        <div class="container">
-            <h2 class="text-center"><span>Regras</span></h2>
-            <div class="row">
-                <div class="col-md-3 col-sm-4 col-xs-6">
-                    <div class="feature-item">
-                        <p class="text-64 hover-shadow"><i class="fa fa-unlock" style="color:#27AE60;"></i></p>
-                        <p class="lead">Requisitos Mínimos de Progressão</p>
-                        <p class="text">Em cada continente, é obrigatório completar com sucesso sete desafios em áreas protegidas diferentes. Só depois poderás progredir na tua aventura.</p>
+        <!--/-regras-->
+        <section id="features" class="section-content bg-inverse">
+            <div class="container">
+                <h2 class="text-center"><span>Regras</span></h2>
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        <div class="feature-item">
+                            <p class="text-64 hover-shadow"><i class="fa fa-unlock" style="color:#27AE60;"></i></p>
+                            <p class="lead">Requisitos Mínimos de Progressão</p>
+                            <p class="text">Em cada continente, é obrigatório completar com sucesso sete desafios em áreas protegidas diferentes. Só depois poderás progredir na tua aventura.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-md-3 col-sm-4 col-xs-6">
-                    <div class="feature-item" data-wow-delay="0.3s">
-                        <p class="text-64 hover-shadow"><i class="fa fa-clock-o" style="color:#D35400;"></i></p>
-                        <p class="lead">Tempo de Resposta</p>
-                        <p class="text">
-                            Para responderes a um desafio, terás de o fazer dentro de um limite de tempo. O incumprimento desta regra leva a que a tua resposta seja considerada errada e como tal e à consequente perda de pontos.
-                            No caso de utilizares ajudas, esta regra não se aplica.
-                        </p>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        <div class="feature-item" data-wow-delay="0.3s">
+                            <p class="text-64 hover-shadow"><i class="fa fa-clock-o" style="color:#D35400;"></i></p>
+                            <p class="lead">Tempo de Resposta</p>
+                            <p class="text">
+                                Para responderes a um desafio, terás de o fazer dentro de um limite de tempo. O incumprimento desta regra leva a que a tua resposta seja considerada errada e como tal e à consequente perda de pontos.
+                                No caso de utilizares ajudas, esta regra não se aplica.
+                            </p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-md-3 col-sm-4 col-xs-6">
-                    <div class="feature-item" data-wow-delay="0.6s">
-                        <p class="text-64 hover-shadow"><i class="fa fa-trophy" style="color:#2980B9"></i></p>
-                        <p class="lead">O Derradeiro Desafio</p>
-                        <p class="text">
-                            Quando estás prestes a terminar a tua jornada num dado continente, é-te imposto um desafio especial e mais exigente: O Derradeiro Desafio!
-                            Aqui, terás de reposponder acertadamente a um conjunto de três questões, sem a possibilidade de usar as ajudas.
-                            Se fores mal sucedido, terás de repetir o desafio.
-                            Após completares com sucesso este grande obstáculo, estarás apto para avançar para o próximo continente.
-                        </p>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        <div class="feature-item" data-wow-delay="0.6s">
+                            <p class="text-64 hover-shadow"><i class="fa fa-trophy" style="color:#2980B9"></i></p>
+                            <p class="lead">O Derradeiro Desafio</p>
+                            <p class="text">
+                                Quando estás prestes a terminar a tua jornada num dado continente, é-te imposto um desafio especial e mais exigente: O Derradeiro Desafio!
+                                Aqui, terás de reposponder acertadamente a um conjunto de três questões, sem a possibilidade de usar as ajudas.
+                                Se fores mal sucedido, terás de repetir o desafio.
+                                Após completares com sucesso este grande obstáculo, estarás apto para avançar para o próximo continente.
+                            </p>
 
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-md-3 col-sm-4 col-xs-6">
-                    <div class="feature-item" data-wow-delay="0.9s">
-                        <p class="text-64 hover-shadow"><i class="fa fa-plane" style="color:#F39C12;"></i></p>
-                        <p class="lead">Mudança de Área Dentro de um Continente</p>
-                        <p class="text">Ao iniciares a tua jornada, podes escolher em qual dos seis continentes queres começar. A rota percorrida entre continentes é definida pelo sistema. No entanto, dentro de cada continente, terás maior liberdade de escolha pois, dentro de uma lista, poderás decidir para qual área protegida queres avançar.</p>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        <div class="feature-item" data-wow-delay="0.9s">
+                            <p class="text-64 hover-shadow"><i class="fa fa-plane" style="color:#F39C12;"></i></p>
+                            <p class="lead">Mudança de Área Dentro de um Continente</p>
+                            <p class="text">Ao iniciares a tua jornada, podes escolher em qual dos seis continentes queres começar. A rota percorrida entre continentes é definida pelo sistema. No entanto, dentro de cada continente, terás maior liberdade de escolha pois, dentro de uma lista, poderás decidir para qual área protegida queres avançar.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!--/-regras-->
-    <!--/-estatisticas-->
-    <section id="estat" class="section-content bg-cloud">
-        <div class="container">
-            <h2 class="text-center"><span>Estatísticas Gerais</span></h2>
-            <div class="content-header-extra" style="margin-top:65px;">
-                <a class="item-ch-extra">
-                    <div class="data-text text-success"><p class="text-muted">Membros</p>@ViewBag.numero</div>
-                </a>
-                <div class="divider" style="margin-left:50px; margin-right:50px;"></div>
-                <a class="item-ch-extra">
-                    <div class="data-text text-success"><p class="text-muted">Membro mais recente</p>José</div>
-                </a>
-                <div class="divider" style="margin-left:50px; margin-right:50px;"></div>
-                <a class="item-ch-extra">
-                    <div class="data-text text-success"><p class="text-muted">Voltas completas</p>50032</div>
-                </a>
-                <div class="divider" style="margin-left:50px; margin-right:50px;"></div>
-                <a class="item-ch-extra">
-                    <div class="data-text text-success"><p class="text-muted">O Conquistador</p>Tia Xica</div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <!--/-estatisticas-->
-
-    <svg class="bg-warning" xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 100 100" preserveaspectratio="none">
-        <path class="no-stroke" fill="#ecf0f1" d="M50 100 C49 80 47 0 40 0 L47 0 Z" />
-        <path class="no-stroke" fill="#ecf0f1" d="M50 100 C51 80 53 0 60 0 L53 0 Z" />
-        <path class="bg-cloud no-stroke" d="M47 0 L50 100 L53 0 Z" />
-    </svg>
-
-    <!--/-final-->
-    <section class="section-content bg-warning" style="padding:50px;">
-
-        <div class="container">
-            <h1 class="text-capital text-center">
-                <span class="text-lead">ENTRA NESTA AVENTURA!</span>
-            </h1>
-            <br>
-            <div class="text-center margin-top">
-                <div class="float-shadow">
-                    <a href="@Url.Action("Login", "Account")" class="btn btn-lg btn-rounded btn-transparent margin-left">
-                        <span class="text-lg">JOGAR AGORA</span>
+        </section>
+        <!--/-regras-->
+        <!--/-estatisticas-->
+        <section id="estat" class="section-content bg-cloud">
+            <div class="container">
+                <h2 class="text-center"><span>Estatísticas Gerais</span></h2>
+                <div class="content-header-extra" style="margin-top:65px;">
+                    <a class="item-ch-extra">
+                        <div class="data-text text-success"><p class="text-muted">Membros</p>@ViewBag.numero</div>
+                    </a>
+                    <div class="divider" style="margin-left:50px; margin-right:50px;"></div>
+                    <a class="item-ch-extra">
+                        <div class="data-text text-success"><p class="text-muted">Membro mais recente</p>José</div>
+                    </a>
+                    <div class="divider" style="margin-left:50px; margin-right:50px;"></div>
+                    <a class="item-ch-extra">
+                        <div class="data-text text-success"><p class="text-muted">Voltas completas</p>50032</div>
+                    </a>
+                    <div class="divider" style="margin-left:50px; margin-right:50px;"></div>
+                    <a class="item-ch-extra">
+                        <div class="data-text text-success"><p class="text-muted">O Conquistador</p>Tia Xica</div>
                     </a>
                 </div>
             </div>
-        </div>
+        </section>
+        <!--/-estatisticas-->
 
-    </section>
-    <!--/-final-->
+        <svg class="bg-warning" xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 100 100" preserveaspectratio="none">
+            <path class="no-stroke" fill="#ecf0f1" d="M50 100 C49 80 47 0 40 0 L47 0 Z" />
+            <path class="no-stroke" fill="#ecf0f1" d="M50 100 C51 80 53 0 60 0 L53 0 Z" />
+            <path class="bg-cloud no-stroke" d="M47 0 L50 100 L53 0 Z" />
+        </svg>
 
-    <footer class="footer">
-        <div class="container">
-            <p style="color:#ffffff; margin-left:290px;">&copy; @DateTime.Now.Year - Desenvolvido por: Diana Lemos, Mariana Medeiros, Mário Leite e Miguel Pinto.</p>
-        </div>
-    </footer>
-</div>
+        <!--/-final-->
+        <section class="section-content bg-warning" style="padding:50px;">
+
+            <div class="container">
+                <h1 class="text-capital text-center">
+                    <span class="text-lead">ENTRA NESTA AVENTURA!</span>
+                </h1>
+                <br>
+                <div class="text-center margin-top">
+                    <div class="float-shadow">
+                        <a href="@Url.Action("Login", "User")" class="btn btn-lg btn-rounded btn-transparent margin-left">
+                            <span class="text-lg">JOGAR AGORA</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!--/-final-->
+
+        <footer class="footer">
+            <div class="container">
+                <p style="color:#ffffff; margin-left:290px;">&copy; @DateTime.Now.Year - Desenvolvido por: Diana Lemos, Mariana Medeiros, Mário Leite e Miguel Pinto.</p>
+            </div>
+        </footer>
+    </div>
+}
+else
+{
+    @Html.Partial("~/views/home/_loggedpartial.cshtml");
+}

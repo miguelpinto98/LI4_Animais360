@@ -17,7 +17,7 @@
                 <div class="row tab-pane fade in active" id="signin">
                     <div class="col-md-offset-5">
                         <div class="signin">
-                            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl },
+                            @using (Html.BeginForm("Login", "User", new { ReturnUrl = ViewBag.ReturnUrl },
                             FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "signin-form" }))
                             {
                                 @Html.AntiForgeryToken()

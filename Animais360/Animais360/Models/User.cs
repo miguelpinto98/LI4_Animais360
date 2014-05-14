@@ -8,10 +8,11 @@ using System.Web.Security;
 
 namespace Animais360.Models
 {
-    public class Utilizador {
-        public int Id { get; set; }
+    public class User {
+        public int UserId { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
+        public string Avatar { get; set; }
     }
 
     public class LocalPasswordModel

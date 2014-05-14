@@ -15,7 +15,7 @@ namespace Animais360.Controllers
 {
     [Authorize]
     [InitializeSimpleMembership]
-    public class AccountController : Controller
+    public class UserController : Controller
     {
         //
         // GET: /Account/Login
@@ -35,7 +35,7 @@ namespace Animais360.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: false))
             {
                 return RedirectToLocal(returnUrl);
             }
@@ -79,9 +79,9 @@ namespace Animais360.Controllers
                 // Attempt to register the user
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { Email = model.Email, Avatar = "Default" });
                     WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Login", "User");
                 }
                 catch (MembershipCreateUserException e)
                 {

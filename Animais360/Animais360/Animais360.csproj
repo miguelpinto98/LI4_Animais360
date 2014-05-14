@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D0EE2F30-78E5-4838-8518-02EB3E266522}</ProjectGuid>
+    <ProjectGuid>{79828A86-39CC-4A3A-8C7F-9C5CC0C5D611}</ProjectGuid>
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -181,34 +181,47 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DAL\Animais360.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Utilizador.cs" />
-    <Compile Include="DAL\Animais360.cs" />
+    <Compile Include="Migrations\201405140021572_AddAvatarToUserProfile.cs" />
+    <Compile Include="Migrations\201405140021572_AddAvatarToUserProfile.Designer.cs">
+      <DependentUpon>201405140021572_AddAvatarToUserProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405140907387_UserRedefined.cs" />
+    <Compile Include="Migrations\201405140907387_UserRedefined.Designer.cs">
+      <DependentUpon>201405140907387_UserRedefined.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405140921284_MudancaIniatialize.cs" />
+    <Compile Include="Migrations\201405140921284_MudancaIniatialize.Designer.cs">
+      <DependentUpon>201405140921284_MudancaIniatialize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\images\background\ddddd.jpg" />
-    <Content Include="Content\images\background\ddf.jpg" />
-    <Content Include="Content\images\background\fff.jpg" />
-    <Content Include="Content\images\background\fundo.jpg" />
-    <Content Include="Content\images\background\fundo4.jpg" />
-    <Content Include="Content\images\background\fundo5.jpg" />
-    <Content Include="Content\images\background\ss.jpg" />
-    <Content Include="Content\images\logo.png" />
-    <Content Include="Content\styles\3fc417cd.main.css" />
-    <Content Include="Content\styles\9281c719.vendor.css" />
     <Content Include="favicon.ico" />
-    <Content Include="Fonts\fontawesome-webfont.svg-v=4.0.3.html" />
-    <Content Include="Fonts\glyphicons-halflings-regular.svg.html" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\39914ff3.vendor-main.js" />
-    <Content Include="Scripts\5917523f.main.js" />
-    <Content Include="Scripts\5f4fd25b.vendor-util.js" />
+    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.2.0.debug.js" />
+    <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -216,36 +229,37 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="Scripts\_references.js" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
-    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Manage.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\User\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\User\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\Manage.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="Views\Home\_LoggedPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Fonts\fontawesome-webfont-.eot" />
-    <Content Include="Fonts\fontawesome-webfont-v=4.0.3.eot" />
-    <Content Include="Fonts\fontawesome-webfont-v=4.0.3.ttf" />
-    <Content Include="Fonts\fontawesome-webfont-v=4.0.3.woff" />
-    <Content Include="Fonts\glyphicons-halflings-regular-.eot" />
-    <Content Include="Fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Fonts\glyphicons-halflings-regular.woff" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <EmbeddedResource Include="Migrations\201405140021572_AddAvatarToUserProfile.resx">
+      <DependentUpon>201405140021572_AddAvatarToUserProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405140907387_UserRedefined.resx">
+      <DependentUpon>201405140907387_UserRedefined.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405140921284_MudancaIniatialize.resx">
+      <DependentUpon>201405140921284_MudancaIniatialize.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -263,7 +277,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>4181</DevelopmentServerPort>
+          <DevelopmentServerPort>6202</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:1603/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

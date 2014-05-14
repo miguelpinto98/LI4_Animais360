@@ -12,5 +12,6 @@ namespace Animais360.Models
         {
         }
 
+        public DbSet<User> Users { get; set; }
     }
 }

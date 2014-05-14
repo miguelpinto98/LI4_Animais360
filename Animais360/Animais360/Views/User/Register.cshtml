@@ -18,9 +18,9 @@
 
                         <div class="signup" id="signup">
                             <h1 class="text-lead">Regista-te</h1>
-                            <p>Se já tens conta entra<a href="@Url.Action("Login","Account")"> aqui</a>.</p>
+                            <p>Se já tens conta entra<a href="@Url.Action("Login","User")"> aqui</a>.</p>
 
-                            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "signup-form" }))
+                            @using (Html.BeginForm("Register", "User", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "signup-form" }))
                             {
                                 <div class="row">
                                     @Html.AntiForgeryToken()
