@@ -142,101 +142,213 @@
 
             <div class="content">
                 <div class="content-header">
-                    <h2 class="fa fa-user" style="font-size:1.3em; font-weight:500; line-height:45px;">&nbsp&nbsp&nbspPerfil</h2>
+                    <h2 class="fa fa-user" style="font-size:1.4em; font-weight:500; line-height:45px;">&nbsp&nbsp&nbspPerfil</h2>
                 </div>
             
 
                 <div class="content-body">      
-                    <div id="error-placement"></div>
                     <div class="row margin-top">
                         <div class="col-md-12 margin-bottom">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="index.php.html#system-stats" data-toggle="tab">A minha informação</a></li>
-                                <li><a href="index.php.html#server-stats" data-toggle="tab">As minhas estatísticas</a></li>
-                                <li><a href="index.php.html#server-stats1" data-toggle="tab">Gerir conta</a></li>
+                                <li class="active"><a href="index.php.html#sobremim" data-toggle="tab">Sobre mim</a></li>
+                                <li><a href="index.php.html#historico" data-toggle="tab">Histórico</a></li>
+                                <li><a href="index.php.html#crachas" data-toggle="tab">Crachás</a></li>
+                                <li><a href="index.php.html#gerirconta" data-toggle="tab">Gerir conta</a></li>
                             </ul>
                         </div>
 
                         
                         <div class="tab-content">
-                            <div id="system-stats" class="tab-pane fade active in">
-                                <!--/caixa-->
+                            
+                            <!--/sobre mim-->   
+                                <div id="sobremim" class="tab-pane fade active in">
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="panel panel-inverse no-border no-shadow">
-                                                <ul class="row">
-                                                    <li class="col-xs-3 helper-block-sm absolute-center bg-danger">
-                                                         <div class="header-profile" style="padding-left:0px; margin-right:70px; margin-top:15px;">
-                                                            <div class="profile-picture" style="width:120px; height:120px;">
-                                                                <img alt="me" style="width:120px; height:auto;" src="assets/images/users/user.jpg">
-                                                            </div>
-                                                        </div>
-                                                      <div class="absolute-center-item text-center" style="width:280px; height:190px; margin-top:140px;">
-                                                            <p class="text-center text-32">john fofo</p> 
-                                                        </div>
-                                                    </li>
-                                                    <li class="col-xs-8 helper-block-sm absolute-center bg-cloud">
-                                                        <div class="absolute-item" style="margin-top:15px;">
-                                                            <div class="helper-block margin-bottom">
-                                                                <div class="text-bold" style="font-size:12px;">Desde: 
-                                                                    <a style="font-size:12px; color:#7F8C8D;">10-20-30</a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="helper-block margin-bottom">
-                                                               <div class="text-bold" style="font-size:12px;">Localidade: 
-                                                                    <a style="font-size:12px; color:#7F8C8D;">Debaixo da ponte, perto da esquina depois do braga parque</a>
-                                                                </div>
-                                                            </div>
-                                                             <div class="helper-block margin-bottom">
-                                                               <div class="text-bold" style="font-size:12px;">Sobre mim: 
-                                                                    <a style="font-size:12px; color:#7F8C8D;">Desde pequenino que gosto e faço tudo para ser o Tarzan. Por isso, posso dizer com orgulho que sou O verdadeiro rei da selva. Tenho a certeza que este jogo vai ser canja de galinha.</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                   
-                                                </ul>
-                                            </div>
-                                        </div>
-                                     </div>
-                                <!--/caixa-->
-                            </div>
-
-                            <div id="server-stats" class="tab-pane fade">
-                                <!--/caixa-->
-                                    <div class="col-md-4">
-                                        <div id="overall-phisicmem" class="panel panel-danger bg-danger">
-                                            <div class="panel-body">
-                                                <div class="panel-actions-fly">
-                                                    <button data-refresh="#overall-phisicmem" data-error-place="#error-placement" title="refresh" class="btn-panel">
-                                                        <i class="glyphicon glyphicon-refresh"></i>
-                                                    </button><!--/btn-panel-->
-                                                    <a href="index.php.html#" title="Go to server stats page" class="btn-panel">
-                                                        <i class="glyphicon glyphicon-stats"></i>
-                                                    </a>
-                                                </div>
-
-                                                <p class="lead">Physical Memory</p>
-
-                                                <p>
-                                                    <div class="easyPieChart" data-barcolor="#232332" data-trackcolor="#ecf0f1" data-scalecolor="#ecf0f1" data-percent="45" data-size="120">
-                                                        <span>45%</span>
+                                        <div class="col-md-5">
+                                            <div id="contentfeeds2" class="panel panel-animated panel-default">
+                                                <div class="panel-body bordered-bottom bg-danger">
+                                                    <div class="profile-line clearfix">
+                                                        <img class="img-circle pull-left" src="assets/images/users/user.jpg" alt="uifaces19" width="120px" width="120px">
+                                                        <div class="text-14" style="font-size:42px; padding-left:160px; padding-top:23px;"><strong>John Fofo</strong></div>
                                                     </div>
-                                                    </p><p class="text-ellipsis text-center">Physical Memory Usage 457 MB / 1 GB</p>       
+                                                    <div class="no-padding jumbotron">
+                                                        <p class="lead" style="color:#333; font-size:16px;">Desde: <a style="font-size:14px; color:#7F8C8D;">10-20-30</a></p>
+
+                                                        <p class="lead" style="color:#333; font-size:16px;">Localidade: <a style="font-size:14px; color:#7F8C8D;">Já ali.</a></p>
+                                                        <p class="lead" style="color:#333; font-size:16px;">Sobre mim:  <a style="font-size:14px; color:#7F8C8D;">Olá, eu sou a Mariana. Tenho 21 anos e sou de Cabeceiras de Bastos. Nos meus tempos livres vejo séries, nomeadamente Games of Thrones. É curioso que as pessoas acham que sou parecida com a Arya mas eu não acho nada e fico até um bocado irritada quando me dizem isso. Por isso resolvi deixar de ver essa série e foi então que um amigo meu, o Miguel, me mostrou o Animais 360. Agora, passou o tempo a aprender mais sobre animais e só páro quando conseguir ganhar-lhe ;)</a></p>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
+
+
+                                        <div class="col-md-6">
+                                            <div id="contentfeeds2" class="panel panel-animated panel-default">
+                                                <div class="panel-body bordered-bottom bg-success">
+                                                    <div class="profile-line clearfix" style="height:113px;">
+                                                        <div class="text-14" style="font-size:42px; padding-top:20px;padding-left:10px;"><strong>As Minhas Estatísticas</strong></div>
+                                                    </div>
+
+                                                    <div class="no-padding jumbotron">
+                                                        <p class="lead" style="color:#333; font-size:16px;">Número de jogos: <a style="font-size:14px; color:#7F8C8D;">0898098</a></p>
+                                                        
+                                                        <p class="lead" style="color:#333; font-size:16px;">Número de voltas completas: <a style="font-size:14px; color:#7F8C8D;">0sdsd098</a></p>
+
+                                                         <p class="lead" style="color:#333; font-size:16px;">Dificuldade mais escolhida: <a style="font-size:14px; color:#7F8C8D;">Média</a></p>
+
+                                                        <p class="lead" style="color:#333; font-size:16px;">Área com mais vitórias: <a style="font-size:14px; color:#7F8C8D;">alidf, China</a></p>
+
+                                                        <p class="lead" style="color:#333; font-size:16px;">Área com mais derrotas: <a style="font-size:14px; color:#7F8C8D;">asdasd, Chile</a></p>
+
+                                                        <p class="lead" style="color:#333; font-size:16px;">Pontuação máxima obtida: <a style="font-size:14px; color:#7F8C8D;">981723 (em dificuldade Fácil)</a></p>
+
+                                                        <p class="lead" style="color:#333; font-size:16px;">Posição no top: <a style="font-size:14px; color:#7F8C8D;">Geral: 123º; Fácil: 234º; Média:1232º; Difícil:123º</a></p>
+            
+                                                    </div>
+                                                   
+                                                </div><!--panel-body-->
+                                            </div><!--/panel-->
+
+                                            
+                                        </div><!--/cols-->
                                     </div>
-                                <!--/caixa-->
-                            </div>
+                                </div>
+                            <!--/sobre mim-->
 
 
-                            <div id="server-stats1" class="tab-pane fade">
-                                <!--/caixa-->
+                            <!--/historico-->
+                                <div id="historico" class="tab-pane fade">
+                                    <!--/caixa-->
+                                        <div class="col-md-4">
+                                            <div id="overall-users" class="panel panel-info bg-info">
+                                                <div class="panel-body">
+                                                    <p class="lead" style="text-align:center; color:#333">25/02/2014</p>
+                                                    <ul class="list-percentages row">
+                                                        <li class="col-xs-4">
+                                                            <p class="text-ellipsis">Dificuldade</p>
+                                                            <p class="text-lg"><strong>Difícil</strong></p>
+                                                        </li>
+                                                        <li class="col-xs-4">
+                                                            <p class="text-ellipsis">Derrotado em</p>
+                                                            <p class="text-lg"><strong>Portugal</strong></p>
+                                                        </li>
+                                                        <li class="col-xs-4">
+                                                            <p class="text-ellipsis">Pontuação</p>
+                                                            <p class="text-lg"><strong>23423424</strong></p>
+                                                        </li>
+                                                    </ul><!--/list-percentages-->
+                                                    <p class="helper-block">
+                                                        <div class="progress progress-xs progress-flat progress">
+                                                            <div class="progress-bar progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                                                            </div>
+                                                        </div>
+                                                        </p><p class="text-ellipsis"><small>180 graus completos</small></p>
+                                                    <!--/help-block-->
+                                                    </div>
+                                            </div>
+                                        </div>
+
+
+
+
+                                         <div class="col-md-4">
+                                            <div id="overall-users" class="panel panel-info bg-info">
+                                                <div class="panel-body">
+                                                    <p class="lead" style="text-align:center; color:#333">25/02/2014</p>
+                                                    <ul class="list-percentages row">
+                                                        <li class="col-xs-4">
+                                                            <p class="text-ellipsis">Dificuldade</p>
+                                                            <p class="text-lg"><strong>Difícil</strong></p>
+                                                        </li>
+                                                        <li class="col-xs-4">
+                                                            <p class="text-ellipsis">Derrotado em</p>
+                                                            <p class="text-lg"><strong>Portugal</strong></p>
+                                                        </li>
+                                                        <li class="col-xs-4">
+                                                            <p class="text-ellipsis">Pontuação</p>
+                                                            <p class="text-lg"><strong>23423424</strong></p>
+                                                        </li>
+                                                    </ul><!--/list-percentages-->
+                                                    <p class="helper-block">
+                                                        <div class="progress progress-xs progress-flat progress">
+                                                            <div class="progress-bar progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                                                            </div>
+                                                        </div>
+                                                        </p><p class="text-ellipsis"><small>180 graus completos</small></p>
+                                                    <!--/help-block-->
+                                                    </div>
+                                            </div>
+                                        </div>
+
+                                         <div class="col-md-4">
+                                            <div id="overall-users" class="panel panel-info bg-info">
+                                                <div class="panel-body">
+                                                    <p class="lead" style="text-align:center; color:#333">27/02/2014</p>
+                                                    <ul class="list-percentages row">
+                                                        <li class="col-xs-4">
+                                                            <p class="text-ellipsis">Dificuldade</p>
+                                                            <p class="text-lg"><strong>Difícil</strong></p>
+                                                        </li>
+                                                        <li class="col-xs-4">
+                                                            <p class="text-ellipsis">Derrotado em</p>
+                                                            <p class="text-lg"><strong>Portugal</strong></p>
+                                                        </li>
+                                                        <li class="col-xs-4">
+                                                            <p class="text-ellipsis">Pontuação</p>
+                                                            <p class="text-lg"><strong>23423424</strong></p>
+                                                        </li>
+                                                    </ul><!--/list-percentages-->
+                                                    <p class="helper-block">
+                                                        <div class="progress progress-xs progress-flat progress">
+                                                            <div class="progress-bar progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                                                            </div>
+                                                        </div>
+                                                        </p><p class="text-ellipsis"><small>180 graus completos</small></p>
+                                                    <!--/help-block-->
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    <!--/caixa-->
+                                </div>
+                            <!--/historico-->
+
+                            <!--/crachas-->
+                                <div id="crachas" class="tab-pane fade">
+                                    <!--/caixa-->
+                                        <div class="col-md-4">
+                                            <div id="overall-phisicmem" class="panel panel-danger bg-danger">
+                                                <div class="panel-body">
+                                                    <div class="panel-actions-fly">
+                                                        <button data-refresh="#overall-phisicmem" data-error-place="#error-placement" title="refresh" class="btn-panel">
+                                                            <i class="glyphicon glyphicon-refresh"></i>
+                                                        </button><!--/btn-panel-->
+                                                        <a href="index.php.html#" title="Go to server stats page" class="btn-panel">
+                                                            <i class="glyphicon glyphicon-stats"></i>
+                                                        </a>
+                                                    </div>
+
+                                                    <p class="lead">Physical Memory</p>
+
+                                                    <p>
+                                                        <div class="easyPieChart" data-barcolor="#232332" data-trackcolor="#ecf0f1" data-scalecolor="#ecf0f1" data-percent="45" data-size="120">
+                                                            <span>45%</span>
+                                                        </div>
+                                                        </p><p class="text-ellipsis text-center">Physical Memory Usage 457 MB / 1 GB</p>       
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <!--/caixa-->
+                                </div>
+                            <!--/crachas-->
+
+                            <!--/gerir conta-->
+                                <div id="gerirconta" class="tab-pane fade">
                                     <div class="col-md-4">
                                         muda as cenas
                                     </div>
-                                <!--/caixa-->
-                            </div>
+                                </div> 
+                            <!--/gerir conta-->
+
+
                         </div>
                     </div>
                 </div>
@@ -246,10 +358,12 @@
 
 
 
-        <!-- footer -->
-            <a rel="to-top" href="index.php.html#top"><i class="fa fa-arrow-up"></i></a>
+       <!-- footer -->
+             <a rel="to-top" href="index.php.html#top"><i class="fa fa-arrow-up"></i></a>
             <footer>
-                <p>&copy; 2014 Stilearning. <small><a target="_blank" href="https://wrapbootstrap.com/theme/stilearn-admin-template-WB0TFD2S0">Purchase</a> this template only <strong>$18</strong></small></p>
+                <p style="margin-left:320px;"><small><a>Animais 360 &copy;</a>
+                    Desenvolvido por Diana Lemos, Mariana Medeiros, Mário Leite e Miguel Pinto.
+                </small></p>
             </footer>
         <!-- footer -->
 
