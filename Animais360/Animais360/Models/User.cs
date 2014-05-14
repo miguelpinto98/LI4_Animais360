@@ -13,6 +13,11 @@ namespace Animais360.Models
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Avatar { get; set; }
+        public int NrVoltas { get; set; }
+        public int NrJogos { get; set; }
+        public int Estado { get; set; }
+        public int Tipo { get; set; }
+        public DateTime DataRegisto { get; set; }
     }
 
     public class LocalPasswordModel
