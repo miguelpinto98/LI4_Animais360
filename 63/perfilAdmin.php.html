@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt">
+   <head>
+        <meta charset="utf-8">
+        <title>Animais 360</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="x-pjax-version" content="v173">
+        <link rel="shortcut icon" href="assets/images/favicon/favicon.ico">
+        <link rel="stylesheet" href="assets/styles/9281c719.vendor.css"/>       
+        <link rel="stylesheet" href="assets/styles/3fc417cd.main.css"/>
+    </head>
+
+
+
+    <body>
+
+        <!-- header-->
+            <header class="header">
+            <div class="header-brand">
+                <a data-pjax=".content-body" href="index.php.html">
+                    <img class="brand-logo" src="assets/images/logo.png">
+                </a>
+            </div>
+            <div class="header-profile">
+                <div class="profile-nav">
+                    <span class="profile-username">user</span>
+                    <a href="index.php.html#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-angle-down"></span>
+                    </a>
+                    <ul class="dropdown-menu animated flipInX pull-right" role="menu">
+                        <li><a href="perfil.php.html#"><i class="fa fa-user"></i> Perfil</a></li>                        
+                        <li><a href="perfilAdmin.php.html#"><i class="fa fa-envelope"></i> Gerir Aplicação</a></li>
+                        <li><a href="index.php.html#"><i class="fa fa-envelope"></i> Caixa de Entrada</a></li>
+                        <li class="divider"></li>
+                        <li><a href="index.php.html#"><i class="fa fa-sign-out"></i> Sair</a></li>
+                    </ul>
+                </div>
+                <div class="profile-picture">
+                    <img alt="me" src="assets/images/users/user.jpg">
+                </div>
+            </div>
+
+            <form role="form" class="form-inline">
+                <button type="button" class="btn btn-default btn-expand-search"><i class="fa fa-search"></i></button>
+                <div class="toggle-search">
+                    <input type="text" class="form-control" placeholder="Search something">    
+                    <button type="button" class="btn btn-default btn-collapse-search"><i class="fa fa-times"></i></button>
+                </div>
+            </form>
+
+           
+            <ul class="hidden-xs header-menu pull-right">
+                <li>
+                    <a href="index.php.html#" title="Notifications" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                        <span class="badge badge-success">4</span>
+                        <i class="header-menu-icon icon-only fa fa-warning"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-extend animated fadeInDown pull-right" role="menu">
+                        <li class="dropdown-header">Notificações</li>
+                        <li class="notif-minimal" data-toggle="niceScroll" data-scroll-cursorcolor="#ecf0f1">
+
+                            <a class="notif-item" href="index.php.html#">
+                                <div class="notif-ico bg-primary">
+                                    <i class="fa fa-heart-o"></i>
+                                </div>
+                                <p class="notif-text"><span class="text-bold">Evelyn</span> favorite your Post</p>
+                            </a>
+
+                            <!-- /
+                                bg-primary: verde nheca
+                                bg-warning: laranja
+                                bg-sucess:verde
+                                bg-danger:vermelho
+                                bg-info: azul
+
+                                fa-heart-o, fa-user, fa-shopping-cart, fa-comment-o, fa-twitter, fa-cloud-upload
+                        -->
+
+                        </li>
+                        <li class="dropdown-footer bg-cloud">
+                            <a class="view-all" tabindex="-1" href="cc.html#">
+                                <i class="fa fa-angle-right pull-right"></i> Ver todas as notificações
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="index.php.html#" title="Inboxs" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                        <span class="badge badge-warning">3</span>
+                        <i class="header-menu-icon icon-only fa fa-envelope-o"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-extend animated fadeInDown pull-right" role="menu">
+                        <li class="dropdown-header">Tens 3 mensagens</li>
+                        <li class="notif-media" data-toggle="niceScroll" data-scroll-cursorcolor="#ecf0f1">
+                            <a class="notif-item" href="index.php.html#">
+                                <div class="notif-img pull-left">
+                                    <img src="images/dummy/8af46bf8.uifaces21.jpg" alt="" class="img-circle">
+                                </div>
+                                <h3 class="notif-heading">Pessoa <small>xx min</small></h3>
+                                <p class="notif-text">Mensagem</p>
+                            </a>
+                        </li>
+                        <li class="dropdown-footer bg-cloud">
+                            <a class="view-all" tabindex="-1" href="index.php.html#">
+                                <i class="fa fa-angle-right pull-right"></i> Ver todas as mensagens
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            </header>
+        <!-- header-->
+
+
+        
+        
+        <section class="section">
+
+        <!-- barra navegação esquerda -->
+            <aside class="side-left">
+                <ul class="sidebar">
+                    <li>
+                        <a href="index.php.html" data-pjax=".content-body" style="background-color:#3498DB;">
+                            <i class="sidebar-icon fa fa-dashboard"></i>
+                            <span class="sidebar-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="regras.php.html" style="background-color:#27AE60;">
+                            <i class="sidebar-icon fa fa-list-alt"></i>
+                            <span class="sidebar-text">Regras</span>
+                        </a>
+                    </li>
+                      <li>
+                        <a href="jogo.php.html" style="background-color:#E74C3C;">
+                            <i class="sidebar-icon fa fa-globe"></i>
+                            <span class="sidebar-text">Jogar</span>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+        <!-- barra navegação esquerda -->
+
+            <div class="content">
+                <div class="content-header">
+                    <h2 class="fa fa-user" style="font-size:1.4em; font-weight:500; line-height:45px;">&nbsp&nbsp&nbspPerfil</h2>
+                </div>
+            
+
+                <div class="content-body">      
+                    <div class="row margin-top">
+                        <div class="col-md-12 margin-bottom">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="perfil.php.html#sobremim" data-toggle="tab">Sobre mim</a></li>
+                                <li><a href="perfil.php.html#historico" data-toggle="tab">Histórico</a></li>
+                                <li><a href="perfil.php.html#gerirconta" data-toggle="tab">Gerir conta</a></li>
+                            </ul>
+                        </div>
+
+                        
+                        <div class="tab-content">
+                            
+                            <!--/sobre mim-->   
+                                <div id="sobremim" class="tab-pane active in">
+                                    <div class="row">
+                                        <div class="col-md-4" style="width:580px;">
+                                            <div id="contentfeeds2" class="panel panel-default">
+                                                <div class="panel-body bordered-bottom bg-danger">
+                                                    <div class="profile-line clearfix">
+                                                        <img class="img-circle pull-left" src="assets/images/users/user.jpg" alt="uifaces19" width="120px" width="120px">
+                                                        <div class="text-14" style="font-size:42px; padding-left:200px; padding-top:23px;"><strong>John Fofo</strong></div>
+                                                    </div>
+                                                    <div class="no-padding jumbotron">
+                                                        <p class="lead" style="color:#333; font-size:14px;">Desde: <asf style="font-size:14px; color:#7F8C8D;">10-20-30</asf></p>
+
+                                                        <p class="lead" style="color:#333; font-size:14px;">Sobre mim:  <asf style="font-size:14px; color:#7F8C8D;">Olá, eu sou a Mariana. Tenho 21 anos e sou de Cabeceiras de Bastos. Nos meus tempos livres vejo séries, nomeadamente Games of Thrones. É curioso que as pessoas acham que sou parecida com a Arya mas eu não acho nada e fico até um bocado irritada quando me dizem isso. Por isso resolvi deixar de ver essa série e foi então que um amigo meu, o Miguel, me mostrou o Animais 360. Agora, passou o tempo a aprender mais sobre animais e só páro quando conseguir ganhar-lhe ;)</asf></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-4" style="width:600px;">
+                                            <div id="contentfeeds2" class="panel panel-default">
+                                                <div class="panel-body bordered-bottom bg-success">
+                                                    <div class="profile-line clearfix" style="height:115px;">
+                                                        <div class="text-14" style="font-size:42px; padding-top:20px;padding-left:10px;"><strong>As Minhas Estatísticas</strong></div>
+                                                    </div>
+
+                                                    <div class="no-padding jumbotron">
+                                                        <p class="lead" style="color:#333; font-size:14px;">Número de jogos: <asf style="font-size:14px; color:#7F8C8D;">0898098</asf></p>
+                                                        
+                                                        <p class="lead" style="color:#333; font-size:14px;">Número de voltas completas: <asf style="font-size:14px; color:#7F8C8D;">0sdsd098</asf></p>
+
+                                                         <p class="lead" style="color:#333; font-size:14px;">Dificuldade mais escolhida: <asf style="font-size:14px; color:#7F8C8D;">Média</asf></p>
+
+                                                        <p class="lead" style="color:#333; font-size:14px;">Área com mais vitórias: <asf style="font-size:14px; color:#7F8C8D;">alidf, China</asf></p>
+
+                                                        <p class="lead" style="color:#333; font-size:14px;">Área com mais derrotas: <asf style="font-size:14px; color:#7F8C8D;">asdasd, Chile</asf></p>
+
+                                                        <p class="lead" style="color:#333; font-size:14px;">Pontuação máxima obtida: <asf style="font-size:14px; color:#7F8C8D;">981723 (em dificuldade Fácil)</asf></p>
+
+                                                        <p class="lead" style="color:#333; font-size:14px;">Posição no top: <asf style="font-size:14px; color:#7F8C8D;">Geral: 123º<br>
+                                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFácil: 234º<br>
+                                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspMédia:1232º<br>
+                                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDifícil:123º</asf></p>
+            
+                                                    </div>
+                                                   
+                                                </div><!--panel-body-->
+                                            </div><!--/panel-->
+
+                                            
+                                        </div><!--/cols-->
+                                    </div>
+                                </div>
+                            <!--/sobre mim-->
+
+
+                            <!--/historico-->
+                                <div id="historico" class="tab-pane">
+                                    <!--/caixa-->
+                                        <div class="col-md-4">
+                                            <div id="overall-users" class="panel panel-info bg-info">
+                                                <div class="panel-body">
+                                                    <p class="lead" style="text-align:center; color:#333">25/02/2014</p>
+                                                    <ul class="list-percentages row">
+                                                        <li class="col-xs-4">
+                                                            <p class="text-ellipsis">Dificuldade</p>
+                                                            <p class="text-lg"><strong>Difícil</strong></p>
+                                                        </li>
+                                                        <li class="col-xs-4">
+                                                            <p class="text-ellipsis">Derrotado em</p>
+                                                            <p class="text-lg"><strong>Portugal</strong></p>
+                                                        </li>
+                                                        <li class="col-xs-4">
+                                                            <p class="text-ellipsis">Pontuação</p>
+                                                            <p class="text-lg"><strong>23423424</strong></p>
+                                                        </li>
+                                                    </ul><!--/list-percentages-->
+                                                    <p class="helper-block">
+                                                        <div class="progress progress-xs progress-flat progress">
+                                                            <div class="progress-bar progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                                                            </div>
+                                                        </div>
+                                                        </p><p class="text-ellipsis"><small>180 graus completos</small></p>
+                                                    <!--/help-block-->
+                                                    </div>
+                                            </div>
+                                        </div>
+
+
+
+
+                                         <div class="col-md-4">
+                                            <div id="overall-users" class="panel panel-info bg-info">
+                                                <div class="panel-body">
+                                                    <p class="lead" style="text-align:center; color:#333">25/02/2014</p>
+                                                    <ul class="list-percentages row">
+                                                        <li class="col-xs-4">
+                                                            <p class="text-ellipsis">Dificuldade</p>
+                                                            <p class="text-lg"><strong>Difícil</strong></p>
+                                                        </li>
+                                                        <li class="col-xs-4">
+                                                            <p class="text-ellipsis">Derrotado em</p>
+                                                            <p class="text-lg"><strong>Portugal</strong></p>
+                                                        </li>
+                                                        <li class="col-xs-4">
+                                                            <p class="text-ellipsis">Pontuação</p>
+                                                            <p class="text-lg"><strong>23423424</strong></p>
+                                                        </li>
+                                                    </ul><!--/list-percentages-->
+                                                    <p class="helper-block">
+                                                        <div class="progress progress-xs progress-flat progress">
+                                                            <div class="progress-bar progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                                                            </div>
+                                                        </div>
+                                                        </p><p class="text-ellipsis"><small>180 graus completos</small></p>
+                                                    <!--/help-block-->
+                                                    </div>
+                                            </div>
+                                        </div>
+
+                                         <div class="col-md-4">
+                                            <div id="overall-users" class="panel panel-info bg-info">
+                                                <div class="panel-body">
+                                                    <p class="lead" style="text-align:center; color:#333">27/02/2014</p>
+                                                    <ul class="list-percentages row">
+                                                        <li class="col-xs-4">
+                                                            <p class="text-ellipsis">Dificuldade</p>
+                                                            <p class="text-lg"><strong>Difícil</strong></p>
+                                                        </li>
+                                                        <li class="col-xs-4">
+                                                            <p class="text-ellipsis">Derrotado em</p>
+                                                            <p class="text-lg"><strong>Portugal</strong></p>
+                                                        </li>
+                                                        <li class="col-xs-4">
+                                                            <p class="text-ellipsis">Pontuação</p>
+                                                            <p class="text-lg"><strong>23423424</strong></p>
+                                                        </li>
+                                                    </ul><!--/list-percentages-->
+                                                    <p class="helper-block">
+                                                        <div class="progress progress-xs progress-flat progress">
+                                                            <div class="progress-bar progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                                                            </div>
+                                                        </div>
+                                                        </p><p class="text-ellipsis"><small>180 graus completos</small></p>
+                                                    <!--/help-block-->
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    <!--/caixa-->
+                                </div>
+                            <!--/historico-->
+
+                            <!--/gerir conta-->
+                                <div id="gerirconta" class="tab-pane">
+                                    <div class="col-md-4">
+                                        muda as cenas
+                                    </div>
+                                </div> 
+                            <!--/gerir conta-->
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+
+
+       <!-- footer -->
+             <a rel="to-top" href="perfil.php.html#top"><i class="fa fa-arrow-up"></i></a>
+            <footer>
+                <p style="margin-left:320px;"><small><a>Animais 360 &copy;</a>
+                    Desenvolvido por Diana Lemos, Mariana Medeiros, Mário Leite e Miguel Pinto.
+                </small></p>
+            </footer>
+        <!-- footer -->
+
+
+        <script src="assets/scripts/39914ff3.vendor-main.js"></script>      
+        <script src="assets/scripts/e7058f60.vendor-form.js"></script>    
+        
+     
+    </body>
+</html>
