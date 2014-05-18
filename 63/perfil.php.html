@@ -167,7 +167,7 @@
                                                 <div class="panel-body bordered-bottom bg-danger">
                                                     <div class="profile-line clearfix">
                                                         <img class="img-circle pull-left" src="assets/images/users/user.jpg" alt="uifaces19" width="120px" width="120px">
-                                                        <div class="text-14" style="font-size:42px; padding-left:200px; padding-top:23px;"><strong>John Fofo</strong></div>
+                                                        <div class="text-14" style="font-size:42px; padding-left:150px; padding-top:23px;"><strong>John Fofo</strong></div>
                                                     </div>
                                                     <div class="no-padding jumbotron">
                                                         <p class="lead" style="color:#333; font-size:14px;">Desde: <asf style="font-size:14px; color:#7F8C8D;">10-20-30</asf></p>
@@ -314,14 +314,95 @@
 
                             <!--/gerir conta-->
                                 <div id="gerirconta" class="tab-pane">
-                                    <div class="col-md-4">
-                                        muda as cenas
+                                    <div class="col-md-12">
+                                        <div id="panel-fvalidate2" class="panel panel-default sortable-widget-item">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title">Alteração de Dados</h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <form action="#" role="form" id="signupForm" class="form-horizontal form-bordered">
+                                                          <div class="form-group">
+                                                            <label class="col-sm-3 control-label" for="email">E-mail</label>
+                                                            <div class="col-sm-5">
+                                                                <div class="input-group input-group-in">
+                                                                    <span class="input-group-addon text-silver"><i class="fa fa-envelope-o"></i></span>
+                                                                    <input type="text" id="email" name="email" class="form-control">
+                                                                </div>
+                                                            </div><!--/cols-->
+                                                            </div><!--/form-group-->
+                                                        
+
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label" for="lastname">Sobre mim</label>
+                                                            <div class="col-sm-5">
+                                                                 <textarea id="ccomment" name="ccomment" class="form-control autogrow" style="" required=""></textarea>
+                                                            </div><!--/cols-->
+                                                        </div><!--/form-group-->
+
+                                                        
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label" for="password">Password</label>
+                                                            <div class="col-sm-5">
+                                                                <div class="input-group input-group-in">
+                                                                    <span class="input-group-addon text-silver"><i class="fa fa-circle"></i></span>
+                                                                    <input type="password" id="password" name="password" class="form-control">
+                                                                </div>
+                                                            </div><!--/cols-->
+                                                        </div><!--/form-group-->
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label" for="confirm_password">Confirmar password</label>
+                                                            <div class="col-sm-5">
+                                                                <div class="input-group input-group-in">
+                                                                    <span class="input-group-addon text-silver"><i class="fa fa-circle"></i></span>
+                                                                    <input type="password" id="confirm_password" name="confirm_password" class="form-control">
+                                                                </div>
+                                                            </div><!--/cols-->
+                                                        </div>
+                                                    
+
+                                                
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label" for="fileinput_thumb">Avatar</label>
+                                                            <div class="col-sm-5">
+                                                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                                    <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px">
+                                                                        <img data-src="holder.js/100%x100%" alt="">
+                                                                    </div>
+                                                                    <div>
+                                                                        <span class="btn btn-sm btn-icon btn-inverse btn-file">
+                                                                            <i class="fa fa-cloud-upload"></i>
+                                                                            <span class="fileinput-new">Selecionar</span>
+                                                                            <span class="fileinput-exists">Change</span>
+                                                                            <input type="file" name="fileinput_thumb" id="fileinput_thumb" accept="image/*">
+                                                                        </span>
+                                                                        <button class="btn btn-sm btn-icon btn-danger fileinput-exists" data-dismiss="fileinput">
+                                                                            <i class="fa fa-times"></i>
+                                                                            Remove
+                                                                        </button>
+                                                                    </div>
+                                                                </div><!-- /fileinput -->
+                                                            </div><!-- /cols -->
+                                                        </div><!-- /form-group -->
+
+                                                        <div class="form-group">
+                                                             <div class="col-sm-offset-3 col-sm-5" style="margin-left:1000px;">
+                                                                <input class="btn btn-inverse bg-warning" type="submit" value="Alterar">
+                                                             </div><!--/cols-->
+                                                        </div>
+                                                    </form>
+                                                         
+                                              
+                                            </div>
+                                            </div>
                                     </div>
-                                </div> 
+                                </div>
+
                             <!--/gerir conta-->
 
 
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -340,9 +421,13 @@
         <!-- footer -->
 
 
-        <script src="assets/scripts/39914ff3.vendor-main.js"></script>      
-        <script src="assets/scripts/e7058f60.vendor-form.js"></script>    
-        
+       <script src="assets/scripts/39914ff3.vendor-main.js"></script>     
+        <script src="assets/scripts/e7058f60.vendor-form.js"></script>           
+  
+
+
+        <!-- required stilearn template js -->
+        <script src="assets/scripts/5917523f.main.js"></script>
      
     </body>
 </html>
