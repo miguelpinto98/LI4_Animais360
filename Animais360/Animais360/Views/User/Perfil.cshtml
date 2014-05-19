@@ -25,26 +25,27 @@
                                         <div class="panel-body bordered-bottom bg-danger">
                                             <div class="profile-line clearfix">
                                                 <img class="img-circle pull-left" src="@Model.Avatar" alt="uifaces19" width="120px" width="120px">
-                                                <div class="text-14" style="font-size:42px; padding-left:150px; padding-top:23px;"><strong>@Model.UserName</strong></div>
+                                                <div class="text-14" style="font-size:42px; padding-left:180px; padding-top:23px;"><strong>Informação</strong></div>
                                             </div>
                                             <div class="no-padding jumbotron">
+                                                <p class="lead" style="color:#333; font-size:14px;">Nickname: <asf style="font-size:14px; color:#7F8C8D;">@Model.UserName</asf></p>
                                                 <p class="lead" style="color:#333; font-size:14px;">Desde: <asf style="font-size:14px; color:#7F8C8D;">@Model.DataRegisto</asf></p>
 
-                                                <p class="lead" style="color:#333; font-size:14px;">Sobre mim:  <asf style="font-size:14px; color:#7F8C8D;"> -FALTA UM Atributo- Olá, eu sou a Mariana. Tenho 21 anos e sou de Cabeceiras de Bastos. Nos meus tempos livres vejo séries, nomeadamente Games of Thrones. É curioso que as pessoas acham que sou parecida com a Arya mas eu não acho nada e fico até um bocado irritada quando me dizem isso. Por isso resolvi deixar de ver essa série e foi então que um amigo meu, o Miguel, me mostrou o Animais 360. Agora, passou o tempo a aprender mais sobre animais e só páro quando conseguir ganhar-lhe ;)</asf></p>
+                                                <p class="lead" style="color:#333; font-size:14px;">Sobre mim:  <asf style="font-size:14px; color:#7F8C8D;">Olá, eu sou a Mariana. Tenho 21 anos e sou de Cabeceiras de Bastos. Nos meus tempos livres vejo séries, nomeadamente Games of Thrones. É curioso que as pessoas acham que sou parecida com a Arya mas eu não acho nada e fico até um bocado irritada quando me dizem isso. Por isso resolvi deixar de ver essa série e foi então que um amigo meu, o Miguel, me mostrou o Animais 360. Agora, passou o tempo a aprender mais sobre animais e só páro quando conseguir ganhar-lhe ;)</asf></p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
 
-                                <div class="col-md-4" style="width:600px;">
+                                <div class="col-md-4" style="width:500px;">
                                     <div id="contentfeeds2" class="panel panel-default">
                                         <div class="panel-body bordered-bottom bg-success">
                                             <div class="profile-line clearfix" style="height:115px;">
-                                                <div class="text-14" style="font-size:42px; padding-top:20px;padding-left:10px;"><strong>As Minhas Estatísticas</strong></div>
+                                                <div class="text-14" style="font-size:42px; padding-top:20px;padding-left:10px;"><strong>Estatísticas</strong></div>
                                             </div>
 
-                                            <div class="no-padding jumbotron">
+                                            <div class="no-padding jumbotron" style="padding-bottom:10px; padding-top:35px;">
                                                 <p class="lead" style="color:#333; font-size:14px;">Número de jogos: <asf style="font-size:14px; color:#7F8C8D;">@Model.NrJogos</asf></p>
 
                                                 <p class="lead" style="color:#333; font-size:14px;">Número de voltas completas: <asf style="font-size:14px; color:#7F8C8D;">@Model.NrVoltas</asf></p>
@@ -179,13 +180,18 @@
                                         <h3 class="panel-title">Alteração de Dados</h3>
                                     </div>
                                     <div class="panel-body">
-                                        <form action="#" role="form" id="signupForm" class="form-horizontal form-bordered">
+
+                                    @using (Html.BeginForm("Manage", "User", new { ReturnUrl = ViewBag.ReturnUrl },
+                                        FormMethod.Post, new { @class = "form-horizontal form-bordered", role = "form", id = "signupForm" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationSummary(true)
                                             <div class="form-group">
-                                                <label class="col-sm-3 control-label" for="email">E-mail</label>
+                                                @Html.LabelFor(m => m.Email, new { @class = "col-sm-3 control-label" })
                                                 <div class="col-sm-5">
                                                     <div class="input-group input-group-in">
-                                                        <span class="input-group-addon text-silver"><i class="fa fa-envelope-o"></i></span>
-                                                        <input type="text" id="email" name="email" class="form-control">
+                                                        <span class="input-group-addon text-silver"><i class="fa fa-envelope-o"></i> </span>
+                                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", id = "Email", required = "", autocomplete = "on" })
                                                     </div>
                                                 </div><!--/cols-->
                                             </div><!--/form-group-->
@@ -220,14 +226,12 @@
                                                 </div><!--/cols-->
                                             </div>
 
-
-
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label" for="fileinput_thumb">Avatar</label>
                                                 <div class="col-sm-5">
                                                     <div class="fileinput fileinput-new" data-provides="fileinput">
                                                         <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px">
-                                                            <img data-src="holder.js/100%x100%" alt="">
+                                                            <img data-src="@Model.Avatar" alt="">
                                                         </div>
                                                         <div>
                                                             <span class="btn btn-sm btn-icon btn-inverse btn-file">
@@ -250,8 +254,7 @@
                                                     <input class="btn btn-inverse bg-warning" type="submit" value="Alterar">
                                                 </div><!--/cols-->
                                             </div>
-                                        </form>
-
+                                }
 
                                     </div>
                                 </div>

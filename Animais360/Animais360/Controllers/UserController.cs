@@ -22,7 +22,7 @@ namespace Animais360.Controllers
         public ActionResult Perfil(int id=1) {
             User user = db.Users.Find(id);
 
-            int x = 0;
+            int x = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
 
             return View(user);
         }
