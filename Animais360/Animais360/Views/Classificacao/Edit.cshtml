@@ -1,0 +1,47 @@
+﻿@model Animais360.Models.Classificacao
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Classificacao</legend>
+
+        @Html.HiddenFor(model => model.ClassificacaoId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Dificuldade)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Dificuldade)
+            @Html.ValidationMessageFor(model => model.Dificuldade)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.pontos)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.pontos)
+            @Html.ValidationMessageFor(model => model.pontos)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,90 @@
+﻿@model Animais360.Models.Jogo
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Jogo</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RespCertas)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RespCertas)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RespErradas)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RespErradas)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Personagem)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Personagem)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nivel)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nivel)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Pontos)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pontos)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DifQualitativa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DifQualitativa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Estado)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Estado)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Sucesso)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Sucesso)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DataInicio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DataInicio)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DataFim)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DataFim)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Animais360.Models.Classificacao>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Dificuldade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pontos)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dificuldade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pontos)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ClassificacaoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ClassificacaoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ClassificacaoId })
+        </td>
+    </tr>
+}
+
+</table>

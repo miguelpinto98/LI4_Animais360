@@ -1,0 +1,109 @@
+﻿@model Animais360.Models.Jogo
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Jogo</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RespCertas)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RespCertas)
+            @Html.ValidationMessageFor(model => model.RespCertas)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RespErradas)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RespErradas)
+            @Html.ValidationMessageFor(model => model.RespErradas)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Personagem)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Personagem)
+            @Html.ValidationMessageFor(model => model.Personagem)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nivel)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nivel)
+            @Html.ValidationMessageFor(model => model.Nivel)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Pontos)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Pontos)
+            @Html.ValidationMessageFor(model => model.Pontos)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DifQualitativa)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DifQualitativa)
+            @Html.ValidationMessageFor(model => model.DifQualitativa)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Estado)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Estado)
+            @Html.ValidationMessageFor(model => model.Estado)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sucesso)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sucesso)
+            @Html.ValidationMessageFor(model => model.Sucesso)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DataInicio)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DataInicio)
+            @Html.ValidationMessageFor(model => model.DataInicio)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DataFim)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DataFim)
+            @Html.ValidationMessageFor(model => model.DataFim)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

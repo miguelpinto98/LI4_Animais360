@@ -181,7 +181,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ClassificacaoController.cs" />
     <Compile Include="Controllers\ContinenteController.cs" />
+    <Compile Include="Controllers\JogoController.cs" />
     <Compile Include="Controllers\PaisController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -210,8 +212,22 @@
     <Compile Include="Migrations\201405142039513_ContinentesAndPaises.Designer.cs">
       <DependentUpon>201405142039513_ContinentesAndPaises.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201405192300114_JogoToModels.cs" />
+    <Compile Include="Migrations\201405192300114_JogoToModels.Designer.cs">
+      <DependentUpon>201405192300114_JogoToModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405192336518_JogoToModels1.cs" />
+    <Compile Include="Migrations\201405192336518_JogoToModels1.Designer.cs">
+      <DependentUpon>201405192336518_JogoToModels1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405192343454_ClassificacaoToUser.cs" />
+    <Compile Include="Migrations\201405192343454_ClassificacaoToUser.Designer.cs">
+      <DependentUpon>201405192343454_ClassificacaoToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Classificacao.cs" />
     <Compile Include="Models\Continente.cs" />
+    <Compile Include="Models\Jogo.cs" />
     <Compile Include="Models\Pais.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -224,13 +240,26 @@
     <Content Include="Images\background\ss.jpg" />
     <Content Include="Images\default.jpg" />
     <Content Include="Images\logo.png" />
+    <Content Include="Scripts\1581b2aa.vendor-maps.js" />
+    <Content Include="Scripts\2ce1156c.vendor-graph.js" />
+    <Content Include="Scripts\37a77790.vendor-table.js" />
     <Content Include="Scripts\39914ff3.vendor-main.js" />
     <Content Include="Scripts\5917523f.main.js" />
     <Content Include="Scripts\5f4fd25b.vendor-util.js" />
+    <Content Include="Scripts\756399db.vendor-usefull.js" />
+    <Content Include="Scripts\89c3d6c9.initializer.js" />
+    <Content Include="Scripts\e7058f60.vendor-form.js" />
+    <Content Include="Scripts\eae815b5.excanvas.js" />
+    <Content Include="Scripts\fc9d433c.vendor-editor.js" />
     <Content Include="Views\Home\_SobrePartial.cshtml" />
     <Content Include="Views\Home\_RegrasPartial.cshtml" />
     <Content Include="Views\Home\_EstatisticaPartial.cshtml" />
     <Content Include="Views\Home\_FinalPartial.cshtml" />
+    <Content Include="Views\Classificacao\Index.cshtml" />
+    <Content Include="Views\Classificacao\Details.cshtml" />
+    <Content Include="Views\Classificacao\Create.cshtml" />
+    <Content Include="Views\Classificacao\Edit.cshtml" />
+    <Content Include="Views\Classificacao\Delete.cshtml" />
     <None Include="Views\Home\_TutorialPartial.cshtml" />
     <Content Include="Views\User\Perfil.cshtml" />
     <Content Include="Views\User\_HeaderPartial.cshtml" />
@@ -238,6 +267,11 @@
     <Content Include="Views\Shared\_DashboardLayout.cshtml" />
     <Content Include="Views\User\Dashboard.cshtml" />
     <Content Include="Views\User\Regras.cshtml" />
+    <Content Include="Views\Jogo\Index.cshtml" />
+    <Content Include="Views\Jogo\Details.cshtml" />
+    <Content Include="Views\Jogo\Create.cshtml" />
+    <Content Include="Views\Jogo\Edit.cshtml" />
+    <Content Include="Views\Jogo\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\3fc417cd.main.css" />
@@ -284,6 +318,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201405142039513_ContinentesAndPaises.resx">
       <DependentUpon>201405142039513_ContinentesAndPaises.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405192300114_JogoToModels.resx">
+      <DependentUpon>201405192300114_JogoToModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405192336518_JogoToModels1.resx">
+      <DependentUpon>201405192336518_JogoToModels1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405192343454_ClassificacaoToUser.resx">
+      <DependentUpon>201405192343454_ClassificacaoToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

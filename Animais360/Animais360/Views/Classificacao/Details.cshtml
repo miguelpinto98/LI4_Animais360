@@ -1,0 +1,30 @@
+﻿@model Animais360.Models.Classificacao
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Classificacao</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Dificuldade)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Dificuldade)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.pontos)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.pontos)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ClassificacaoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

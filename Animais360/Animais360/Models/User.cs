@@ -18,11 +18,12 @@ namespace Animais360.Models
         public int Estado { get; set; }
         public int Tipo { get; set; }
         public DateTime DataRegisto { get; set; }
+        public virtual ICollection<Jogo> Jogos { get; set; }
+        public virtual ICollection<Classificacao> Classificacoes { get; set; }
 
         public int getLoggedID(int id) {
             return Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
         }
-
     }
 
     public class LocalPasswordModel

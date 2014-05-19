@@ -1,0 +1,138 @@
+﻿@model IEnumerable<Animais360.Models.Jogo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="content">
+    <div class="content-body" style="padding-top:0px;">
+        <div class="invoice-wapper" style="margin-top:10px; margin-bottom:15px;">
+            <div class="invoice-table table-responsive">
+                <table class="table table-bordered invoice">
+                    <thead>
+                        <tr>
+                            <th style="width:890px;">
+                                <div class="progress" style="margin-bottom:0px;">
+                                    <div class="progress-bar" role="progressbar" style="width:75%">
+                                    </div>
+                                </div>
+                            </th>
+                            <th>Pontuação: <a>123</a></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <div id="map_canvas">
+
+        </div>
+    </div>
+</div>
+
+
+<style>
+    #map_canvas {
+        width: 1150px;
+        height: 600px;
+    }
+</style>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script>
+    function initialize() {
+        var map_canvas = document.getElementById('map_canvas');
+        var map_options = {
+            center: new google.maps.LatLng(0, 0),
+            zoom: 4,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(map_canvas, map_options)
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+
+
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RespCertas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RespErradas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Personagem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nivel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pontos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DifQualitativa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sucesso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataInicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataFim)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RespCertas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RespErradas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Personagem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nivel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pontos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DifQualitativa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sucesso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataFim)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.JogoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.JogoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.JogoId })
+        </td>
+    </tr>
+}
+
+</table>
+*/
