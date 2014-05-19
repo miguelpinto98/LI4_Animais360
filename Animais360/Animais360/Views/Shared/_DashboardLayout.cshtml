@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title - Animais 360</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-pjax-version" content="v173">
+    <link href="~/favicon.ico" rel="shortcut icon" />
+
+    <link href="~/content/styles/3fc417cd.main.css" rel="stylesheet" type="text/css" />
+    <link href="~/content/styles/9281c719.vendor.css" rel="stylesheet" type="text/css" />
+
+    <script src="~/scripts/39914ff3.vendor-main.js"></script>
+    <script src="~/scripts/5f4fd25b.vendor-util.js"></script>
+    <script src="~/scripts/5917523f.main.js"></script>
+</head>
+
+<body>
+    @Html.Partial("~/views/user/_headerpartial.cshtml")
+
+    <section class="section">
+        @Html.Partial("~/views/user/_sidebar.cshtml")
+
+        @RenderBody()
+    </section>
+</body>
+</html>

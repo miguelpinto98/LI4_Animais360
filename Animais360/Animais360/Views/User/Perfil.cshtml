@@ -1,1 +1,269 @@
-﻿@Html.Partial("~/views/user/_headerpartial.cshtml")
+﻿@model Animais360.Models.User
+
+        <div class="content">
+            <div class="content-header">
+                <h2 class="fa fa-user" style="font-size:1.4em; font-weight:500; line-height:45px;">&nbsp&nbsp&nbspPerfil</h2>
+            </div>
+
+            <div class="content-body">
+                <div class="row margin-top">
+                    <div class="col-md-12 margin-bottom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#sobremim" data-toggle="tab">Sobre mim</a></li>
+                            <li><a href="#historico" data-toggle="tab">Histórico</a></li>
+                            <li><a href="#gerirconta" data-toggle="tab">Gerir conta</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-content">
+
+                        <!--/sobre mim-->
+                        <div id="sobremim" class="tab-pane active in"> 
+                            <div class="row">
+                                <div class="col-md-4" style="width:580px;">
+                                    <div id="contentfeeds2" class="panel panel-default">
+                                        <div class="panel-body bordered-bottom bg-danger">
+                                            <div class="profile-line clearfix">
+                                                <img class="img-circle pull-left" src="@Model.Avatar" alt="uifaces19" width="120px" width="120px">
+                                                <div class="text-14" style="font-size:42px; padding-left:150px; padding-top:23px;"><strong>@Model.UserName</strong></div>
+                                            </div>
+                                            <div class="no-padding jumbotron">
+                                                <p class="lead" style="color:#333; font-size:14px;">Desde: <asf style="font-size:14px; color:#7F8C8D;">@Model.DataRegisto</asf></p>
+
+                                                <p class="lead" style="color:#333; font-size:14px;">Sobre mim:  <asf style="font-size:14px; color:#7F8C8D;"> -FALTA UM Atributo- Olá, eu sou a Mariana. Tenho 21 anos e sou de Cabeceiras de Bastos. Nos meus tempos livres vejo séries, nomeadamente Games of Thrones. É curioso que as pessoas acham que sou parecida com a Arya mas eu não acho nada e fico até um bocado irritada quando me dizem isso. Por isso resolvi deixar de ver essa série e foi então que um amigo meu, o Miguel, me mostrou o Animais 360. Agora, passou o tempo a aprender mais sobre animais e só páro quando conseguir ganhar-lhe ;)</asf></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-4" style="width:600px;">
+                                    <div id="contentfeeds2" class="panel panel-default">
+                                        <div class="panel-body bordered-bottom bg-success">
+                                            <div class="profile-line clearfix" style="height:115px;">
+                                                <div class="text-14" style="font-size:42px; padding-top:20px;padding-left:10px;"><strong>As Minhas Estatísticas</strong></div>
+                                            </div>
+
+                                            <div class="no-padding jumbotron">
+                                                <p class="lead" style="color:#333; font-size:14px;">Número de jogos: <asf style="font-size:14px; color:#7F8C8D;">@Model.NrJogos</asf></p>
+
+                                                <p class="lead" style="color:#333; font-size:14px;">Número de voltas completas: <asf style="font-size:14px; color:#7F8C8D;">@Model.NrVoltas</asf></p>
+
+                                                <p class="lead" style="color:#333; font-size:14px;">Dificuldade mais escolhida: <asf style="font-size:14px; color:#7F8C8D;">Média -MAIS COMPLEXO-</asf></p>
+
+                                                <p class="lead" style="color:#333; font-size:14px;">Área com mais vitórias: <asf style="font-size:14px; color:#7F8C8D;">alidf, China -MAIS COMPLEXO-</asf></p>
+
+                                                <p class="lead" style="color:#333; font-size:14px;">Área com mais derrotas: <asf style="font-size:14px; color:#7F8C8D;">asdasd, Chile -MAIS COMPLEXO-</asf></p>
+
+                                                <p class="lead" style="color:#333; font-size:14px;">Pontuação máxima obtida: <asf style="font-size:14px; color:#7F8C8D;">981723 (em dificuldade Fácil) -MAIS COMPLEXO-</asf></p>
+
+                                                <p class="lead" style="color:#333; font-size:14px;">
+                                                    Posição no top: <asf style="font-size:14px; color:#7F8C8D;">
+                                                        Geral: 123º<br>
+                                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFácil: 234º<br>
+                                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspMédia:1232º<br>
+                                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDifícil:123º
+                                                    </asf>
+                                                </p>
+
+                                            </div>
+
+                                        </div><!--panel-body-->
+                                    </div><!--/panel-->
+
+
+                                </div><!--/cols-->
+                            </div>
+                        </div>
+                        <!--/sobre mim-->
+                        <!--/historico-->
+                        <div id="historico" class="tab-pane">
+                            <!--/caixa-->
+                            <div class="col-md-4">
+                                <div id="overall-users" class="panel panel-info bg-info">
+                                    <div class="panel-body">
+                                        <p class="lead" style="text-align:center; color:#333">25/02/2014</p>
+                                        <ul class="list-percentages row">
+                                            <li class="col-xs-4">
+                                                <p class="text-ellipsis">Dificuldade</p>
+                                                <p class="text-lg"><strong>Difícil</strong></p>
+                                            </li>
+                                            <li class="col-xs-4">
+                                                <p class="text-ellipsis">Derrotado em</p>
+                                                <p class="text-lg"><strong>Portugal</strong></p>
+                                            </li>
+                                            <li class="col-xs-4">
+                                                <p class="text-ellipsis">Pontuação</p>
+                                                <p class="text-lg"><strong>23423424</strong></p>
+                                            </li>
+                                        </ul><!--/list-percentages-->
+                                        <p class="helper-block">
+                                            <div class="progress progress-xs progress-flat progress">
+                                                <div class="progress-bar progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                                                </div>
+                                            </div>
+                                        </p><p class="text-ellipsis"><small>180 graus completos</small></p>
+                                        <!--/help-block-->
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-md-4">
+                                <div id="overall-users" class="panel panel-info bg-info">
+                                    <div class="panel-body">
+                                        <p class="lead" style="text-align:center; color:#333">25/02/2014</p>
+                                        <ul class="list-percentages row">
+                                            <li class="col-xs-4">
+                                                <p class="text-ellipsis">Dificuldade</p>
+                                                <p class="text-lg"><strong>Difícil</strong></p>
+                                            </li>
+                                            <li class="col-xs-4">
+                                                <p class="text-ellipsis">Derrotado em</p>
+                                                <p class="text-lg"><strong>Portugal</strong></p>
+                                            </li>
+                                            <li class="col-xs-4">
+                                                <p class="text-ellipsis">Pontuação</p>
+                                                <p class="text-lg"><strong>23423424</strong></p>
+                                            </li>
+                                        </ul><!--/list-percentages-->
+                                        <p class="helper-block">
+                                            <div class="progress progress-xs progress-flat progress">
+                                                <div class="progress-bar progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                                                </div>
+                                            </div>
+                                        </p><p class="text-ellipsis"><small>180 graus completos</small></p>
+                                        <!--/help-block-->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div id="overall-users" class="panel panel-info bg-info">
+                                    <div class="panel-body">
+                                        <p class="lead" style="text-align:center; color:#333">27/02/2014</p>
+                                        <ul class="list-percentages row">
+                                            <li class="col-xs-4">
+                                                <p class="text-ellipsis">Dificuldade</p>
+                                                <p class="text-lg"><strong>Difícil</strong></p>
+                                            </li>
+                                            <li class="col-xs-4">
+                                                <p class="text-ellipsis">Derrotado em</p>
+                                                <p class="text-lg"><strong>Portugal</strong></p>
+                                            </li>
+                                            <li class="col-xs-4">
+                                                <p class="text-ellipsis">Pontuação</p>
+                                                <p class="text-lg"><strong>23423424</strong></p>
+                                            </li>
+                                        </ul><!--/list-percentages-->
+                                        <p class="helper-block">
+                                            <div class="progress progress-xs progress-flat progress">
+                                                <div class="progress-bar progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                                                </div>
+                                            </div>
+                                        </p><p class="text-ellipsis"><small>180 graus completos</small></p>
+                                        <!--/help-block-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/caixa-->
+                        </div>
+                        <!--/historico-->
+                        <!--/gerir conta-->
+                        <div id="gerirconta" class="tab-pane">
+                            <div class="col-md-12">
+                                <div id="panel-fvalidate2" class="panel panel-default sortable-widget-item">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Alteração de Dados</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form action="#" role="form" id="signupForm" class="form-horizontal form-bordered">
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="email">E-mail</label>
+                                                <div class="col-sm-5">
+                                                    <div class="input-group input-group-in">
+                                                        <span class="input-group-addon text-silver"><i class="fa fa-envelope-o"></i></span>
+                                                        <input type="text" id="email" name="email" class="form-control">
+                                                    </div>
+                                                </div><!--/cols-->
+                                            </div><!--/form-group-->
+
+
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="lastname">Sobre mim</label>
+                                                <div class="col-sm-5">
+                                                    <textarea id="ccomment" name="ccomment" class="form-control autogrow" style="" required=""></textarea>
+                                                </div><!--/cols-->
+                                            </div><!--/form-group-->
+
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="password">Password</label>
+                                                <div class="col-sm-5">
+                                                    <div class="input-group input-group-in">
+                                                        <span class="input-group-addon text-silver"><i class="fa fa-circle"></i></span>
+                                                        <input type="password" id="password" name="password" class="form-control">
+                                                    </div>
+                                                </div><!--/cols-->
+                                            </div><!--/form-group-->
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="confirm_password">Confirmar password</label>
+                                                <div class="col-sm-5">
+                                                    <div class="input-group input-group-in">
+                                                        <span class="input-group-addon text-silver"><i class="fa fa-circle"></i></span>
+                                                        <input type="password" id="confirm_password" name="confirm_password" class="form-control">
+                                                    </div>
+                                                </div><!--/cols-->
+                                            </div>
+
+
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="fileinput_thumb">Avatar</label>
+                                                <div class="col-sm-5">
+                                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                        <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px">
+                                                            <img data-src="holder.js/100%x100%" alt="">
+                                                        </div>
+                                                        <div>
+                                                            <span class="btn btn-sm btn-icon btn-inverse btn-file">
+                                                                <i class="fa fa-cloud-upload"></i>
+                                                                <span class="fileinput-new">Selecionar</span>
+                                                                <span class="fileinput-exists">Change</span>
+                                                                <input type="file" name="fileinput_thumb" id="fileinput_thumb" accept="image/*">
+                                                            </span>
+                                                            <button class="btn btn-sm btn-icon btn-danger fileinput-exists" data-dismiss="fileinput">
+                                                                <i class="fa fa-times"></i>
+                                                                Remove
+                                                            </button>
+                                                        </div>
+                                                    </div><!-- /fileinput -->
+                                                </div><!-- /cols -->
+                                            </div><!-- /form-group -->
+
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-3 col-sm-5" style="margin-left:1000px;">
+                                                    <input class="btn btn-inverse bg-warning" type="submit" value="Alterar">
+                                                </div><!--/cols-->
+                                            </div>
+                                        </form>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--/gerir conta-->
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

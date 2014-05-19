@@ -17,12 +17,15 @@ namespace Animais360.Controllers
     [InitializeSimpleMembership]
     public class UserController : Controller
     {
+        private Animais360Context db = new Animais360Context();
 
-        public ActionResult Perfil()
-        {
-            return View();
+        public ActionResult Perfil(int id=1) {
+            User user = db.Users.Find(id);
+
+            int x = 0;
+
+            return View(user);
         }
-
 
         //
         // GET: /Account/Login
@@ -42,8 +45,7 @@ namespace Animais360.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
-            {
+            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe)) {
                 return RedirectToLocal(returnUrl);
             }
 
@@ -86,10 +88,12 @@ namespace Animais360.Controllers
                 // Attempt to register the user
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { Email = model.Email, Avatar = "Default",
-                                             NrVoltas = 0, NrJogos = 0, Estado=0, DataRegisto = DateTime.Now, Tipo=0  });
+                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new
+                    {
+                        Email = model.Email, Avatar = "/../content/images/default.jpg", NrVoltas = 0,
+                        NrJogos = 0, Estado=0, DataRegisto = DateTime.Now, Tipo=0  });
                     WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Index", "Perfil");
+                    return RedirectToAction("Perfil", "User");
                 }
                 catch (MembershipCreateUserException e)
                 {

@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "Index";
+    Layout = "~/views/shared/_layout.cshtml";
 }
 
 @if (!Request.IsAuthenticated) {
@@ -83,5 +84,6 @@
         </footer>
     </div>
 } else {
-    @Html.Partial("~/views/user/_headerpartial.cshtml")
+    Layout = "~/views/shared/_dashboardlayout.cshtml";
+    @RenderPage("~/views/user/dashboard.cshtml")
 }
