@@ -215,6 +215,18 @@
     <Compile Include="Models\Pais.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Images\background\ddddd.jpg" />
+    <Content Include="Images\background\ddf.jpg" />
+    <Content Include="Images\background\fff.jpg" />
+    <Content Include="Images\background\fundo.jpg" />
+    <Content Include="Images\background\fundo4.jpg" />
+    <Content Include="Images\background\fundo5.jpg" />
+    <Content Include="Images\background\ss.jpg" />
+    <Content Include="Images\default.jpg" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Scripts\39914ff3.vendor-main.js" />
+    <Content Include="Scripts\5917523f.main.js" />
+    <Content Include="Scripts\5f4fd25b.vendor-util.js" />
     <Content Include="Views\Home\_SobrePartial.cshtml" />
     <Content Include="Views\Home\_RegrasPartial.cshtml" />
     <Content Include="Views\Home\_EstatisticaPartial.cshtml" />
@@ -225,6 +237,7 @@
     <Content Include="Views\User\_sidebar.cshtml" />
     <Content Include="Views\Shared\_DashboardLayout.cshtml" />
     <Content Include="Views\User\Dashboard.cshtml" />
+    <Content Include="Views\User\Regras.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\3fc417cd.main.css" />
@@ -251,7 +264,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\" />
+    <Folder Include="Content\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -27,6 +27,10 @@ namespace Animais360.Controllers
             return View(user);
         }
 
+        public ActionResult Regras() {
+            return View();
+        }
+
         //
         // GET: /Account/Login
 

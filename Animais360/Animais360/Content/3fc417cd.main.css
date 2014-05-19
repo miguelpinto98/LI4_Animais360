@@ -8484,22 +8484,22 @@ body {
 
 ::-moz-selection {
     background-color: #ecf0f1;
-    color: #ecf0f1;
+    color: #333;
 }
 
 ::selection {
     background-color: #ecf0f1;
-    color: #ecf0f1;
+    color: #333;
 }
 
 ::moz-selection {
     background-color: #ecf0f1;
-    color: #ecf0f1;
+    color: #333;
 }
 
 ::webkit-selection {
     background-color: #ecf0f1;
-    color: #ecf0f1;
+    color: #333;
 }
 
 a {
@@ -8930,12 +8930,12 @@ a {
 
         .sidebar-child li a:hover {
             background-color: #ecf0f1;
-            color: #ecf0f1;
+            color: #333;
         }
 
     .sidebar-child li.active a, .sidebar-child li.active a:hover {
         background-color: #34495E;
-        color: #ecf0f1;
+        color: #333;
     }
 
 .sidebar-child-inline li {
@@ -9260,7 +9260,7 @@ a {
     bottom: 0;
     width: 300px;
     background-color: #34495E;
-    color: #ecf0f1;
+    color: #333;
     z-index: 2;
     -webkit-transition: all .3s ease;
     -ms-transition: all .3s ease;
@@ -10803,7 +10803,7 @@ td.demo-flot {
         padding: 0;
         width: 100%;
         height: 770px;
-        background: url('/../content/images/background/fundo.jpg') no-repeat center center fixed;
+        background: url("\..\Images\background\fundo.jpg") no-repeat center center fixed;
         background-size: cover;
     }
 
