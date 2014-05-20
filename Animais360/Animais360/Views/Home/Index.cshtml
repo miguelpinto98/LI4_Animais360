@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Animais360.Models.LoginModel
+@{
     ViewBag.Title = "Index";
     Layout = "~/views/shared/_layout.cshtml";
 }
@@ -85,5 +86,5 @@
     </div>
 } else {
     Layout = "~/views/shared/_dashboardlayout.cshtml";
-    @RenderPage("~/views/user/dashboard.cshtml")
+    @RenderPage("~/views/user/index.cshtml")
 }

@@ -261,6 +261,14 @@
     <Compile Include="Models\Questao.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="App_Data\Animais360.mdf" />
+    <Content Include="App_Data\Animais360_log.ldf">
+      <DependentUpon>Animais360.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\ASPNETDB.MDF" />
+    <Content Include="App_Data\aspnetdb_log.ldf">
+      <DependentUpon>ASPNETDB.MDF</DependentUpon>
+    </Content>
     <Content Include="Images\background\ddddd.jpg" />
     <Content Include="Images\background\ddf.jpg" />
     <Content Include="Images\background\fff.jpg" />
@@ -305,7 +313,7 @@
     <Content Include="Views\User\_HeaderPartial.cshtml" />
     <Content Include="Views\User\_sidebar.cshtml" />
     <Content Include="Views\Shared\_DashboardLayout.cshtml" />
-    <Content Include="Views\User\Dashboard.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Regras.cshtml" />
     <Content Include="Views\Jogo\Index.cshtml" />
     <Content Include="Views\Jogo\Details.cshtml" />
@@ -341,9 +349,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

@@ -1,6 +1,6 @@
 ﻿<header class="header">
     <div class="header-brand">
-        <a data-pjax=".content-body" href="/">
+        <a data-pjax=".content-body" href="@Url.Action("Index","User")">
             <img class="brand-logo" src="/../images/logo.png">
         </a>
     </div>
@@ -11,7 +11,7 @@
                 <span class="fa fa-angle-down"></span>
             </a>
             <ul class="dropdown-menu animated flipInX pull-right" role="menu">
-                <li><a href="@Url.Action("Perfil", "User", new { id = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString()) })"><i class="fa fa-user"></i> Perfil</a></li>
+                <li><a href="@Url.Action("Perfil", "User", new { id = ViewBag.IdUser })"><i class="fa fa-user"></i> Perfil</a></li>
                 <!--<li><a href="index.php.html#"><i class="fa fa-envelope"></i> Caixa de Entrada</a></li>-->
                 <li class="divider"></li>  
                 <li>
@@ -26,7 +26,7 @@
             <img alt="me" src="/../images/default.jpg">
         </div>
     </div>
-
+    <!--
     <form role="form" class="form-inline">
         <button type="button" class="btn btn-default btn-expand-search"><i class="fa fa-search"></i></button>
         <div class="toggle-search">
@@ -34,7 +34,7 @@
             <button type="button" class="btn btn-default btn-collapse-search"><i class="fa fa-times"></i></button>
         </div>
     </form>
-
+    -->
     <!--
     <ul class="hidden-xs header-menu pull-right">
         <li>

@@ -19,7 +19,21 @@ namespace Animais360.Controllers
     {
         private Animais360Context db = new Animais360Context();
 
-        public ActionResult Perfil(int id=1) {
+
+        public ActionResult Index() {
+            int id = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
+            User us = db.Users.Find(id);
+
+            ViewBag.IdUser = id;
+
+            return View(us);
+        }
+
+        public ActionResult Perfil(int id = -9999) {
+
+            if(id==-9999)
+                return HttpNotFound();
+
             User u = db.Users.Find(id);
             //int x = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
 
@@ -52,8 +66,9 @@ namespace Animais360.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe)) {
-                return RedirectToLocal(returnUrl);
+            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: false)) {
+                //return RedirectToLocal(returnUrl);
+                return RedirectToAction("Index", "User");
             }
 
             // If we got this far, something failed, redisplay form
@@ -99,7 +114,7 @@ namespace Animais360.Controllers
                         Email = model.Email, Avatar = "/../content/images/default.jpg", Descricao = "Escreve aqui alguma coisa sobre ti...", 
                         NrVoltas = 0, NrJogos = 0, Estado=0, DataRegisto = DateTime.Now, Tipo=0  });
                     WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Perfil", "User");
+                    return RedirectToAction("Index", "User");
                 }
                 catch (MembershipCreateUserException e)
                 {
