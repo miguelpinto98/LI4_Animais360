@@ -143,93 +143,51 @@
                     <h2 class="content-title"><i class="fa fa-dashboard"></i>Dashboard</h2>
                 </div>
                 <div class="content-body">
-                    <div id="panel-tablesorter" class="panel panel-default">
-                        <div class="panel-heading bg-white">
-                            <div class="panel-actions">
-                                <button class="btn-panel">
-                                    <i class="fa fa-plus"> &nbsp&nbspAdicionar Área Protegida</i>
-                                </button>
+                        <div id="panel-tablesorter" class="panel panel-default">
+                            <div class="panel-heading bg-white">
+                                <div class="panel-actions">
+                                    <button class="btn-panel">
+                                        <i class="fa fa-plus"> &nbsp&nbspAdicionar Área Protegida</i>
+                                    </button>
+                                </div>
+                                <h3 class="panel-title" style="color:#F39C12">Gerir Áreas e Desafios</h3>
                             </div>
-                            <h3 class="panel-title" style="color:#F39C12">Gerir Áreas protegidas</h3>
+
+                    <div class="row margin-top">
+                        <div class="col-md-12 margin-bottom">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="perfil.php.html#europa" data-toggle="tab">Europa</a></li>
+                                <li><a href="perfil.php.html#africa" data-toggle="tab">África</a></li>
+                                <li><a href="perfil.php.html#asia" data-toggle="tab">Ásia</a></li>
+                                <li><a href="perfil.php.html#america" data-toggle="tab">América</a></li>
+                                <li><a href="perfil.php.html#oceania" data-toggle="tab">Oceania</a></li>
+                                <li><a href="perfil.php.html#antartida" data-toggle="tab">Antártida</a></li>
+                            </ul>
                         </div>
 
-                         <div class="panel-body">
-                            <div class="table-responsive table-responsive-datatables">
+                        <div class="tab-content">
+
+                         <div id="europa" class="tab-pane active in">
+                            <!-- Tabelas de países que têm as áreas -->
+                            <div class="panel-body">
+                                <div class="table-responsive table-responsive-datatables">
                                 <table class="tablesorter table table-hover table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>Áreas Protegidas</th>
+                                            <th>Peninsula Iberica</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
                                         <tr>
-                                            <td>China, aa</td>
-                                            <td style="padding:3px; width:250px;">
-                                                <div class="" style="margin-left:35px;">
-                                                        <button class="btn btn-info" style="width:80px;">
-                                                        <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
+                                            <td>Parque</td>
+                                            <td style="padding:3px; width:300px;">
+                                                <div class="" style="margin-left:5px;">
+                                                        <button class="btn btn-success" style="width:100px;">
+                                                            <a href="jogo.php.html" style="color:white">
+                                                        <i class="fa fa-eye fa-fw" style="margin-left:-65px;"> Ver Desafios</i>
+                                                            </a>
                                                         </button>
-                                                        <button class="btn btn-danger" style="width:90px;">
-                                                             <a href="jogo.php.html" style="color:white">
-                                                        <i class="fa fa-trash-o fa-fw" style="margin-left:-45px;"> Bloquear</i> </a>
-                                                        </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                          <tr>
-                                            <td>Alemanha, aa</td>
-                                             <td style="padding:3px; width:250px;">
-                                                <div class="" style="margin-left:35px;">
-                                                        <button class="btn btn-info" style="width:80px;">
-                                                        <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
-                                                        </button>
-                                                        <button class="btn btn-danger" style="width:90px;">
-                                                             <a href="jogo.php.html" style="color:white">
-                                                        <i class="fa fa-trash-o fa-fw" style="margin-left:-45px;"> Bloquear</i> </a>
-                                                        </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-
-                                        <tr>
-                                            <td>Portugal, aa</td>
-                                             <td style="padding:3px; width:250px;">
-                                                <div class="" style="margin-left:35px;">
-                                                        <button class="btn btn-info" style="width:80px;">
-                                                        <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
-                                                        </button>
-                                                        <button class="btn btn-danger" style="width:90px;">
-                                                             <a href="jogo.php.html" style="color:white">
-                                                        <i class="fa fa-trash-o fa-fw" style="margin-left:-45px;"> Bloquear</i> </a>
-                                                        </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-
-                                        <tr>
-                                            <td>Zimbabué, aa</td>
-                                             <td style="padding:3px; width:250px;">
-                                                <div class="" style="margin-left:35px;">
-                                                        <button class="btn btn-info" style="width:80px;">
-                                                        <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
-                                                        </button>
-                                                        <button class="btn btn-danger" style="width:90px;">
-                                                             <a href="jogo.php.html" style="color:white">
-                                                        <i class="fa fa-trash-o fa-fw" style="margin-left:-45px;"> Bloquear</i> </a>
-                                                        </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-
-                                         <tr>
-                                            <td>China, pandaM</td>
-                                            <td style="padding:3px; width:250px;">
-                                                <div class="" style="margin-left:35px;">
                                                         <button class="btn btn-info" style="width:80px;">
                                                         <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
                                                         </button>
@@ -241,7 +199,165 @@
                                             </td>
                                         </tr>
                                     </tbody>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>Arrabid</td>
+                                            <td style="padding:3px; width:300px;">
+                                                <div class="" style="margin-left:5px;">
+                                                        <button class="btn btn-success" style="width:100px;">
+                                                            <a href="jogo.php.html" style="color:white">
+                                                        <i class="fa fa-eye fa-fw" style="margin-left:-65px;"> Ver Desafios</i>
+                                                            </a>
+                                                        </button>
+                                                        <button class="btn btn-info" style="width:80px;">
+                                                        <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
+                                                        </button>
+                                                        <button class="btn btn-danger" style="width:90px;">
+                                                             <a href="jogo.php.html" style="color:white">
+                                                        <i class="fa fa-trash-o fa-fw" style="margin-left:-45px;"> Bloquear</i> </a>
+                                                        </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
                                     
+
+                                    
+                                    <tfoot>
+                                        <tr>
+                                            <th colspan="6" class="ts-pager form-horizontal">
+                                                <button type="button" class="btn btn-default btn-sm first"><i class="icon-step-backward fa fa-angle-double-left"></i></button>
+                                                <button type="button" class="btn btn-default btn-sm prev"><i class="icon-arrow-left fa fa-angle-left"></i></button>
+                                                <span class="pagedisplay"></span>
+                                                <button type="button" class="btn btn-default btn-sm next"><i class="icon-arrow-right fa fa-angle-right"></i></button>
+                                                <button type="button" class="btn btn-default btn-sm last"><i class="icon-step-forward fa fa-angle-double-right"></i></button>
+                                                <select class="pagesize input-sm" title="Select page size">
+                                                    <option value="5" selected="selected">5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                </select>
+                                                <select class="pagenum input-sm" title="Select page number"></select>
+                                            </th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                </div>
+                            </div>
+
+                            <div class="panel-body">
+                                <div class="table-responsive table-responsive-datatables">
+                                <table class="tablesorter table table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Peninsula </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>Parque</td>
+                                            <td style="padding:3px; width:300px;">
+                                                <div class="" style="margin-left:5px;">
+                                                        <button class="btn btn-success" style="width:100px;">
+                                                            <a href="jogo.php.html" style="color:white">
+                                                        <i class="fa fa-eye fa-fw" style="margin-left:-65px;"> Ver Desafios</i>
+                                                            </a>
+                                                        </button>
+                                                        <button class="btn btn-info" style="width:80px;">
+                                                        <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
+                                                        </button>
+                                                        <button class="btn btn-danger" style="width:90px;">
+                                                             <a href="jogo.php.html" style="color:white">
+                                                        <i class="fa fa-trash-o fa-fw" style="margin-left:-45px;"> Bloquear</i> </a>
+                                                        </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>Arrabid</td>
+                                            <td style="padding:3px; width:300px;">
+                                                <div class="" style="margin-left:5px;">
+                                                        <button class="btn btn-success" style="width:100px;">
+                                                            <a href="jogo.php.html" style="color:white">
+                                                        <i class="fa fa-eye fa-fw" style="margin-left:-65px;"> Ver Desafios</i>
+                                                            </a>
+                                                        </button>
+                                                        <button class="btn btn-info" style="width:80px;">
+                                                        <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
+                                                        </button>
+                                                        <button class="btn btn-danger" style="width:90px;">
+                                                             <a href="jogo.php.html" style="color:white">
+                                                        <i class="fa fa-trash-o fa-fw" style="margin-left:-45px;"> Bloquear</i> </a>
+                                                        </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+
+                                    <tfoot>
+                                        <tr>
+                                            <th colspan="6" class="ts-pager form-horizontal">
+                                                <button type="button" class="btn btn-default btn-sm first"><i class="icon-step-backward fa fa-angle-double-left"></i></button>
+                                                <button type="button" class="btn btn-default btn-sm prev"><i class="icon-arrow-left fa fa-angle-left"></i></button>
+                                                <span class="pagedisplay"></span>
+                                                <button type="button" class="btn btn-default btn-sm next"><i class="icon-arrow-right fa fa-angle-right"></i></button>
+                                                <button type="button" class="btn btn-default btn-sm last"><i class="icon-step-forward fa fa-angle-double-right"></i></button>
+                                                <select class="pagesize input-sm" title="Select page size">
+                                                    <option value="5" selected="selected">5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                </select>
+                                                <select class="pagenum input-sm" title="Select page number"></select>
+                                            </th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                </div>
+                            </div>
+                         </div>
+
+                        <div id="africa" class="tab-pane">
+                        <!-- Tabelas de países que têm as áreas -->
+                         <div class="panel-body">
+                            <div class="table-responsive table-responsive-datatables">
+                                <table class="tablesorter table table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Angola</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>China, aa</td>
+                                            <td style="padding:3px; width:300px;">
+                                                <div class="" style="margin-left:5px;">
+                                                        <button class="btn btn-success" style="width:100px;">
+                                                            <a href="jogo.php.html" style="color:white">
+                                                        <i class="fa fa-eye fa-fw" style="margin-left:-65px;"> Ver Desafios</i>
+                                                            </a>
+                                                        </button>
+                                                        <button class="btn btn-info" style="width:80px;">
+                                                        <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
+                                                        </button>
+                                                        <button class="btn btn-danger" style="width:90px;">
+                                                             <a href="jogo.php.html" style="color:white">
+                                                        <i class="fa fa-trash-o fa-fw" style="margin-left:-45px;"> Bloquear</i> </a>
+                                                        </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                    
+
                                     
                                     <tfoot>
                                         <tr>
@@ -263,6 +379,243 @@
                                     </tfoot>
                                 </table>
                             </div>
+                         </div>
+                        </div>
+
+                        <div id="asia" class="tab-pane">
+                        <!-- Tabelas de países que têm as áreas -->
+                         <div class="panel-body">
+                            <div class="table-responsive table-responsive-datatables">
+                                <table class="tablesorter table table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>China</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>aa</td>
+                                            <td style="padding:3px; width:300px;">
+                                                <div class="" style="margin-left:5px;">
+                                                        <button class="btn btn-success" style="width:100px;">
+                                                            <a href="jogo.php.html" style="color:white">
+                                                        <i class="fa fa-eye fa-fw" style="margin-left:-65px;"> Ver Desafios</i>
+                                                            </a>
+                                                        </button>
+                                                        <button class="btn btn-info" style="width:80px;">
+                                                        <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
+                                                        </button>
+                                                        <button class="btn btn-danger" style="width:90px;">
+                                                             <a href="jogo.php.html" style="color:white">
+                                                        <i class="fa fa-trash-o fa-fw" style="margin-left:-45px;"> Bloquear</i> </a>
+                                                        </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    
+
+                                    
+                                    <tfoot>
+                                        <tr>
+                                            <th colspan="6" class="ts-pager form-horizontal">
+                                                <button type="button" class="btn btn-default btn-sm first"><i class="icon-step-backward fa fa-angle-double-left"></i></button>
+                                                <button type="button" class="btn btn-default btn-sm prev"><i class="icon-arrow-left fa fa-angle-left"></i></button>
+                                                <span class="pagedisplay"></span>
+                                                <button type="button" class="btn btn-default btn-sm next"><i class="icon-arrow-right fa fa-angle-right"></i></button>
+                                                <button type="button" class="btn btn-default btn-sm last"><i class="icon-step-forward fa fa-angle-double-right"></i></button>
+                                                <select class="pagesize input-sm" title="Select page size">
+                                                    <option value="5" selected="selected">5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                </select>
+                                                <select class="pagenum input-sm" title="Select page number"></select>
+                                            </th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                         </div>
+                        </div>
+
+                        <div id="america" class="tab-pane">
+                        <!-- Tabelas de países que têm as áreas -->
+                         <div class="panel-body">
+                            <div class="table-responsive table-responsive-datatables">
+                                <table class="tablesorter table table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>USA</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>aa</td>
+                                            <td style="padding:3px; width:300px;">
+                                                <div class="" style="margin-left:5px;">
+                                                        <button class="btn btn-success" style="width:100px;">
+                                                            <a href="jogo.php.html" style="color:white">
+                                                        <i class="fa fa-eye fa-fw" style="margin-left:-65px;"> Ver Desafios</i>
+                                                            </a>
+                                                        </button>
+                                                        <button class="btn btn-info" style="width:80px;">
+                                                        <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
+                                                        </button>
+                                                        <button class="btn btn-danger" style="width:90px;">
+                                                             <a href="jogo.php.html" style="color:white">
+                                                        <i class="fa fa-trash-o fa-fw" style="margin-left:-45px;"> Bloquear</i> </a>
+                                                        </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    
+
+                                    
+                                    <tfoot>
+                                        <tr>
+                                            <th colspan="6" class="ts-pager form-horizontal">
+                                                <button type="button" class="btn btn-default btn-sm first"><i class="icon-step-backward fa fa-angle-double-left"></i></button>
+                                                <button type="button" class="btn btn-default btn-sm prev"><i class="icon-arrow-left fa fa-angle-left"></i></button>
+                                                <span class="pagedisplay"></span>
+                                                <button type="button" class="btn btn-default btn-sm next"><i class="icon-arrow-right fa fa-angle-right"></i></button>
+                                                <button type="button" class="btn btn-default btn-sm last"><i class="icon-step-forward fa fa-angle-double-right"></i></button>
+                                                <select class="pagesize input-sm" title="Select page size">
+                                                    <option value="5" selected="selected">5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                </select>
+                                                <select class="pagenum input-sm" title="Select page number"></select>
+                                            </th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                         </div>
+                        </div>
+
+                        <div id="oceania" class="tab-pane">
+                        <!-- Tabelas de países que têm as áreas -->
+                         <div class="panel-body">
+                            <div class="table-responsive table-responsive-datatables">
+                                <table class="tablesorter table table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Austrália</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>aasfd</td>
+                                            <td style="padding:3px; width:300px;">
+                                                <div class="" style="margin-left:5px;">
+                                                        <button class="btn btn-success" style="width:100px;">
+                                                            <a href="jogo.php.html" style="color:white">
+                                                        <i class="fa fa-eye fa-fw" style="margin-left:-65px;"> Ver Desafios</i>
+                                                            </a>
+                                                        </button>
+                                                        <button class="btn btn-info" style="width:80px;">
+                                                        <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
+                                                        </button>
+                                                        <button class="btn btn-danger" style="width:90px;">
+                                                             <a href="jogo.php.html" style="color:white">
+                                                        <i class="fa fa-trash-o fa-fw" style="margin-left:-45px;"> Bloquear</i> </a>
+                                                        </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    
+
+                                    
+                                    <tfoot>
+                                        <tr>
+                                            <th colspan="6" class="ts-pager form-horizontal">
+                                                <button type="button" class="btn btn-default btn-sm first"><i class="icon-step-backward fa fa-angle-double-left"></i></button>
+                                                <button type="button" class="btn btn-default btn-sm prev"><i class="icon-arrow-left fa fa-angle-left"></i></button>
+                                                <span class="pagedisplay"></span>
+                                                <button type="button" class="btn btn-default btn-sm next"><i class="icon-arrow-right fa fa-angle-right"></i></button>
+                                                <button type="button" class="btn btn-default btn-sm last"><i class="icon-step-forward fa fa-angle-double-right"></i></button>
+                                                <select class="pagesize input-sm" title="Select page size">
+                                                    <option value="5" selected="selected">5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                </select>
+                                                <select class="pagenum input-sm" title="Select page number"></select>
+                                            </th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                         </div>
+                        </div>
+
+                         <div id="antartida" class="tab-pane">
+                        <!-- Tabelas de países que têm as áreas -->
+                         <div class="panel-body">
+                            <div class="table-responsive table-responsive-datatables">
+                                <table class="tablesorter table table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>gelado</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>aasfd</td>
+                                            <td style="padding:3px; width:300px;">
+                                                <div class="" style="margin-left:5px;">
+                                                        <button class="btn btn-success" style="width:100px;">
+                                                            <a href="jogo.php.html" style="color:white">
+                                                        <i class="fa fa-eye fa-fw" style="margin-left:-65px;"> Ver Desafios</i>
+                                                            </a>
+                                                        </button>
+                                                        <button class="btn btn-info" style="width:80px;">
+                                                        <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
+                                                        </button>
+                                                        <button class="btn btn-danger" style="width:90px;">
+                                                             <a href="jogo.php.html" style="color:white">
+                                                        <i class="fa fa-trash-o fa-fw" style="margin-left:-45px;"> Bloquear</i> </a>
+                                                        </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    
+
+                                    
+                                    <tfoot>
+                                        <tr>
+                                            <th colspan="6" class="ts-pager form-horizontal">
+                                                <button type="button" class="btn btn-default btn-sm first"><i class="icon-step-backward fa fa-angle-double-left"></i></button>
+                                                <button type="button" class="btn btn-default btn-sm prev"><i class="icon-arrow-left fa fa-angle-left"></i></button>
+                                                <span class="pagedisplay"></span>
+                                                <button type="button" class="btn btn-default btn-sm next"><i class="icon-arrow-right fa fa-angle-right"></i></button>
+                                                <button type="button" class="btn btn-default btn-sm last"><i class="icon-step-forward fa fa-angle-double-right"></i></button>
+                                                <select class="pagesize input-sm" title="Select page size">
+                                                    <option value="5" selected="selected">5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                </select>
+                                                <select class="pagenum input-sm" title="Select page number"></select>
+                                            </th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                         </div>
+                        </div>
+
+                            </div>
+
                         </div>
                     </div>
                 </div>
