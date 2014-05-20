@@ -9,7 +9,7 @@ var map_options = {
     //panControl: boolean,
     //zoomControl: boolean,
     mapTypeControl: false,
-    //scaleControl: boolean,
+    scaleControl: false,
     streetViewControl: false,
     //overviewMapControl: boolean
 };
@@ -99,7 +99,7 @@ function HomeControl(controlDiv, map) {
 
 
   google.maps.event.addDomListener(ap, 'click', function() {
-    map.setCenter(p1)
+    map.setCenter(p1); map.setZoom(8);
   });
 
 }
