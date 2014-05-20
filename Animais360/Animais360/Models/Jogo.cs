@@ -19,6 +19,7 @@ namespace Animais360.Models
         public int Sucesso {get; set;}
         public DateTime DataInicio { get; set; }
         public DateTime DataFim { get; set; }
+        public User User { get; set; }
 
         //Secalhar vai ser preciso adicionar um atributo, se perder, dizer em que área foi
     }

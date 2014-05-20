@@ -10,9 +10,15 @@
     <link href="~/content/3fc417cd.main.css" rel="stylesheet" type="text/css" />
     <link href="~/content/9281c719.vendor.css" rel="stylesheet" type="text/css" />
 
-    <script src="~/scripts/39914ff3.vendor-main.js"></script>
     <script src="~/scripts/5f4fd25b.vendor-util.js"></script>
     <script src="~/scripts/5917523f.main.js"></script>
+
+    <script src="@Url.Content("~/scripts/39914ff3.vendor-main.js")"></script>
+    <script src="@Url.Content("~/scripts/756399db.vendor-usefull.js")"></script>
+    <script src="@Url.Content("~/scripts/e7058f60.vendor-form.js")"></script>
+    <script src="@Url.Content("~/scripts/37a77790.vendor-table.js")"></script>
+    <script src="@Url.Content("~/scripts/89c3d6c9.initializer.js")"></script>
+
 </head>
 
 <body>
@@ -23,5 +29,15 @@
 
         @RenderBody()
     </section>
+
+    <a rel="to-top" href="#top"><i class="fa fa-arrow-up"></i></a>
+    <footer>
+        <p style="margin-left:320px;">
+            <small>
+                <a>Animais 360 &copy;</a>
+                Desenvolvido por Diana Lemos, Mariana Medeiros, Mário Leite e Miguel Pinto.
+            </small>
+        </p>
+    </footer>
 </body>
 </html>
