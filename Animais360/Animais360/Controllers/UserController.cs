@@ -20,12 +20,14 @@ namespace Animais360.Controllers
         private Animais360Context db = new Animais360Context();
 
         public ActionResult Perfil(int id=1) {
-            User user = db.Users.Find(id);
+            User u = db.Users.Find(id);
             //int x = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
 
-            ViewBag.teste = "TESTE";
+            IList<Jogo> jogos = db.Jogos.Where(j => (j.User.UserId == id)).ToList();
 
-            return View(user);
+            ViewBag.Jogos = jogos;
+
+            return View(u);
         }
 
         public ActionResult Regras() {
@@ -93,8 +95,7 @@ namespace Animais360.Controllers
                 // Attempt to register the user
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new
-                    {
+                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new {
                         Email = model.Email, Avatar = "/../content/images/default.jpg", Descricao = "Escreve aqui alguma coisa sobre ti...", 
                         NrVoltas = 0, NrJogos = 0, Estado=0, DataRegisto = DateTime.Now, Tipo=0  });
                     WebSecurity.Login(model.UserName, model.Password);
