@@ -1,0 +1,50 @@
+﻿@model Animais360.Models.AreaProtegida
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>AreaProtegida</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AreaNome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AreaNome)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Longitude)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Longitude)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Latitude)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Latitude)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Descricao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descricao)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Permitida)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Permitida)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.AreaProtegidaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,43 @@
+﻿@model Animais360.Models.Ajuda
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Ajuda</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Grau)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Grau)
+            @Html.ValidationMessageFor(model => model.Grau)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Pista)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Pista)
+            @Html.ValidationMessageFor(model => model.Pista)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

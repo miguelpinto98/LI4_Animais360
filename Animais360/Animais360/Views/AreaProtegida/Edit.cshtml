@@ -1,0 +1,69 @@
+﻿@model Animais360.Models.AreaProtegida
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>AreaProtegida</legend>
+
+        @Html.HiddenFor(model => model.AreaProtegidaID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AreaNome)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AreaNome)
+            @Html.ValidationMessageFor(model => model.AreaNome)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Longitude)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Longitude)
+            @Html.ValidationMessageFor(model => model.Longitude)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Latitude)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Latitude)
+            @Html.ValidationMessageFor(model => model.Latitude)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Descricao)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Descricao)
+            @Html.ValidationMessageFor(model => model.Descricao)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Permitida)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Permitida)
+            @Html.ValidationMessageFor(model => model.Permitida)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

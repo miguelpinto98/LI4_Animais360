@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Animais360.Models.Questao>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DifQuantitativa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pergunta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resposta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hipoteses)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Imagem)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DifQuantitativa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pergunta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resposta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hipoteses)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Imagem)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.QuestaoID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.QuestaoID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.QuestaoID })
+        </td>
+    </tr>
+}
+
+</table>

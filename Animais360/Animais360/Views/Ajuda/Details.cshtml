@@ -1,0 +1,29 @@
+﻿@model Animais360.Models.Ajuda
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Ajuda</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Grau)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Grau)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Pista)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pista)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.AjudaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

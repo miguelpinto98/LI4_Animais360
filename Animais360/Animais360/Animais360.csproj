@@ -181,10 +181,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AjudaController.cs" />
+    <Compile Include="Controllers\AreaProtegidaController.cs" />
     <Compile Include="Controllers\ClassificacaoController.cs" />
     <Compile Include="Controllers\ContinenteController.cs" />
     <Compile Include="Controllers\JogoController.cs" />
     <Compile Include="Controllers\PaisController.cs" />
+    <Compile Include="Controllers\QuestaoController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\Animais360.cs" />
@@ -224,11 +227,30 @@
     <Compile Include="Migrations\201405192343454_ClassificacaoToUser.Designer.cs">
       <DependentUpon>201405192343454_ClassificacaoToUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201405200147368_addAreaQuestaoAjuda.cs" />
+    <Compile Include="Migrations\201405200147368_addAreaQuestaoAjuda.Designer.cs">
+      <DependentUpon>201405200147368_addAreaQuestaoAjuda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405200149133_addAreaQuestaoAjuda1.cs" />
+    <Compile Include="Migrations\201405200149133_addAreaQuestaoAjuda1.Designer.cs">
+      <DependentUpon>201405200149133_addAreaQuestaoAjuda1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405200150400_addAreaQuestaoAjuda2.cs" />
+    <Compile Include="Migrations\201405200150400_addAreaQuestaoAjuda2.Designer.cs">
+      <DependentUpon>201405200150400_addAreaQuestaoAjuda2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405200153545_addAQA.cs" />
+    <Compile Include="Migrations\201405200153545_addAQA.Designer.cs">
+      <DependentUpon>201405200153545_addAQA.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Ajuda.cs" />
+    <Compile Include="Models\AreaProtegida.cs" />
     <Compile Include="Models\Classificacao.cs" />
     <Compile Include="Models\Continente.cs" />
     <Compile Include="Models\Jogo.cs" />
     <Compile Include="Models\Pais.cs" />
+    <Compile Include="Models\Questao.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Images\background\ddddd.jpg" />
@@ -260,6 +282,16 @@
     <Content Include="Views\Classificacao\Create.cshtml" />
     <Content Include="Views\Classificacao\Edit.cshtml" />
     <Content Include="Views\Classificacao\Delete.cshtml" />
+    <Content Include="Views\Ajuda\Index.cshtml" />
+    <Content Include="Views\Ajuda\Details.cshtml" />
+    <Content Include="Views\Ajuda\Create.cshtml" />
+    <Content Include="Views\Ajuda\Edit.cshtml" />
+    <Content Include="Views\Ajuda\Delete.cshtml" />
+    <Content Include="Views\AreaProtegida\Index.cshtml" />
+    <Content Include="Views\AreaProtegida\Details.cshtml" />
+    <Content Include="Views\AreaProtegida\Create.cshtml" />
+    <Content Include="Views\AreaProtegida\Edit.cshtml" />
+    <Content Include="Views\AreaProtegida\Delete.cshtml" />
     <None Include="Views\Home\_TutorialPartial.cshtml" />
     <Content Include="Views\User\Perfil.cshtml" />
     <Content Include="Views\User\_HeaderPartial.cshtml" />
@@ -272,6 +304,11 @@
     <Content Include="Views\Jogo\Create.cshtml" />
     <Content Include="Views\Jogo\Edit.cshtml" />
     <Content Include="Views\Jogo\Delete.cshtml" />
+    <Content Include="Views\Questao\Index.cshtml" />
+    <Content Include="Views\Questao\Details.cshtml" />
+    <Content Include="Views\Questao\Create.cshtml" />
+    <Content Include="Views\Questao\Edit.cshtml" />
+    <Content Include="Views\Questao\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\3fc417cd.main.css" />
@@ -327,6 +364,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201405192343454_ClassificacaoToUser.resx">
       <DependentUpon>201405192343454_ClassificacaoToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405200147368_addAreaQuestaoAjuda.resx">
+      <DependentUpon>201405200147368_addAreaQuestaoAjuda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405200149133_addAreaQuestaoAjuda1.resx">
+      <DependentUpon>201405200149133_addAreaQuestaoAjuda1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405200150400_addAreaQuestaoAjuda2.resx">
+      <DependentUpon>201405200150400_addAreaQuestaoAjuda2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405200153545_addAQA.resx">
+      <DependentUpon>201405200153545_addAQA.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

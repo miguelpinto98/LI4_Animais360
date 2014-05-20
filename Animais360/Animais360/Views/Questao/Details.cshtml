@@ -1,0 +1,57 @@
+﻿@model Animais360.Models.Questao
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Questao</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DifQuantitativa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DifQuantitativa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Pergunta)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pergunta)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Resposta)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Resposta)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Hipoteses)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Hipoteses)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tipo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tipo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Imagem)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Imagem)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.QuestaoID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
