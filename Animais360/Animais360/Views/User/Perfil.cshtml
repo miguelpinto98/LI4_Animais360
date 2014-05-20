@@ -1,5 +1,4 @@
 ﻿@model Animais360.Models.User
-
         <div class="content">
             <div class="content-header">
                 <h2 class="fa fa-user" style="font-size:1.4em; font-weight:500; line-height:45px;">&nbsp&nbsp&nbspPerfil</h2>
@@ -25,13 +24,12 @@
                                         <div class="panel-body bordered-bottom bg-danger">
                                             <div class="profile-line clearfix">
                                                 <img class="img-circle pull-left" src="@Model.Avatar" alt="uifaces19" width="120px" width="120px">
-                                                <div class="text-14" style="font-size:42px; padding-left:180px; padding-top:23px;"><strong>Informação</strong></div>
+                                                <div class="text-14" style="font-size:42px; padding-left:180px; padding-top:23px;"><strong> Informação </strong></div>
                                             </div>
                                             <div class="no-padding jumbotron">
-                                                <p class="lead" style="color:#333; font-size:14px;">Nickname: <asf style="font-size:14px; color:#7F8C8D;">@Model.UserName</asf></p>
-                                                <p class="lead" style="color:#333; font-size:14px;">Desde: <asf style="font-size:14px; color:#7F8C8D;">@Model.DataRegisto</asf></p>
-
-                                                <p class="lead" style="color:#333; font-size:14px;">Sobre mim:  <asf style="font-size:14px; color:#7F8C8D;">Olá, eu sou a Mariana. Tenho 21 anos e sou de Cabeceiras de Bastos. Nos meus tempos livres vejo séries, nomeadamente Games of Thrones. É curioso que as pessoas acham que sou parecida com a Arya mas eu não acho nada e fico até um bocado irritada quando me dizem isso. Por isso resolvi deixar de ver essa série e foi então que um amigo meu, o Miguel, me mostrou o Animais 360. Agora, passou o tempo a aprender mais sobre animais e só páro quando conseguir ganhar-lhe ;)</asf></p>
+                                                <p class="lead" style="color:#333; font-size:14px;">Nickname: <asf style="font-size:14px; color:#7F8C8D;"> @Model.UserName </asf></p>
+                                                <p class="lead" style="color:#333; font-size:14px;">Desde: <asf style="font-size:14px; color:#7F8C8D;"> @Model.DataRegisto </asf></p>
+                                                <p class="lead" style="color:#333; font-size:14px;">Sobre mim:  <asf style="font-size:14px; color:#7F8C8D;"> @Model.Descricao </asf></p>
                                             </div>
                                         </div>
                                     </div>
@@ -50,7 +48,7 @@
 
                                                 <p class="lead" style="color:#333; font-size:14px;">Número de voltas completas: <asf style="font-size:14px; color:#7F8C8D;">@Model.NrVoltas</asf></p>
 
-                                                <p class="lead" style="color:#333; font-size:14px;">Dificuldade mais escolhida: <asf style="font-size:14px; color:#7F8C8D;">Média -MAIS COMPLEXO-</asf></p>
+                                                <p class="lead" style="color:#333; font-size:14px;">Dificuldade mais escolhida: <asf style="font-size:14px; color:#7F8C8D;">Média -MAIS COMPLEXO- @ViewBag.teste</asf></p>
 
                                                 <p class="lead" style="color:#333; font-size:14px;">Área com mais vitórias: <asf style="font-size:14px; color:#7F8C8D;">alidf, China -MAIS COMPLEXO-</asf></p>
 

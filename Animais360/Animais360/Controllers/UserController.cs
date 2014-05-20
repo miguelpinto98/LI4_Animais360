@@ -21,8 +21,9 @@ namespace Animais360.Controllers
 
         public ActionResult Perfil(int id=1) {
             User user = db.Users.Find(id);
+            //int x = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
 
-            int x = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
+            ViewBag.teste = "TESTE";
 
             return View(user);
         }
@@ -94,8 +95,8 @@ namespace Animais360.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new
                     {
-                        Email = model.Email, Avatar = "/../content/images/default.jpg", NrVoltas = 0,
-                        NrJogos = 0, Estado=0, DataRegisto = DateTime.Now, Tipo=0  });
+                        Email = model.Email, Avatar = "/../content/images/default.jpg", Descricao = "Escreve aqui alguma coisa sobre ti...", 
+                        NrVoltas = 0, NrJogos = 0, Estado=0, DataRegisto = DateTime.Now, Tipo=0  });
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Perfil", "User");
                 }
