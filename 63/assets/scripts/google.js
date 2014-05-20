@@ -132,7 +132,7 @@ function initialize() {
     );*/
 
 
-    //Fazer zoom no marker2
+    //vermelho
     google.maps.event.addListener(
         marker2, 'click', function(){
            //abrir janela
