@@ -135,8 +135,7 @@ function initialize() {
     //Fazer zoom no marker2
     google.maps.event.addListener(
         marker2, 'click', function(){
-            map.setZoom(8);
-            map.setCenter(marker2.getPosition());
+           //abrir janela
         }
     );
 
