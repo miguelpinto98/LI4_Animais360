@@ -9,7 +9,7 @@ var map_options = {
     //panControl: boolean,
     //zoomControl: boolean,
     mapTypeControl: false,
-    scaleControl: false,
+    //scaleControl: false,
     streetViewControl: false,
     //overviewMapControl: boolean
 };
@@ -26,7 +26,7 @@ function HomeControl(controlDiv, map) {
     caixa.style.width='200px';
     caixa.style.height='200px';
     caixa.style.borderStyle='solid';
-    caixa.style.borderColor='gray';
+    caixa.style.borderColor='#E0E4E8';
     caixa.style.borderWidth='2px';
     caixa.style.textAlign = 'center';
 
@@ -36,7 +36,7 @@ function HomeControl(controlDiv, map) {
     header.style.width='196px';
     header.style.height='30px';
     header.style.borderStyle='solid';
-    header.style.borderColor='gray';
+    header.style.borderColor='#E0E4E8';
     header.style.borderWidth='0px 0px 2px 0px';
     header.style.backgroundColor='#F39C12';
     header.style.textAlign = 'center';
@@ -99,7 +99,7 @@ function HomeControl(controlDiv, map) {
 
 
   google.maps.event.addDomListener(ap, 'click', function() {
-    map.setCenter(p1); map.setZoom(8);
+    map.setCenter(p2); map.setZoom(8);
   });
 
 }
