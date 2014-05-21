@@ -456,20 +456,19 @@
                                     <label class="col-sm-3 control-label" for="fileinput_thumb">Pergunta *</label>
                                     <div class="col-sm-5">
                                         <div class="fileinput fileinput-new" data-provides="fileinput">
-                                            <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px">
-                                                <img data-src="" alt="">
-                                            </div>
-                                            <div>
-                                                <span class="btn btn-sm btn-icon btn-inverse btn-file">
-                                                    <i class="fa fa-cloud-upload"></i>
-                                                    <span class="fileinput-new">Selecione Imagem</span>
-                                                    <span class="fileinput-exists">Alterar</span>
-                                                    <input type="file" name="fileinput_thumb" id="fileinput_thumb" accept="image/*">
+                                            <div class="input-group">
+                                                <div class="form-control uneditable-input span3" data-trigger="fileinput">
+                                                    <i class="glyphicon glyphicon-file fileinput-exists"></i> 
+                                                    <span class="fileinput-filename"></span>
+                                                </div>
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-default fileinput-exists" rel="tooltip" title="remover" data-dismiss="fileinput"><i class="fa fa-times"></i></button>
+                                                    <button class="btn btn-default btn-file">
+                                                        <span class="fileinput-new">Selecione Imagem</span>
+                                                        <span class="fileinput-exists">Alterar</span>
+                                                        <input type="file" name="fileinput_widget" id="fileinput_widget">
+                                                    </button>
                                                 </span>
-                                                <button class="btn btn-sm btn-icon btn-danger fileinput-exists" data-dismiss="fileinput">
-                                                    <i class="fa fa-times"></i>
-                                                    Remover
-                                                </button>
                                             </div>
                                         </div><!-- /fileinput -->
                                     </div><!-- /cols -->
@@ -589,14 +588,20 @@
                                     <label class="col-sm-3 control-label" for="fileinput_inline">File input inline</label>
                                     <div class="col-sm-5">
                                         <div class="fileinput fileinput-new" data-provides="fileinput">
-                                            <span class="btn btn-icon btn-icon-right btn-primary btn-file">
-                                                <i class="fa fa-upload"></i>
-                                                <span class="fileinput-new">Selecione Ficheiro</span>
-                                                <span class="fileinput-exists">Alterar</span>
-                                                <input type="file" name="fileinput_inline" id="fileinput_inline">
-                                            </span>
-                                            <span class="fileinput-filename"></span>
-                                            <button class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</button>
+                                            <div class="input-group">
+                                                <div class="form-control uneditable-input span3" data-trigger="fileinput">
+                                                    <i class="glyphicon glyphicon-file fileinput-exists"></i> 
+                                                    <span class="fileinput-filename"></span>
+                                                </div>
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-default fileinput-exists" rel="tooltip" title="remover" data-dismiss="fileinput"><i class="fa fa-times"></i></button>
+                                                    <button class="btn btn-default btn-file">
+                                                        <span class="fileinput-new">Selecione Ficheiro</span>
+                                                        <span class="fileinput-exists">Alterar</span>
+                                                        <input type="file" name="fileinput_widget" id="fileinput_widget">
+                                                    </button>
+                                                </span>
+                                            </div>
                                         </div><!-- /fileinput -->
                                     </div><!-- /cols -->
                                 </div>
