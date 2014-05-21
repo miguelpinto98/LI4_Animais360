@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Animais360.Models
 {
-    [Table("Ajuda")]
+    [Table("Ajudas")]
     public class Ajuda
     {
         public int AjudaID { get; set; }
