@@ -146,8 +146,8 @@ function initialize() {
         marker, 'click', function() {
             infoWindow.open(map,marker);
         }
-    );
 
+    );
 
 
 
