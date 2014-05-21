@@ -1,67 +1,99 @@
 ﻿@model Animais360.Models.AreaProtegida
+@using Animais360.Models
 
 @{
+    IList<Continente> Continentes = ViewBag.Continentes;
+    IList<Pais> Paises = ViewBag.Paises;
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<div class="content">
+    <div class="content-header">
+        <h2 class="content-title"><i class="fa fa-dashboard"></i>Dashboard</h2>
+    </div>
+    <div class="content-body">
+        <div id="panel-tablesorter" class="panel panel-default">
+            <div class="panel-heading bg-white">
+                <h3 class="panel-title" style="color:#F39C12; width:250px;">Adicionar Área Protegida</h3>
+            </div>
 
-@using (Html.BeginForm()) {
-    @Html.ValidationSummary(true)
+            <div class="panel-body">
+                <div class="content-body">
+                    <!-- APP CONTENT
+                    ================================================== -->
+                    <!-- FORM WIZARD
+                    ================================================== -->
+                    <!-- Form Wizard -->
+                @using (Html.BeginForm("Create", "AreaProtegida", FormMethod.Post, new { @class = "form-horizontal", role = "form"}))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    <div data-wizard="">
+                        <section>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.AreaNome, new { @class = "col-sm-3 control-label" })
+                                <div class="col-sm-5">
+                                    @Html.TextBoxFor(m => m.AreaNome, new { @class = "form-control", id = "Input", required = "", autocomplete = "on" })
+                                </div>
+                            </div>
 
-    <fieldset>
-        <legend>AreaProtegida</legend>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Continente *</label>
+                                <div class="col-sm-5">
+                                    <select data-input="selectboxit" placeholder="Selecionar">
+                                        @foreach (Continente c in Continentes) { 
+                                            <option value="@c.ContinenteId"> @c.ContinenteName </option>
+                                        }
+                                    </select>
+                                </div><!--/cols-->
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">País *</label>
+                                <div class="col-sm-5">
+                                    <select data-input="selectboxit" placeholder="Selecionar">
+                                        <option value="AK">Alaska</option>
+                                        <option value="HI">Hawaii</option>
+                                        <option value="CA">California</option>
+                                        <option value="NV">Nevada</option>
+                                        <option value="OR">Oregon</option>
+                                        <option value="WA">Washington</option>
+                                    </select>
+                                </div><!--/cols-->
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.AreaNome)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.AreaNome)
-            @Html.ValidationMessageFor(model => model.AreaNome)
-        </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Latitude, new { @class = "col-sm-3 control-label" })
+                                <div class="col-sm-5">
+                                    @Html.TextBoxFor(m => m.Latitude, new { @class = "form-control", id = "Latitude", required = "", autocomplete = "on" })
+                                </div>
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Longitude)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Longitude)
-            @Html.ValidationMessageFor(model => model.Longitude)
-        </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Longitude, new { @class = "col-sm-3 control-label" })
+                                <div class="col-sm-5">
+                                    @Html.TextBoxFor(m => m.Longitude, new { @class = "form-control", id = "Longitudes", required = "", autocomplete = "on" })
+                                </div>
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Latitude)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Latitude)
-            @Html.ValidationMessageFor(model => model.Latitude)
-        </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Descricao)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Descricao)
-            @Html.ValidationMessageFor(model => model.Descricao)
-        </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Descricao, new { @class = "col-sm-3 control-label" })
+                                <div class="col-sm-5">
+                                    @Html.TextAreaFor(m => m.Descricao, new { @class = "form-control", id = "inputTextarea", required = "" ,rows = "3" })
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </section>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Permitida)
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-5">
+                                <input class="btn btn-primary" type="submit" value="Confirmar">
+                            </div><!--/cols-->
+                        </div>
+                    </div><!-- /wizard -->
+                } <!-- /form wizard -->
+                </div><!--/content-body -->
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Permitida)
-            @Html.ValidationMessageFor(model => model.Permitida)
-        </div>
-
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    </div>
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

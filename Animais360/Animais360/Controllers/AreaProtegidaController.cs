@@ -39,8 +39,10 @@ namespace Animais360.Controllers
         //
         // GET: /AreaProtegida/Create
 
-        public ActionResult Create()
-        {
+        public ActionResult Create() {
+            ViewBag.Continentes = db.Continentes.ToList();
+            ViewBag.Paises = db.Pais.ToList();
+
             return View();
         }
 

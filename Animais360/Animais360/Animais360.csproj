@@ -184,7 +184,6 @@
     <Compile Include="Controllers\AjudaController.cs" />
     <Compile Include="Controllers\AreaProtegidaController.cs" />
     <Compile Include="Controllers\ClassificacaoController.cs" />
-    <Compile Include="Controllers\ContinenteController.cs" />
     <Compile Include="Controllers\JogoController.cs" />
     <Compile Include="Controllers\PaisController.cs" />
     <Compile Include="Controllers\QuestaoController.cs" />
