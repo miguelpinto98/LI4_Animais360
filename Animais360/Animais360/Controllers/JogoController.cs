@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Animais360.Models;
+using System.Web.Security;
 
 namespace Animais360.Controllers
 {
@@ -16,8 +17,8 @@ namespace Animais360.Controllers
         //
         // GET: /Jogo/
 
-        public ActionResult Index()
-        {
+        public ActionResult Index() {
+            ViewBag.IdUser = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
             return View(db.Jogos.ToList());
         }
 

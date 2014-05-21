@@ -3,6 +3,11 @@
 
 @{
     IList<Jogo> jogos = ViewBag.Jogos;
+    
+    bool flag = false;
+    if (ViewBag.IdUser != Model.UserId) {
+        flag = true;
+    }
     string text = null;
 }
         <div class="content">
@@ -16,7 +21,9 @@
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#sobremim" data-toggle="tab">Sobre mim</a></li>
                             <li><a href="#historico" data-toggle="tab">Histórico</a></li>
-                            <li><a href="#gerirconta" data-toggle="tab">Gerir conta</a></li>
+                            @if (!flag) {
+                                <li><a href="#gerirconta" data-toggle="tab">Gerir conta</a></li>
+                            }
                         </ul>
                     </div>
 
@@ -133,6 +140,7 @@
                         </div>
                         <!--/historico-->
                         <!--/gerir conta-->
+                        @if (!flag) {
                         <div id="gerirconta" class="tab-pane">
                             <div class="col-md-12">
                                 <div id="panel-fvalidate2" class="panel panel-default sortable-widget-item">
@@ -220,7 +228,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        }
                         <!--/gerir conta-->
 
 

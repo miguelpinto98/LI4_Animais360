@@ -12,7 +12,7 @@ namespace Animais360.Controllers
         private Animais360Context db = new Animais360Context();
         public ActionResult Index() {
 
-            if (User.Identity.IsAuthenticated) {
+            if (!Request.IsAuthenticated) {
                 List<User> utilizadores = db.Users.Where(u => u.Estado == 1).ToList();
                 ViewBag.numero = db.Users.Count();
                 ViewBag.last = "";//db.Users.OrderByDescending(u => u.DataRegisto.ToShortDateString()).ThenByDescending(u => u.DataRegisto.ToShortTimeString()).ToList();
@@ -25,7 +25,7 @@ namespace Animais360.Controllers
                 ViewBag.conquistador = "Não Definido";
                 return View();
             } else {
-                return View();
+                return RedirectToAction("Index", "User");
             }
         }
     }

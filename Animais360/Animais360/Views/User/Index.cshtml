@@ -1,4 +1,8 @@
 ﻿@model Animais360.Models.User
+@using Animais360.Models
+@{
+    IList<User> Users = ViewBag.Users;
+}
 
 <div class="content">
     <div class="content-header">
@@ -19,211 +23,23 @@
                                 <th>Dificuldade</th>
                                 <th>Voltas Realizadas</th>
                                 <th>Pontuação Máxima</th>
-                                <th>Continente Preferido</th>
-                                <th>Outras cenas</th>
+                                <th>Dados Automaticos</th>
+                                <th>Nas Posicoes Erradas</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>63linda</td>
-                                <td>Difícil</td>
-                                <td>5</td>
-                                <td class="center">921</td>
-                                <td class="center">África</td>
-                                <td class="center">xxx</td>
+                            
+                            @foreach (User u in Users){
+                                <tr>
+                                <td> @u.UserId </td>
+                                <td> @u.UserName </td>
+                                <td> @u.NrJogos </td>
+                                <td class="center"> @u.NrVoltas </td>
+                                <td class="center"> XXX </td>
+                                <td class="center"> AAA </td>
                             </tr>
-
-                            <tr>
-                                <td>63linda</td>
-                                <td>Difícil</td>
-                                <td>5</td>
-                                <td class="center">921</td>
-                                <td class="center">África</td>
-                                <td class="center">xxx</td>
-                            </tr>
-
-                            <tr>
-                                <td>63linda</td>
-                                <td>Difícil</td>
-                                <td>5</td>
-                                <td class="center">921</td>
-                                <td class="center">África</td>
-                                <td class="center">xxx</td>
-                            </tr>
-
-                            <tr>
-                                <td>63linda</td>
-                                <td>Difícil</td>
-                                <td>5</td>
-                                <td class="center">921</td>
-                                <td class="center">África</td>
-                                <td class="center">xxx</td>
-                            </tr>
-
-                            <tr>
-                                <td>63linda</td>
-                                <td>Difícil</td>
-                                <td>5</td>
-                                <td class="center">921</td>
-                                <td class="center">África</td>
-                                <td class="center">xxx</td>
-                            </tr>
-
-                            <tr>
-                                <td>63linda</td>
-                                <td>Difícil</td>
-                                <td>5</td>
-                                <td class="center">921</td>
-                                <td class="center">África</td>
-                                <td class="center">xxx</td>
-                            </tr>
-
-                            <tr>
-                                <td>63linda</td>
-                                <td>Difícil</td>
-                                <td>5</td>
-                                <td class="center">921</td>
-                                <td class="center">África</td>
-                                <td class="center">xxx</td>
-                            </tr>
-
-                            <tr>
-                                <td>63linda</td>
-                                <td>Difícil</td>
-                                <td>5</td>
-                                <td class="center">921</td>
-                                <td class="center">África</td>
-                                <td class="center">xxx</td>
-                            </tr>
-
-                            <tr>
-                                <td>63linda</td>
-                                <td>Difícil</td>
-                                <td>5</td>
-                                <td class="center">921</td>
-                                <td class="center">África</td>
-                                <td class="center">xxx</td>
-                            </tr>
-
-                            <tr>
-                                <td>63linda</td>
-                                <td>Difícil</td>
-                                <td>5</td>
-                                <td class="center">921</td>
-                                <td class="center">África</td>
-                                <td class="center">xxx</td>
-                            </tr>
-
-                            <tr>
-                                <td>63linda</td>
-                                <td>Difícil</td>
-                                <td>5</td>
-                                <td class="center">921</td>
-                                <td class="center">África</td>
-                                <td class="center">xxx</td>
-                            </tr>
-
-                            <tr>
-                                <td>63linda</td>
-                                <td>Difícil</td>
-                                <td>5</td>
-                                <td class="center">921</td>
-                                <td class="center">África</td>
-                                <td class="center">xxx</td>
-                            </tr>
-
-                            <tr>
-                                <td>63linda</td>
-                                <td>Difícil</td>
-                                <td>5</td>
-                                <td class="center">921</td>
-                                <td class="center">África</td>
-                                <td class="center">xxx</td>
-                            </tr>
-
-                            <tr>
-                                <td>63linda</td>
-                                <td>Difícil</td>
-                                <td>5</td>
-                                <td class="center">921</td>
-                                <td class="center">África</td>
-                                <td class="center">xxx</td>
-                            </tr>
-
-                            <tr>
-                                <td>63linda</td>
-                                <td>Difícil</td>
-                                <td>5</td>
-                                <td class="center">921</td>
-                                <td class="center">África</td>
-                                <td class="center">xxx</td>
-                            </tr>
-
-                            <tr>
-                                <td>63linda</td>
-                                <td>Difícil</td>
-                                <td>5</td>
-                                <td class="center">921</td>
-                                <td class="center">África</td>
-                                <td class="center">xxx</td>
-                            </tr>
-
-                            <tr>
-                                <td>63linda</td>
-                                <td>Difícil</td>
-                                <td>5</td>
-                                <td class="center">921</td>
-                                <td class="center">África</td>
-                                <td class="center">xxx</td>
-                            </tr>
-
-                            <tr>
-                                <td>63linda</td>
-                                <td>Médio</td>
-                                <td>10</td>
-                                <td class="center">100</td>
-                                <td class="center">Europa</td>
-                                <td class="center">xxx</td>
-                            </tr>
-
-                            <tr>
-                                <td>57</td>
-                                <td>Difícil</td>
-                                <td>2</td>
-                                <td class="center">570</td>
-                                <td class="center">Europa</td>
-                                <td class="center">xxx</td>
-                            </tr>
-
-                            <tr>
-                                <td>57</td>
-                                <td>Médio</td>
-                                <td>5</td>
-                                <td class="center">200</td>
-                                <td class="center">Ásia</td>
-                                <td class="center">xxx</td>
-                            </tr>
-
-
-                            <tr>
-                                <td>98</td>
-                                <td>Fácil</td>
-                                <td>9</td>
-                                <td class="center">98</td>
-                                <td class="center">Europa</td>
-                                <td class="center">xxx</td>
-                            </tr>
-
-
-                            <tr>
-                                <td>80</td>
-                                <td>Fácil</td>
-                                <td>8</td>
-                                <td class="center">80</td>
-                                <td class="center">Europa</td>
-                                <td class="center">xxx</td>
-                            </tr>
+                            }
                         </tbody>
 
 
