@@ -1,22 +1,49 @@
-﻿<aside class="side-left">
+﻿@using Animais360.Models
+
+@{
+    int id;
+    int tipo;
+    if (ViewBag.IdUser == null) {
+        id = 0;
+    } else {
+        id = ViewBag.IdUser;
+    }
+    
+    if (ViewBag.Tipo == null) { 
+        tipo = 0;
+    } else {
+        tipo = ViewBag.Tipo;
+    }
+}
+
+<aside class="side-left">
     <ul class="sidebar">
+        @if (tipo == 1) {
+        <li>
+            <a href="@Url.Action("Gerir","User")" data-pjax=".content-body" style="background-color:#3498DB;">
+                <i class="sidebar-icon fa fa-group"></i>
+                <span class="sidebar-text"> Gerir Utilizadores </span>
+            </a>
+        </li>
+        } else {
         <li>
             <a href="@Url.Action("Index", "User")" data-pjax=".content-body" style="background-color:#3498DB;">
                 <i class="sidebar-icon fa fa-dashboard"></i>
-                <span class="sidebar-text">Dashboard</span>
+                <span class="sidebar-text"> Dashboard </span>
             </a>
         </li>
         <li>
             <a href="@Url.Action("Regras", "User")" style="background-color:#27AE60;">
                 <i class="sidebar-icon fa fa-list-alt"></i>
-                <span class="sidebar-text">Regras</span>
+                <span class="sidebar-text"> Regras </span>
             </a>
         </li>
         <li>
             <a href="@Url.Action("Index","Jogo")" style="background-color:#E74C3C;">
                 <i class="sidebar-icon fa fa-globe"></i>
-                <span class="sidebar-text">Jogar</span>
+                <span class="sidebar-text"> Jogar </span>
             </a>
-        </li>
+        </li> 
+        }
     </ul>
 </aside>

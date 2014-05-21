@@ -1,0 +1,87 @@
+﻿@model Animais360.Models.User
+
+@{
+    ViewBag.Title = "Gerir";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="content">
+    <div class="content-header">
+        <h2 class="content-title"><i class="fa fa-dashboard"></i>Dashboard</h2>
+    </div>
+    <div class="content-body">
+        <div id="panel-tablesorter" class="panel panel-default">
+            <div class="panel-heading bg-white">
+                <div class="panel-actions">
+                    <button class="btn-panel">
+                        <i class="fa fa-plus"> &nbsp&nbspAdicionar Admin</i>
+                    </button>
+                </div>
+                <h3 class="panel-title" style="color:#F39C12; width:250px;">Gerir Utilizadores</h3>
+
+            </div>
+
+            <div class="panel-body">
+                <div class="table-responsive table-responsive-datatables">
+                    <table class="tablesorter table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nome de Utilizador</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Ana</td>
+                                <td style="padding:3px; width:300px;">
+                                    <div class="" style="margin-left:35px;">
+                                        <button class="btn btn-success" style="width:88px;">
+                                            <a href="jogo.php.html" style="color:white">
+                                                <i class="fa fa-eye fa-fw" style="margin-left:-53px;"> Ver Perfil</i>
+                                            </a>
+                                        </button>
+
+
+                                        <button class="btn btn-info" style="width:70px;">
+                                            <a href="jogo.php.html" style="color:white">
+                                                <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
+                                            </a>
+                                        </button>
+
+                                        <button class="btn btn-danger" style="width:80px;">
+                                            <a href="jogo.php.html" style="color:white">
+                                                <i class="fa fa-trash-o fa-fw" style="margin-left:-25px;"> Banir</i>
+                                            </a>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+
+
+                        <tfoot>
+                            <tr>
+                                <th colspan="6" class="ts-pager form-horizontal">
+                                    <button type="button" class="btn btn-default btn-sm first"><i class="icon-step-backward fa fa-angle-double-left"></i></button>
+                                    <button type="button" class="btn btn-default btn-sm prev"><i class="icon-arrow-left fa fa-angle-left"></i></button>
+                                    <span class="pagedisplay"></span>
+                                    <button type="button" class="btn btn-default btn-sm next"><i class="icon-arrow-right fa fa-angle-right"></i></button>
+                                    <button type="button" class="btn btn-default btn-sm last"><i class="icon-step-forward fa fa-angle-double-right"></i></button>
+                                    <select class="pagesize input-sm" title="Select page size">
+                                        <option value="5" selected="selected">5</option>
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                    </select>
+                                    <select class="pagenum input-sm" title="Select page number"></select>
+                                </th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

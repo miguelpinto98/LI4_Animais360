@@ -19,12 +19,13 @@ namespace Animais360.Controllers
     {
         private Animais360Context db = new Animais360Context();
 
-
         public ActionResult Index() {
             int id = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
             User us = db.Users.Find(id);
 
             ViewBag.IdUser = id;
+            ViewBag.Tipo = us.Tipo;
+            ViewBag.Users = db.Users.ToList();
 
             return View(us);
         }
@@ -35,17 +36,28 @@ namespace Animais360.Controllers
                 return HttpNotFound();
 
             User u = db.Users.Find(id);
-            //int x = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
-
             IList<Jogo> jogos = db.Jogos.Where(j => (j.User.UserId == id)).ToList();
 
+            ViewBag.IdUser = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
             ViewBag.Jogos = jogos;
+            //ViewBag.Tipo = u.Tipo;
 
             return View(u);
         }
 
         public ActionResult Regras() {
+            ViewBag.IdUser = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
             return View();
+        }
+
+        public ActionResult Gerir() {
+            int id = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
+            User us = db.Users.Find(id);
+
+            ViewBag.IdUser = id;
+            ViewBag.Tipo = us.Tipo;
+
+            return View(us);
         }
 
         //

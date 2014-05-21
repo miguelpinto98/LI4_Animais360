@@ -325,6 +325,7 @@
     <Content Include="Views\Questao\Create.cshtml" />
     <Content Include="Views\Questao\Edit.cshtml" />
     <Content Include="Views\Questao\Delete.cshtml" />
+    <Content Include="Views\User\Gerir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\3fc417cd.main.css" />
