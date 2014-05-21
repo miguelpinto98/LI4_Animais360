@@ -11,5 +11,6 @@ namespace Animais360.Models
         public int PaisID {get; set;}
         public string PaisNome { get; set; }
         public string Descricao { get; set; }
+        public Continente Continente { get; set; }
     }
 }

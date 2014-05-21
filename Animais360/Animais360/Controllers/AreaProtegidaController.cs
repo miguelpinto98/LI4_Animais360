@@ -16,8 +16,10 @@ namespace Animais360.Controllers
         //
         // GET: /AreaProtegida/
 
-        public ActionResult Index()
-        {
+        public ActionResult Index() {
+            ViewBag.Continentes = db.Continentes.ToList();
+            ViewBag.Paises = db.Pais.ToList();
+
             return View(db.AreaProtegidas.ToList());
         }
 

@@ -18,14 +18,6 @@
 
 <aside class="side-left">
     <ul class="sidebar">
-        
-        <li>
-            <a href="@Url.Action("Gerir","User")" data-pjax=".content-body" style="background-color:#3498DB;">
-                <i class="sidebar-icon fa fa-group"></i>
-                <span class="sidebar-text"> Gerir Utilizadores </span>
-            </a>
-        </li>
-        
         <li>
             <a href="@Url.Action("Index", "User")" data-pjax=".content-body" style="background-color:#3498DB;">
                 <i class="sidebar-icon fa fa-dashboard"></i>
@@ -44,6 +36,19 @@
                 <span class="sidebar-text"> Jogar </span>
             </a>
         </li> 
-        
+
+        <!-- PARA O ADMIN -->
+        <li>
+            <a href="@Url.Action("Gerir","User")" data-pjax=".content-body" style="background-color:#3498DB;">
+                <i class="sidebar-icon fa fa-group"></i>
+                <span class="sidebar-text"> Gerir Utilizadores </span>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("Index","AreaProtegida")" style="background-color:#27AE60;">
+                <i class="sidebar-icon fa fa-globe"></i>
+                <span class="sidebar-text">Áreas Protegidas e Desafios</span>
+            </a>
+        </li>
     </ul>
 </aside>

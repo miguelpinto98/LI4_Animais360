@@ -1,57 +1,117 @@
 ﻿@model IEnumerable<Animais360.Models.AreaProtegida>
+@using Animais360.Models
 
 @{
-    ViewBag.Title = "Index";
+    IList<Continente> Continentes = ViewBag.Continentes;
+    IList<Pais> Paises = ViewBag.Paises;
+    string str = "";
+    ViewBag.Title = "Áreas Protegidas";
 }
 
-<h2>Index</h2>
+<div class="content">
+    <div class="content-header">
+        <h2 class="content-title"><i class="fa fa-dashboard"></i>Dashboard</h2>
+    </div>
+    <div class="content-body">
+        <div id="panel-tablesorter" class="panel panel-default">
+            <div class="panel-heading bg-white">
+                <div class="panel-actions">
+                    <button class="btn-panel">
+                        <i class="fa fa-plus"> &nbsp&nbspAdicionar Área Protegida</i>
+                    </button>
+                </div>
+                <h3 class="panel-title" style="color:#F39C12">Gerir Áreas Protegidas</h3>
+            </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.AreaNome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Longitude)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Latitude)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Permitida)
-        </th>
-        <th></th>
-    </tr>
+            <div class="row margin-top">
+                <div class="col-md-12 margin-bottom">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="perfil.php.html#1" data-toggle="tab">Europa</a></li>
+                        <li><a href="#3" data-toggle="tab">África</a></li>
+                        <li><a href="#2" data-toggle="tab">Ásia</a></li>
+                        <li><a href="#4" data-toggle="tab">América</a></li>
+                        <li><a href="#5" data-toggle="tab">Oceania</a></li>
+                        <li><a href="#6" data-toggle="tab">Antártida</a></li>   
+                    </ul>
+                </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AreaNome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Longitude)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Latitude)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Permitida)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AreaProtegidaID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AreaProtegidaID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AreaProtegidaID })
-        </td>
-    </tr>
-}
+                <div class="tab-content">
 
-</table>
+                    @foreach (Continente c in Continentes) {
+                        <div id="@c.ContinenteId" class="tab-pane active in">
+                            @{
+                                IList<Pais> pp = Paises.Where(p => (p.Continente.ContinenteId == c.ContinenteId)).ToList();
+                            }
+                            @if (pp.Count() > 0) {
+                            foreach(Pais p in pp) {
+                                IList<AreaProtegida> aps = Model.Where(x => (x.Pais.PaisID == p.PaisID)).ToList();
+                                if (aps.Count() > 0) {
+                        <!-- Tabelas de países que têm as áreas -->
+                                <div class="panel-body">
+                                    <div class="table-responsive table-responsive-datatables">
+                                        <table class="tablesorter table table-hover table-bordered">
+
+                                            <thead>
+                                                <tr>
+                                                    <th> @p.PaisNome </th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                     
+                                        @foreach(AreaProtegida ap in aps ) {
+                                            <tr>
+                                                <td> @ap.AreaNome </td>
+                                                <td style="padding:3px; width:340px;">
+                                                    <div class="" style="margin-left:25px;">
+                                                        <button class="btn btn-success" style="width:105px;">
+                                                            <a href="@Url.Action("Index", "Questao", new { id = ap.AreaProtegidaID })" style="color:white">
+                                                                <i class="fa fa-eye fa-fw" style="margin-left:-70px;"> Ver Desafios</i>
+                                                            </a>
+                                                        </button>
+                                                        <button class="btn btn-info" style="width:80px;">
+                                                            <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
+                                                        </button>
+                                                        <button class="btn btn-danger" style="width:100px;">
+                                                            <a href="@Url.Action("Index", "Questao", new { id = ap.AreaProtegidaID })" style="color:white">
+                                                                <i class="fa fa-trash-o fa-fw" style="margin-left:-45px;"> Bloquear</i>
+                                                            </a>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th colspan="6" class="ts-pager form-horizontal">
+                                                        <button type="button" class="btn btn-default btn-sm first"><i class="icon-step-backward fa fa-angle-double-left"></i></button>
+                                                        <button type="button" class="btn btn-default btn-sm prev"><i class="icon-arrow-left fa fa-angle-left"></i></button>
+                                                        <span class="pagedisplay"></span>
+                                                        <button type="button" class="btn btn-default btn-sm next"><i class="icon-arrow-right fa fa-angle-right"></i></button>
+                                                        <button type="button" class="btn btn-default btn-sm last"><i class="icon-step-forward fa fa-angle-double-right"></i></button>
+                                                        <select class="pagesize input-sm" title="Select page size">
+                                                            <option value="5" selected="selected">5</option>
+                                                            <option value="10">10</option>
+                                                            <option value="25">25</option>
+                                                            <option value="50">50</option>
+                                                        </select>
+                                                        <select class="pagenum input-sm" title="Select page number"></select>
+                                                    </th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                                }
+                            }
+                        }
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
