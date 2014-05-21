@@ -57,7 +57,7 @@ namespace Animais360.Controllers
             ViewBag.IdUser = id;
             ViewBag.Tipo = us.Tipo;
 
-            return View(us);
+            return View(db.Users.ToList());
         }
 
         //

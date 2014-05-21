@@ -25,7 +25,11 @@ namespace Animais360.Controllers
                 ViewBag.conquistador = "Não Definido";
                 return View();
             } else {
-                return RedirectToAction("Index", "User");
+                if(ViewBag.Tipo == null || ViewBag.Tipo == 1) {
+                    return RedirectToAction("Gerir", "User");
+                } else {
+                    return RedirectToAction("Index", "User");
+                }
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿@model Animais360.Models.User
+﻿@model IEnumerable<Animais360.Models.User>
+@using Animais360.Models
 
 @{
     ViewBag.Title = "Gerir";
@@ -26,17 +27,20 @@
                     <table class="tablesorter table table-hover table-bordered">
                         <thead>
                             <tr>
-                                <th>Nome de Utilizador</th>
+                                <th> Id de Utilizador </th>
+                                <th> Nome de Utilizador </th>
                             </tr>
                         </thead>
 
+                        @foreach (var item in Model) { 
                         <tbody>
                             <tr>
-                                <td>Ana</td>
+                                <td> @item.UserId </td>
+                                <td> @item.UserName </td>
                                 <td style="padding:3px; width:300px;">
                                     <div class="" style="margin-left:35px;">
                                         <button class="btn btn-success" style="width:88px;">
-                                            <a href="jogo.php.html" style="color:white">
+                                            <a href="@Url.Action("Perfil", "User", new { id = item.UserId })" style="color:white">
                                                 <i class="fa fa-eye fa-fw" style="margin-left:-53px;"> Ver Perfil</i>
                                             </a>
                                         </button>
@@ -56,10 +60,8 @@
                                     </div>
                                 </td>
                             </tr>
-
-
                         </tbody>
-
+                        }
 
                         <tfoot>
                             <tr>
