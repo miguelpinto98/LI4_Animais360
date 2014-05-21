@@ -1,6 +1,6 @@
 ﻿@using Animais360.Models
 
-@{
+@{ /*
     int id;
     int tipo;
     if (ViewBag.IdUser == null) {
@@ -13,19 +13,19 @@
         tipo = 0;
     } else {
         tipo = ViewBag.Tipo;
-    }
+    } */
 }
 
 <aside class="side-left">
     <ul class="sidebar">
-        @if (tipo == 1) {
+        
         <li>
             <a href="@Url.Action("Gerir","User")" data-pjax=".content-body" style="background-color:#3498DB;">
                 <i class="sidebar-icon fa fa-group"></i>
                 <span class="sidebar-text"> Gerir Utilizadores </span>
             </a>
         </li>
-        } else {
+        
         <li>
             <a href="@Url.Action("Index", "User")" data-pjax=".content-body" style="background-color:#3498DB;">
                 <i class="sidebar-icon fa fa-dashboard"></i>
@@ -44,6 +44,6 @@
                 <span class="sidebar-text"> Jogar </span>
             </a>
         </li> 
-        }
+        
     </ul>
 </aside>

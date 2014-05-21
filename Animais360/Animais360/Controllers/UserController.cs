@@ -60,6 +60,32 @@ namespace Animais360.Controllers
             return View(db.Users.ToList());
         }
 
+        public ActionResult Create() {
+            return View();
+        }
+        
+        //
+        // POST: /User/Create
+
+        [HttpPost]
+        public ActionResult Create(CreateModel model) {
+            if (ModelState.IsValid) {
+                WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new {
+                    Email = model.Email,
+                    Avatar = "/../content/images/default.jpg",
+                    Descricao = "Sou eu que mando nisto tudo",
+                    NrVoltas = 0,
+                    NrJogos = 0,
+                    Estado = 0,
+                    DataRegisto = DateTime.Now,
+                    Tipo = 1
+                });
+                return RedirectToAction("Gerir");
+            }
+            return View(model);
+        }
+
+
         //
         // GET: /Account/Login
 

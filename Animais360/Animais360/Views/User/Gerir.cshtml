@@ -14,9 +14,11 @@
         <div id="panel-tablesorter" class="panel panel-default">
             <div class="panel-heading bg-white">
                 <div class="panel-actions">
-                    <button class="btn-panel">
-                        <i class="fa fa-plus"> &nbsp&nbspAdicionar Admin</i>
-                    </button>
+                    <li class="btn-panel">
+                        <a href="@Url.Action("Create","User")" style="color:#333">
+                            <i class="fa fa-plus"> &nbsp&nbspAdicionar Admin</i>
+                        </a>
+                    </li>
                 </div>
                 <h3 class="panel-title" style="color:#F39C12; width:250px;">Gerir Utilizadores</h3>
 
@@ -27,36 +29,38 @@
                     <table class="tablesorter table table-hover table-bordered">
                         <thead>
                             <tr>
-                                <th> Id de Utilizador </th>
-                                <th> Nome de Utilizador </th>
+                                <th>Id</th>
+                                <th>Nome de Utilizador</th>
+                                <th>Tipo</th>
                             </tr>
                         </thead>
-
-                        @foreach (var item in Model) { 
+                        
+                        @foreach (var item in Model) {
                         <tbody>
                             <tr>
                                 <td> @item.UserId </td>
                                 <td> @item.UserName </td>
+                                <td> @item.Tipo </td>
                                 <td style="padding:3px; width:300px;">
                                     <div class="" style="margin-left:35px;">
-                                        <button class="btn btn-success" style="width:88px;">
-                                            <a href="@Url.Action("Perfil", "User", new { id = item.UserId })" style="color:white">
+                                        <li class="btn btn-success" style="width:88px;">
+                                            <a href="#" style="color:white">
                                                 <i class="fa fa-eye fa-fw" style="margin-left:-53px;"> Ver Perfil</i>
                                             </a>
-                                        </button>
+                                        </li>
 
 
-                                        <button class="btn btn-info" style="width:70px;">
+                                        <li class="btn btn-info" style="width:70px;">
                                             <a href="jogo.php.html" style="color:white">
                                                 <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
                                             </a>
-                                        </button>
+                                        </li>
 
-                                        <button class="btn btn-danger" style="width:80px;">
+                                        <li class="btn btn-danger" style="width:80px;">
                                             <a href="jogo.php.html" style="color:white">
                                                 <i class="fa fa-trash-o fa-fw" style="margin-left:-25px;"> Banir</i>
                                             </a>
-                                        </button>
+                                        </li>
                                     </div>
                                 </td>
                             </tr>
