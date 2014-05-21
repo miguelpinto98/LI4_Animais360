@@ -59,6 +59,8 @@ function HomeControl(controlDiv, map) {
     content.style.backgroundColor='#fff';
     content.style.textAlign = 'center';
 
+
+
   var ap = document.createElement('div');
     ap.style.width='180px';
     ap.style.height='25px';
