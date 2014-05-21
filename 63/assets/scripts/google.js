@@ -103,7 +103,6 @@ function HomeControl(controlDiv, map) {
   google.maps.event.addDomListener(ap, 'click', function() {
     map.setCenter(p2); map.setZoom(8);
   });
-
 }
 
 
@@ -137,7 +136,7 @@ function initialize() {
     //vermelho
     google.maps.event.addListener(
         marker2, 'click', function(){
-           //abrir janela
+           document.getElementById('dialog-anchor').click();
         }
     );
 

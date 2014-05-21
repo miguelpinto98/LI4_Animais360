@@ -7,7 +7,8 @@
         <meta http-equiv="x-pjax-version" content="v173">
         <link rel="shortcut icon" href="assets/images/favicon/favicon.ico">
         <link rel="stylesheet" href="assets/styles/9281c719.vendor.css"/>       
-        <link rel="stylesheet" href="assets/styles/3fc417cd.main.css"/>
+        <link rel="stylesheet" href="assets/styles/3fc417cd.main.css"/>      
+        <link rel="stylesheet" href="assets/styles/component.css"/>
 
         <style>
             #map_canvas { width: 1150px; height: 600px;}
@@ -20,8 +21,26 @@
 
     <body>
 
+        <div class="md-modal md-effect-16" id="question-dialog">
+            <div class="md-content">
+                <h3>Modal Dialog</h3>
+                <div>
+                    <p>This is a modal window. You can do the following things with it:</p>
+                    <ul>
+                        <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+                        <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+                        <li><strong>Close:</strong> click on the button below to close the modal.</li>
+                    </ul>
+                    <button class="md-close">Close me!</button>
+                </div>
+            </div>
+        </div>
+        <div class="md-overlay"></div> 
+        
+        <a href="#" class="md-trigger" id="dialog-anchor" data-modal="question-dialog" style="display:none"></a> <!--Ancora Escondida para aceder ao model dialog -->
+
         <!-- header-->
-            <header class="header">
+            <header class="header dialog-background">
                 <div class="header-brand">
                     <a data-pjax=".content-body" href="index.php.html">
                         <img class="brand-logo" src="assets/images/logo.png" alt="Stilearn Admin Sample Logo">
@@ -48,7 +67,7 @@
 
         
         
-        <section class="section">
+        <section class="section dialog-background">
 
         <!-- barra navegação esquerda -->
              <aside class="side-left">
@@ -74,10 +93,7 @@
                 </ul>
             </aside>
         <!-- barra navegação esquerda -->
-
             <div class="content">
-                
-            
 
                 <div class="content-body" style="padding-top:0px;">
 
@@ -97,9 +113,7 @@
                                 </thead>
                             </table>
                         </div>
-                    </div>    
-                    
-
+                    </div>   
                          <div id="map_canvas">
                              
       
@@ -113,14 +127,12 @@
 
 
         <!-- footer -->
-            <footer>
+            <footer class="dialog-background">
                 <p style="margin-left:320px;"><small><a>Animais 360 &copy;</a>
                     Desenvolvido por Diana Lemos, Mariana Medeiros, Mário Leite e Miguel Pinto.
                 </small></p>
             </footer>
         <!-- footer -->
-
-
 
         <!-- ========================= javascript ============================= -->
             <script src="assets/scripts/39914ff3.vendor-main.js"></script>        
@@ -133,6 +145,9 @@
             <script src="assets/scripts/5f4fd25b.vendor-util.js"></script>
             <script src="assets/scripts/5917523f.main.js"></script>
             <script src="assets/scripts/89c3d6c9.initializer.js"></script>
+
+             <script src="assets/scripts/classie.js"></script>
+             <script src="assets/scripts/modalEffects.js"></script>
              <script src="assets/scripts/google.js"></script>
         <!-- ========================= javascript ============================= -->
 
