@@ -4,6 +4,7 @@
 @{
     IList<Continente> Continentes = ViewBag.Continentes;
     IList<Pais> Paises = ViewBag.Paises;
+    string str = null;
     ViewBag.Title = "Create";
 }
 
@@ -59,6 +60,9 @@
                                         <option value="WA">Washington</option>
                                     </select>
                                 </div><!--/cols-->
+                                <div class="col-sm-5">
+                                    @Html.TextBoxFor(m => m.AreaNome, new { @class = "form-control", id = "Input", required = "", autocomplete = "on" })
+                                </div>
                             </div>
 
                             <div class="form-group">
