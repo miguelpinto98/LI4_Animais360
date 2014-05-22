@@ -24,7 +24,7 @@ function HomeControl(controlDiv, map) {
 
   var caixa = document.createElement('div');
     caixa.style.width='200px';
-    caixa.style.height='200px';
+    caixa.style.minHeight='5px';
     caixa.style.borderStyle='solid';
     caixa.style.borderColor='#E0E4E8';
     caixa.style.borderWidth='2px';
@@ -55,48 +55,45 @@ function HomeControl(controlDiv, map) {
 
   var content = document.createElement('div');
     content.style.width='196px';
-    content.style.height='166px';
     content.style.backgroundColor='#fff';
     content.style.textAlign = 'center';
 
 
+    var esp = document.createElement('div');
+        esp.style.width='196px';
+        esp.style.height='10px';
+        esp.style.backgroundColor='#fff';
 
-  var ap = document.createElement('div');
-    ap.style.width='180px';
-    ap.style.height='25px';
-    ap.style.backgroundColor='#fff';
-    ap.style.marginLeft = '10px';
-    ap.style.cursor='pointer';
-    ap.title = 'Ir para...';
-
-    
- var apT = document.createElement('div');
-    apT.style.fontFamily = 'Helvetica';
-    apT.style.fontSize = '11px';
-    apT.style.color = 'gray';
-    apT.style.paddingLeft = '6px';
-    apT.style.paddingRight = '4px';
-    apT.style.paddingTop= '4px';
-    apT.innerHTML = '<b>Geres, Braga, Portugal</b>';
-
-
- var esp = document.createElement('div');
-    esp.style.width='196px';
-    esp.style.height='10px';
-    esp.style.backgroundColor='#fff';
-
-
-
-    //hierarquia
     controlDiv.appendChild(caixa);
     caixa.appendChild(header);
     header.appendChild(titulo);
     caixa.appendChild(content);
     content.appendChild(esp);
-    content.appendChild(ap);
-    ap.appendChild(apT);
 
+    for(i=0;i<2;i++){
 
+          var ap = document.createElement('div');
+            ap.style.width='180px';
+            ap.style.height='25px';
+            ap.style.backgroundColor='#fff';
+            ap.style.marginLeft = '10px';
+            ap.style.cursor='pointer';
+            ap.title = 'Ir para...';
+
+            
+         var apT = document.createElement('div');
+            apT.style.fontFamily = 'Helvetica';
+            apT.style.fontSize = '11px';
+            apT.style.color = 'gray';
+            apT.style.paddingLeft = '6px';
+            apT.style.paddingRight = '4px';
+            apT.style.paddingTop= '4px';
+            apT.innerHTML = '<b>Geres, Braga, Portugal</b>';
+
+           
+            content.appendChild(ap);
+            ap.appendChild(apT);
+    }
 
 
 
