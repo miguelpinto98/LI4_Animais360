@@ -1,63 +1,80 @@
 ﻿@model IEnumerable<Animais360.Models.Questao>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Desafios";
 }
 
-<h2>Index</h2>
+<div class="content">
+    <div class="content-header">
+        <h2 class="content-title"><i class="fa fa-dashboard"></i>Dashboard</h2>
+    </div>
+    <div class="content-body">
+        <div id="panel-tablesorter" class="panel panel-default">
+            <div class="panel-heading bg-white">
+                <div class="panel-actions">
+                    <li class="btn-panel">
+                        <i class="fa fa-plus"> &nbsp&nbspAdicionar Desafio</i>
+                    </li>
+                </div>
+                <h3 class="panel-title" style="color:#F39C12">Gerir Desafios</h3>
+            </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.DifQuantitativa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Pergunta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Resposta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Hipoteses)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Tipo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Imagem)
-        </th>
-        <th></th>
-    </tr>
+            <div class="panel-body">
+                <div class="table-responsive table-responsive-datatables">
+                    <table class="tablesorter table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Pergunta ID</th>
+                                <th>Desafio</th>
+                                <th>Tipo</th>
+                            </tr>
+                        </thead>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DifQuantitativa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pergunta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Resposta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Hipoteses)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tipo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Imagem)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.QuestaoID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.QuestaoID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.QuestaoID })
-        </td>
-    </tr>
-}
+                        <tbody>
+                            <tr>
+                                @foreach (var item in Model) { 
 
-</table>
+                                <td> @item.QuestaoID </td>
+                                <td> @item.Pergunta </td> 
+                                <td> @item.Tipo </td>       
+                                <td style="padding:3px; width:230px;">
+                                    <div class="" style="margin-left:25px;">
+                                        <li class="btn btn-info" style="width:80px;">
+                                            <a href="@Url.Action("Edit", "Questao", new { id = item.QuestaoID })" style="color:white">
+                                                <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
+                                            </a>
+                                        </li>
+                                        <li class="btn btn-danger" style="width:90px;">
+                                            <a href="@Url.Action("Delete", "Questao", new { id = item.QuestaoID })" style="color:white">
+                                                <i class="fa fa-trash-o fa-fw" style="margin-left:-45px;"> Eliminar</i>
+                                            </a>
+                                        </li>
+                                    </div>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th colspan="6" class="ts-pager form-horizontal">
+                                    <button type="button" class="btn btn-default btn-sm first"><i class="icon-step-backward fa fa-angle-double-left"></i></button>
+                                    <button type="button" class="btn btn-default btn-sm prev"><i class="icon-arrow-left fa fa-angle-left"></i></button>
+                                    <span class="pagedisplay"></span>
+                                    <button type="button" class="btn btn-default btn-sm next"><i class="icon-arrow-right fa fa-angle-right"></i></button>
+                                    <button type="button" class="btn btn-default btn-sm last"><i class="icon-step-forward fa fa-angle-double-right"></i></button>
+                                    <select class="pagesize input-sm" title="Select page size">
+                                        <option value="5" selected="selected">5</option>
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                    </select>
+                                    <select class="pagenum input-sm" title="Select page number"></select>
+                                </th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
