@@ -6,10 +6,10 @@ var p2= new google.maps.LatLng(44.5403, 50);
 var map_canvas = document.getElementById('map_canvas');
 var map_options = {
     center: p1, zoom: 2,
-    //panControl: boolean,
-    //zoomControl: boolean,
+    panControl: false,
+    zoomControl: false,
     mapTypeControl: false,
-    //scaleControl: false,
+    scaleControl: false,
     streetViewControl: false,
     //overviewMapControl: boolean
 };
@@ -64,7 +64,7 @@ function HomeControl(controlDiv, map) {
   var ap = document.createElement('div');
     ap.style.width='180px';
     ap.style.height='25px';
-    ap.style.backgroundColor='#333';
+    ap.style.backgroundColor='#fff';
     ap.style.marginLeft = '10px';
     ap.style.cursor='pointer';
     ap.title = 'Ir para...';
