@@ -64,12 +64,12 @@ function HomeControl(controlDiv, map) {
   var ap = document.createElement('div');
     ap.style.width='180px';
     ap.style.height='25px';
-    ap.style.backgroundColor='#fff';
+    ap.style.backgroundColor='#333';
     ap.style.marginLeft = '10px';
     ap.style.cursor='pointer';
     ap.title = 'Ir para...';
 
-
+    
  var apT = document.createElement('div');
     apT.style.fontFamily = 'Helvetica';
     apT.style.fontSize = '11px';
@@ -100,9 +100,17 @@ function HomeControl(controlDiv, map) {
 
 
 
+
+
   google.maps.event.addDomListener(ap, 'click', function() {
     map.setCenter(p2); map.setZoom(8);
   });
+
+   google.maps.event.addDomListener(ap, 'click', function() {
+    map.setCenter(p2); map.setZoom(8);
+  });
+
+
 }
 
 
