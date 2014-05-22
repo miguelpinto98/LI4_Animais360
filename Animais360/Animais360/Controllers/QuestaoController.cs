@@ -16,9 +16,14 @@ namespace Animais360.Controllers
         //
         // GET: /Questao/
 
-        public ActionResult Index()
-        {
-            return View(db.Questaos.ToList());
+        public ActionResult Index(int id=0) {
+
+            if (id == 0)
+                HttpNotFound();
+
+            ViewBag.ID = id;
+
+            return View(db.Questoes.Where(de => de.AreaProtegida.AreaProtegidaID == id).ToList());
         }
 
         //
@@ -26,7 +31,7 @@ namespace Animais360.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            Questao questao = db.Questaos.Find(id);
+            Questao questao = db.Questoes.Find(id);
             if (questao == null)
             {
                 return HttpNotFound();
@@ -37,8 +42,9 @@ namespace Animais360.Controllers
         //
         // GET: /Questao/Create
 
-        public ActionResult Create()
-        {
+        public ActionResult Create(int id = 0 ) {
+
+            ViewBag.ID = id;
             return View();
         }
 
@@ -50,7 +56,7 @@ namespace Animais360.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Questaos.Add(questao);
+                db.Questoes.Add(questao);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -63,7 +69,7 @@ namespace Animais360.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            Questao questao = db.Questaos.Find(id);
+            Questao questao = db.Questoes.Find(id);
             if (questao == null)
             {
                 return HttpNotFound();
@@ -91,7 +97,7 @@ namespace Animais360.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            Questao questao = db.Questaos.Find(id);
+            Questao questao = db.Questoes.Find(id);
             if (questao == null)
             {
                 return HttpNotFound();
@@ -105,8 +111,8 @@ namespace Animais360.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Questao questao = db.Questaos.Find(id);
-            db.Questaos.Remove(questao);
+            Questao questao = db.Questoes.Find(id);
+            db.Questoes.Remove(questao);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

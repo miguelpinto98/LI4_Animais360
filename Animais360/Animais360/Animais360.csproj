@@ -254,6 +254,10 @@
     <Compile Include="Migrations\201405211656352_AddForeignKeysToPaisANDAreaProtegida.Designer.cs">
       <DependentUpon>201405211656352_AddForeignKeysToPaisANDAreaProtegida.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201405221501061_ForeignKeyTOQUestao.cs" />
+    <Compile Include="Migrations\201405221501061_ForeignKeyTOQUestao.Designer.cs">
+      <DependentUpon>201405221501061_ForeignKeyTOQUestao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Ajuda.cs" />
     <Compile Include="Models\AreaProtegida.cs" />
@@ -403,6 +407,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201405211656352_AddForeignKeysToPaisANDAreaProtegida.resx">
       <DependentUpon>201405211656352_AddForeignKeysToPaisANDAreaProtegida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405221501061_ForeignKeyTOQUestao.resx">
+      <DependentUpon>201405221501061_ForeignKeyTOQUestao.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

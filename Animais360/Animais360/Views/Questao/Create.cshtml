@@ -1,75 +1,531 @@
-﻿@model Animais360.Models.Questao
+﻿@model Animais360.Models.CreateQuestao
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Adicionar Desafio";
 }
 
-<h2>Create</h2>
+<div class="content">
+    <div class="content-header">
+        <h2 class="content-title"><i class="fa fa-dashboard"></i>Dashboard</h2>
+    </div>
+    <div class="content-body">
+        <div id="panel-tablesorter" class="panel panel-default">
+            <div class="panel-heading bg-white">
+                <h3 class="panel-title" style="color:#F39C12">Adicionar Desafio</h3>
+            </div>
 
-@using (Html.BeginForm()) {
-    @Html.ValidationSummary(true)
+            <div class="row margin-top">
+                <div class="col-md-12 margin-bottom">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#completar" data-toggle="tab">Completar Frase</a></li>
+                        <li><a href="#pergunta" data-toggle="tab">Pergunta</a></li>
+                        <li><a href="#sombras" data-toggle="tab">Sombras</a></li>
+                        <li><a href="#sons" data-toggle="tab">Sons</a></li>
+                    </ul>
+                </div>
 
-    <fieldset>
-        <legend>Questao</legend>
+                <div class="tab-content">
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.DifQuantitativa)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.DifQuantitativa)
-            @Html.ValidationMessageFor(model => model.DifQuantitativa)
-        </div>
+                    <div id="completar" class="tab-pane active in">
+                        <!-- Tabelas de países que têm as áreas -->
+                        <div class="panel-body">
+                            <div class="content-body">
+                            @using (Html.BeginForm("Edit", "AreaProtegida", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "create-form" }))
+                            {
+                                <div data-wizard="">
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary()
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Pergunta, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-5">
+                                            @Html.TextAreaFor(m => m.Pergunta, new { @class = "form-control", id="input", required = "", autocomplete = "on" })
+                                        </div>
+                                    </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Pergunta)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Pergunta)
-            @Html.ValidationMessageFor(model => model.Pergunta)
-        </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.DifQuantitativa, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-5">
+                                            <select data-input="selectboxit" placeholder="Selecionar">
+                                                @for (int i = 1; i <= 10; i++) { 
+                                                    <option value="@i">@i</option>
+                                                }    
+                                            </select>
+                                        </div>
+                                    </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Resposta)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Resposta)
-            @Html.ValidationMessageFor(model => model.Resposta)
-        </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" for="input">Opção de resposta 1 *</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" id="input">
+                                        </div>
+                                    </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Hipoteses)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Hipoteses)
-            @Html.ValidationMessageFor(model => model.Hipoteses)
-        </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" for="input">Opção de resposta 2 *</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" id="input">
+                                        </div>
+                                    </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Tipo)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Tipo)
-            @Html.ValidationMessageFor(model => model.Tipo)
-        </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" for="input">Opção de resposta 3 *</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" id="input">
+                                        </div>
+                                    </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Imagem)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Imagem)
-            @Html.ValidationMessageFor(model => model.Imagem)
-        </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" for="input">Opção de resposta 4 *</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" id="input">
+                                        </div>
+                                    </div>
 
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
-}
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" for="input">Opção de resposta 5 *</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" id="input">
+                                        </div>
+                                    </div>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" for="input">Opção de resposta 6 *</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" id="input">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" for="input">Resposta 1 *</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" id="input">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" for="input">Resposta 2 *</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" id="input">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" for="input">Ajuda 1 <em>(Pista)</em> *</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" id="input">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" for="input">Ajuda 2 <em>(Retirar Opções)</em> *</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" id="input">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" for="input">Ajuda 3 <em>(Link)</em> *</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" id="input">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-3 col-sm-5">
+                                            <input class="btn btn-primary" type="submit" value="Confirmar">
+                                        </div><!--/cols-->
+                                    </div>
+
+                            </div><!-- /wizard -->
+                            }<!-- /form wizard -->
+                                    </div><!--/content-body -->
+                        </div>
+
+                    </div>
+
+                    <div id="pergunta" class="tab-pane">
+                        <!-- Tabelas de países que têm as áreas -->
+                        <div class="panel-body">
+                            <div class="content-body">
+
+                                <form data-form="wizard" data-validate="form" role="form" class="form-horizontal">
+                                    <div data-wizard="">
+                                        <section>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Nome do Desafio *</label>
+                                                <div class="col-sm-5">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Dificuldade Qualitativa *</label>
+                                                <div class="col-sm-5">
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox" id="inlineCheckbox1" value="option1"> Fácil
+                                                    </label>
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox" id="inlineCheckbox2" value="option2"> Médio
+                                                    </label>
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox" id="inlineCheckbox3" value="option3"> Difícil
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Dificuldade Quantitativa *</label>
+                                                <div class="col-sm-5">
+                                                    <select data-input="selectboxit" placeholder="Selecionar">
+                                                        <option value="AK">Fácil</option>
+                                                        <option value="HI">Médio</option>
+                                                        <option value="CA">Difícil</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="inputTextarea">Pergunta *</label>
+                                                <div class="col-sm-5">
+                                                    <textarea rows="3" class="form-control" id="inputTextarea"></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Opção de resposta 1 *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Opção de resposta 2 *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Opção de resposta 3 *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Opção de resposta 4 *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Resposta *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Ajuda 1 <em>(Pista)</em> *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Ajuda 2 <em>(Retirar Opções)</em> *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Ajuda 3 <em>(Link)</em> *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-3 col-sm-5">
+                                                    <input class="btn btn-primary" type="submit" value="Confirmar">
+                                                </div><!--/cols-->
+                                            </div>
+
+                                    </div><!-- /wizard -->
+                                </form><!-- /form wizard -->
+                            </div><!--/content-body -->
+                        </div>
+                    </div>
+
+                    <div id="sombras" class="tab-pane">
+                        <!-- Tabelas de países que têm as áreas -->
+                        <div class="panel-body">
+                            <div class="content-body">
+
+                                <form data-form="wizard" data-validate="form" role="form" class="form-horizontal">
+                                    <div data-wizard="">
+                                        <section>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Nome do Desafio *</label>
+                                                <div class="col-sm-5">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Dificuldade Qualitativa *</label>
+                                                <div class="col-sm-5">
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox" id="inlineCheckbox1" value="option1"> Fácil
+                                                    </label>
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox" id="inlineCheckbox2" value="option2"> Médio
+                                                    </label>
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox" id="inlineCheckbox3" value="option3"> Difícil
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Dificuldade Quantitativa *</label>
+                                                <div class="col-sm-5">
+                                                    <select data-input="selectboxit" placeholder="Selecionar">
+                                                        <option value="AK">1</option>
+                                                        <option value="HI">Médio</option>
+                                                        <option value="CA">Difícil</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="fileinput_thumb">Pergunta *</label>
+                                                <div class="col-sm-5">
+                                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                        <div class="input-group">
+                                                            <div class="form-control uneditable-input span3" data-trigger="fileinput">
+                                                                <i class="glyphicon glyphicon-file fileinput-exists"></i>
+                                                                <span class="fileinput-filename"></span>
+                                                            </div>
+                                                            <span class="input-group-btn">
+                                                                <button class="btn btn-default fileinput-exists" rel="tooltip" title="remover" data-dismiss="fileinput"><i class="fa fa-times"></i></button>
+                                                                <button class="btn btn-default btn-file">
+                                                                    <span class="fileinput-new">Selecione Imagem</span>
+                                                                    <span class="fileinput-exists">Alterar</span>
+                                                                    <input type="file" name="fileinput_widget" id="fileinput_widget">
+                                                                </button>
+                                                            </span>
+                                                        </div>
+                                                    </div><!-- /fileinput -->
+                                                </div><!-- /cols -->
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Opção de resposta 1 *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Opção de resposta 2 *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Opção de resposta 3 *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Opção de resposta 4 *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Resposta *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Ajuda 1 <em>(Pista)</em> *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Ajuda 2 <em>(Retirar Opções)</em> *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Ajuda 3 <em>(Link)</em> *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-3 col-sm-5">
+                                                    <input class="btn btn-primary" type="submit" value="Confirmar">
+                                                </div><!--/cols-->
+                                            </div>
+
+                                    </div><!-- /wizard -->
+                                </form><!-- /form wizard -->
+                            </div><!--/content-body -->
+                        </div>
+                    </div>
+
+                    <div id="sons" class="tab-pane">
+                        <!-- Tabelas de países que têm as áreas -->
+                        <div class="panel-body">
+                            <div class="content-body">
+
+                                <form data-form="wizard" data-validate="form" role="form" class="form-horizontal">
+                                    <div data-wizard="">
+                                        <section>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Nome do Desafio *</label>
+                                                <div class="col-sm-5">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Dificuldade Qualitativa *</label>
+                                                <div class="col-sm-5">
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox" id="inlineCheckbox1" value="option1"> Fácil
+                                                    </label>
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox" id="inlineCheckbox2" value="option2"> Médio
+                                                    </label>
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox" id="inlineCheckbox3" value="option3"> Difícil
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Dificuldade Quantitativa *</label>
+                                                <div class="col-sm-5">
+                                                    <select data-input="selectboxit" placeholder="Selecionar">
+                                                        <option value="AK">Fácil</option>
+                                                        <option value="HI">Médio</option>
+                                                        <option value="CA">Difícil</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="fileinput_inline">Pergunta *</label>
+                                                <div class="col-sm-5">
+                                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                        <div class="input-group">
+                                                            <div class="form-control uneditable-input span3" data-trigger="fileinput">
+                                                                <i class="glyphicon glyphicon-file fileinput-exists"></i>
+                                                                <span class="fileinput-filename"></span>
+                                                            </div>
+                                                            <span class="input-group-btn">
+                                                                <button class="btn btn-default fileinput-exists" rel="tooltip" title="remover" data-dismiss="fileinput"><i class="fa fa-times"></i></button>
+                                                                <button class="btn btn-default btn-file">
+                                                                    <span class="fileinput-new">Selecione Ficheiro</span>
+                                                                    <span class="fileinput-exists">Alterar</span>
+                                                                    <input type="file" name="fileinput_widget" id="fileinput_widget">
+                                                                </button>
+                                                            </span>
+                                                        </div>
+                                                    </div><!-- /fileinput -->
+                                                </div><!-- /cols -->
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Opção de resposta 1 *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Opção de resposta 2 *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Opção de resposta 3 *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Opção de resposta 4 *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Resposta *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Ajuda 1 <em>(Pista)</em> *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Ajuda 2 <em>(Retirar Opções)</em> *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="input">Ajuda 3 <em>(Link)</em> *</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-3 col-sm-5">
+                                                    <input class="btn btn-primary" type="submit" value="Confirmar">
+                                                </div><!--/cols-->
+                                            </div>
+
+                                    </div><!-- /wizard -->
+                                </form><!-- /form wizard -->
+                            </div><!--/content-body -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

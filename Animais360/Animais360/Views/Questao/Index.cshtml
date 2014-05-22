@@ -13,7 +13,9 @@
             <div class="panel-heading bg-white">
                 <div class="panel-actions">
                     <li class="btn-panel">
-                        <i class="fa fa-plus"> &nbsp&nbspAdicionar Desafio</i>
+                        <a href="@Url.Action("Create", "Questao", new { id = ViewBag.ID })" style="color:white">
+                            <i class="fa fa-plus"> &nbsp&nbspAdicionar Desafio</i>
+                        </a>
                     </li>
                 </div>
                 <h3 class="panel-title" style="color:#F39C12">Gerir Desafios</h3>
@@ -24,16 +26,15 @@
                     <table class="tablesorter table table-hover table-bordered">
                         <thead>
                             <tr>
-                                <th>Pergunta ID</th>
+                                <th>ID</th>
                                 <th>Desafio</th>
                                 <th>Tipo</th>
                             </tr>
                         </thead>
 
                         <tbody>
+                            @foreach (var item in Model) {
                             <tr>
-                                @foreach (var item in Model) { 
-
                                 <td> @item.QuestaoID </td>
                                 <td> @item.Pergunta </td> 
                                 <td> @item.Tipo </td>       
