@@ -27,6 +27,7 @@ namespace Animais360.Controllers
             ViewBag.IdUser = id;
             ViewBag.Tipo = us.Tipo;
             ViewBag.Users = db.Users.ToList();
+            ViewBag.Classificacoes = db.Classificacoes.ToList();
 
             return View(us);
         }
