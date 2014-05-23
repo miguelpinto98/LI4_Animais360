@@ -45,3 +45,4 @@ var ModalEffects = (function() {
 	init();
 
 })();
+

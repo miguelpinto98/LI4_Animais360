@@ -11,7 +11,7 @@
     <div class="content-body">
         <div id="panel-tablesorter" class="panel panel-default">
             <div class="panel-heading bg-white">
-                <h3 class="panel-title" style="color:#F39C12">Tabela Geral</h3>
+                <h3 class="panel-title" style="color:#F39C12">Tabela Geral de Classificação</h3>
             </div>
 
             <div class="panel-body">
@@ -20,11 +20,10 @@
                         <thead>
                             <tr>
                                 <th>Nome Utilizador</th>
-                                <th>Dificuldade</th>
+                                <th>Pontuação Máxima</th> <!--A-->
                                 <th>Voltas Realizadas</th>
-                                <th>Pontuação Máxima</th>
-                                <th>Dados Automaticos</th>
-                                <th>Nas Posicoes Erradas</th>
+                                <th>Jogos Realizados</th>
+                                <th>Número de Derrotas</th>
                             </tr>
                         </thead>
 
@@ -32,16 +31,15 @@
                             
                             @foreach (User u in Users){
                                 <tr>
-                                <td> @u.UserId </td>
                                 <td> @u.UserName </td>
-                                <td> @u.NrJogos </td>
-                                <td class="center"> @u.NrVoltas </td>
-                                <td class="center"> XXX </td>
-                                <td class="center"> AAA </td>
+                                    
+                                <td> </td>
+                                <td> @u.NrVoltas </td>
+                                <td class="center"> @u.NrJogos </td>
+                                <td class="center"> </td>
                             </tr>
                             }
                         </tbody>
-
 
                         <tfoot>
                             <tr>
@@ -62,8 +60,119 @@
                             </tr>
                         </tfoot>
                     </table>
+                </div><!--table-responsive-->
+
+                <div class="divider-content">
+                    <span></span>
                 </div>
-            </div>
+
+                <div class="col-md-3 col-sm-6">
+		                    		<div class="hidden-sm hidden-xs box no-border no-shadow text-center bg-cloud">
+		            					<p class="float-shadow">
+		            						<i class="fa fa-tasks text-64 text-info"></i>
+		            					</p>
+		            					<p class="text-muted">@Users.Count() Utilizadores Registados</p>
+		                    		</div>
+
+		                    		<div class="hidden-lg hidden-md box no-border no-shadow text-center bg-cloud">
+		                    			<ul class="row">
+		            						<li class="col-xs-3 col-md-4 helper-block-xs absolute-center">
+		            							<div class="absolute-center-item">
+		            								<p class="float-shadow">
+		            									<i class="fa fa-tasks text-64 text-info"></i>
+		            								</p>
+		            							</div>
+		            						</li>
+		            						<li class="col-xs-9 col-md-8 helper-block-xs absolute-center">
+		            							<div class="absolute-center-item" style="width:100%">
+			            							<p class="text-left text-ellipsis lead">Utilizadores Registados</p>
+		            							</div>
+		            						</li>
+		            					</ul>
+		                    		</div>
+		                    	</div>
+
+                <div class="col-md-3 col-sm-6">
+		                    		<div class="hidden-sm hidden-xs box no-border no-shadow text-center bg-cloud">
+		            					<p class="float-shadow">
+		            						<i class="fa fa-clock-o text-64 text-warning"></i>
+		            					</p>
+                                        
+		            					<p class="text-muted"> Voltas ao Mundo</p>
+		                    		</div>
+
+		                    		<div class="hidden-lg hidden-md box no-border no-shadow text-center bg-cloud">
+		                    			<ul class="row">
+		            						<li class="col-xs-3 col-md-4 helper-block-xs absolute-center">
+		            							<div class="absolute-center-item">
+		            								<p class="float-shadow">
+		            									<i class="fa fa-clock-o text-64 text-warning"></i>
+		            								</p>
+		            							</div>
+		            						</li>
+		            						<li class="col-xs-9 col-md-8 helper-block-xs absolute-center">
+		            							<div class="absolute-center-item" style="width:100%">
+			            							<p class="text-left text-ellipsis lead"> Voltas ao Mundo</p>
+		            							</div>
+		            						</li>
+		            					</ul>
+		                    		</div>
+		                    	</div>
+
+
+                <div class="col-md-3 col-sm-6">
+		                    		<div class="hidden-sm hidden-xs box no-border no-shadow text-center bg-cloud">
+		            					<p class="float-shadow">
+		            						<i class="fa fa-bar-chart-o text-64 text-primary"></i>
+		            					</p>
+		            					<p class="text-muted">Mais de 100 Perguntas</p>
+		                    		</div>
+
+		                    		<div class="hidden-lg hidden-md box no-border no-shadow text-center bg-cloud">
+		                    			<ul class="row">
+		            						<li class="col-xs-3 col-md-4 helper-block-xs absolute-center">
+		            							<div class="absolute-center-item">
+		            								<p class="float-shadow">
+		            									<i class="fa fa-bar-chart-o text-64 text-primary"></i>
+		            								</p>
+		            							</div>
+		            						</li>
+		            						<li class="col-xs-9 col-md-8 helper-block-xs absolute-center">
+		            							<div class="absolute-center-item" style="width:100%">
+			            							<p class="text-left text-ellipsis lead">Realtime Report</p>
+		            							</div>
+		            						</li>
+		            					</ul>
+		                    		</div>
+		                    	</div>
+
+                <div class="col-md-3 col-sm-6">
+		                    		<div class="hidden-sm hidden-xs box no-border no-shadow text-center bg-cloud">
+		            					<p class="float-shadow">
+		            						<i class="fa fa-heart text-64 text-danger"></i>
+		            					</p>
+		            					<p class="text-muted">Protege os nossos animais!</p>
+		                    		</div>
+
+		                    		<div class="hidden-lg hidden-md box no-border no-shadow text-center bg-cloud">
+		                    			<ul class="row">
+		            						<li class="col-xs-3 col-md-4 helper-block-xs absolute-center">
+		            							<div class="absolute-center-item">
+		            								<p class="float-shadow">
+		            									<i class="fa fa-heart text-64 text-danger"></i>
+		            								</p>
+		            							</div>
+		            						</li>
+		            						<li class="col-xs-9 col-md-8 helper-block-xs absolute-center">
+		            							<div class="absolute-center-item" style="width:100%">
+			            							<p class="text-left text-ellipsis lead">Protege os animais</p>
+		            							</div>
+		            						</li>
+		            					</ul>
+		                    		</div>
+		                    	</div>
+
+            </div><!--panel-body-->
         </div>
     </div>
 </div>
