@@ -20,23 +20,27 @@
                         <thead>
                             <tr>
                                 <th>Nome Utilizador</th>
-                                <th>Pontuação Máxima</th> <!--A-->
-                                <th>Voltas Realizadas</th>
+                                <th>Pontuação Máxima</th>
+                                <th>Voltas ao Mundo</th>
                                 <th>Jogos Realizados</th>
-                                <th>Número de Derrotas</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            
+                             
                             @foreach (User u in Users){
                                 <tr>
                                 <td> @u.UserName </td>
-                                    
-                                <td> </td>
+                                    @{
+                                        int m=0;
+                                        foreach (Classificacao c in u.Classificacoes){
+                                            if (c.pontos > m) { m = c.pontos; }
+
+                                        }
+                                     }
+                                <td> @m</td>
                                 <td> @u.NrVoltas </td>
                                 <td class="center"> @u.NrJogos </td>
-                                <td class="center"> </td>
                             </tr>
                             }
                         </tbody>
@@ -97,8 +101,12 @@
 		            					<p class="float-shadow">
 		            						<i class="fa fa-clock-o text-64 text-warning"></i>
 		            					</p>
-                                        
-		            					<p class="text-muted"> Voltas ao Mundo</p>
+                                        @{int voltas = 0;
+                                        foreach (User u in Users){
+                                            voltas = voltas + u.NrVoltas;
+                                        }
+                                        }
+		            					<p class="text-muted"> @voltas Voltas ao Mundo</p>
 		                    		</div>
 
 		                    		<div class="hidden-lg hidden-md box no-border no-shadow text-center bg-cloud">
