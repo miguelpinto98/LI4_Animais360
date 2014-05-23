@@ -22,6 +22,6 @@ namespace Animais360.Models
 
         public DbSet<AreaProtegida> AreaProtegidas { get; set; }
 
-        public DbSet<Questao> Questaos { get; set; }
+        public DbSet<Questao> Questoes { get; set; }
     }
 }

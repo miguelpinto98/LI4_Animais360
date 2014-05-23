@@ -1,75 +1,575 @@
-﻿@model Animais360.Models.Questao
+﻿@model Animais360.Models.CreateQuestao
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Adicionar Desafio";
 }
 
-<h2>Create</h2>
+<div class="content">
+    <div class="content-header">
+        <h2 class="content-title"><i class="fa fa-dashboard"></i>Dashboard</h2>
+    </div>
+    <div class="content-body">
+        <div id="panel-tablesorter" class="panel panel-default">
+            <div class="panel-heading bg-white">
+                <h3 class="panel-title" style="color:#F39C12">Adicionar Desafio</h3>
+            </div>
 
-@using (Html.BeginForm()) {
-    @Html.ValidationSummary(true)
+            <div class="row margin-top">
+                <div class="col-md-12 margin-bottom">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#completar" data-toggle="tab">Completar Frase</a></li>
+                        <li><a href="#pergunta" data-toggle="tab">Pergunta</a></li>
+                        <li><a href="#sombras" data-toggle="tab">Sombras</a></li>
+                        <li><a href="#sons" data-toggle="tab">Sons</a></li>
+                        <li><a href="#derradeiro" data-toggle="tab">Derradeiro</a></li>
+                    </ul>
+                </div>
 
-    <fieldset>
-        <legend>Questao</legend>
+                <div class="tab-content">
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.DifQuantitativa)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.DifQuantitativa)
-            @Html.ValidationMessageFor(model => model.DifQuantitativa)
-        </div>
+                    <div id="completar" class="tab-pane active in">
+                        <!-- Tabelas de países que têm as áreas -->
+                        <div class="panel-body">
+                            <div class="content-body">
+                            @using (Html.BeginForm("Create", "Questao", new { id = ViewBag.ID, tipo = 1}, FormMethod.Post, new { @class = "form-horizontal", role = "form", id = ViewBag.ID }))
+                            {
+                                <div data-wizard="">
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary()            
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Pergunta, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-5">
+                                            @Html.TextAreaFor(m => m.Pergunta, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                        </div>
+                                    </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Pergunta)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Pergunta)
-            @Html.ValidationMessageFor(model => model.Pergunta)
-        </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.DifQuantitativa, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-3">
+                                            <select id="DifQuantitativa" name="DifQuantitativa" data-input="selectboxit">
+                                                @for (int i = 1; i <= 10; i++)
+                                                {
+                                                    <option value="@i">@i</option>
+                                                }
+                                                @Html.ValidationMessageFor(m => m.DifQuantitativa)
+                                            </select>
+                                        </div>
+                                    </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Resposta)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Resposta)
-            @Html.ValidationMessageFor(model => model.Resposta)
-        </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Resposta1, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-3">
+                                            @Html.TextBoxFor(m => m.Resposta1, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                        </div>
+                                    </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Hipoteses)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Hipoteses)
-            @Html.ValidationMessageFor(model => model.Hipoteses)
-        </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Resposta2, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-3">
+                                            @Html.TextBoxFor(m => m.Resposta2, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                        </div>
+                                    </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Tipo)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Tipo)
-            @Html.ValidationMessageFor(model => model.Tipo)
-        </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Resposta3, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-3">
+                                            @Html.TextBoxFor(m => m.Resposta3, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                        </div>
+                                    </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Imagem)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Imagem)
-            @Html.ValidationMessageFor(model => model.Imagem)
-        </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Resposta4, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-3">
+                                            @Html.TextBoxFor(m => m.Resposta4, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                        </div>
+                                    </div>
 
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
-}
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Resposta5, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-3">
+                                            @Html.TextBoxFor(m => m.Resposta5, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                        </div>
+                                    </div>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Resposta6, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-3">
+                                            @Html.TextBoxFor(m => m.Resposta6, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.RespCorreta1, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-3">
+                                            @Html.TextBoxFor(m => m.RespCorreta1, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.RespCorreta2, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-3">
+                                            @Html.TextBoxFor(m => m.RespCorreta2, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Ajuda1, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-3">
+                                            @Html.TextBoxFor(m => m.Ajuda1, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Ajuda2, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-3">
+                                            @Html.TextBoxFor(m => m.Ajuda2, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Ajuda3, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-3">
+                                            @Html.TextBoxFor(m => m.Ajuda3, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-3 col-sm-5">
+                                            <input class="btn btn-primary" type="submit" value="Confirmar">
+                                        </div><!--/cols-->
+                                    </div>
+
+                            </div><!-- /wizard -->
+                            }<!-- /form wizard -->
+                            </div><!--/content-body -->
+                        </div>
+                    </div>
+
+                    <div id="pergunta" class="tab-pane">
+                        <!-- Tabelas de países que têm as áreas -->
+                        <div class="panel-body">
+                            <div class="content-body">
+                            @using (Html.BeginForm("Create", "Questao", new { id = ViewBag.ID, tipo = 2}, FormMethod.Post, new { @class = "form-horizontal", role = "form", id = ViewBag.ID }))
+                            {
+                            <div data-wizard="">
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary()
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Pergunta, new { @class = "col-sm-3 control-label" })
+                                    <div class="col-sm-5">
+                                        @Html.TextAreaFor(m => m.Pergunta, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.DifQuantitativa, new { @class = "col-sm-3 control-label" })
+                                    <div class="col-sm-3">
+                                        <select id="DifQuantitativa" name="DifQuantitativa" data-input="selectboxit">
+                                            @for (int i = 1; i <= 10; i++) {
+                                                <option value="@i">@i</option>
+                                            }
+                                            @Html.ValidationMessageFor(m => m.DifQuantitativa)
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Resposta1, new { @class = "col-sm-3 control-label" })
+                                    <div class="col-sm-3">
+                                        @Html.TextBoxFor(m => m.Resposta1, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Resposta2, new { @class = "col-sm-3 control-label" })
+                                    <div class="col-sm-3">
+                                        @Html.TextBoxFor(m => m.Resposta2, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Resposta3, new { @class = "col-sm-3 control-label" })
+                                    <div class="col-sm-3">
+                                        @Html.TextBoxFor(m => m.Resposta3, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Resposta4, new { @class = "col-sm-3 control-label" })
+                                    <div class="col-sm-3">
+                                        @Html.TextBoxFor(m => m.Resposta4, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.RespCorreta1, new { @class = "col-sm-3 control-label" })
+                                    <div class="col-sm-3">
+                                        @Html.TextBoxFor(m => m.RespCorreta1, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Ajuda1, new { @class = "col-sm-3 control-label" })
+                                    <div class="col-sm-3">
+                                        @Html.TextBoxFor(m => m.Ajuda1, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Ajuda2, new { @class = "col-sm-3 control-label" })
+                                    <div class="col-sm-3">
+                                        @Html.TextBoxFor(m => m.Ajuda2, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Ajuda3, new { @class = "col-sm-3 control-label" })
+                                    <div class="col-sm-3">
+                                        @Html.TextBoxFor(m => m.Ajuda3, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-3 col-sm-5">
+                                        <input class="btn btn-primary" type="submit" value="Confirmar">
+                                    </div><!--/cols-->
+                                </div>
+                            </div><!-- /wizard -->
+                            }<!-- /form wizard -->
+                            </div><!--/content-body -->
+                        </div>
+                    </div>
+
+                    <div id="sombras" class="tab-pane">
+                        <!-- Tabelas de países que têm as áreas -->
+                        <div class="panel-body">
+                            <div class="content-body">
+                            @using (Html.BeginForm("Create", "Questao", new { id = ViewBag.ID, tipo = 3}, FormMethod.Post, new { @class = "form-horizontal", role = "form", id = ViewBag.ID }))
+                            {
+                                <div data-wizard="">
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary()
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Pergunta, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-5">
+                                            @Html.TextAreaFor(m => m.Pergunta, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.DifQuantitativa, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-3">
+                                            <select id="DifQuantitativa" name="DifQuantitativa" data-input="selectboxit">
+                                                @for (int i = 1; i <= 10; i++)
+                                                {
+                                                    <option value="@i">@i</option>
+                                                }
+                                                @Html.ValidationMessageFor(m => m.DifQuantitativa)
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Imagem, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-5">
+                                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                <div class="input-group">
+                                                    <div class="form-control uneditable-input span3" data-trigger="fileinput">
+                                                        <i class="glyphicon glyphicon-file fileinput-exists"></i>
+                                                        <span class="fileinput-filename"></span>
+                                                    </div>
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-default fileinput-exists" rel="tooltip" title="remover" data-dismiss="fileinput"><i class="fa fa-times"></i></button>
+                                                        <button class="btn btn-default btn-file">
+                                                            <span class="fileinput-new">Carregar</span>
+                                                            <span class="fileinput-exists">Alterar</span>
+                                                            <input type="file" name="Imagem" id="Imagem">
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div><!-- /fileinput -->
+                                        </div><!-- /cols -->
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Resposta1, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-3">
+                                            @Html.TextBoxFor(m => m.Resposta1, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Resposta2, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-3">
+                                            @Html.TextBoxFor(m => m.Resposta2, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Resposta3, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-3">
+                                            @Html.TextBoxFor(m => m.Resposta3, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Resposta4, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-3">
+                                            @Html.TextBoxFor(m => m.Resposta4, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.RespCorreta1, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-3">
+                                            @Html.TextBoxFor(m => m.RespCorreta1, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Ajuda1, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-3">
+                                            @Html.TextBoxFor(m => m.Ajuda1, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Ajuda2, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-3">
+                                            @Html.TextBoxFor(m => m.Ajuda2, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Ajuda3, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-3">
+                                            @Html.TextBoxFor(m => m.Ajuda3, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-3 col-sm-5">
+                                            <input class="btn btn-primary" type="submit" value="Confirmar">
+                                        </div><!--/cols-->
+                                    </div>
+                            </div><!-- /wizard -->
+                        }<!-- /form wizard -->
+                    </div><!--/content-body -->
+                        </div>
+                    </div>
+
+                    <div id="sons" class="tab-pane">
+                        <!-- Tabelas de países que têm as áreas -->
+                        <div class="panel-body">
+                            <div class="content-body">
+                            @using (Html.BeginForm("Create", "Questao", new { id = ViewBag.ID, tipo = 4}, FormMethod.Post, new { @class = "form-horizontal", role = "form", id = ViewBag.ID }))
+                            {
+                                <div data-wizard="">
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary()
+                                
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Pergunta, new { @class = "col-sm-3 control-label" })
+                                    <div class="col-sm-5">
+                                        @Html.TextAreaFor(m => m.Pergunta, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.DifQuantitativa, new { @class = "col-sm-3 control-label" })
+                                    <div class="col-sm-3">
+                                        <select id="DifQuantitativa" name="DifQuantitativa" data-input="selectboxit">
+                                            @for (int i = 1; i <= 10; i++) {
+                                                <option value="@i">@i</option>
+                                            }
+                                            @Html.ValidationMessageFor(m => m.DifQuantitativa)
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="fileinput_inline">Som *</label>
+                                    <div class="col-sm-5">
+                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                            <div class="input-group">
+                                                <div class="form-control uneditable-input span3" data-trigger="fileinput">
+                                                    <i class="glyphicon glyphicon-file fileinput-exists"></i>
+                                                    <span class="fileinput-filename"></span>
+                                                </div>
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-default fileinput-exists" rel="tooltip" title="remover" data-dismiss="fileinput"><i class="fa fa-times"></i></button>
+                                                    <button class="btn btn-default btn-file">
+                                                        <span class="fileinput-new">Selecione Ficheiro</span>
+                                                        <span class="fileinput-exists">Alterar</span>
+                                                        <input type="file" name="fileinput_widget" id="fileinput_widget">
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div><!-- /fileinput -->
+                                    </div><!-- /cols -->
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Resposta1, new { @class = "col-sm-3 control-label" })
+                                    <div class="col-sm-3">
+                                        @Html.TextBoxFor(m => m.Resposta1, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Resposta2, new { @class = "col-sm-3 control-label" })
+                                    <div class="col-sm-3">
+                                        @Html.TextBoxFor(m => m.Resposta2, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Resposta3, new { @class = "col-sm-3 control-label" })
+                                    <div class="col-sm-3">
+                                        @Html.TextBoxFor(m => m.Resposta3, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Resposta4, new { @class = "col-sm-3 control-label" })
+                                    <div class="col-sm-3">
+                                        @Html.TextBoxFor(m => m.Resposta4, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.RespCorreta1, new { @class = "col-sm-3 control-label" })
+                                    <div class="col-sm-3">
+                                        @Html.TextBoxFor(m => m.RespCorreta1, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Ajuda1, new { @class = "col-sm-3 control-label" })
+                                    <div class="col-sm-3">
+                                        @Html.TextBoxFor(m => m.Ajuda1, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Ajuda2, new { @class = "col-sm-3 control-label" })
+                                    <div class="col-sm-3">
+                                        @Html.TextBoxFor(m => m.Ajuda2, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Ajuda3, new { @class = "col-sm-3 control-label" })
+                                    <div class="col-sm-3">
+                                        @Html.TextBoxFor(m => m.Ajuda3, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                    </div>
+                                </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-5">
+                                    <input class="btn btn-primary" type="submit" value="Confirmar">
+                                </div><!--/cols-->
+                            </div>
+                            </div><!-- /wizard -->
+                            }<!-- /form wizard -->
+                            </div><!--/content-body -->
+                        </div>
+                    </div>
+
+                    <div id="derradeiro" class="tab-pane">
+                        <!-- Tabelas de países que têm as áreas -->
+                        <div class="panel-body">
+                            <div class="content-body">
+                                @using (Html.BeginForm("Create", "Questao", new { id = ViewBag.ID, tipo = 5 }, FormMethod.Post, new { @class = "form-horizontal", role = "form", id = ViewBag.ID }))
+                                {
+                                    <div data-wizard="">
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationSummary()
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.Pergunta, new { @class = "col-sm-3 control-label" })
+                                            <div class="col-sm-5">
+                                                @Html.TextAreaFor(m => m.Pergunta, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.DifQuantitativa, new { @class = "col-sm-3 control-label" })
+                                            <div class="col-sm-3">
+                                                <select id="DifQuantitativa" name="DifQuantitativa" data-input="selectboxit">
+                                                    @for (int i = 1; i <= 10; i++)
+                                                    {
+                                                        <option value="@i">@i</option>
+                                                    }
+                                                    @Html.ValidationMessageFor(m => m.DifQuantitativa)
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.Resposta1, new { @class = "col-sm-3 control-label" })
+                                            <div class="col-sm-3">
+                                                @Html.TextBoxFor(m => m.Resposta1, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.Resposta2, new { @class = "col-sm-3 control-label" })
+                                            <div class="col-sm-3">
+                                                @Html.TextBoxFor(m => m.Resposta2, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.Resposta3, new { @class = "col-sm-3 control-label" })
+                                            <div class="col-sm-3">
+                                                @Html.TextBoxFor(m => m.Resposta3, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.Resposta4, new { @class = "col-sm-3 control-label" })
+                                            <div class="col-sm-3">
+                                                @Html.TextBoxFor(m => m.Resposta4, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.RespCorreta1, new { @class = "col-sm-3 control-label" })
+                                            <div class="col-sm-3">
+                                                @Html.TextBoxFor(m => m.RespCorreta1, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.Ajuda1, new { @class = "col-sm-3 control-label" })
+                                            <div class="col-sm-3">
+                                                @Html.TextBoxFor(m => m.Ajuda1, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.Ajuda2, new { @class = "col-sm-3 control-label" })
+                                            <div class="col-sm-3">
+                                                @Html.TextBoxFor(m => m.Ajuda2, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.Ajuda3, new { @class = "col-sm-3 control-label" })
+                                            <div class="col-sm-3">
+                                                @Html.TextBoxFor(m => m.Ajuda3, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-3 col-sm-5">
+                                                <input class="btn btn-primary" type="submit" value="Confirmar">
+                                            </div><!--/cols-->
+                                        </div>
+                                    </div><!-- /wizard -->
+                                }<!-- /form wizard -->
+                            </div><!--/content-body -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

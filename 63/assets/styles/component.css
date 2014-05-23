@@ -104,7 +104,8 @@
 	padding: 10px 0;
 	width:190px;
 	height:40px;
-	margin-left:30px;
+	color:#F39C12;
+	margin-left:35px;
 	margin-right:20px;
 	margin-bottom:10px;
 	margin-top:20px;
@@ -126,7 +127,7 @@
 	display:block;
 	clear: both;
 	margin:0;
-	color: #333;
+	color:#F39C12;
 	cursor: pointer;
 	overflow: hidden;
 }
