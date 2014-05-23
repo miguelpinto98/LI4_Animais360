@@ -48,12 +48,10 @@ namespace Animais360.Models
         [Required]
         [Display(Name = "Opção de Resposta 4*")]
         public string Resposta4 { get; set; }
-
-        [Required]
+      
         [Display(Name = "Opção de Resposta 5*")]
         public string Resposta5 { get; set; }
 
-        [Required]
         [Display(Name = "Opção de Resposta 6*")]
         public string Resposta6 { get; set; }
 
@@ -61,7 +59,6 @@ namespace Animais360.Models
         [Display(Name = "Resposta 1*")]
         public string RespCorreta1 { get; set; }
 
-        [Required]
         [Display(Name = "Resposta 2*")]
         public string RespCorreta2 { get; set; }
 
@@ -76,5 +73,8 @@ namespace Animais360.Models
         [Required]
         [Display(Name = "Ajuda 3 [URL]*")]
         public string Ajuda3 { get; set; }
+
+        [Display(Name = "Imagem *")]
+        public string Imagem { get; set; }
     }
 }

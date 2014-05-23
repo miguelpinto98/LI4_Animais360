@@ -6,6 +6,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Animais360.Models;
+using System.IO;
+using System.Collections.Generic;
+
 
 namespace Animais360.Controllers
 {
@@ -62,6 +65,35 @@ namespace Animais360.Controllers
                     q.Resposta = questao.RespCorreta1 + ";" + questao.RespCorreta2;
                     q.Hipoteses = questao.Resposta1 + ";" + questao.Resposta2 +";"+questao.Resposta3 + ";" + questao.Resposta4 +";"+questao.Resposta5 + ";" + questao.Resposta6;
                     q.Tipo = tipo;
+                } else {
+                    if (tipo == 2) {
+                        q.Resposta = questao.RespCorreta1;
+                        q.Hipoteses = questao.Resposta1 + ";" + questao.Resposta2 + ";" + questao.Resposta3 + ";" + questao.Resposta4;
+                        q.Tipo = tipo;
+                    } else {
+                        if (tipo == 3) {
+                            q.Resposta = questao.RespCorreta1;
+                            q.Hipoteses = questao.Resposta1 + ";" + questao.Resposta2 + ";" + questao.Resposta3 + ";" + questao.Resposta4;
+                            q.Imagem = "/../images/desafios/" + questao.Imagem;
+                            q.Tipo = tipo;
+                        } else {
+                            if (tipo == 4) {
+                                q.Resposta = questao.RespCorreta1;
+                                q.Hipoteses = questao.Resposta1 + ";" + questao.Resposta2 + ";" + questao.Resposta3 + ";" + questao.Resposta4;
+                                
+                                q.Tipo = tipo;
+                            } else {
+                                if (tipo == 5) {
+                                    q.Resposta = questao.RespCorreta1;
+                                    q.Hipoteses = questao.Resposta1 + ";" + questao.Resposta2 + ";" + questao.Resposta3 + ";" + questao.Resposta4;
+
+                                    q.Tipo = tipo;
+                                } else {
+                                    return HttpNotFound();
+                                }
+                            } 
+                        }
+                    }
                 }
                 q.AreaProtegida = db.AreaProtegidas.Find(id);
                 q.AreaProtegida.Questoes.Add(q);
