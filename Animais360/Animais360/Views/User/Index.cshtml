@@ -2,7 +2,6 @@
 @using Animais360.Models
 @{
     IList<User> Users = ViewBag.Users;
-    IList<Classificacao> Classificacoes = ViewBag.Classificacoes;
 }
 
 <div class="content">
@@ -33,11 +32,11 @@
                             @foreach (User u in Users){
                                 <tr>
                                 <td> @u.UserName </td>
-
-                                <td> @u.NrJogos </td>
+                                    
+                                <td> </td>
                                 <td> @u.NrVoltas </td>
                                 <td class="center"> @u.NrJogos </td>
-                                <td class="center"> XXX </td>
+                                <td class="center"> </td>
                             </tr>
                             }
                         </tbody>
@@ -72,7 +71,7 @@
 		            					<p class="float-shadow">
 		            						<i class="fa fa-tasks text-64 text-info"></i>
 		            					</p>
-		            					<p class="text-muted">X Utilizadores Registados</p>
+		            					<p class="text-muted">@Users.Count() Utilizadores Registados</p>
 		                    		</div>
 
 		                    		<div class="hidden-lg hidden-md box no-border no-shadow text-center bg-cloud">
@@ -86,7 +85,7 @@
 		            						</li>
 		            						<li class="col-xs-9 col-md-8 helper-block-xs absolute-center">
 		            							<div class="absolute-center-item" style="width:100%">
-			            							<p class="text-left text-ellipsis lead">X Utilizadores Registados</p>
+			            							<p class="text-left text-ellipsis lead">Utilizadores Registados</p>
 		            							</div>
 		            						</li>
 		            					</ul>
@@ -98,8 +97,9 @@
 		            					<p class="float-shadow">
 		            						<i class="fa fa-clock-o text-64 text-warning"></i>
 		            					</p>
-		            					<p class="text-muted">X Voltas ao Mundo</p>
-		                    		</div><!--/as feature item-->
+                                        
+		            					<p class="text-muted"> Voltas ao Mundo</p>
+		                    		</div>
 
 		                    		<div class="hidden-lg hidden-md box no-border no-shadow text-center bg-cloud">
 		                    			<ul class="row">
@@ -112,7 +112,7 @@
 		            						</li>
 		            						<li class="col-xs-9 col-md-8 helper-block-xs absolute-center">
 		            							<div class="absolute-center-item" style="width:100%">
-			            							<p class="text-left text-ellipsis lead">@ViewBag.nVoltas Voltas ao Mundo</p>
+			            							<p class="text-left text-ellipsis lead"> Voltas ao Mundo</p>
 		            							</div>
 		            						</li>
 		            					</ul>
@@ -125,7 +125,7 @@
 		            					<p class="float-shadow">
 		            						<i class="fa fa-bar-chart-o text-64 text-primary"></i>
 		            					</p>
-		            					<p class="text-muted">Mais de X Perguntas</p>
+		            					<p class="text-muted">Mais de 100 Perguntas</p>
 		                    		</div>
 
 		                    		<div class="hidden-lg hidden-md box no-border no-shadow text-center bg-cloud">
@@ -151,7 +151,7 @@
 		            					<p class="float-shadow">
 		            						<i class="fa fa-heart text-64 text-danger"></i>
 		            					</p>
-		            					<p class="text-muted">Protege os animais</p>
+		            					<p class="text-muted">Protege os nossos animais!</p>
 		                    		</div>
 
 		                    		<div class="hidden-lg hidden-md box no-border no-shadow text-center bg-cloud">
