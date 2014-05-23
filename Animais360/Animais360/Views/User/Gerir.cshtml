@@ -43,7 +43,7 @@
                                 <td> @item.UserName </td>
                                 <td> @item.Tipo </td>
                                 <td style="padding:3px; width:300px;">
-                                    <div class="" style="margin-left:35px;">
+                                    <div class="" style="margin-left:25px;">
                                         <li class="btn btn-success" style="width:88px;">
                                             <a href="@Url.Action("Perfil", "User")/@item.UserId" style="color:white">
                                                 <i class="fa fa-eye fa-fw" style="margin-left:-53px;"> Ver Perfil</i>
@@ -65,14 +65,14 @@
                                         }
                                         @if(!banido){
                                         <li class="btn btn-danger" style="width:80px;">
-                                            <a href="jogo.php.html" style="color:white">
+                                            <a href="@Url.Action("Editar","User")/@item.UserId" style="color:white">
                                                 <i class="fa fa-trash-o fa-fw" style="margin-left:-25px;"> Banir</i>
                                             </a>
                                         </li>}
                                         else{
-                                        <li class="btn btn-danger" style="width:80px;">
-                                            <a href="jogo.php.html" style="color:white">
-                                                <i class="fa fa-trash-o fa-fw" style="margin-left:-25px;"> Ativar</i>
+                                        <li class="btn btn-warning" style="width:80px;">
+                                            <a href="@Url.Action("Editar","User")/@item.UserId" style="color:white">
+                                                <i class="fa fa-check-circle" style="margin-left:-0px;"> Ativar</i>
                                             </a>
                                         </li>
                                         }
