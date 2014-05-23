@@ -4,6 +4,7 @@
 @{
     ViewBag.Title = "Gerir";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+
 }
 
 <div class="content">
@@ -44,23 +45,37 @@
                                 <td style="padding:3px; width:300px;">
                                     <div class="" style="margin-left:35px;">
                                         <li class="btn btn-success" style="width:88px;">
-                                            <a href="#" style="color:white">
+                                            <a href="@Url.Action("Perfil", "User")/@item.UserId" style="color:white">
                                                 <i class="fa fa-eye fa-fw" style="margin-left:-53px;"> Ver Perfil</i>
                                             </a>
                                         </li>
 
 
                                         <li class="btn btn-info" style="width:70px;">
-                                            <a href="jogo.php.html" style="color:white">
+                                            <a href="@Url.Action("Edit","User")/@item.UserId" style="color:white">
                                                 <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
                                             </a>
                                         </li>
-
+                                        @{
+                                            bool banido = false;
+                                            if (@item.Estado != 0)
+                                            {
+                                            banido = true;
+                                            }
+                                        }
+                                        @if(!banido){
                                         <li class="btn btn-danger" style="width:80px;">
                                             <a href="jogo.php.html" style="color:white">
                                                 <i class="fa fa-trash-o fa-fw" style="margin-left:-25px;"> Banir</i>
                                             </a>
+                                        </li>}
+                                        else{
+                                        <li class="btn btn-danger" style="width:80px;">
+                                            <a href="jogo.php.html" style="color:white">
+                                                <i class="fa fa-trash-o fa-fw" style="margin-left:-25px;"> Ativar</i>
+                                            </a>
                                         </li>
+                                        }
                                     </div>
                                 </td>
                             </tr>

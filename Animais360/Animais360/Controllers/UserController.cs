@@ -10,6 +10,7 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using Animais360.Filters;
 using Animais360.Models;
+using System.Data;
 
 namespace Animais360.Controllers
 {
@@ -58,6 +59,29 @@ namespace Animais360.Controllers
             ViewBag.Tipo = us.Tipo;
 
             return View(db.Users.ToList());
+        }
+
+        public ActionResult Edit(int id = 0)
+        {
+            User us = db.Users.Find(id);
+            if (us == null)
+            {
+                return HttpNotFound();
+            }
+            return View(us);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(user).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index","User");
+            }
+            return View(user);
         }
 
         public ActionResult Create() {
@@ -178,7 +202,7 @@ namespace Animais360.Controllers
             if (ownerAccount == User.Identity.Name)
             {
                 // Use a transaction to prevent the user from deleting their last login credential
-                using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.Serializable }))
+                using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = System.Transactions.IsolationLevel.Serializable }))
                 {
                     bool hasLocalAccount = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
                     if (hasLocalAccount || OAuthWebSecurity.GetAccountsFromUserName(User.Identity.Name).Count > 1)
