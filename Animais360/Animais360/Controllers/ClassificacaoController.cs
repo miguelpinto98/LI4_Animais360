@@ -37,8 +37,7 @@ namespace Animais360.Controllers
         //
         // GET: /Classificacao/Create
 
-        public ActionResult Create()
-        {
+        public ActionResult Create() {
             return View();
         }
 

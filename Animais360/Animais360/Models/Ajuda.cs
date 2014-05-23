@@ -12,5 +12,6 @@ namespace Animais360.Models
         public int AjudaID { get; set; }
         public int Grau { get; set; }
         public string Pista { get; set; }
+        public virtual Questao Questao { get; set; }
     }
 }

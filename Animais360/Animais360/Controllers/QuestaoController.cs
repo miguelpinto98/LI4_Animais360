@@ -52,14 +52,31 @@ namespace Animais360.Controllers
         // POST: /Questao/Create
 
         [HttpPost]
-        public ActionResult Create(Questao questao)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Questoes.Add(questao);
+        public ActionResult Create(int id, int tipo, CreateQuestao questao) {
+            if (ModelState.IsValid) {
+
+                Questao q = new Questao();
+                q.DifQuantitativa = questao.DifQuantitativa;
+                q.Pergunta = questao.Pergunta;
+                if (tipo == 1) {
+                    q.Resposta = questao.RespCorreta1 + ";" + questao.RespCorreta2;
+                    q.Hipoteses = questao.Resposta1 + ";" + questao.Resposta2 +";"+questao.Resposta3 + ";" + questao.Resposta4 +";"+questao.Resposta5 + ";" + questao.Resposta6;
+                    q.Tipo = tipo;
+                }
+                q.AreaProtegida = db.AreaProtegidas.Find(id);
+                q.AreaProtegida.Questoes.Add(q);
+               
+                Ajuda aj = new Ajuda();
+                aj.Grau = 1;
+                aj.Pista = questao.Ajuda1 +";"+questao.Ajuda2+";"+questao.Ajuda3;
+                aj.Questao = q;
+                db.Ajudas.Add(aj);
+               
+                db.Questoes.Add(q);
                 db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                
+                return RedirectToAction("Index", "Questao", new { id = id });
+            } 
 
             return View(questao);
         }

@@ -23,11 +23,58 @@ namespace Animais360.Models
 
     public class CreateQuestao {
         [Required]
+        public int Tipo { get; set; }
+
+        [Required]
         [Display(Name="Pergunta *")]
         public string Pergunta { get; set; }
 
         [Required]
         [Display(Name = "Dificuldade Quantitativa *")]
         public int DifQuantitativa { get; set; }
+
+        [Required]
+        [Display(Name = "Opção de Resposta 1*")]
+        public string Resposta1 { get; set; }
+        
+        [Required]
+        [Display(Name = "Opção de Resposta 2*")]
+        public string Resposta2 { get; set; }
+
+        [Required]
+        [Display(Name = "Opção de Resposta 3*")]
+        public string Resposta3 { get; set; }
+
+        [Required]
+        [Display(Name = "Opção de Resposta 4*")]
+        public string Resposta4 { get; set; }
+
+        [Required]
+        [Display(Name = "Opção de Resposta 5*")]
+        public string Resposta5 { get; set; }
+
+        [Required]
+        [Display(Name = "Opção de Resposta 6*")]
+        public string Resposta6 { get; set; }
+
+        [Required]
+        [Display(Name = "Resposta 1*")]
+        public string RespCorreta1 { get; set; }
+
+        [Required]
+        [Display(Name = "Resposta 2*")]
+        public string RespCorreta2 { get; set; }
+
+        [Required]
+        [Display(Name = "Ajuda 1 [Pista]*")]
+        public string Ajuda1 { get; set; }
+
+        [Required]
+        [Display(Name = "Ajuda 2 [50:50]*")]
+        public string Ajuda2 { get; set; }
+
+        [Required]
+        [Display(Name = "Ajuda 3 [URL]*")]
+        public string Ajuda3 { get; set; }
     }
 }
