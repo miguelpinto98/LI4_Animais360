@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="assets/styles/9281c719.vendor.css"/>       
         <link rel="stylesheet" href="assets/styles/3fc417cd.main.css"/>      
         <link rel="stylesheet" href="assets/styles/component.css"/>
+        <link rel="stylesheet" href="assets/styles/main.css"/>
+        <link rel="stylesheet" href="assets/styles/reset.css"/>
 
         <style type="text/css">
             #map_canvas { width: 1150px; height: 600px;}
@@ -24,15 +26,23 @@
     <body>
 
         <div class="md-modal md-effect-16" id="question-dialog">
-            <div class="md-content">
-                <h3>asdasdasdasdasda dqweqweqwrqefasfasvsd asdasdasdasdasfasd?</h3>
-                <div>
-                    <ul>
-                        <li><a href="">asdasdasdasd</a></li>
-                        <li><a href="">asdasdasdasd</a></li>
-                        <li><a href="">asdasdasdasd</a></li>
-                        <li><a href="">asdasdasdasd</a></li>
+            <div class="md-content container">
+                <h3>blablabla 
+                    <div id="drop-target-one">
+                        ____
+                     </div> blablabla
+                 
+                </h3>
+          
+                <div id="dd-elements" class="clearfix">
+                    <ul id="drag-elements">
+                        <li draggable="true">a</li>
+                        <li draggable="true">b</li>
+                        <li draggable="true">c</li>
+                        <li draggable="true">asdasdasdasd</li>
                     </ul>
+
+                    
                 </div>
             </div>
         </div>
@@ -153,6 +163,7 @@
              <script src="assets/scripts/classie.js"></script>
              <script src="assets/scripts/modalEffects.js"></script>
              <script src="assets/scripts/google.js"></script>
+             <script src="assets/scripts/demo.js"></script>
         <!-- ========================= javascript ============================= -->
 
     </body>
