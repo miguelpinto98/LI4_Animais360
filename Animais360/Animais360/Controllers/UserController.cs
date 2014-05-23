@@ -71,6 +71,26 @@ namespace Animais360.Controllers
             return View(us);
         }
 
+        public ActionResult Editar(int id = -9999)
+        {
+
+            if (id == -9999)
+                return HttpNotFound();
+
+            User u = db.Users.Find(id);
+
+            if (ModelState.IsValid)
+            {
+
+                if (u.Estado == 1) u.Estado = 0;
+                else u.Estado = 1;
+                db.Entry(u).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Gerir", "User");
+            }
+            return View(u);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(User user)

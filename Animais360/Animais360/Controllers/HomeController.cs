@@ -15,7 +15,7 @@ namespace Animais360.Controllers
             if (!Request.IsAuthenticated) {
                 List<User> utilizadores = db.Users.Where(u => u.Estado == 1).ToList();
                 ViewBag.numero = db.Users.Count();
-                ViewBag.last = "";//db.Users.OrderByDescending(u => u.DataRegisto.ToShortDateString()).ThenByDescending(u => u.DataRegisto.ToShortTimeString()).ToList();
+                ViewBag.last = db.Users.OrderByDescending(u => u.DataRegisto).ToList();
                 int voltas = 0;
                 foreach (User u in utilizadores)
                 {
