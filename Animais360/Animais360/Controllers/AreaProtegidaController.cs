@@ -50,16 +50,34 @@ namespace Animais360.Controllers
         // POST: /AreaProtegida/Create
 
         [HttpPost]
-        public ActionResult Create(AreaProtegida areaprotegida)
+        public ActionResult Create(AreaProtegida ap)
         {
-            if (ModelState.IsValid)
-            {
-                db.AreaProtegidas.Add(areaprotegida);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            if (ModelState.IsValid) {
+                AreaProtegida area = new AreaProtegida();
+                area.AreaNome = ap.AreaNome;
+                area.Descricao = ap.Descricao;
+                area.Latitude = ap.Latitude;
+                area.Longitude = ap.Longitude;
 
-            return View(areaprotegida);
+                if (ap.IdContinente != 0 && !ap.NomePais.Equals("")) {
+                    if(ap.IdPais==1) {
+                        Pais p = new Pais();
+                        p.PaisNome = ap.NomePais;
+                        p.Continente = db.Continentes.Find(ap.IdContinente);
+                        db.Pais.Add(p);
+                    } else {
+                        return View(ap);
+                    }
+                } else {
+                    area.Pais = db.Pais.Find(ap.IdPais);
+                }
+                area.Permitida = 0;
+                
+                db.AreaProtegidas.Add(area);
+                db.SaveChanges();
+                return RedirectToAction("Index","AreaProtegida");
+            }
+            return View(ap);
         }
 
         //

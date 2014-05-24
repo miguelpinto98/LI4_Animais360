@@ -4,8 +4,7 @@
 @{
     IList<Continente> Continentes = ViewBag.Continentes;
     IList<Pais> Paises = ViewBag.Paises;
-    string str = null;
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Adicionar Área Protegida";
 }
 
 <div class="content">
@@ -28,39 +27,42 @@
                     <div data-wizard="">
                         <section>
                             <div class="form-group">
-                                @Html.LabelFor(m => m.AreaNome, new { @class = "col-sm-3 control-label" })
+                                @Html.LabelFor(mo => mo.AreaNome, new { @class = "col-sm-3 control-label" })
                                 <div class="col-sm-5">
                                     @Html.TextBoxFor(m => m.AreaNome, new { @class = "form-control", id = "Input", required = "", autocomplete = "on" })
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Continente *</label>
+                                @Html.LabelFor(m => m.IdPais, new { @class = "col-sm-3 control-label" })
                                 <div class="col-sm-5">
-                                    <select data-input="selectboxit" placeholder="Selecionar">
-                                        @foreach (Continente c in Continentes) { 
-                                            <option value="@c.ContinenteId"> @c.ContinenteName </option>
+                                    <select id="IdPais" name="IdPais" data-input="selectboxit">
+                                        @foreach (Continente c in Continentes) {
+                                            <optgroup label="@c.ContinenteName">
+                                                @foreach (Pais p in Paises.Where(x => x.Continente.ContinenteId == c.ContinenteId)) {
+                                                    <option value="@p.PaisID"> @p.PaisNome </option>
+                                                }
+                                            </optgroup>
                                         }
                                     </select>
                                 </div> 
                             </div>
+
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">País *</label>
-                                <div class="col-sm-5">
-                                    <select data-input="selectboxit" placeholder="Selecionar">
-                                        <option value="AK">Alaska</option>
-                                        <option value="HI">Hawaii</option>
-                                        <option value="CA">California</option>
-                                        <option value="NV">Nevada</option>
-                                        <option value="OR">Oregon</option>
-                                        <option value="WA">Washington</option>
+                                @Html.LabelFor(m => m.IdContinente, new { @class = "col-sm-3 control-label" })
+                                <div class="col-sm-2">
+                                    <select id="IdContinente" name="IdContinente" data-input="selectboxit" placeholder="Continente">
+                                        <option value="0" selected=""></option>
+                                        @foreach (Continente c in Continentes) {
+                                            <option value="@c.ContinenteId"> @c.ContinenteName </option>
+                                        }
                                     </select>
-                                </div><!--/cols-->
+                                </div>
                                 <div class="col-sm-3">
-                                    <input type="text" class="form-control" id="input" placeholder="Insira novo país">
+                                    @Html.TextBoxFor(m => m.NomePais, new { @class = "form-control", id = "NomePais", autocomplete = "on" })
                                 </div>
                             </div>
-
+                            
                             <div class="form-group">
                                 @Html.LabelFor(m => m.Latitude, new { @class = "col-sm-3 control-label" })
                                 <div class="col-sm-5">
