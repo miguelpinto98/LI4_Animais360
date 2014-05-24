@@ -1,73 +1,86 @@
 ﻿@model Animais360.Models.Questao
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar";
 }
 
-<h2>Edit</h2>
+<div class="content">
+    <div class="content-header">
+        <h2 class="content-title"><i class="fa fa-dashboard"></i>Dashboard</h2>
+    </div>
+    <div class="content-body">
+        <div id="panel-tablesorter" class="panel panel-default">
+            <div class="panel-heading bg-white">
+                <h3 class="panel-title" style="color:#F39C12">Editar Desafio</h3>
+            </div>
 
-@using (Html.BeginForm()) {
-    @Html.ValidationSummary(true)
+            <div class="panel-body">
+                <div class="content-body">
+                    @using (Html.BeginForm("Edit", "Questao", new { id = ViewBag.ID }, FormMethod.Post, new { @class = "form-horizontal", role = "form", id = ViewBag.ID }))
+                    {
+                        @Html.HiddenFor(m => m.QuestaoID)
 
-    <fieldset>
-        <legend>Questao</legend>
+                        <div data-wizard="">
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary()
 
-        @Html.HiddenFor(model => model.QuestaoID)
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Pergunta, new { @class = "col-sm-3 control-label" })
+                                <div class="col-sm-5">
+                                    @Html.EditorFor(m => m.Pergunta, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                </div>
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.DifQuantitativa)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.DifQuantitativa)
-            @Html.ValidationMessageFor(model => model.DifQuantitativa)
-        </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.DifQuantitativa, new { @class = "col-sm-3 control-label" })
+                                <div class="col-sm-2">
+                                    <select id="DifQuantitativa" name="DifQuantitativa" data-input="selectboxit">
+                                        @for (int i = 1; i <= 10; i++)
+                                        {
+                                            if (Model.DifQuantitativa == i)
+                                            {
+                                                <option value="@i" selected=""> @i </option>
+                                            }
+                                            else
+                                            {
+                                                <option value="@i">@i</option>
+                                            }
+                                        }
+                                        @Html.ValidationMessageFor(m => m.DifQuantitativa)
+                                    </select>
+                                </div>
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Pergunta)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Pergunta)
-            @Html.ValidationMessageFor(model => model.Pergunta)
-        </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Hipoteses, new { @class = "col-sm-3 control-label" })
+                                <div class="col-sm-3">
+                                    @Html.EditorFor(m => m.Hipoteses, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                </div>
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Resposta)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Resposta)
-            @Html.ValidationMessageFor(model => model.Resposta)
-        </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Resposta, new { @class = "col-sm-3 control-label" })
+                                <div class="col-sm-3">
+                                    @Html.EditorFor(m => m.Resposta, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                </div>
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Hipoteses)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Hipoteses)
-            @Html.ValidationMessageFor(model => model.Hipoteses)
-        </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.HipAjuda, new { @class = "col-sm-3 control-label" })
+                                <div class="col-sm-3">
+                                    @Html.EditorFor(m => m.HipAjuda, new { @class = "form-control", id = "input", required = "", autocomplete = "on" })
+                                </div>
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Tipo)
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-5">
+                                    <input class="btn btn-primary" type="submit" value="Confirmar">
+                                </div><!--/cols-->
+                            </div>
+                        </div><!-- /wizard -->
+                    }<!-- /form wizard -->
+                </div><!--/content-body -->
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Tipo)
-            @Html.ValidationMessageFor(model => model.Tipo)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Imagem)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Imagem)
-            @Html.ValidationMessageFor(model => model.Imagem)
-        </div>
-
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-    </fieldset>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    </div>
 </div>

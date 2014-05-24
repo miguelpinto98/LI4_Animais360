@@ -13,7 +13,7 @@
             <div class="panel-heading bg-white">
                 <div class="panel-actions">
                     <li class="btn-panel">
-                        <a href="@Url.Action("Create", "Questao", new { id = ViewBag.ID })" style="color:white">
+                        <a href="@Url.Action("Create", "Questao", new { id = ViewBag.ID })" style="color:#333">
                             <i class="fa fa-plus"> &nbsp&nbspAdicionar Desafio</i>
                         </a>
                     </li>
@@ -28,6 +28,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Desafio</th>
+                                <th>Dificuldade</th>
                                 <th>Tipo</th>
                             </tr>
                         </thead>
@@ -37,11 +38,29 @@
                             <tr>
                                 <td> @item.QuestaoID </td>
                                 <td> @item.Pergunta </td> 
-                                <td> @item.Tipo </td>       
+                                <td> @item.DifQuantitativa </td>
+
+                                @if (@item.Tipo == 1) {
+                                    <td> Completar Frase </td>
+                                } else {
+                                    if (@item.Tipo == 2) {
+                                        <td> Pergunta </td>
+                                    } else {
+                                        if (@item.Tipo == 3) {
+                                            <td> Sombras </td>
+                                        } else {
+                                            if (@item.Tipo == 4) {
+                                                <td> Sons </td>
+                                            } else {
+                                                <td> Derradeiro </td>
+                                            } 
+                                        }
+                                    }
+                                }
                                 <td style="padding:3px; width:230px;">
                                     <div class="" style="margin-left:25px;">
                                         <li class="btn btn-info" style="width:80px;">
-                                            <a href="@Url.Action("Edit", "Questao", new { id = item.QuestaoID })" style="color:white">
+                                            <a href="@Url.Action("Edit", "Questao", new { id = item.QuestaoID , tipo = item.Tipo })" style="color:white">
                                                 <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
                                             </a>
                                         </li>

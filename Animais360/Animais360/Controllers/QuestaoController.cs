@@ -114,9 +114,13 @@ namespace Animais360.Controllers
         //
         // GET: /Questao/Edit/5
 
-        public ActionResult Edit(int id = 0)
-        {
+        public ActionResult Edit(int id = 0, int tipo=0) {
             Questao questao = db.Questoes.Find(id);
+            ViewBag.ID = id;
+
+            Ajuda a = db.Ajudas.Where(x => x.Questao.QuestaoID == questao.QuestaoID).First();
+            questao.HipAjuda = a.Pista;
+
             if (questao == null)
             {
                 return HttpNotFound();
@@ -128,13 +132,21 @@ namespace Animais360.Controllers
         // POST: /Questao/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Questao questao)
+        public ActionResult Edit(int id, Questao questao)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(questao).State = EntityState.Modified;
+                Questao q = db.Questoes.Find(questao.QuestaoID);
+                q.DifQuantitativa = questao.DifQuantitativa;
+                q.Hipoteses = questao.Hipoteses;
+                q.Pergunta = questao.Pergunta;
+                q.Resposta = questao.Resposta;
+
+                Ajuda a = db.Ajudas.Where(x => x.Questao.QuestaoID == q.QuestaoID).First();
+                a.Pista = questao.HipAjuda;
+
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Questao", new { id = q.AreaProtegida.AreaProtegidaID });
             }
             return View(questao);
         }
@@ -159,9 +171,15 @@ namespace Animais360.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Questao questao = db.Questoes.Find(id);
+            int x = questao.AreaProtegida.AreaProtegidaID;
+
+            IList<Ajuda> ajs = questao.Ajudas.Where(m => m.Questao.QuestaoID == id).ToList();
+            foreach(Ajuda a in ajs) {
+                db.Ajudas.Remove(a);
+            }
             db.Questoes.Remove(questao);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Questao", new { id = x});
         }
 
         protected override void Dispose(bool disposing)

@@ -19,6 +19,9 @@ namespace Animais360.Models
         public string Imagem { get; set; }
         public virtual AreaProtegida AreaProtegida { get; set; }
         public virtual ICollection<Ajuda> Ajudas { get; set; }
+
+        [NotMapped]
+        public virtual string HipAjuda { get; set; }
     }
 
     public class CreateQuestao {

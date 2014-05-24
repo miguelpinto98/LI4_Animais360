@@ -15,7 +15,7 @@ namespace Animais360
 
             routes.MapRoute(
                 name: "CreateQuestao",
-                url: "Questao/Create/{id}/{tipo}",
+                url: "Questao/{action}/{id}/{tipo}",
                 defaults: new { controller = "Questao", action = "Create", tipo = UrlParameter.Optional }
             );
 
