@@ -100,7 +100,7 @@ namespace Animais360.Controllers
             {
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index","User");
+                return RedirectToAction("Gerir","User");
             }
             return View(user);
         }
