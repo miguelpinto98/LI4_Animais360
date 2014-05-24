@@ -123,8 +123,6 @@ function initialize() {
     //Fazer info no make
     google.maps.event.addListener(marker, 'click', function() {infoWindow.open(map,marker);});
 
-    google.maps.event.addListener(function(){document.getElementById('open');});
-
 
 
     //CAIXA
@@ -136,7 +134,14 @@ function initialize() {
 
 
 google.maps.event.addDomListener(window, 'load', initialize);
-//google.maps.event.addDomListener(window, 'load', function(){document.getElementById('dialog-anchor').click();});
+google.maps.event.addDomListener(window, 'load', function(){document.getElementById('dialog-anchor').click();});
+
+
+if (typeof countitroundinstance === "undefined") {var countitroundinstance = [];}
+        countitroundinstance.push({"unique":"countitround_LTSGPIDRAB","startdate":"0","enddate":"30","now":"0","color4":"#F39C12","backgroundcolor4":"#34495E","glowwidth4":"0","backgroundwidth4":"1","frontwidth4":"4","size4":"30"});
+      
+
+
 
 
 (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

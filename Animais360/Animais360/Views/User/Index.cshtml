@@ -105,8 +105,9 @@
                                         foreach (User u in Users){
                                             voltas = voltas + u.NrVoltas;
                                         }
-                                        }
+                                        
 		            					<p class="text-muted"> @voltas Voltas ao Mundo</p>
+                                        }
 		                    		</div>
 
 		                    		<div class="hidden-lg hidden-md box no-border no-shadow text-center bg-cloud">
@@ -133,7 +134,13 @@
 		            					<p class="float-shadow">
 		            						<i class="fa fa-bar-chart-o text-64 text-primary"></i>
 		            					</p>
-		            					<p class="text-muted">Mais de 100 Perguntas</p>
+                                         @{int jogosR = 0;
+                                        foreach (User u in Users){
+                                            jogosR = jogosR + u.NrJogos;
+                                        }
+                                        
+		            					<p class="text-muted">@jogosR Jogos Realizados</p>
+                                         }
 		                    		</div>
 
 		                    		<div class="hidden-lg hidden-md box no-border no-shadow text-center bg-cloud">
