@@ -194,74 +194,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201405140021572_AddAvatarToUserProfile.cs" />
-    <Compile Include="Migrations\201405140021572_AddAvatarToUserProfile.Designer.cs">
-      <DependentUpon>201405140021572_AddAvatarToUserProfile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405140907387_UserRedefined.cs" />
-    <Compile Include="Migrations\201405140907387_UserRedefined.Designer.cs">
-      <DependentUpon>201405140907387_UserRedefined.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405140921284_MudancaIniatialize.cs" />
-    <Compile Include="Migrations\201405140921284_MudancaIniatialize.Designer.cs">
-      <DependentUpon>201405140921284_MudancaIniatialize.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405142011524_adsasd.cs" />
-    <Compile Include="Migrations\201405142011524_adsasd.Designer.cs">
-      <DependentUpon>201405142011524_adsasd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405142039513_ContinentesAndPaises.cs" />
-    <Compile Include="Migrations\201405142039513_ContinentesAndPaises.Designer.cs">
-      <DependentUpon>201405142039513_ContinentesAndPaises.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405192300114_JogoToModels.cs" />
-    <Compile Include="Migrations\201405192300114_JogoToModels.Designer.cs">
-      <DependentUpon>201405192300114_JogoToModels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405192336518_JogoToModels1.cs" />
-    <Compile Include="Migrations\201405192336518_JogoToModels1.Designer.cs">
-      <DependentUpon>201405192336518_JogoToModels1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405192343454_ClassificacaoToUser.cs" />
-    <Compile Include="Migrations\201405192343454_ClassificacaoToUser.Designer.cs">
-      <DependentUpon>201405192343454_ClassificacaoToUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405200147368_addAreaQuestaoAjuda.cs" />
-    <Compile Include="Migrations\201405200147368_addAreaQuestaoAjuda.Designer.cs">
-      <DependentUpon>201405200147368_addAreaQuestaoAjuda.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405200149133_addAreaQuestaoAjuda1.cs" />
-    <Compile Include="Migrations\201405200149133_addAreaQuestaoAjuda1.Designer.cs">
-      <DependentUpon>201405200149133_addAreaQuestaoAjuda1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405200150400_addAreaQuestaoAjuda2.cs" />
-    <Compile Include="Migrations\201405200150400_addAreaQuestaoAjuda2.Designer.cs">
-      <DependentUpon>201405200150400_addAreaQuestaoAjuda2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405200153545_addAQA.cs" />
-    <Compile Include="Migrations\201405200153545_addAQA.Designer.cs">
-      <DependentUpon>201405200153545_addAQA.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405201632261_DescricaoToUser.cs" />
-    <Compile Include="Migrations\201405201632261_DescricaoToUser.Designer.cs">
-      <DependentUpon>201405201632261_DescricaoToUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405201743279_ForeignKey.cs" />
-    <Compile Include="Migrations\201405201743279_ForeignKey.Designer.cs">
-      <DependentUpon>201405201743279_ForeignKey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405211656352_AddForeignKeysToPaisANDAreaProtegida.cs" />
-    <Compile Include="Migrations\201405211656352_AddForeignKeysToPaisANDAreaProtegida.Designer.cs">
-      <DependentUpon>201405211656352_AddForeignKeysToPaisANDAreaProtegida.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405221501061_ForeignKeyTOQUestao.cs" />
-    <Compile Include="Migrations\201405221501061_ForeignKeyTOQUestao.Designer.cs">
-      <DependentUpon>201405221501061_ForeignKeyTOQUestao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405230009433_AddForeignKeyTOAjuda.cs" />
-    <Compile Include="Migrations\201405230009433_AddForeignKeyTOAjuda.Designer.cs">
-      <DependentUpon>201405230009433_AddForeignKeyTOAjuda.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Ajuda.cs" />
     <Compile Include="Models\AreaProtegida.cs" />
@@ -368,59 +300,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201405140021572_AddAvatarToUserProfile.resx">
-      <DependentUpon>201405140021572_AddAvatarToUserProfile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405140907387_UserRedefined.resx">
-      <DependentUpon>201405140907387_UserRedefined.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405140921284_MudancaIniatialize.resx">
-      <DependentUpon>201405140921284_MudancaIniatialize.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405142011524_adsasd.resx">
-      <DependentUpon>201405142011524_adsasd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405142039513_ContinentesAndPaises.resx">
-      <DependentUpon>201405142039513_ContinentesAndPaises.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405192300114_JogoToModels.resx">
-      <DependentUpon>201405192300114_JogoToModels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405192336518_JogoToModels1.resx">
-      <DependentUpon>201405192336518_JogoToModels1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405192343454_ClassificacaoToUser.resx">
-      <DependentUpon>201405192343454_ClassificacaoToUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405200147368_addAreaQuestaoAjuda.resx">
-      <DependentUpon>201405200147368_addAreaQuestaoAjuda.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405200149133_addAreaQuestaoAjuda1.resx">
-      <DependentUpon>201405200149133_addAreaQuestaoAjuda1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405200150400_addAreaQuestaoAjuda2.resx">
-      <DependentUpon>201405200150400_addAreaQuestaoAjuda2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405200153545_addAQA.resx">
-      <DependentUpon>201405200153545_addAQA.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405201632261_DescricaoToUser.resx">
-      <DependentUpon>201405201632261_DescricaoToUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405201743279_ForeignKey.resx">
-      <DependentUpon>201405201743279_ForeignKey.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405211656352_AddForeignKeysToPaisANDAreaProtegida.resx">
-      <DependentUpon>201405211656352_AddForeignKeysToPaisANDAreaProtegida.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405221501061_ForeignKeyTOQUestao.resx">
-      <DependentUpon>201405221501061_ForeignKeyTOQUestao.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405230009433_AddForeignKeyTOAjuda.resx">
-      <DependentUpon>201405230009433_AddForeignKeyTOAjuda.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

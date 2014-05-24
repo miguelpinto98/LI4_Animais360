@@ -42,6 +42,7 @@
                                                 @foreach (Pais p in Paises.Where(x => x.Continente.ContinenteId == c.ContinenteId)) {
                                                     <option value="@p.PaisID"> @p.PaisNome </option>
                                                 }
+                                                    <option value="0" selected=""> </option>
                                             </optgroup>
                                         }
                                     </select>

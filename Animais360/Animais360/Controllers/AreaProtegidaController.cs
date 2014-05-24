@@ -60,11 +60,12 @@ namespace Animais360.Controllers
                 area.Longitude = ap.Longitude;
 
                 if (ap.IdContinente != 0 && !ap.NomePais.Equals("")) {
-                    if(ap.IdPais==1) {
+                    if(ap.IdPais==0) {
                         Pais p = new Pais();
                         p.PaisNome = ap.NomePais;
                         p.Continente = db.Continentes.Find(ap.IdContinente);
                         db.Pais.Add(p);
+                        area.Pais = p;
                     } else {
                         return View(ap);
                     }
@@ -72,8 +73,9 @@ namespace Animais360.Controllers
                     area.Pais = db.Pais.Find(ap.IdPais);
                 }
                 area.Permitida = 0;
-                
+
                 db.AreaProtegidas.Add(area);
+                //area.Pais.AreaProtegidas.Add(area);
                 db.SaveChanges();
                 return RedirectToAction("Index","AreaProtegida");
             }

@@ -7,8 +7,6 @@ using System.Web;
 using System.Web.Mvc;
 using Animais360.Models;
 using System.IO;
-using System.Collections.Generic;
-
 
 namespace Animais360.Controllers
 {
