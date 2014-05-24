@@ -136,6 +136,7 @@ function initialize() {
 
 
 google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, 'load', function(){document.getElementById('dialog-anchor').click();});
 
 
 (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
