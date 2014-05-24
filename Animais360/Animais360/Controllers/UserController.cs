@@ -91,23 +91,6 @@ namespace Animais360.Controllers
             }
             return View(u);
         }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(User user)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(user).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Gerir","User");
-            }
-            return View(user);
-        }
-
-        public ActionResult Create() {
-            return View();
-        }
         
         //
         // POST: /User/Create
@@ -236,6 +219,25 @@ namespace Animais360.Controllers
             }
 
             return RedirectToAction("Manage", new { Message = message });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(EditModel model)
+        {
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(model).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Gerir", "User");
+            }
+            return View(model);
+        }
+
+        public ActionResult Create()
+        {
+            return View();
         }
 
         //

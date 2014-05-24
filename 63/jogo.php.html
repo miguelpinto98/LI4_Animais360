@@ -8,29 +8,67 @@
         <link rel="shortcut icon" href="assets/images/favicon/favicon.ico">
         <link rel="stylesheet" href="assets/styles/9281c719.vendor.css"/>       
         <link rel="stylesheet" href="assets/styles/3fc417cd.main.css"/>      
-        <link rel="stylesheet" href="assets/styles/component.css"/>
-        <link rel="stylesheet" href="assets/styles/main.css"/>
+        <link rel="stylesheet" href="assets/styles/caixas.css"/>
+        <link rel="stylesheet" href="assets/styles/drag.css"/>
         <link rel="stylesheet" href="assets/styles/reset.css"/>
+        <link rel="stylesheet" href="assets/styles/relogio.css"/>
+
         <style type="text/css"> #map_canvas { width: 1150px; height: 600px;}</style>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2YN0hK1nUK_Pln49Z-xO3GBX9i1LHoqI&sensor=false"></script>
-        <script type='text/javascript' src='http://www.jbmarket.net/demos/wordpress/wp-includes/js/jquery/jquery.js?ver=1.10.2'></script>
-        <script type='text/javascript' src='http://www.jbmarket.net/demos/wordpress/wp-content/plugins/countitround/site/js/countdown.js?ver=3.6.1'></script>
+        
     </head>
 
 
     <body>
 
-        <div class="md-modal md-effect-16" id="question-dialog">
+            <div class="md-modal md-effect-16" id="question-dialog">
+                <div class="md-content">
+                    <h3>
+                       Decisões Iniciais:
+                    </h3>
+                    <div>
+                        Dificuldade:
+                        <select>
+                            <option value="f">Fácil</option>
+                            <option value="m">Média</option>
+                            <option value="d">Difícil</option>
+                        </select><br></br>
+                         Personagem:&nbsp
+                       
+                           <a href=""><img src="assets/images/personagens/p1.png" width="28" height="30"></img></a>
+                            &nbsp&nbsp&nbsp
+                            <a href=""><img src="assets/images/personagens/p3.png"></img></a>
+                            &nbsp&nbsp&nbsp
+                            <a href=""><img src="assets/images/personagens/p4.png"></img></a>
+                            &nbsp&nbsp&nbsp
+                            <a href=""><img src="assets/images/personagens/p2.png" width="28" height="30"></img></a>
+                            
+                        <br></br>
+                        Continente:
+                        <select>
+                            <option value="af">África</option>
+                            <option value="am">América</option>
+                            <option value="an">Antártida</option>
+                            <option value="as">Ásia</option>
+                            <option value="e">Europa</option>
+                            <option value="o">Oceania</option>
+                        </select><br></br><br></br>
+                        <button class="md-close">Comecar.</button>
+                    </div>
+                </div>
+            </div>
+
+
+       
+        <!--<div class="md-modal md-effect-16" id="question-dialog">
             <div class="md-content">
                 <h3>
-                   <!-- <div class="countitround" id="countitround_LTSGPIDRAB">
+                   <div class="countitround" id="countitround_LTSGPIDRAB">
                         <div class="countitround_seconds">
                             <canvas class="canvas_background"></canvas>
                             <canvas class="canvas_seconds"></canvas>
-                            <div class="countitround_seconds_count">0</div>
-                            <div class="countitround_seconds_text">Seconds</div>
                         </div>
-                    </div>-->
+                    </div>
 
                     A que animal corresponde o som?<br></br>
                     <audio controls="controls">
@@ -45,15 +83,21 @@
                         <li><a href="">a</a></li>
                         <li><a href="">a</a></li>
                     </ul>
-
-                    
                 </div>
             </div>
-        </div>
+        </div>-->
+    
   
         <!--<div class="md-modal md-effect-16" id="question-dialog">
             <div class="md-content">
-                <h3>A que animal corresponde a sombra?
+                <h3>
+                     <div class="countitround" id="countitround_LTSGPIDRAB">
+                        <div class="countitround_seconds">
+                            <canvas class="canvas_background"></canvas>
+                            <canvas class="canvas_seconds"></canvas>
+                        </div>
+                    </div>
+                A que animal corresponde a sombra?
                     <img src="assets/desafios/img/sombra1.jpg" width="280" height="300"></img>
                 </h3>
           
@@ -73,8 +117,17 @@
 
         <!--<div class="md-modal md-effect-16" id="question-dialog">
             <div class="md-content container">
-                <h3>A casa era <span id="drop-target-one">________</span> e tinha uma janela <span id="drop-target-two">________</span>.
+                <h3>
+                     <div class="countitround" id="countitround_LTSGPIDRAB">
+                        <div class="countitround_seconds">
+                            <canvas class="canvas_background"></canvas>
+                            <canvas class="canvas_seconds"></canvas>
+                        </div>
+                    </div>
+
+                A casa era <span id="drop-target-one">________</span> e tinha uma janela <span id="drop-target-two">________</span>.
                 </h3>
+
           
                 <div id="dd-elements" class="clearfix">
                     <ul id="drag-elements">
@@ -90,7 +143,15 @@
 
         <!--<div class="md-modal md-effect-16" id="question-dialog">
             <div class="md-content">
-                <h3>blablabla</h3>
+                <h3>
+                 <div class="countitround" id="countitround_LTSGPIDRAB">
+                        <div class="countitround_seconds">
+                            <canvas class="canvas_background"></canvas>
+                            <canvas class="canvas_seconds"></canvas>
+                        </div>
+                    </div>
+
+                blablabla</h3>
           
                 <div>
                     <ul>
@@ -139,7 +200,7 @@
         
         <section class="section dialog-background">
             <!-- barra navegação esquerda -->
-                 <aside class="side-left">
+                <aside class="side-left">
                     <ul class="sidebar">
                         <li>
                             <a href="index.php.html" data-pjax=".content-body" style="background-color:#3498DB;">
@@ -163,14 +224,10 @@
                 </aside>
             <!-- barra navegação esquerda -->
 
-
-
             <div class="content">
                 <div class="content-body">
-
                     <div class="invoice-wapper" style="margin-top:10px;margin-bottom:15px;">
                         <div class="invoice-table table-responsive">
-
                             <table class="table table-bordered invoice">
                                 <thead>
                                     <tr>
@@ -213,39 +270,12 @@
             <script src="assets/scripts/5f4fd25b.vendor-util.js"></script>
             <script src="assets/scripts/5917523f.main.js"></script>
             <script src="assets/scripts/89c3d6c9.initializer.js"></script>
-
+            <script src="assets/scripts/relogio.js"></script>
+            <script src="assets/scripts/relogio2.js"></script>
             <script src="assets/scripts/classie.js"></script>
-            <script src="assets/scripts/modalEffects.js"></script>
+            <script src="assets/scripts/caixas.js"></script>
             <script src="assets/scripts/google.js"></script>
             <script src="assets/scripts/drag.js"></script>
-
-
-            <style scoped>@import url("http://www.jbmarket.net/demos/wordpress/wp-content/plugins/countitround/site/css/default.css");</style>
-            <style type="text/css" scoped>
-                #countitround_LTSGPIDRAB .countitround_seconds{width:130px;height:130px;}
-                
-                #countitround_LTSGPIDRAB .countitround_seconds_count{width:130px;height:130px;line-height:118px;font-size:23px;color:#313131;}
-
-                #countitround_LTSGPIDRAB .countitround_seconds_text{width:130px;height:130px;line-height:153px;font-size:12px;color:#868686;}
-            </style>
-
-              
-
-
-            <script type='text/javascript'>
-                if (typeof countitroundinstance === "undefined") {var countitroundinstance = [];}
-                
-                countitroundinstance.push({"unique":"countitround_LTSGPIDRAB","startdate":"0","enddate":"120","now":"0","layout":"hms","callback":"","color4":"#34495E","backgroundcolor4":"#e3dfdf","glowwidth4":"0","backgroundwidth4":"10","frontwidth4":"9","size4":"70"});
-            </script>
-   
-            <!-- <script type='text/javascript'>
-
-                (function(){
-
-
-                });
-            </script>-->
-
         <!-- ========================= javascript ============================= -->
 
     </body>

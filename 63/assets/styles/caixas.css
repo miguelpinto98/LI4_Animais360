@@ -10,6 +10,7 @@
 	-moz-perspective: 600px;
 	perspective: 600px;
 }
+
  /*cor do cabeçalho da página*/
 .dialog-background {
 	background: #34495E;
@@ -48,7 +49,6 @@
 	left: 0;
 	z-index: 1000;
 	opacity: 0;
-	background: rgba(143,27,15,0.8);
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
@@ -145,7 +145,7 @@
 button {
 	border: none;
 	padding: 0.6em 1.2em;
-	background: #c0392b;
+	background: #2ECC71;
 	color: #fff;
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 	font-size: 1em;
@@ -158,7 +158,7 @@ button {
 }
 
 button:hover {
-	background: #A5281B;
+	background: #27AE60;
 }
 
 
