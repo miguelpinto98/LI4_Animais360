@@ -1,4 +1,4 @@
-﻿@model Animais360.Models.User
+﻿@model Animais360.Models.EditModel
 
 @{
     ViewBag.Title = "Edit";
@@ -46,23 +46,22 @@
                                         </div>
                                     </div>
                                 </div>
-<!--
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label" for="passwd">Password *</label>
                                     <div class="col-sm-7">
                                         <div class="input-group input-group-in">
                                             <span class="input-group-addon text-silver"><i class="fa fa-rss"></i></span>
-                                            <input class="form-control" id="passwd" name="passwd" type="password" minlength="2" required="">
+                                            @Html.TextBoxFor(m => m.Password, new { @class="form-control", id="passwd", name="passwd", type="password", minlength="2", required="" })
                                         </div>
                                     </div>
                                 </div><!-- /form-group -->
-<!--
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label" for="confirm_passwd">Confirmar Password *</label>
                                     <div class="col-sm-7">
                                         <div class="input-group input-group-in">
                                             <span class="input-group-addon text-silver"><i class="fa fa-rss"></i></span>
                                             <input class="form-control" id="confirm_passwd" name="confirm_passwd" type="password" equalto="#passwd">
+                                            @Html.TextBoxFor(m => m.ConfirmPassword, new { @class="form-control", id="confirm_passwd", name="confirm_passwd", type="password", equalto="#passwd" })
                                         </div>
                                     </div>
                                 </div><!-- /form-group -->
