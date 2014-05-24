@@ -88,6 +88,8 @@ namespace Animais360.Controllers
         public ActionResult Edit(int id = 0)
         {
             AreaProtegida areaprotegida = db.AreaProtegidas.Find(id);
+            ViewBag.Continentes = db.Continentes.ToList();
+            ViewBag.Paises = db.Pais.ToList();
             if (areaprotegida == null)
             {
                 return HttpNotFound();

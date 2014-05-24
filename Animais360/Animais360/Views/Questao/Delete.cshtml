@@ -1,60 +1,46 @@
 ﻿@model Animais360.Models.Questao
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Remover Questão";
 }
 
-<h2>Delete</h2>
+<div class="content">
+    <div class="content-header">
+        <h2 class="content-title"><i class="fa fa-dashboard"></i>Dashboard</h2>
+    </div>
+    <div class="content-body">
+        <div id="panel-tablesorter" class="panel panel-default">
+            <div class="panel-heading bg-white">
+                <h3 class="panel-title" style="color:#F39C12">Tem mesmo a certeza que pretende eliminar esta questão?</h3>
+            </div>
 
-<h3>Are you sure you want to delete this?</h3>
-<fieldset>
-    <legend>Questao</legend>
+            <div class="panel-body">
+                <div class="content-body">
+                    @using (Html.BeginForm("Delete", "Questao", new { id = Model.QuestaoID }, FormMethod.Post, new { @class = "form-horizontal", role = "form", id = ViewBag.ID }))
+                    {
+                        @Html.HiddenFor(m => m.QuestaoID)
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.DifQuantitativa)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.DifQuantitativa)
-    </div>
+                        <div data-wizard="">
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary()
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Pergunta)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Pergunta)
-    </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Pergunta, new { @class = "col-sm-3 control-label" })
+                                <div class="col-sm-5">
+                                    @Html.Raw(Model.Pergunta)
+                              
+                                </div>
+                            </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Resposta)
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-5">
+                                    <input class="btn btn-primary" type="submit" value="Confirmar">
+                                </div><!--/cols-->
+                            </div>
+                        </div><!-- /wizard -->
+                    }<!-- /form wizard -->
+                </div><!--/content-body -->
+            </div>
+        </div>
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Resposta)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Hipoteses)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Hipoteses)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Tipo)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Tipo)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Imagem)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Imagem)
-    </div>
-</fieldset>
-@using (Html.BeginForm()) {
-    <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-}
+</div>
