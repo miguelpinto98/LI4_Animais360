@@ -8322,8 +8322,6 @@ table.fc-border-separate {
     }
 }
 
-@import url("http://fonts.googleapis.com/css?family=Aclonica");
-@import url("http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,700,600,800");
 
 body {
     background: #ecf0f1;
@@ -8703,6 +8701,7 @@ a {
 
             .sidebar > li > a:hover {
                 color: #BDC3C7;
+                text-decoration:none
             }
 
         .sidebar > li.active > a:hover, .sidebar > li.active > a {

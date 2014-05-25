@@ -9,15 +9,15 @@
 
 <div class="content">
     <div class="content-header">
-        <h2 class="content-title"><i class="fa fa-dashboard"></i>Gerir Áreas Protegidas</h2>
+        <h2 class="content-title"><i class="sidebar-icon fa fa-globe"></i> Gerir Áreas Protegidas</h2>
     </div>
     <div class="content-body">
         <div id="panel-tablesorter" class="panel panel-default">
             <div class="panel-heading bg-white">
                 <div class="panel-actions">
                     <li class="btn-panel">
-                        <a href="@Url.Action("Create","AreaProtegida")" style="color:#333">
-                            <i class="fa fa-plus"> &nbsp&nbspAdicionar Área Protegida</i>
+                        <a href="@Url.Action("Create","AreaProtegida")" style="color:#333; text-decoration:none">
+                            <i class="fa fa-plus"></i>&nbsp&nbspAdicionar Área Protegida
                         </a>
                     </li>
                 </div>
@@ -63,30 +63,30 @@
                                         @foreach(AreaProtegida ap in aps ) {
                                             <tr>
                                                 <td> @ap.AreaNome </td>
-                                                <td style="padding:3px; width:340px;">
+                                                <td style="padding:3px; width:25%">
                                                     <div class="" style="margin-left:25px;">
-                                                        <li class="btn btn-success" style="width:105px;">
-                                                            <a href="@Url.Action("Index", "Questao", new { id = ap.AreaProtegidaID })" style="color:white">
-                                                                <i class="fa fa-eye fa-fw" style="margin-left:-70px;"> Ver Desafios</i>
+                                                        <li class="btn btn-success">
+                                                            <a href="@Url.Action("Index", "Questao", new { id = ap.AreaProtegidaID })" style="color:white;text-decoration:none">
+                                                                <i class="fa fa-eye fa-fw"></i>&nbspVer Desafios
                                                             </a>
                                                         </li>
-                                                        <li class="btn btn-info" style="width:80px;">
-                                                            <a href="@Url.Action("Edit", "AreaProtegida", new { id = ap.AreaProtegidaID })" style="color:white">
-                                                                <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
+                                                        <li class="btn btn-info">
+                                                            <a href="@Url.Action("Edit", "AreaProtegida", new { id = ap.AreaProtegidaID })" style="color:white;text-decoration:none">
+                                                                <i class="fa fa-pencil fa-fw"></i>&nbspEditar
                                                             </a></li>
 
                                                         
 
                                                             @if (ap.Permitida == 0) { 
-                                                            <li class="btn btn-danger" style="width:100px;">
-                                                                <a href="@Url.Action("Permission", "AreaProtegida", new { id = ap.AreaProtegidaID })" style="color:white">
-                                                                    <i class="fa fa-trash-o fa-fw" style="margin-left:-45px;"> Bloquear </i>
+                                                            <li class="btn btn-danger">
+                                                                <a href="@Url.Action("Permission", "AreaProtegida", new { id = ap.AreaProtegidaID })" style="color:white;text-decoration:none">
+                                                                    <i class="fa fa-trash-o fa-fw"></i>&nbspBloquear
                                                                 </a>
                                                             </li>
                                                             } else {
-                                                                <li class="btn btn-warning" style="width:100px;">
-                                                                    <a href="@Url.Action("Permission", "AreaProtegida", new { id = ap.AreaProtegidaID })" style="color:white">
-                                                                        <i class="fa fa-trash-o fa-fw" style="margin-left:-45px;"> Ativar </i>
+                                                                <li class="btn btn-warning">
+                                                                    <a href="@Url.Action("Permission", "AreaProtegida", new { id = ap.AreaProtegidaID })" style="color:white;text-decoration:none">
+                                                                        <i class="fa fa-trash-o fa-fw"></i>&nbspAtivar
                                                                     </a>
                                                                 </li>
                                                             }
