@@ -58,6 +58,7 @@ namespace Animais360.Controllers
                 area.Descricao = ap.Descricao;
                 area.Latitude = ap.Latitude;
                 area.Longitude = ap.Longitude;
+                area.Permitida = 0;
 
                 if (ap.IdContinente != 0 && !ap.NomePais.Equals("")) {
                     if(ap.IdPais==0) {
@@ -72,10 +73,10 @@ namespace Animais360.Controllers
                 } else {
                     area.Pais = db.Pais.Find(ap.IdPais);
                 }
-                area.Permitida = 0;
+                
 
                 db.AreaProtegidas.Add(area);
-                //area.Pais.AreaProtegidas.Add(area);
+                area.Pais.AreaProtegidas.Add(area);
                 db.SaveChanges();
                 return RedirectToAction("Index","AreaProtegida");
             }
@@ -85,11 +86,11 @@ namespace Animais360.Controllers
         //
         // GET: /AreaProtegida/Edit/5
 
-        public ActionResult Edit(int id = 0)
-        {
+        public ActionResult Edit(int id = 0) {
             AreaProtegida areaprotegida = db.AreaProtegidas.Find(id);
             ViewBag.Continentes = db.Continentes.ToList();
             ViewBag.Paises = db.Pais.ToList();
+            
             if (areaprotegida == null)
             {
                 return HttpNotFound();
@@ -103,9 +104,31 @@ namespace Animais360.Controllers
         [HttpPost]
         public ActionResult Edit(AreaProtegida areaprotegida)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(areaprotegida).State = EntityState.Modified;
+            if (ModelState.IsValid) {
+                AreaProtegida ap = db.AreaProtegidas.Find(areaprotegida.AreaProtegidaID);
+
+
+                ap.AreaNome = areaprotegida.AreaNome;
+                ap.Latitude = areaprotegida.Latitude;
+                ap.Longitude = areaprotegida.Longitude;
+                ap.Descricao = areaprotegida.Descricao;
+
+                if (areaprotegida.IdContinente != 0 && !areaprotegida.NomePais.Equals("")) {
+                    if (areaprotegida.IdPais == ap.Pais.PaisID) {
+                        Pais p = new Pais();
+                        p.PaisNome = ap.NomePais;
+                        p.Continente = db.Continentes.Find(ap.IdContinente);
+                        db.Pais.Add(p);
+                        ap.Pais = p;
+                        p.AreaProtegidas.Add(ap);
+                    } else {
+                        return View(areaprotegida);   
+                    }
+                } else {
+                    ap.Pais = db.Pais.Find(ap.IdPais);
+                }
+
+                db.Entry(ap).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -115,26 +138,21 @@ namespace Animais360.Controllers
         //
         // GET: /AreaProtegida/Delete/5
 
-        public ActionResult Delete(int id = 0)
+        public ActionResult Permission(int id = 0)
         {
             AreaProtegida areaprotegida = db.AreaProtegidas.Find(id);
-            if (areaprotegida == null)
-            {
+
+            if (areaprotegida == null) {
                 return HttpNotFound();
             }
-            return View(areaprotegida);
-        }
 
-        //
-        // POST: /AreaProtegida/Delete/5
-
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            AreaProtegida areaprotegida = db.AreaProtegidas.Find(id);
-            db.AreaProtegidas.Remove(areaprotegida);
+            if( areaprotegida.Permitida == 0) {
+                areaprotegida.Permitida = 1;
+            } else {
+                areaprotegida.Permitida = 0;
+            }
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "AreaProtegida", new { id = areaprotegida.AreaProtegidaID });
         }
 
         protected override void Dispose(bool disposing)

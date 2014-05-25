@@ -1,9 +1,9 @@
 ﻿@model Animais360.Models.AreaProtegida
-
+@using Animais360.Models
 @{
     IList<Continente> Continentes = ViewBag.Continentes;
     IList<Pais> Paises = ViewBag.Paises;
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar Área Protegida";
 }
 
 <div class="content">
@@ -30,7 +30,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(mo => mo.AreaNome, new { @class = "col-sm-3 control-label" })
                                     <div class="col-sm-5">
-                                        @Html.TextBoxFor(m => m.AreaNome, new { @class = "form-control", id = "Input", required = "", autocomplete = "on" })
+                                        @Html.EditorFor(m => m.AreaNome, new { @class = "form-control", id = "Input", required = "", autocomplete = "on" })
                                     </div>
                                 </div>
 
@@ -43,9 +43,12 @@
                                                 <optgroup label="@c.ContinenteName">
                                                     @foreach (Pais p in Paises.Where(x => x.Continente.ContinenteId == c.ContinenteId))
                                                     {
-                                                        <option value="@p.PaisID"> @p.PaisNome </option>
+                                                        if (Model.Pais == p) { 
+                                                            <option value="@p.PaisID" selected=""> @p.PaisNome </option>
+                                                        } else { 
+                                                            <option value="@p.PaisID"> @p.PaisNome </option>
+                                                        }
                                                     }
-                                                    <option value="0" selected=""> </option>
                                                 </optgroup>
                                             }
                                         </select>
@@ -71,14 +74,14 @@
                                 <div class="form-group">
                                     @Html.LabelFor(m => m.Latitude, new { @class = "col-sm-3 control-label" })
                                     <div class="col-sm-5">
-                                        @Html.TextBoxFor(m => m.Latitude, new { @class = "form-control", id = "Latitude", required = "", autocomplete = "on" })
+                                        @Html.EditorFor(m => m.Latitude, new { @class = "form-control", id = "Latitude", required = "", autocomplete = "on" })
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     @Html.LabelFor(m => m.Longitude, new { @class = "col-sm-3 control-label" })
                                     <div class="col-sm-5">
-                                        @Html.TextBoxFor(m => m.Longitude, new { @class = "form-control", id = "Longitudes", required = "", autocomplete = "on" })
+                                        @Html.EditorFor(m => m.Longitude, new { @class = "form-control", id = "Longitudes", required = "", autocomplete = "on" })
                                     </div>
                                 </div>
 
@@ -86,7 +89,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(m => m.Descricao, new { @class = "col-sm-3 control-label" })
                                     <div class="col-sm-5">
-                                        @Html.TextAreaFor(m => m.Descricao, new { @class = "form-control", id = "inputTextarea", required = "", rows = "3" })
+                                        @Html.EditorFor(m => m.Descricao, new { @class = "form-control", id = "inputTextarea", required = "", rows = "3" })
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>
@@ -104,67 +107,6 @@
         </div>
     </div>
 </div>
-
-
-
-@using (Html.BeginForm()) {
-    @Html.ValidationSummary(true)
-
-    <fieldset>
-        <legend>AreaProtegida</legend>
-
-        @Html.HiddenFor(model => model.AreaProtegidaID)
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.AreaNome)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.AreaNome)
-            @Html.ValidationMessageFor(model => model.AreaNome)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Longitude)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Longitude)
-            @Html.ValidationMessageFor(model => model.Longitude)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Latitude)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Latitude)
-            @Html.ValidationMessageFor(model => model.Latitude)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Descricao)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Descricao)
-            @Html.ValidationMessageFor(model => model.Descricao)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Permitida)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Permitida)
-            @Html.ValidationMessageFor(model => model.Permitida)
-        </div>
-
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-    </fieldset>
-}
-
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

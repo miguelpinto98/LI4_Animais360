@@ -70,14 +70,26 @@
                                                                 <i class="fa fa-eye fa-fw" style="margin-left:-70px;"> Ver Desafios</i>
                                                             </a>
                                                         </li>
-                                                        <button class="btn btn-info" style="width:80px;">
-                                                            <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
-                                                        </button>
-                                                        <button class="btn btn-danger" style="width:100px;">
-                                                            <a href="@Url.Action("Index", "Questao", new { id = ap.AreaProtegidaID })" style="color:white">
-                                                                <i class="fa fa-trash-o fa-fw" style="margin-left:-45px;"> Bloquear</i>
-                                                            </a>
-                                                        </button>
+                                                        <li class="btn btn-info" style="width:80px;">
+                                                            <a href="@Url.Action("Edit", "AreaProtegida", new { id = ap.AreaProtegidaID })" style="color:white">
+                                                                <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
+                                                            </a></li>
+
+                                                        
+
+                                                            @if (ap.Permitida == 0) { 
+                                                            <li class="btn btn-danger" style="width:100px;">
+                                                                <a href="@Url.Action("Permission", "AreaProtegida", new { id = ap.AreaProtegidaID })" style="color:white">
+                                                                    <i class="fa fa-trash-o fa-fw" style="margin-left:-45px;"> Bloquear </i>
+                                                                </a>
+                                                            </li>
+                                                            } else {
+                                                                <li class="btn btn-warning" style="width:100px;">
+                                                                    <a href="@Url.Action("Permission", "AreaProtegida", new { id = ap.AreaProtegidaID })" style="color:white">
+                                                                        <i class="fa fa-trash-o fa-fw" style="margin-left:-45px;"> Ativar </i>
+                                                                    </a>
+                                                                </li>
+                                                            }
                                                     </div>
                                                 </td>
                                             </tr>
