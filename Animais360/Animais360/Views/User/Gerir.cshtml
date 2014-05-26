@@ -15,11 +15,11 @@
         <div id="panel-tablesorter" class="panel panel-default">
             <div class="panel-heading bg-white">
                 <div class="panel-actions">
-                    <li class="btn-panel">
-                        <a href="@Url.Action("Create","User")" style="color:#333; text-decoration:none">
+                     <a href="@Url.Action("Create","User")" style="color:#333; text-decoration:none;">
+                        <li class="btn-panel">
                             <i class="fa fa-plus"></i>&nbsp&nbspAdicionar Admin
-                        </a>
-                    </li>
+                        </li>
+                     </a>
                 </div>
                 <h3 class="panel-title" style="color:#F39C12; width:250px;">Gerir Utilizadores</h3>
 
@@ -44,18 +44,18 @@
                                 <td> @item.Tipo </td>
                                 <td style="padding:3px; width:28%; text-align:center">
                                     <div class="">
-                                        <li class="btn btn-success">
-                                            <a href="@Url.Action("Perfil", "User")/@item.UserId" style="color:white; text-decoration:none">
+                                         <a href="@Url.Action("Perfil", "User")/@item.UserId" style="color:white; text-decoration:none">
+                                            <li class="btn btn-success">
                                                 <i class="fa fa-eye fa-fw"></i>&nbspVer Perfil
-                                            </a>
-                                        </li>
+                                            </li>
+                                        </a>
 
-
-                                        <li class="btn btn-info">
-                                            <a href="@Url.Action("Edit","User")/@item.UserId" style="color:white; text-decoration:none">
-                                                <i class="fa fa-pencil fa-fw"></i>&nbspEditar
+                                             <a href="@Url.Action("Edit","User")/@item.UserId" style="color:white; text-decoration:none">
+                                                <li class="btn btn-info">
+                                                    <i class="fa fa-pencil fa-fw"></i>&nbspEditar
+                                                </li>  
                                             </a>
-                                        </li>
+                                        
                                         @{
                                             bool banido = false;
                                             if (@item.Estado != 0)
@@ -64,17 +64,20 @@
                                             }
                                         }
                                         @if(!banido){
-                                        <li class="btn btn-danger">
                                             <a href="@Url.Action("Editar","User")/@item.UserId" style="color:white;text-decoration:none">
+                                        <li class="btn btn-danger">
+                                            
                                                 <i class="fa fa-trash-o fa-fw"></i>&nbspBanir
-                                            </a>
-                                        </li>}
+                                            
+                                        </li></a>}
                                         else{
-                                        <li class="btn btn-warning" style="width:80px;">
+                                        
                                             <a href="@Url.Action("Editar","User")/@item.UserId" style="color:white">
+                                                <li class="btn btn-warning" style="width:80px;">
                                                 <i class="fa fa-check-circle" style="margin-left:0px;"> Ativar</i>
+                                                     </li>
                                             </a>
-                                        </li>
+                                       
                                         }
                                     </div>
                                 </td>

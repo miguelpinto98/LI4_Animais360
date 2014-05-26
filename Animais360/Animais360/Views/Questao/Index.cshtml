@@ -12,11 +12,11 @@
         <div id="panel-tablesorter" class="panel panel-default">
             <div class="panel-heading bg-white">
                 <div class="panel-actions">
-                    <li class="btn-panel">
-                        <a href="@Url.Action("Create", "Questao", new { id = ViewBag.ID })" style="color:#333">
-                            <i class="fa fa-plus"> &nbsp&nbspAdicionar Desafio</i>
-                        </a>
-                    </li>
+                    <a href="@Url.Action("Create", "Questao", new { id = ViewBag.ID })" style="color:#333; text-decoration:none;">
+                        <li class="btn-panel">
+                            <i class="fa fa-plus"></i> &nbsp&nbspAdicionar Desafio
+                        </li>
+                    </a>
                 </div>
                 <h3 class="panel-title" style="color:#F39C12">Gerir Desafios</h3>
             </div>
@@ -57,18 +57,21 @@
                                         }
                                     }
                                 }
-                                <td style="padding:3px; width:230px;">
-                                    <div class="" style="margin-left:25px;">
-                                        <li class="btn btn-info" style="width:80px;">
-                                            <a href="@Url.Action("Edit", "Questao", new { id = item.QuestaoID , tipo = item.Tipo })" style="color:white">
-                                                <i class="fa fa-pencil fa-fw" style="margin-left:-30px;"> Editar</i>
+                               <td style="padding:3px; width:20%; text-align:center">
+                                    <div class="">
+                                            <a href="@Url.Action("Edit", "Questao", new { id = item.QuestaoID , tipo = item.Tipo })" style="color:white;text-decoration:none">
+                                                <li class="btn btn-info">
+                                                    <i class="fa fa-pencil fa-fw"></i>&nbspEditar
+                                                </li>
                                             </a>
-                                        </li>
-                                        <li class="btn btn-danger" style="width:90px;">
-                                            <a href="@Url.Action("Delete", "Questao", new { id = item.QuestaoID })" style="color:white">
-                                                <i class="fa fa-trash-o fa-fw" style="margin-left:-45px;"> Eliminar</i>
+                                        
+                                        
+                                            <a href="@Url.Action("Delete", "Questao", new { id = item.QuestaoID })" style="color:white;text-decoration:none">
+                                                 <li class="btn btn-danger">
+                                                <i class="fa fa-trash-o fa-fw"></i>&nbspEliminar
+                                                 </li>
                                             </a>
-                                        </li>
+                                       
                                     </div>
                                 </td>
                             </tr>
