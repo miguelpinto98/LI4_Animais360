@@ -65,17 +65,16 @@
                                         }
                                         @if(!banido){
                                             <a href="@Url.Action("Editar","User")/@item.UserId" style="color:white;text-decoration:none">
-                                        <li class="btn btn-danger">
-                                            
-                                                <i class="fa fa-trash-o fa-fw"></i>&nbspBanir
-                                            
-                                        </li></a>}
+                                                <li class="btn btn-danger">
+                                                     <i class="fa fa-trash-o fa-fw"></i>&nbspBanir
+                                                </li>
+                                            </a>}
                                         else{
                                         
-                                            <a href="@Url.Action("Editar","User")/@item.UserId" style="color:white">
-                                                <li class="btn btn-warning" style="width:80px;">
-                                                <i class="fa fa-check-circle" style="margin-left:0px;"> Ativar</i>
-                                                     </li>
+                                            <a href="@Url.Action("Editar","User")/@item.UserId" style="color:white; text-decoration:none;">
+                                                <li class="btn btn-warning">
+                                                    <i class="fa fa-check-circle"></i>&nbspAtivar
+                                                </li>
                                             </a>
                                        
                                         }
