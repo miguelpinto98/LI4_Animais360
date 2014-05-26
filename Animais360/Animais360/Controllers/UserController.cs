@@ -24,12 +24,20 @@ namespace Animais360.Controllers
             int id = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
             User us = db.Users.Find(id);
 
+            Session["User"] = us;
+
+            ViewBag.IMAGE = us.Avatar;
             ViewBag.IdUser = id;
             ViewBag.Tipo = us.Tipo;
             ViewBag.Users = db.Users.ToList();
             ViewBag.Classificacoes = db.Classificacoes.ToList();
 
             return View(us);
+        }
+
+        public User x()
+        {
+            return new User();
         }
 
         public ActionResult Perfil(int id = -9999) {
@@ -55,7 +63,8 @@ namespace Animais360.Controllers
         public ActionResult Gerir() {
             int id = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
             User us = db.Users.Find(id);
-
+           
+            Session["User"] = us;
             ViewBag.IdUser = id;
             ViewBag.Tipo = us.Tipo;
 
@@ -100,7 +109,7 @@ namespace Animais360.Controllers
             if (ModelState.IsValid) {
                 WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new {
                     Email = model.Email,
-                    Avatar = "/../content/images/default.jpg",
+                    Avatar = "/../images/default.jpg",
                     Descricao = "Sou eu que mando nisto tudo",
                     NrVoltas = 0,
                     NrJogos = 0,
@@ -134,6 +143,7 @@ namespace Animais360.Controllers
         {
             if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: false)) {
                 //return RedirectToLocal(returnUrl);
+
                 return RedirectToAction("Index", "User");
             }
 
@@ -150,7 +160,7 @@ namespace Animais360.Controllers
         public ActionResult LogOff()
         {
             WebSecurity.Logout();
-
+            Session["User"] = null;
             return RedirectToAction("Index", "Home");
         }
 
@@ -177,7 +187,7 @@ namespace Animais360.Controllers
                 try
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new {
-                        Email = model.Email, Avatar = "/../content/images/default.jpg", Descricao = "Escreve aqui alguma coisa sobre ti...", 
+                        Email = model.Email, Avatar = "/../images/default.jpg", Descricao = "Escreve aqui alguma coisa sobre ti...", 
                         NrVoltas = 0, NrJogos = 0, Estado=0, DataRegisto = DateTime.Now, Tipo=0  });
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "User");
