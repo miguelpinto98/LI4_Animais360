@@ -65,12 +65,12 @@
                                         @foreach(AreaProtegida ap in aps ) {
                                             <tr>
                                                 <td> @ap.AreaNome </td>
-                                                <td style="padding:3px; width:28%;text-align:center">
+                                                <td style="padding:3px; width:32%;text-align:center">
                                                     <div class="">
-                                                            <a href="@Url.Action("Index", "Questao", new { id = ap.AreaProtegidaID })" style="color:white;text-decoration:none">
+                                                            <a href="@Url.Action("Index", "Questao", new { id = ap.AreaProtegidaID })" style="color:white;text-decoration:none;">
                                                                 <li class="btn btn-success">
-                                                                <i class="fa fa-eye fa-fw"></i>&nbspVer Desafios
-                                                                    </li>
+                                                                    <i class="fa fa-eye fa-fw"></i>&nbspVer Desafios
+                                                                </li>
                                                             </a>
                                                        
                                                        
