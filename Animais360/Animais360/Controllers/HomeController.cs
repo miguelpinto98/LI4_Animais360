@@ -15,19 +15,22 @@ namespace Animais360.Controllers
             if (!Request.IsAuthenticated) {
                 List<User> utilizadores = db.Users.Where(u => u.Estado == 0).ToList();
                 ViewBag.numero = db.Users.Count();
-                ViewBag.last = db.Users.OrderByDescending(u => u.DataRegisto).ToList();
+                ViewBag.last = db.Users.OrderByDescending(u => u.DataRegisto).ToList().First().UserName.ToString();
                 int voltas = 0;
+                int jogos = 0;
                 String conquistador = "";
                 int maxVolta = 0;
                 foreach (User u in utilizadores)
                 {
                     voltas = voltas + u.NrVoltas;
+                    jogos = jogos + u.NrJogos;
                     if (maxVolta < u.NrVoltas) {
                             maxVolta = u.NrVoltas;
                             conquistador = u.UserName;
                         }
                 }
                 ViewBag.nVoltas = voltas;
+                ViewBag.njogos = jogos;
 
                 ViewBag.conquistador = conquistador;
                 return View();
