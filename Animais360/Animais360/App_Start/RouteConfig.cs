@@ -20,6 +20,12 @@ namespace Animais360
             );
 
             routes.MapRoute(
+                name: "PlayJogo",
+                url: "Jogo/{action}/{id}/{continente}",
+                defaults: new { controller = "Jogo", action = "Play", continente = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

@@ -43,18 +43,49 @@ namespace Animais360.Controllers
             return View();
         }
 
+        public ActionResult Play(int id, int? continente) {
+            Jogo jogo = db.Jogos.Find(id);
+
+            ViewBag.ContinenteID = continente;
+            ViewBag.Continentes = db.Continentes.ToList();
+            ViewBag.Areas = db.AreaProtegidas.ToList();
+            
+            return View(jogo);
+        }
+
         //
         // POST: /Jogo/Create
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Jogo jogo)
+        public ActionResult Create(int id, Jogo jogo)
         {
             if (ModelState.IsValid)
             {
-                db.Jogos.Add(jogo);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                Jogo jg = new Jogo();
+                jg.DataInicio = DateTime.Now;
+                jg.DataFim = DateTime.Now;
+                jg.Nivel = 0;
+                jg.Personagem = "LINDO";
+                jg.RespCertas = 0;
+                jg.RespErradas = 0;
+                jg.Pontos = 0;
+                jg.DifQualitativa = jogo.DificuldadeID;
+                jg.Estado = 0; /* Apagado ou não */
+                jg.Sucesso = 0; /* 0 Não Concluído e 1 se concluído */
+
+                if (id != 0) {
+                    User us = db.Users.Find(id);
+                    jg.User = us;
+                    
+                    //db.Jogos.Add(jg);
+                    us.Jogos.Add(jg);
+                    jg.User.Jogos.Add(jg);
+                    db.SaveChanges();
+
+                    return RedirectToAction("Play", "Jogo", new { id = jg.JogoId , continente = jogo.ContinenteID });
+                }
+                return HttpNotFound();   
             }
 
             return View(jogo);

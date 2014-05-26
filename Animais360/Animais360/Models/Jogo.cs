@@ -21,6 +21,13 @@ namespace Animais360.Models
         public DateTime DataFim { get; set; }
         public User User { get; set; }
 
+
+        [NotMapped]
+        public virtual int ContinenteID { get; set; }
+        
+        [NotMapped]
+        public virtual int DificuldadeID { get; set; }
+
         //Secalhar vai ser preciso adicionar um atributo, se perder, dizer em que área foi
     }
 }

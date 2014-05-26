@@ -1,0 +1,32 @@
+.container {
+	max-width: 630px;
+	min-width: 320px;
+	padding:0;
+}
+
+#drop-target-one,
+#drop-target-two{
+	width: 100px;
+	border: 0;
+	padding:0;
+	text-align: left;
+}
+
+.over {
+	background: #F7F7F7;
+}
+
+
+
+.clearfix {
+  *zoom: 1; }
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  line-height: 0;
+  content: ""; }
+
+.clearfix:after {
+  clear: both; }
+
