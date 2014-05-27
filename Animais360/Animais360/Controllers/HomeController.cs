@@ -19,7 +19,7 @@ namespace Animais360.Controllers
                 int voltas = 0;
                 int jogos = 0;
                 String conquistador = "";
-                int maxVolta = 0;
+                int maxVolta = -1;
                 foreach (User u in utilizadores)
                 {
                     voltas = voltas + u.NrVoltas;

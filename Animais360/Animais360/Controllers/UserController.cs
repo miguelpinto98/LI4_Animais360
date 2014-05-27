@@ -10,7 +10,11 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using Animais360.Filters;
 using Animais360.Models;
+using System.Configuration;
 using System.Data;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.IO;
 
 namespace Animais360.Controllers
 {
@@ -39,6 +43,79 @@ namespace Animais360.Controllers
         {
             return new User();
         }
+        /**
+                protected void Page_Load(object sender, EventArgs e)
+                {
+                    if (!IsPostBack)
+                    {
+                        string[] filePaths = Directory.GetFiles(Server.MapPath("~/Images/"));
+                        List<ListItem> files = new List<ListItem>();
+                        foreach (string filePath in filePaths)
+                        {
+                            string fileName = Path.GetFileName(filePath);
+                            files.Add(new ListItem(fileName, "~/Images/" + fileName));
+                        }
+                        GridView1.DataSource = files;
+                        GridView1.DataBind();
+                    }
+                }
+                protected void Upload(object sender, EventArgs e)
+                {
+                    if (FileUpload1.HasFile)
+                    {
+                        string fileName = Path.GetFileName(FileUpload1.PostedFile.FileName);
+                        FileUpload1.PostedFile.SaveAs(Server.MapPath("~/Images/") + fileName);
+                        Response.Redirect(Request.Url.AbsoluteUri);
+                    }
+                }
+
+                protected void OnUpload_Click(object sender, EventArgs e)
+                {
+                    var path = Server.MapPath("~/pics");
+                    var directory = new DirectoryInfo(path);
+
+                    if (directory.Exists == false)
+                    {
+                        directory.Create();
+                    }
+
+                    var file = Path.Combine(path, upload.FileName);
+
+                    upload.SaveAs(file);
+                }
+
+
+                [HttpPost]
+                [ValidateAntiForgeryToken]
+                public ActionResult Create(ImageUpload imageupload)
+                {
+                    if (ModelState.IsValid)
+                    {
+                        db.ImageUploads.Add(imageupload);
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+
+                    return View(imageupload);
+                }
+*/
+
+        [HttpPost]
+        public ActionResult Upload(HttpPostedFileBase[] files)
+        {
+            foreach (HttpPostedFileBase file in files)
+            {
+                string picture = Path.GetFileName(file.FileName);
+                string path = Path.Combine(Server.MapPath("~/Animais360/Images"), picture);
+                string[] paths = path.Split('.');
+                string time = DateTime.UtcNow.ToString();
+                time = time.Replace(" ", "-");
+                time = time.Replace(":", "-");
+                file.SaveAs(paths[0] + "-" + time + ".jpg");
+            }
+            ViewBag.Message = "File(s) uploaded successfully";
+            return RedirectToAction("Index");
+        }
 
         public ActionResult Perfil(int id = -9999) {
 
@@ -50,6 +127,7 @@ namespace Animais360.Controllers
 
             ViewBag.IdUser = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
             ViewBag.Jogos = jogos;
+
             //ViewBag.Tipo = u.Tipo;
 
             return View(u);
