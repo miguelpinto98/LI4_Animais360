@@ -50,14 +50,14 @@
                 @Html.Raw(sr)
                }]
 
-    var x = arr[0][1];
+ 
 
-    var p1 = new google.maps.LatLng(44.5403, 20);
-    var p2 = new google.maps.LatLng(44.5403, 50);
-    var p3 = new google.maps.LatLng(44.54, 75);
+    var p1 = new google.maps.LatLng(arr[0][1], arr[0][2]);
+    var p2 = new google.maps.LatLng(arr[1][1], arr[1][2]);
+    var p3 = new google.maps.LatLng(arr[2][1], arr[2][2]);
 
     var mapOptions = {
-        center: p1, zoom: 2,
+        center: new google.maps.LatLng(44.5403, 20), zoom: 2,
         mapTypeId: google.maps.MapTypeId.TERRAIN,
         panControl: false, zoomControl: false, mapTypeControl: false,
         scaleControl: false, streetViewControl: false,
@@ -70,6 +70,7 @@
 
 
     function HomeControl(controlDiv, map) {
+      
         controlDiv.style.padding = '5px';
 
         var caixa = document.createElement('div');
@@ -79,7 +80,7 @@
         caixa.style.borderColor = '#E0E4E8';
         caixa.style.borderWidth = '2px';
         caixa.style.textAlign = 'center';
-
+         
 
 
         var header = document.createElement('div');
@@ -115,8 +116,14 @@
 
 
 
-        for (i = 0; i < 5; i++) {
-            var p2 = new google.maps.LatLng(44.5403, 50);
+       
+        var p1 = new google.maps.LatLng(arr[0][1], arr[0][2]);
+        var p2 = new google.maps.LatLng(arr[1][1], arr[1][2]);
+        var p3 = new google.maps.LatLng(arr[2][1], arr[2][2]);
+        var p4 = new google.maps.LatLng(arr[3][1], arr[3][2]);
+        var p5 = new google.maps.LatLng(arr[4][1], arr[4][2]);
+
+   
 
             var ap = document.createElement('div');
             ap.style.width = '180px';
@@ -125,8 +132,6 @@
             ap.style.marginLeft = '10px';
             ap.style.cursor = 'pointer';
             ap.title = 'Ir para...';
-
-
             var apT = document.createElement('div');
             apT.style.fontFamily = 'Helvetica';
             apT.style.fontSize = '11px';
@@ -134,8 +139,31 @@
             apT.style.paddingLeft = '6px';
             apT.style.paddingRight = '4px';
             apT.style.paddingTop = '4px';
-            apT.innerHTML = '<b><del>Geres, Braga, Portugal</del></b>';
+            apT.innerHTML = arr[0][0];
 
+            content.appendChild(ap);
+            ap.appendChild(apT);
+
+            google.maps.event.addDomListener(ap, 'click', function () {
+                map.setCenter(p1); map.setZoom(8);
+            });
+
+
+            var ap = document.createElement('div');
+            ap.style.width = '180px';
+            ap.style.height = '25px';
+            ap.style.backgroundColor = '#fff';
+            ap.style.marginLeft = '10px';
+            ap.style.cursor = 'pointer';
+            ap.title = 'Ir para...';
+            var apT = document.createElement('div');
+            apT.style.fontFamily = 'Helvetica';
+            apT.style.fontSize = '11px';
+            apT.style.color = 'gray';
+            apT.style.paddingLeft = '6px';
+            apT.style.paddingRight = '4px';
+            apT.style.paddingTop = '4px';
+            apT.innerHTML = arr[1][0];
 
             content.appendChild(ap);
             ap.appendChild(apT);
@@ -143,9 +171,84 @@
             google.maps.event.addDomListener(ap, 'click', function () {
                 map.setCenter(p2); map.setZoom(8);
             });
-        }
-    }
 
+
+            var ap = document.createElement('div');
+            ap.style.width = '180px';
+            ap.style.height = '25px';
+            ap.style.backgroundColor = '#fff';
+            ap.style.marginLeft = '10px';
+            ap.style.cursor = 'pointer';
+            ap.title = 'Ir para...';
+            var apT = document.createElement('div');
+            apT.style.fontFamily = 'Helvetica';
+            apT.style.fontSize = '11px';
+            apT.style.color = 'gray';
+            apT.style.paddingLeft = '6px';
+            apT.style.paddingRight = '4px';
+            apT.style.paddingTop = '4px';
+            apT.innerHTML = arr[2][0];
+
+            content.appendChild(ap);
+            ap.appendChild(apT);
+
+            google.maps.event.addDomListener(ap, 'click', function () {
+                map.setCenter(p3); map.setZoom(8);
+            });
+
+
+            var ap = document.createElement('div');
+            ap.style.width = '180px';
+            ap.style.height = '25px';
+            ap.style.backgroundColor = '#fff';
+            ap.style.marginLeft = '10px';
+            ap.style.cursor = 'pointer';
+            ap.title = 'Ir para...';
+            var apT = document.createElement('div');
+            apT.style.fontFamily = 'Helvetica';
+            apT.style.fontSize = '11px';
+            apT.style.color = 'gray';
+            apT.style.paddingLeft = '6px';
+            apT.style.paddingRight = '4px';
+            apT.style.paddingTop = '4px';
+            apT.innerHTML = arr[3][0];
+
+            content.appendChild(ap);
+            ap.appendChild(apT);
+
+            google.maps.event.addDomListener(ap, 'click', function () {
+                map.setCenter(p4); map.setZoom(8);
+            });
+
+
+            var ap = document.createElement('div');
+            ap.style.width = '180px';
+            ap.style.height = '25px';
+            ap.style.backgroundColor = '#fff';
+            ap.style.marginLeft = '10px';
+            ap.style.cursor = 'pointer';
+            ap.title = 'Ir para...';
+            var apT = document.createElement('div');
+            apT.style.fontFamily = 'Helvetica';
+            apT.style.fontSize = '11px';
+            apT.style.color = 'gray';
+            apT.style.paddingLeft = '6px';
+            apT.style.paddingRight = '4px';
+            apT.style.paddingTop = '4px';
+            apT.innerHTML = arr[4][0];
+
+            content.appendChild(ap);
+            ap.appendChild(apT);
+
+            google.maps.event.addDomListener(ap, 'click', function () {
+                map.setCenter(p5); map.setZoom(8);
+            });
+
+
+
+        }
+    
+    
 
 
     function initialize() {
