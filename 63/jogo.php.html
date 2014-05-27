@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt">
     <head>
         <meta charset="utf-8">
@@ -6,25 +7,20 @@
         <meta http-equiv="x-pjax-version" content="v173">
         <link rel="shortcut icon" href="assets/images/favicon/favicon.ico">
         <link rel="stylesheet" href="assets/styles/9281c719.vendor.css"/>       
-        <link rel="stylesheet" href="assets/styles/3fc417cd.main.css"/>      
-        <link rel="stylesheet" href="assets/styles/caixas.css"/>
-        <link rel="stylesheet" href="assets/styles/drag.css"/>
-        <link rel="stylesheet" href="assets/styles/reset.css"/>
-        <link rel="stylesheet" href="assets/styles/relogio.css"/>
-
-        <style type="text/css"> #map-canvas {height: 600px;}</style>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2YN0hK1nUK_Pln49Z-xO3GBX9i1LHoqI&sensor=false"></script>  
+        <link rel="stylesheet" href="assets/styles/3fc417cd.main.css"/>
+  
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
     </head>
 
 
+
     <body>
-      
 
         <!-- header-->
-            <header class="header dialog-background">
+            <header class="header">
                 <div class="header-brand">
                     <a data-pjax=".content-body" href="index.php.html">
-                        <img class="brand-logo" src="assets/images/logo.png">
+                        <img class="brand-logo" src="assets/images/logo.png" alt="Stilearn Admin Sample Logo">
                     </a>
                 </div>
                 <div class="header-profile">
@@ -49,65 +45,97 @@
         
         
         <section class="section">
-            <!-- barra navegação esquerda -->
-                <aside class="side-left">
-                    <ul class="sidebar">
-                        <li>
-                            <a href="index.php.html" data-pjax=".content-body" style="background-color:#3498DB;">
-                                <i class="sidebar-icon fa fa-dashboard"></i>
-                                <span class="sidebar-text">Dashboard</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="regras.php.html" style="background-color:#27AE60;">
-                                <i class="sidebar-icon fa fa-list-alt"></i>
-                                <span class="sidebar-text">Regras</span>
-                            </a>
-                        </li>
-                          <li>
-                            <a href="jogo.php.html" style="background-color:#E74C3C;">
-                                <i class="sidebar-icon fa fa-globe"></i>
-                                <span class="sidebar-text">Jogar</span>
-                            </a>
-                        </li>
-                    </ul>
-                </aside>
-            <!-- barra navegação esquerda -->
 
-            <form class="content dialog-background">
+        <!-- barra navegação esquerda -->
+             <aside class="side-left">
+                <ul class="sidebar">
+                    <li>
+                        <a href="index.php.html" data-pjax=".content-body" style="background-color:#3498DB;">
+                            <i class="sidebar-icon fa fa-dashboard"></i>
+                            <span class="sidebar-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="regras.php.html" style="background-color:#27AE60;">
+                            <i class="sidebar-icon fa fa-list-alt"></i>
+                            <span class="sidebar-text">Regras</span>
+                        </a>
+                    </li>
+                      <li>
+                        <a href="jogo.php.html" style="background-color:#E74C3C;">
+                            <i class="sidebar-icon fa fa-globe"></i>
+                            <span class="sidebar-text">Jogar</span>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+        <!-- barra navegação esquerda -->
+
+            <div class="content">
+                
                 <div class="content-body">
-                    <div class="invoice-wapper" style="margin-top:10px;margin-bottom:15px;">
-                        <div class="invoice-table table-responsive">
-                            <table class="table table-bordered invoice">
-                                <thead>
-                                    <tr>
-                                        <th style="width:890px;">
-                                            <div class="progress" style="margin-bottom:0px;">
-                                                <div class="progress-bar" role="progressbar" style="width:75%">                      
-                                                </div>
-                                            </div>
-                                        </th>
-                                        <th>Pontuação: <a>123</a></th>
-                                    </tr>
-                                </thead>
-                            </table>
+                    <div class="coluna" style="width:20%; display:block; position:absolute">
+                        <div class="panel panel-default">
+                            <div class="panel-body text-center" style="background-color:#F1C40F; color:#fff">
+                                <b>Informações</b>
+                            </div>
+                            <ul class="list-group bordered-bottom" style="font-size:12px;">
+                                <li class="list-group-item text-center">
+                                    <span>Continentes Concluídos: </span>
+                                    <a style="text-decoration:none;">0/6</a>
+                                </li>
+                                <li class="list-group-item text-center">
+                                    <span>Pontuação: </span>
+                                    <a style="text-decoration:none;">123</a>
+                                </li>
+                                <li class="list-group-item text-center">
+                                    <span>Outras coisas: </span>
+                                    <a style="text-decoration:none;">63linda</a>
+                                </li>
+                            </ul>
                         </div>
-                    </div>   
-                    <div id="map-canvas"></div>
+
+
+                        <div class="panel panel-default">
+                            <div class="panel-body text-center" style="background-color:#F39C12; color:#fff">
+                               Próximos Destinos
+                            </div>
+                            <ul class="list-group bordered-bottom">
+                                <li class="list-group-item text-center" style="font-size:12px;">Parque Nacional da Peneda Geres</li>
+                                <li class="list-group-item text-center" style="font-size:12px;">Se for um nome muito, muito, muito grande fica assim</li>
+                                <li class="list-group-item text-center" style="font-size:12px;">Se for pequenito</li>
+                                <li class="list-group-item text-center" style="font-size:12px;">Se for mini</li>
+                                <li class="list-group-item text-center" style="font-size:12px;">63</li>
+                                <li class="list-group-item text-center" style="font-size:12px;">Cena</li>
+                                <li class="list-group-item text-center" style="font-size:12px;">Cena</li>
+                                <li class="list-group-item text-center" style="font-size:12px;">Cena</li>
+                                <li class="list-group-item text-center" style="font-size:12px;">Cena</li>
+                                <li class="list-group-item text-center" style="font-size:12px;">Cena</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                   
+                    <div class="coluna" style="width:77%; display:block; position:absolute; right:13px;">
+                        <div id="map_canvas" style="height:650px;"></div>
+                    </div>
                 </div>
-            </form>
+            </div>
+
         </section>
         
 
 
 
         <!-- footer -->
-            <footer class="dialog-background">
+            <footer>
                 <p style="margin-left:320px;"><small><a>Animais 360 &copy;</a>
                     Desenvolvido por Diana Lemos, Mariana Medeiros, Mário Leite e Miguel Pinto.
                 </small></p>
             </footer>
         <!-- footer -->
+
+
 
         <!-- ========================= javascript ============================= -->
             <script src="assets/scripts/39914ff3.vendor-main.js"></script>        
@@ -120,12 +148,7 @@
             <script src="assets/scripts/5f4fd25b.vendor-util.js"></script>
             <script src="assets/scripts/5917523f.main.js"></script>
             <script src="assets/scripts/89c3d6c9.initializer.js"></script>
-            <script src="assets/scripts/relogio.js"></script>
-            <script src="assets/scripts/relogio2.js"></script>
-            <script src="assets/scripts/classie.js"></script>
-            <script src="assets/scripts/caixas.js"></script>
-            <script src="assets/scripts/google.js"></script>
-            <script src="assets/scripts/drag.js"></script>
+             <script src="assets/scripts/google.js"></script>
         <!-- ========================= javascript ============================= -->
 
     </body>
