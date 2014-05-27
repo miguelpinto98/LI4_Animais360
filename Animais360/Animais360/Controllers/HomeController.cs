@@ -30,7 +30,7 @@ namespace Animais360.Controllers
                         }
                 }
                 ViewBag.nVoltas = voltas;
-                ViewBag.njogos = jogos;
+                ViewBag.nJogos = jogos;
 
                 ViewBag.conquistador = conquistador;
                 return View();
