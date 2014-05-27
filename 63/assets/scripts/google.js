@@ -137,8 +137,8 @@ function initialize() {
 }
 
 
-//google.maps.event.addDomListener(window, 'load', initialize);
-google.maps.event.addDomListener(window, 'load', function(){document.getElementById('dialog-anchor').click();});
+google.maps.event.addDomListener(window, 'load', initialize);
+//google.maps.event.addDomListener(window, 'load', function(){document.getElementById('dialog-anchor').click();});
 
 
 if (typeof countitroundinstance === "undefined") {var countitroundinstance = [];}
