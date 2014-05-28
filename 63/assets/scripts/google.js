@@ -39,10 +39,9 @@ function initialize() {
 
 
     //Fazer zoom no vermelho
-    google.maps.event.addListener(
+     google.maps.event.addListener(
         vermelho, 'click', function(){
-            map.setZoom(8);
-            map.setCenter(vermelho.getPosition());
+           document.getElementById('dialog-anchor').click();
         }
     );
 

@@ -8,6 +8,7 @@
         <link rel="shortcut icon" href="assets/images/favicon/favicon.ico">
         <link rel="stylesheet" href="assets/styles/9281c719.vendor.css"/>       
         <link rel="stylesheet" href="assets/styles/3fc417cd.main.css"/>
+        <link rel="stylesheet" href="assets/styles/component.css"/>
   
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
     </head>
@@ -42,12 +43,33 @@
             </header>
         <!-- header-->
 
+
+        <div class="md-modal md-effect-16" id="question-dialog">
+            <div class="md-content">
+                <h3>asdasda</h3>
+                <div>
+                    <ul>
+                        <li><a href="">asdasdasdasd</a></li>
+                        <li><a href="">asdasdasdasd</a></li>
+                        <li><a href="">asdasdasdasd</a></li>
+                        <li><a href="">asdasdasdasd</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="md-overlay"></div> 
+        
+        <a href="#" class="md-trigger" id="dialog-anchor" data-modal="question-dialog" style="display:none"></a>
+
+
+
+
         
         
         <section class="section">
 
         <!-- barra navegação esquerda -->
-             <aside class="side-left">
+            <aside class="side-left">
                 <ul class="sidebar">
                     <li>
                         <a href="index.php.html" data-pjax=".content-body" style="background-color:#3498DB;">
@@ -128,7 +150,7 @@
 
 
         <!-- footer -->
-            <footer>
+            <footer class="dialog-background">
                 <p style="margin-left:320px;"><small><a>Animais 360 &copy;</a>
                     Desenvolvido por Diana Lemos, Mariana Medeiros, Mário Leite e Miguel Pinto.
                 </small></p>
@@ -149,6 +171,8 @@
             <script src="assets/scripts/5917523f.main.js"></script>
             <script src="assets/scripts/89c3d6c9.initializer.js"></script>
              <script src="assets/scripts/google.js"></script>
+             <script src="assets/scripts/classie.js"></script>
+             <script src="assets/scripts/modalEffects.js"></script>
         <!-- ========================= javascript ============================= -->
 
     </body>
