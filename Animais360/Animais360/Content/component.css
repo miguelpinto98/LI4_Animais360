@@ -10,7 +10,6 @@
 	-moz-perspective: 600px;
 	perspective: 600px;
 }
-
  /*cor do cabeçalho da página*/
 .dialog-background {
 	background: #34495E;
@@ -20,7 +19,7 @@
 .md-modal {
 	position: fixed;
 	top: 50%;
-	left: 50%;
+	left: 64%;
 	width: 50%;
 	max-width: 630px;
 	min-width: 320px;
@@ -49,6 +48,7 @@
 	left: 0;
 	z-index: 1000;
 	opacity: 0;
+	background: rgba(143,27,15,0.8);
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
@@ -62,7 +62,7 @@
 /* cor dos modal dialog */
 .md-content {
 	color: #fff;
-	background: ;
+	background: rgba(0,0,0,0.3);
 	position: relative; 
 	border: 2px solid #333;
 	margin: 0 auto;
@@ -94,7 +94,7 @@
 
 .md-content > div ul {
 	margin: 0;
-	padding: 0 0 0px 20px;
+	padding: 0 0 30px 20px;
 }
 
 
@@ -104,8 +104,7 @@
 	padding: 10px 0;
 	width:190px;
 	height:40px;
-	color:#F39C12;
-	margin-left:35px;
+	margin-left:30px;
 	margin-right:20px;
 	margin-bottom:10px;
 	margin-top:20px;
@@ -119,14 +118,20 @@
 }
 
 
+
+
+
+
 .md-content > div ul>li>a{
 	display:block;
 	clear: both;
 	margin:0;
-	color:#F39C12;
+	color: #333;
 	cursor: pointer;
 	overflow: hidden;
 }
+
+
 
 
 
@@ -139,7 +144,7 @@
 button {
 	border: none;
 	padding: 0.6em 1.2em;
-	background: #2ECC71;
+	background: #c0392b;
 	color: #fff;
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 	font-size: 1em;
@@ -152,7 +157,7 @@ button {
 }
 
 button:hover {
-	background: #27AE60;
+	background: #A5281B;
 }
 
 
@@ -183,7 +188,7 @@ button:hover {
 
 /* Effect 16:  Blur */
 .md-show.md-effect-16 ~ .md-overlay {
-	background: rgba(0, 0, 0, 0.8);
+	background: rgba(0,0,0,0.5);
 }
 
 .md-show.md-effect-16 ~ section.section {
@@ -214,70 +219,6 @@ button:hover {
 	transform: translateY(0);
 	opacity: 1;
 }
-
-.mariana{
-	height: 189px;
-	top: 114px;
-	width:180px;
-	right:-190px;
-	position:fixed;
-	border: 2px solid #333;
-	z-index:999;
-	background-color:;
-	color:#BDC3C7;
-	overflow:hidden;
-	-webkit-transition:right .3s ease;
-	-ms-transition:right .3s ease;
-	transition:right .3s ease
-}
-
-
-.mariana h3 {
-	margin: 0;
-	padding: 0.4em;
-	border-bottom: 2px solid #333;
-	text-align: center;
-	color:#fff;
-	font-size: 1.3em;
-	font-weight: 300;
-	background: #8E44AD;
-	overflow: hidden;
-}
-
-.mariana > ul {
-	margin: 0;
-	padding-left: 25%;
-}
-
-.mariana > ul li {
-	position: relative;
-	display: inline-block;
-	padding: 10px 0;
-	min-width:80px;
-	height:37px;
-	color:#F39C12;
-	margin:0;
-	margin-top:10px;
-	list-style: none;
-	font-size: 12px;
-	text-align: center;
-	background-color: #fff;
-	border: 1px solid #333;
-	border-radius: 8px;
-	vertical-align: middle;
-}
-
-.mariana ul li a{
-	color:#F39C12;
-	cursor: pointer;
-	overflow: hidden;
-}
-
-
-
-
-
-
 
 
 @media screen and (max-width: 32em) {

@@ -6,57 +6,74 @@
 }
 
 <!-- caixa inicial -->
-@using (Html.BeginForm("Create", "Jogo", new { id = ViewBag.IdUser }, FormMethod.Post, new { @class = "md-modal md-effect-16", id = "caixa-inicial" }))
+@using (Html.BeginForm("Create", "Jogo", new { id = ViewBag.IdUser }, FormMethod.Post, new { @class = "md-modal md-effect-16", id = "question-dialog" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary() 
     <div class="md-content">
-        <h3>
-            Prepara o início da Aventura
-        </h3>
-        <div>
-            Dificuldade:
-            <select style="color:#000000" id="DificuldadeID" name="DificuldadeID">
-                <option value="1">Fácil</option>
-                <option value="2">Média</option>
-                <option value="3">Difícil</option>
-            </select><br></br>
-            
-            Personagem:&nbsp
-            
-<!--           <a href=""><img src="assets/images/personagens/p1.png" width="28" height="30"></img></a>
-            &nbsp&nbsp&nbsp
-  -          <a href=""><img src="assets/images/personagens/p3.png"></img></a>
-            &nbsp&nbsp&nbsp
-            <a href=""><img src="assets/images/personagens/p5.png" width="48" height="50"></img></a>
-            <a href=""><img src="assets/images/personagens/p4.png"></img></a>
-            &nbsp&nbsp&nbsp
-            <a href=""><img src="assets/images/personagens/p2.png" width="28" height="30"></img></a>
--->
-            <br></br>
-            Continente:
-            <select style="color:#000000" id="ContinenteID" name="ContinenteID">
-                <option value="1">África</option>
-                <option value="4">América</option>
-                <option value="3">Antártida</option>
-                <option value="2">Ásia</option>
-                <option value="5">Europa</option>
-                <option value="6">Oceania</option>
-            </select><br></br><br></br>
-            <button class="md-close">Começar Agora!</button>
-        </div>
+        <h3>asdasda</h3>
+            <div>
+                <ul>
+                    <li><a href="#">asdasdasdasd</a></li>
+                    <li><a href="#">asdasdasdasd</a></li>
+                    <li><a href="#">asdasdasdasd</a></li>
+                    <li><a href="#">asdasdasdasd</a></li>
+                </ul>
+            </div>
     </div>
 }
 <div class="md-overlay"></div>
 
 
-<a href="#" class="md-trigger" id="dialog-anchor" data-modal="caixa-inicial" style="display:none"></a> 
+ <a href="#" class="md-trigger" id="dialog-anchor" data-modal="question-dialog" style="display:none"></a>
 
 <!-- Parte Essencial -->
-<div class="content dialog-background">
+<div class="content">        
     <div class="content-body">
-        <div id="map_canvas" style="height:650px;">
+        <div class="coluna" style="width:20%; display:block; position:absolute">
+            <div class="panel panel-default">
+                <div class="panel-body text-center" style="background-color:#F1C40F; color:#fff">
+                    Informações
+                </div>
+                <ul class="list-group bordered-bottom" style="font-size:12px;">
+                    <li class="list-group-item text-center">
+                        <span>Continentes Concluídos: </span>
+                        <a style="text-decoration:none;">0/6</a>
+                    </li>
+                    <li class="list-group-item text-center">
+                        <span>Pontuação: </span>
+                        <a style="text-decoration:none;">123</a>
+                    </li>
+                    <li class="list-group-item text-center">
+                        <span>Outras coisas: </span>
+                        <a style="text-decoration:none;">63linda</a>
+                    </li>
+                </ul>
+            </div>
 
+
+            <div class="panel panel-default">
+                <div class="panel-body text-center" style="background-color:#F39C12; color:#fff">
+                    Próximos Destinos
+                </div>
+                <ul class="list-group bordered-bottom">
+                    <li class="list-group-item text-center" style="font-size:12px;" id="ap1">Parque Nacional da Peneda Geres</li>
+                    <li class="list-group-item text-center" style="font-size:12px;" id="ap2">Se for um nome muito, muito, muito grande fica assim</li>
+                    <li class="list-group-item text-center" style="font-size:12px;" id="ap3">Se for pequenito</li>
+                    <li class="list-group-item text-center" style="font-size:12px;" id="ap4">Se for mini</li>
+                    <li class="list-group-item text-center" style="font-size:12px;" id="ap5">63</li>
+                    <li class="list-group-item text-center" style="font-size:12px;" id="ap6">Cena</li>
+                    <li class="list-group-item text-center" style="font-size:12px;" id="ap7">Cena</li>
+                    <li class="list-group-item text-center" style="font-size:12px;" id="ap8">Cena</li>
+                    <li class="list-group-item text-center" style="font-size:12px;" id="ap9">Cena</li>
+                    <li class="list-group-item text-center" style="font-size:12px;" id="ap10">Cena</li>
+                </ul>
+            </div>
+        </div>
+
+                   
+        <div class="coluna" style="width:77%; display:block; position:absolute; right:13px;">
+            <div id="map_canvas" style="height:650px;"></div>
         </div>
     </div>
 </div>
@@ -65,10 +82,13 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2YN0hK1nUK_Pln49Z-xO3GBX9i1LHoqI&sensor=false"></script>
 
 <script src="@Url.Content("~/scripts/classie.js")"></script>
-<script src="@Url.Content("~/scripts/caixas.js")"></script> 
+<script src="@Url.Content("~/scripts/modalEffects.js")"></script> 
 
 <script>
     var p1 = new google.maps.LatLng(44.5403, 20);
+    var p2 = new google.maps.LatLng(44.5403, 50);
+    var p3 = new google.maps.LatLng(44.54, 75);
+
 
     var map_options = {
         center: p1, zoom: 2,
@@ -80,5 +100,59 @@
 
     var map = new google.maps.Map(document.getElementById('map_canvas'), map_options);
 
-    google.maps.event.addDomListener(window, 'load', function(){document.getElementById('dialog-anchor').click();});
+
+    function initialize() {
+        var azul = new google.maps.Marker({ position: p1, map: map, icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png', title: 'Clique para info' });
+        var vermelho = new google.maps.Marker({ position: p2, map: map, title: 'Clique para zoom' });
+
+        var contentString =
+          '<div id="content">' + '<div id="siteNotice">' + 'asdasjd' + '</div>' +
+          '<h1 id="firstHeading" class="firstHeading">Area, Pais</h1>' +
+          '<div id="bodyContent">' + '<p>A <b>63</b> é linda</p>' +
+          '<p>Attribution: Uluru, ' + '<a href="http://en.wikipedia.org"</a>' +
+          '(last visited June 22, 2009).' + '</p>' + '</div>' + '</div>';
+
+        var infowindow = new google.maps.InfoWindow({ content: contentString });
+
+        //Função que muda a "camara" para o ponto marcado, 3 segundos depois de mudar de sítio.
+        /*google.maps.event.addListener(
+            map, 'center_changed', function(){
+                window.setTimeout( function(){map.panTo(marker.getPosition());}, 3000);
+            }
+        );*/
+
+
+        //Vermelho abre pergunta
+        google.maps.event.addListener(
+           vermelho, 'click', function () {
+               document.getElementById('dialog-anchor').click();
+           }
+       );
+
+
+
+        //Janela de info no azul
+        google.maps.event.addListener(
+            azul, 'click', function () {
+                infowindow.open(map, azul);
+            }
+        );
+
+
+
+        var flightPlanCoordinates = [p1, p2, p3];
+
+        var flightPath = new google.maps.Polyline({
+            path: flightPlanCoordinates,
+            geodesic: true,
+            strokeColor: '#FF0000',
+            strokeOpacity: 1.0,
+            strokeWeight: 2
+        });
+
+        flightPath.setMap(map);
+    }
+
+
+    google.maps.event.addDomListener(window, 'load', initialize);
 </script>

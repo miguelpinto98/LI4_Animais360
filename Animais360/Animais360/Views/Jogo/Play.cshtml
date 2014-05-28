@@ -79,7 +79,7 @@
 </div>
 
 <div class="md-overlay"></div>
-<a href="#" class="md-trigger" id="dialog-anchor" data-modal="caixa-inicial" style="display:none"></a> 
+<a href="#" class="md-trigger" id="dialog-anchor" data-modal="question-dialog" style="display:none"></a> 
 
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script>
@@ -125,11 +125,10 @@
 
         //Fazer zoom no vermelho
         google.maps.event.addListener(
-            vermelho, 'click', function () {
-                map.setZoom(8);
-                map.setCenter(vermelho.getPosition());
-            }
-        );
+           vermelho, 'click', function () {
+               document.getElementById('dialog-anchor').click();
+           }
+       );
 
         //Janela de info no azul
         google.maps.event.addListener(
