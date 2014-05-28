@@ -48,6 +48,7 @@ namespace Animais360.Controllers
 
             ViewBag.ContinenteID = continente;
             ViewBag.Continentes = db.Continentes.ToList();
+            //ViewBag.Paises = db.Pais.Count();
             ViewBag.Areas = db.AreaProtegidas.ToList();
             
             return View(jogo);

@@ -57,6 +57,7 @@
                                             <thead>
                                                 <tr>
                                                     <th> @p.PaisNome </th>
+                                                    <th> Desafios </th>
                                                 </tr>
                                             </thead>
 
@@ -65,6 +66,7 @@
                                         @foreach(AreaProtegida ap in aps ) {
                                             <tr>
                                                 <td> @ap.AreaNome </td>
+                                                <td> @ap.Questoes.Count() </td>
                                                 <td style="padding:3px; width:32%;text-align:center">
                                                     <div class="">
                                                             <a href="@Url.Action("Index", "Questao", new { id = ap.AreaProtegidaID })" style="color:white;text-decoration:none;">
@@ -73,17 +75,13 @@
                                                                 </li>
                                                             </a>
                                                        
-                                                       
                                                             <a href="@Url.Action("Edit", "AreaProtegida", new { id = ap.AreaProtegidaID })" style="color:white;text-decoration:none">
                                                                  <li class="btn btn-info">
-                                                                <i class="fa fa-pencil fa-fw"></i>&nbspEditar
-                                                                     </li>
+                                                                    <i class="fa fa-pencil fa-fw"></i>&nbspEditar
+                                                                 </li>
                                                             </a>
 
-                                                        
-
                                                             @if (ap.Permitida == 0) { 
-                                                           
                                                                 <a href="@Url.Action("Permission", "AreaProtegida", new { id = ap.AreaProtegidaID })" style="color:white;text-decoration:none">
                                                                      <li class="btn btn-danger">
                                                                     <i class="fa fa-trash-o fa-fw"></i>&nbspBloquear
@@ -97,7 +95,6 @@
                                                                             <i class="fa fa-trash-o fa-fw"></i>&nbspAtivar
                                                                         </li>
                                                                     </a>
-                                                                
                                                             }
                                                     </div>
                                                 </td>
@@ -119,7 +116,7 @@
                                                             <option value="25">25</option>
                                                             <option value="50">50</option>
                                                         </select>
-                                                        <select class="pagenum input-sm" title="Select page number"></select>
+                                                        <!--<select class="pagenum input-sm" title="Select page number"></select>-->
                                                     </th>
                                                 </tr>
                                             </tfoot>
