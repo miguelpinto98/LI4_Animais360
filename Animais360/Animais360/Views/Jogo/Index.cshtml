@@ -38,15 +38,15 @@
                 <ul class="list-group bordered-bottom" style="font-size:12px;">
                     <li class="list-group-item text-center">
                         <span>Continentes Concluídos: </span>
-                        <a style="text-decoration:none;">0/6</a>
+                        <a style="text-decoration:none; color:#F39C12">0/6</a>
                     </li>
                     <li class="list-group-item text-center">
                         <span>Pontuação: </span>
-                        <a style="text-decoration:none;">123</a>
+                        <a style="text-decoration:none; color:#F39C12">123</a>
                     </li>
                     <li class="list-group-item text-center">
                         <span>Outras coisas: </span>
-                        <a style="text-decoration:none;">63linda</a>
+                        <a style="text-decoration:none; color:#F39C12">63linda</a>
                     </li>
                 </ul>
             </div>
@@ -57,16 +57,7 @@
                     Próximos Destinos
                 </div>
                 <ul class="list-group bordered-bottom">
-                    <li class="list-group-item text-center" style="font-size:12px;" id="ap1">Parque Nacional da Peneda Geres</li>
-                    <li class="list-group-item text-center" style="font-size:12px;" id="ap2">Se for um nome muito, muito, muito grande fica assim</li>
-                    <li class="list-group-item text-center" style="font-size:12px;" id="ap3">Se for pequenito</li>
-                    <li class="list-group-item text-center" style="font-size:12px;" id="ap4">Se for mini</li>
-                    <li class="list-group-item text-center" style="font-size:12px;" id="ap5">63</li>
-                    <li class="list-group-item text-center" style="font-size:12px;" id="ap6">Cena</li>
-                    <li class="list-group-item text-center" style="font-size:12px;" id="ap7">Cena</li>
-                    <li class="list-group-item text-center" style="font-size:12px;" id="ap8">Cena</li>
-                    <li class="list-group-item text-center" style="font-size:12px;" id="ap9">Cena</li>
-                    <li class="list-group-item text-center" style="font-size:12px;" id="ap10">Cena</li>
+                    <li class="list-group-item text-center" id="ap1" style="font-size:12px;">Parque Nacional da Peneda Geres</li>
                 </ul>
             </div>
         </div>
@@ -103,7 +94,7 @@
 
     function initialize() {
         var azul = new google.maps.Marker({ position: p1, map: map, icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png', title: 'Clique para info' });
-        var vermelho = new google.maps.Marker({ position: p2, map: map, title: 'Clique para zoom' });
+        var vermelho = new google.maps.Marker({ position: p2, map: map, title: 'Responder a Desafio' });
 
         var contentString =
           '<div id="content">' + '<div id="siteNotice">' + 'asdasjd' + '</div>' +
@@ -126,10 +117,18 @@
         google.maps.event.addListener(
            vermelho, 'click', function () {
                document.getElementById('dialog-anchor').click();
-           }
-       );
+           });
 
+       
+     
+        //zoom vermelho
+        google.maps.event.addDomListener(document.getElementById("ap1"), "click", function () {
+            map.setCenter(vermelho.getPosition());
+            map.setZoom(6);
+        });
+        
 
+        
 
         //Janela de info no azul
         google.maps.event.addListener(
@@ -139,8 +138,8 @@
         );
 
 
-
-        var flightPlanCoordinates = [p1, p2, p3];
+        //linha vermelha
+        /*var flightPlanCoordinates = [p1, p2, p3];
 
         var flightPath = new google.maps.Polyline({
             path: flightPlanCoordinates,
@@ -150,7 +149,7 @@
             strokeWeight: 2
         });
 
-        flightPath.setMap(map);
+        flightPath.setMap(map);*/
     }
 
 
