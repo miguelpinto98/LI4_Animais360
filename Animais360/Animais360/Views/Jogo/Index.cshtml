@@ -38,12 +38,24 @@
                 </div>
                 <ul class="list-group bordered-bottom" style="font-size:12px;">
                     <li class="list-group-item text-center">
+                        <span>Dificuldade: </span>
+                        <a style="text-decoration:none; color:#F39C12">Fácil</a>
+                    </li>
+                    <li class="list-group-item text-center">
                         <span>Continentes Concluídos: </span>
                         <a style="text-decoration:none; color:#F39C12">0/6</a>
                     </li>
                     <li class="list-group-item text-center">
+                        <span>Progresso neste Coninente: </span>
+                        <a style="text-decoration:none; color:#F39C12">3/6</a>
+                    </li>
+                    <li class="list-group-item text-center">
                         <span>Pontuação: </span>
                         <a style="text-decoration:none; color:#F39C12">123</a>
+                    </li>
+                    <li class="list-group-item text-center">
+                        <span>Outras coisas: </span>
+                        <a style="text-decoration:none; color:#F39C12">63linda</a>
                     </li>
                     <li class="list-group-item text-center">
                         <span>Outras coisas: </span>
@@ -55,17 +67,18 @@
 
             <div class="panel panel-default">
                 <div class="panel-body text-center" style="background-color:#F39C12; color:#fff">
-                    Próximos Destinos
+                    Destinos Sugeridos
                 </div>
                 <ul class="list-group bordered-bottom">
                     <li class="list-group-item text-center" id="ap1" style="font-size:12px;">Parque Nacional da Peneda Geres</li>
+
                 </ul>
             </div>
         </div>
 
                    
         <div class="coluna" style="width:77%; display:block; position:absolute; right:13px;">
-            <div id="map_canvas" style="height:700px;"></div>
+            <div id="map_canvas" style="height:790px;"></div>
         </div>
     </div>
 </div>
@@ -114,18 +127,13 @@
         );*/
 
 
-        //Vermelho abre pergunta
-        google.maps.event.addListener(
-           vermelho, 'click', function () {
-               document.getElementById('dialog-anchor').click();
-           });
-
        
      
-        //zoom vermelho
+        //zoom vermelho + abre pergunta
         google.maps.event.addDomListener(document.getElementById("ap1"), "click", function () {
             map.setCenter(vermelho.getPosition());
             map.setZoom(6);
+            document.getElementById('dialog-anchor').click();
         });
         
 
@@ -134,7 +142,14 @@
         //Janela de info no azul
         google.maps.event.addListener(
             azul, 'click', function () {
-                infowindow.open(map, azul);
+                infowindow.open(map, azul);s
+            }
+        );
+
+        //Janela de info no azul
+        google.maps.event.addListener(
+            vermelho, 'click', function () {
+                infowindow.open(map, vermelho);
             }
         );
 
