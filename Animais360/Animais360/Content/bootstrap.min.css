@@ -5603,15 +5603,16 @@ button.close {
 .modal-footer .fcol1 {
     position:fixed;
     padding:20px;
-    width:48%;
+    width:63%;
+    padding-right:5px;
 }
 
 .modal-footer .fcol2 {
     position:fixed;
-    width:48%;
+    width:35%;
     padding:20px;
     padding-top:5px;
-    margin-left:50%;
+    margin-left:60%;
     height: 110px;
     overflow:hidden;
 }
