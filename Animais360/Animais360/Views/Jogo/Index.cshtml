@@ -27,45 +27,38 @@
 <!-- caixa inicial -->
 
 <script>
-        /*
-        var pedidoPergunta = new XMLHttpRequest();
-        pedidoPergunta.open('GET', '../Jogo/GetQuestaoArea/8', true);
-        pedidoPergunta.onreadystatechange = function () {
-            var Pergunta = JSON.parse(pedidoPergunta.responseText);
-            alert("Pergunta: " + Pergunta['pergunta']);
-        }
-        pedidoPergunta.send();
-        */
     function getQuestao() {
         $.ajax({
-            url: '@Url.Action("GetQuestaoArea", "Jogo")',
+            url: '@Url.Action("GetQuestaoArea", "Questao")',
             data: { id: 8 },
-            type: 'POST',
+            type: 'GET',
             success: function (data) {
-                $('#Resposta1Descricao').text(data.hipotese1);
+                $('#Pergunta').text(data.Pergunta);
+                $('#Hipotese1').text(data.Resposta1);
+                $('#Hipotese2').text(data.Resposta2);
+                $('#Hipotese3').text(data.Resposta3);
+                $('#Hipotese4').text(data.Resposta4);
+                //alert(data.Pergunta);
             }
         });
         $('#myModal').modal('toggle');
     }
 </script>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width:45%">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="myModalLabel">Sabe-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amorosa. Quem é essa pessoa?</h3>
+                <h3 class="modal-title" id="Pergunta">Sabe-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amorosa. Quem é essa pessoa?</h3>
             </div>
             <div class="modal-body">
                 <div class="coluu1">
-                       <input style ="margin-right: 20px; margin-bottom:20px;" type="radio" name="s" value="m">63linda
-                        <br/>
-                       <input style ="margin-right: 20px; margin-bottom:20px;" type="radio" name="s" value="m">63linda
+                    @Html.RadioButton("resposta", "1", new { id = "Resposta1" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese1" }) <br />
+                    @Html.RadioButton("resposta", "2", new { id = "Resposta2" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese2" }) <br />
                 </div>
                 <div class="coluu2">
-                      
-                       <input style ="margin-right: 20px; margin-bottom:20px;" type="radio" name="s" value="m">63linda
-                        <br/>
-                       <input style ="margin-right: 20px; margin-bottom:20px;" type="radio" name="s" value="m">todas as anteriores
+                    @Html.RadioButton("resposta", "3", new { id = "Resposta3" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese3" }) <br />
+                    @Html.RadioButton("resposta", "4", new { id = "Resposta4" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese4" }) <br />
                 </div>
                        
             </div>
@@ -80,12 +73,10 @@
                 <div class="fcol2">
                    A ajuda és esta: be-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amobe-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amobe-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amo
                 </div>
-
             </div>
         </div>
     </div>
 </div>
-
 
     <!-- Parte Essencial -->
     <div class="content">
@@ -133,8 +124,8 @@
             </div>
 
 
-            <div class="coluna" style="width:77%; display:block; position:absolute; right:13px;">
-               <div id="map_canvas" style="height:790px;"></div>
+            <div class="coluna" display:block; position:absolute; right:13px;">
+                <div id="map_canvas" style="height:790px;"></div>
             </div>
         </div>
     </div>
