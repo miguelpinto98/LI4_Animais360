@@ -5,26 +5,7 @@
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<!-- caixa inicial -->
-<!--
-     <div class="md-content">
-                <h3>Quem é a RAINHA de tudo?</h3>
-                <div>
-                    <form action="">
-                       <input style ="margin-right: 20px;" type="radio" name="s" value="m"><label id="Resposta1Descricao"></label>
-                       <input style ="margin-right: 20px;" type="radio" name="s" value="m">63linda
-                       <br>
-                       <input style ="margin-right: 20px;" type="radio" name="s" value="m">63linda
-                       <br>
-                       <input style ="margin-right: 20px;" type="radio" name="s" value="m">todas as anteriores
-                       <button>Confirmar</button>
-                    </form>
 
-                     
-                </div>
-            </div>
--->
-<!-- caixa inicial -->
 
 <script>
     function getQuestao() {
@@ -51,6 +32,7 @@
     }
 </script>
 
+<!--
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width:45%">
         <div class="modal-content">
@@ -82,7 +64,49 @@
             </div>
         </div>
     </div>
+</div>-->
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:45%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Decisões iniciais</h3>
+            </div>
+            <div class="modal-body">
+                 Dificuldade:
+                        <select>
+                            <option value="f" style="color:#fff;">Fácil</option>
+                            <option value="m" style="color:#fff;">Média</option>
+                            <option value="d" style="color:#fff;">Difícil</option>
+                        </select><br><br><br>
+
+                        <div>
+                            Personagem:&nbsp
+                            <input style ="margin-right:10px;" type="radio" name="s" value="m"><img src="assets/images/personagens/p1.png" width="28" height="30"></img>&nbsp&nbsp
+
+                            <input style ="margin-right:10px;" type="radio" name="s" value="m"><img src="assets/images/personagens/p1.png" width="28" height="30"></img>&nbsp&nbsp
+
+                            <input style ="margin-right:10px;" type="radio" name="s" value="m"><img src="assets/images/personagens/p1.png" width="28" height="30"></img>&nbsp&nbsp
+                        </div><br><br>
+                       
+                        Continente:
+                        <select>
+                            <option value="af">África</option>
+                            <option value="am">América</option>
+                            <option value="an">Antártida</option>
+                            <option value="as">Ásia</option>
+                            <option value="e">Europa</option>
+                            <option value="o">Oceania</option>
+                        </select>
+                       
+            </div>
+            <button type="button" class="btn btn-success" style="margin-left:42%; margin-bottom:20%;" data-dismiss="modal">Confirmar.</button>
+          
+        </div>
+    </div>
 </div>
+
 
     <!-- Parte Essencial -->
     <div class="content">
