@@ -43,6 +43,12 @@
         });
         $('#myModal').modal('toggle');
     }
+
+    function validaQuestao() {
+        var resp = $('input[name=resposta]:checked').val();
+
+        alert(resp);
+    }
 </script>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -58,8 +64,7 @@
 	                @Html.RadioButton("resposta", "4", new { id = "Resposta4" }) @Html.Label("Text Content", new { id = "Hipotese4" }) <br />
 
 
-
-                <button type="button" class="btn btn-success" data-dismiss="modal">Confirmar.</button><br/>
+                <button type="button" class="btn btn-success" data-dismiss="modal" onclick="validaQuestao()">Confirmar</button><br/>
                  <a class="dropdown-toggle" style="font-size:11px; color:#F39C12"; data-toggle="dropdown">
                     Ajudas
                     <span class="fa fa-angle-down"></span>
