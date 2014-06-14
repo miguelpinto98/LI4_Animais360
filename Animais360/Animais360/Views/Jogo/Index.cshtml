@@ -71,7 +71,6 @@
                 </div>
                 <ul class="list-group bordered-bottom">
                     <li class="list-group-item text-center" id="ap1" style="font-size:12px;">Parque Nacional da Peneda Geres</li>
-
                 </ul>
             </div>
         </div>
@@ -83,6 +82,17 @@
     </div>
 </div>
 
+<script>
+    var pedidoPergunta = new XMLHttpRequest();
+    pedidoPergunta.open('GET', '../Jogo/GetQuestaoArea/8', true);
+    pedidoPergunta.onreadystatechange = function () {
+        var Pergunta = JSON.parse(pedidoPergunta.responseText);
+        alert("Pergunta: " + Pergunta['pergunta']);
+    }
+
+    pedidoPergunta.send();
+
+</script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2YN0hK1nUK_Pln49Z-xO3GBX9i1LHoqI&sensor=false"></script>
 
