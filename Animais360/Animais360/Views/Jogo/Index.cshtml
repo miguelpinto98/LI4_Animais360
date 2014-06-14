@@ -66,7 +66,7 @@
 </div>-->
 
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+<!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width:45%">
         <div class="modal-content">
             <div class="modal-header">
@@ -79,7 +79,7 @@
                             <option value="m">Média</option>
                             <option value="d">Difícil</option>
                         </select>
-                        <br><br><br>
+                        <br/><br/><br/>
 
                         <div>
                             Personagem:&nbsp
@@ -88,7 +88,7 @@
                             <input style ="margin-right:10px;" type="radio" name="s" value="m"><img src="assets/images/personagens/p1.png" width="28" height="30"/>&nbsp&nbsp
 
                             <input style ="margin-right:10px;" type="radio" name="s" value="m"><img src="assets/images/personagens/p1.png" width="28" height="30"/>&nbsp&nbsp
-                        </div><br><br>
+                        </div><br/><br/>
                        
                         Continente:
                         <select style="color:#333;">
@@ -103,6 +103,76 @@
             </div>
             <button type="button" class="btn btn-success" style="margin-left:42%; margin-bottom:5%;" data-dismiss="modal">Confirmar.</button>
           
+        </div>
+    </div>
+</div>-->
+
+<!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:45%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="">A que animal corresponde o som?<br/><br/>
+                    <audio controls="controls">
+                        <source src="assets/desafios/audio/macaco.mp3">
+                    </audio></h3>
+            </div>
+            <div class="modal-body">
+                <div class="coluu1">
+                    @Html.RadioButton("resposta", "1", new { id = "Resposta1" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese1" }) <br />
+                    @Html.RadioButton("resposta", "2", new { id = "Resposta2" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese2" }) <br />
+                </div>
+                <div class="coluu2">
+                    @Html.RadioButton("resposta", "3", new { id = "Resposta3" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese3" }) <br />
+                    @Html.RadioButton("resposta", "4", new { id = "Resposta4" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese4" }) <br />
+                </div>
+            </div>
+            <button type="button" class="btn btn-success" style="margin-left:42%;" onclick="validaQuestao()"> Confirmar </button>
+            <div class="modal-footer">
+                <div class="fcol1">
+                Ajudas:<br/><br/>
+                <button type="button" class="btn btn-warning" style="margin-left:0px;" data-dismiss="modal">50 pontos</button>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">75 pontos</button>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">100 pontos</button>
+                </div>
+                <div class="fcol2">
+                    A ajuda és esta: be-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amobe-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amobe-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amo
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:45%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="">A que animal corresponde a sombra?<br/><br/>
+                    <img src="assets/desafios/img/sombra1.jpg" width="180" height="180"></img>
+                </h3>
+            </div>
+            <div class="modal-body">
+                <div class="coluu1">
+                    @Html.RadioButton("resposta", "1", new { id = "Resposta1" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese1" }) <br />
+                    @Html.RadioButton("resposta", "2", new { id = "Resposta2" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese2" }) <br />
+                </div>
+                <div class="coluu2">
+                    @Html.RadioButton("resposta", "3", new { id = "Resposta3" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese3" }) <br />
+                    @Html.RadioButton("resposta", "4", new { id = "Resposta4" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese4" }) <br />
+                </div>
+            </div>
+            <button type="button" class="btn btn-success" style="margin-left:42%;" onclick="validaQuestao()"> Confirmar </button>
+            <div class="modal-footer">
+                <div class="fcol1">
+                Ajudas:<br/><br/>
+                <button type="button" class="btn btn-warning" style="margin-left:0px;" data-dismiss="modal">50 pontos</button>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">75 pontos</button>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">100 pontos</button>
+                </div>
+                <div class="fcol2">
+                    A ajuda és esta: be-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amobe-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amobe-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amo
+                </div>
+            </div>
         </div>
     </div>
 </div>
