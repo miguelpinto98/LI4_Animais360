@@ -45,22 +45,30 @@
     }
 </script>
 
-    <div class="modal fade" id="myModal" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:45%">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="Pergunta">Modal title</h4>
+                <h3 class="modal-title" id="Pergunta">Sabe-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amorosa. Quem é essa pessoa?</h3>
             </div>
             <div class="modal-body">
-                @Html.RadioButton("resposta", "1", new { id = "Resposta1" }) @Html.Label("Text Content", new { id = "Hipotese1" }) <br />
-                @Html.RadioButton("resposta", "2", new { id = "Resposta2" }) @Html.Label("Text Content", new { id = "Hipotese2" }) <br />
-                @Html.RadioButton("resposta", "3", new { id = "Resposta3" }) @Html.Label("Text Content", new { id = "Hipotese3" }) <br />
-                @Html.RadioButton("resposta", "4", new { id = "Resposta4" }) @Html.Label("Text Content", new { id = "Hipotese4" }) <br />
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                	@Html.RadioButton("resposta", "1", new { id = "Resposta1" }) @Html.Label("Text Content", new { id = "Hipotese1" }) <br />
+	                @Html.RadioButton("resposta", "2", new { id = "Resposta2" }) @Html.Label("Text Content", new { id = "Hipotese2" }) <br />
+	                @Html.RadioButton("resposta", "3", new { id = "Resposta3" }) @Html.Label("Text Content", new { id = "Hipotese3" }) <br />
+	                @Html.RadioButton("resposta", "4", new { id = "Resposta4" }) @Html.Label("Text Content", new { id = "Hipotese4" }) <br />
+
+
+
+                <button type="button" class="btn btn-success" data-dismiss="modal">Confirmar.</button><br/>
+                 <a class="dropdown-toggle" style="font-size:11px; color:#F39C12"; data-toggle="dropdown">
+                    Ajudas
+                    <span class="fa fa-angle-down"></span>
+                </a>
+                <ul class="dropdown-menu" style="width:90px; top:92%; margin:2px 0 0 25px;" role="menu">
+                    <li><a href="#">Ajuda1</a></li>
+                    <li><a href="#">Ajuda2</a></li>
+                    <li><a href="#">Ajuda3</a></li>
+                </ul>
             </div>
         </div>
     </div>
@@ -113,7 +121,8 @@
 
 
             <div class="coluna" display:block; position:absolute; right:13px;">
-                <div id="map_canvas" style="height:790px;"></div>
+                <div id="map_canvas" style="height:790px;">
+                z</div>
             </div>
         </div>
     </div>
