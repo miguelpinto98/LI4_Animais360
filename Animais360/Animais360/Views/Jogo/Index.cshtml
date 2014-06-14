@@ -58,22 +58,27 @@
                 <h3 class="modal-title" id="Pergunta">Sabe-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amorosa. Quem é essa pessoa?</h3>
             </div>
             <div class="modal-body">
-                	@Html.RadioButton("resposta", "1", new { id = "Resposta1" }) @Html.Label("Text Content", new { id = "Hipotese1" }) <br />
-	                @Html.RadioButton("resposta", "2", new { id = "Resposta2" }) @Html.Label("Text Content", new { id = "Hipotese2" }) <br />
-	                @Html.RadioButton("resposta", "3", new { id = "Resposta3" }) @Html.Label("Text Content", new { id = "Hipotese3" }) <br />
-	                @Html.RadioButton("resposta", "4", new { id = "Resposta4" }) @Html.Label("Text Content", new { id = "Hipotese4" }) <br />
-
-
-                <button type="button" class="btn btn-success" data-dismiss="modal" onclick="validaQuestao()">Confirmar</button><br/>
-                 <a class="dropdown-toggle" style="font-size:11px; color:#F39C12"; data-toggle="dropdown">
-                    Ajudas
-                    <span class="fa fa-angle-down"></span>
-                </a>
-                <ul class="dropdown-menu" style="width:90px; top:92%; margin:2px 0 0 25px;" role="menu">
-                    <li><a href="#">Ajuda1</a></li>
-                    <li><a href="#">Ajuda2</a></li>
-                    <li><a href="#">Ajuda3</a></li>
-                </ul>
+                <div class="coluu1">
+                    @Html.RadioButton("resposta", "1", new { id = "Resposta1" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese1" }) <br />
+                    @Html.RadioButton("resposta", "2", new { id = "Resposta2" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese2" }) <br />
+                </div>
+                <div class="coluu2">
+                    @Html.RadioButton("resposta", "3", new { id = "Resposta3" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese3" }) <br />
+                    @Html.RadioButton("resposta", "4", new { id = "Resposta4" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese4" }) <br />
+                </div>
+                       
+            </div>
+            <button type="button" class="btn btn-success" style="margin-left:42%;" data-dismiss="modal">Confirmar.</button>
+            <div class="modal-footer">
+                <div class="fcol1">
+                Ajudas:<br/><br/>
+                <button type="button" class="btn btn-warning" style="margin-left:0px;" data-dismiss="modal">50 pontos</button>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">75 pontos</button>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">100 pontos</button>
+                </div>
+                <div class="fcol2">
+                   A ajuda és esta: be-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amobe-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amobe-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amo
+                </div>
             </div>
         </div>
     </div>
@@ -126,8 +131,7 @@
 
 
             <div class="coluna" display:block; position:absolute; right:13px;">
-                <div id="map_canvas" style="height:790px;">
-                z</div>
+                <div id="map_canvas" style="height:790px;"></div>
             </div>
         </div>
     </div>
