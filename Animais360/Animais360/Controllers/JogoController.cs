@@ -152,23 +152,5 @@ namespace Animais360.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
-
-        public ActionResult GetQuestaoArea(int id) {
-            List<Questao> qarea = db.Questoes.Where(x => x.AreaProtegida.AreaProtegidaID == id).ToList();
-
-            Random n = new Random();
-            int np = qarea.Count();
-            int r = n.Next(0, np);
-
-            Questao q = qarea[r];
-
-            //if (q.Tipo == 2) 
-                string[] words = q.Hipoteses.Split(';');
-
-
-
-
-                return Json(new { pergunta = q.Pergunta, hipotese1 = words[0], hipotese2 = words[1], hipotese3 = words[2], hipotese4 = words[3], resposta = q.Resposta }, JsonRequestBehavior.AllowGet);
-        }
     }
 }
