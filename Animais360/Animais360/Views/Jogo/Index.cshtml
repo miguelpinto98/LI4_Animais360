@@ -5,314 +5,71 @@
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-
-
-<script>
-    function getQuestao() {
-        $.ajax({
-            url: '@Url.Action("GetQuestaoArea", "Questao")',
-            data: { id: 8 },
-            type: 'GET',
-            success: function (data) {
-                $('#Pergunta').text(data.Pergunta);
-                $('#Hipotese1').text(data.Resposta1);
-                $('#Hipotese2').text(data.Resposta2);
-                $('#Hipotese3').text(data.Resposta3);
-                $('#Hipotese4').text(data.Resposta4);
-                //alert(data.Pergunta);
-            }
-        });
-        $('#myModal').modal('toggle');
-    }
-
-    function validaQuestao() {
-        var resp = $('input[name=resposta]:checked').val();
-
-        alert(resp);
-    }
-</script>
-
-<!--
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width:45%">
+        @using (Html.BeginForm("Create", "Jogo", new { id = ViewBag.IdUser }, FormMethod.Post))
+        {
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="Pergunta">Sabe-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amorosa. Quem é essa pessoa?</h3>
+                <h3 class="modal-title">Decisões Iniciais da Aventura</h3>
             </div>
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
             <div class="modal-body">
-                <div class="coluu1">
-                    @Html.RadioButton("resposta", "1", new { id = "Resposta1" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese1" }) <br />
-                    @Html.RadioButton("resposta", "2", new { id = "Resposta2" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese2" }) <br />
-                </div>
-                <div class="coluu2">
-                    @Html.RadioButton("resposta", "3", new { id = "Resposta3" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese3" }) <br />
-                    @Html.RadioButton("resposta", "4", new { id = "Resposta4" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese4" }) <br />
-                </div>
+                Continente:
+                <select style="color:#000000" id="ContinenteID" name="ContinenteID">
+                    <option value="1">África</option>
+                    <option value="4">América</option>
+                    <option value="3">Antártida</option>
+                    <option value="2">Ásia</option>
+                    <option value="5">Europa</option>
+                    <option value="6">Oceania</option>
+                </select><br /><br />
+                
+                Dificuldade:
+                <select style="color:#000000" id="DificuldadeID" name="DificuldadeID">
+                    <option value="1">Fácil</option>
+                    <option value="2">Média</option>
+                    <option value="3">Difícil</option>
+                </select>
+                <!--
+                <div>
+                    Personagem:&nbsp
+                    <input style="margin-right:10px;" type="radio" name="s" value="m"><img src="assets/images/personagens/p1.png" width="28" height="30" />&nbsp&nbsp
+
+                    <input style="margin-right:10px;" type="radio" name="s" value="m"><img src="assets/images/personagens/p1.png" width="28" height="30" />&nbsp&nbsp
+
+                    <input style="margin-right:10px;" type="radio" name="s" value="m"><img src="assets/images/personagens/p1.png" width="28" height="30" />&nbsp&nbsp
+                </div><br /><br />
+                -->
             </div>
-            <button type="button" class="btn btn-success" style="margin-left:42%;" onclick="validaQuestao()"> Confirmar </button>
-            <div class="modal-footer">
-                <div class="fcol1">
-                Ajudas:<br/><br/>
-                <button type="button" class="btn btn-warning" style="margin-left:0px;" data-dismiss="modal">50 pontos</button>
-                <button type="button" class="btn btn-warning" data-dismiss="modal">75 pontos</button>
-                <button type="button" class="btn btn-warning" data-dismiss="modal">100 pontos</button>
-                </div>
-                <div class="fcol2">
-                    A ajuda és esta: be-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amobe-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amobe-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amo
-                </div>
-            </div>
+            <button class="md-close" style="margin-left:42%; margin-bottom:5%;"> Confirmar </button>
         </div>
-    </div>
-</div>-->
-
-
-<!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="width:45%">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Decisões iniciais</h3>
-            </div>
-            <div class="modal-body">
-                 Dificuldade:
-                        <select style="color:#333;">
-                            <option value="f">Fácil</option>
-                            <option value="m">Média</option>
-                            <option value="d">Difícil</option>
-                        </select>
-                        <br/><br/><br/>
-
-                        <div>
-                            Personagem:&nbsp
-                            <input style ="margin-right:10px;" type="radio" name="s" value="m"><img src="assets/images/personagens/p1.png" width="28" height="30"/>&nbsp&nbsp
-
-                            <input style ="margin-right:10px;" type="radio" name="s" value="m"><img src="assets/images/personagens/p1.png" width="28" height="30"/>&nbsp&nbsp
-
-                            <input style ="margin-right:10px;" type="radio" name="s" value="m"><img src="assets/images/personagens/p1.png" width="28" height="30"/>&nbsp&nbsp
-                        </div><br/><br/>
-                       
-                        Continente:
-                        <select style="color:#333;">
-                            <option value="af">África</option>
-                            <option value="am">América</option>
-                            <option value="an">Antártida</option>
-                            <option value="as">Ásia</option>
-                            <option value="e">Europa</option>
-                            <option value="o">Oceania</option>
-                        </select>
-                       
-            </div>
-            <button type="button" class="btn btn-success" style="margin-left:42%; margin-bottom:5%;" data-dismiss="modal">Confirmar.</button>
-          
-        </div>
-    </div>
-</div>-->
-
-<!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="width:45%">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title" id="">A que animal corresponde o som?<br/><br/>
-                    <audio controls="controls">
-                        <source src="assets/desafios/audio/macaco.mp3">
-                    </audio></h3>
-            </div>
-            <div class="modal-body">
-                <div class="coluu1">
-                    @Html.RadioButton("resposta", "1", new { id = "Resposta1" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese1" }) <br />
-                    @Html.RadioButton("resposta", "2", new { id = "Resposta2" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese2" }) <br />
-                </div>
-                <div class="coluu2">
-                    @Html.RadioButton("resposta", "3", new { id = "Resposta3" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese3" }) <br />
-                    @Html.RadioButton("resposta", "4", new { id = "Resposta4" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese4" }) <br />
-                </div>
-            </div>
-            <button type="button" class="btn btn-success" style="margin-left:42%;" onclick="validaQuestao()"> Confirmar </button>
-            <div class="modal-footer">
-                <div class="fcol1">
-                Ajudas:<br/><br/>
-                <button type="button" class="btn btn-warning" style="margin-left:0px;" data-dismiss="modal">50 pontos</button>
-                <button type="button" class="btn btn-warning" data-dismiss="modal">75 pontos</button>
-                <button type="button" class="btn btn-warning" data-dismiss="modal">100 pontos</button>
-                </div>
-                <div class="fcol2">
-                    A ajuda és esta: be-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amobe-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amobe-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amo
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->
-
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="width:45%">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title" id="">A que animal corresponde a sombra?<br/><br/>
-                    <img src="assets/desafios/img/sombra1.jpg" width="180" height="180"></img>
-                </h3>
-            </div>
-            <div class="modal-body">
-                <div class="coluu1">
-                    @Html.RadioButton("resposta", "1", new { id = "Resposta1" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese1" }) <br />
-                    @Html.RadioButton("resposta", "2", new { id = "Resposta2" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese2" }) <br />
-                </div>
-                <div class="coluu2">
-                    @Html.RadioButton("resposta", "3", new { id = "Resposta3" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese3" }) <br />
-                    @Html.RadioButton("resposta", "4", new { id = "Resposta4" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese4" }) <br />
-                </div>
-            </div>
-            <button type="button" class="btn btn-success" style="margin-left:42%;" onclick="validaQuestao()"> Confirmar </button>
-            <div class="modal-footer">
-                <div class="fcol1">
-                Ajudas:<br/><br/>
-                <button type="button" class="btn btn-warning" style="margin-left:0px;" data-dismiss="modal">50 pontos</button>
-                <button type="button" class="btn btn-warning" data-dismiss="modal">75 pontos</button>
-                <button type="button" class="btn btn-warning" data-dismiss="modal">100 pontos</button>
-                </div>
-                <div class="fcol2">
-                    A ajuda és esta: be-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amobe-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amobe-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amo
-                </div>
-            </div>
-        </div>
+        }
     </div>
 </div>
 
-
-    <!-- Parte Essencial -->
-    <div class="content">
-        <div class="content-body">
-            <div class="coluna" style="width:20%; display:block; position:absolute">
-                <div class="panel panel-default">
-                    <div class="panel-body text-center" style="background-color:#F1C40F; color:#fff">
-                        Informações
-                    </div>
-                    <ul class="list-group bordered-bottom" style="font-size:12px;">
-                        <li class="list-group-item text-center">
-                            <span>Dificuldade: </span>
-                            <a style="text-decoration:none; color:#F39C12">Fácil</a>
-                        </li>
-                        <li class="list-group-item text-center">
-                            <span>Continentes Concluídos: </span>
-                            <a style="text-decoration:none; color:#F39C12">0/6</a>
-                        </li>
-                        <li class="list-group-item text-center">
-                            <span>Progresso neste Coninente: </span>
-                            <a style="text-decoration:none; color:#F39C12">3/6</a>
-                        </li>
-                        <li class="list-group-item text-center">
-                            <span>Pontuação: </span>
-                            <a style="text-decoration:none; color:#F39C12">123</a>
-                        </li>
-                        <li class="list-group-item text-center">
-                            <span>Outras coisas: </span>
-                            <a style="text-decoration:none; color:#F39C12">63linda</a>
-                        </li>
-                        <li class="list-group-item text-center">
-                            <span>Outras coisas: </span>
-                            <a style="text-decoration:none; color:#F39C12">63linda</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-body text-center" style="background-color:#F39C12; color:#fff">
-                        Destinos Sugeridos
-                    </div>
-                    <ul class="list-group bordered-bottom">
-                        <li class="list-group-item text-center" style="font-size:12px;" onclick="getQuestao()">Parque Nacional da Peneda Geres</li>
-                    </ul>
-                </div>
-            </div>
-
-
-            <div class="coluna" display:block; position:absolute; right:13px;">
-                <div id="map_canvas" style="height:790px;"></div>
-            </div>
-        </div>
+<!-- Parte Essencial -->
+<div class="content">
+    <div class="content-body">
+        <div id="map_canvas" style="height:790px;"></div>
     </div>
+</div>
+   
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2YN0hK1nUK_Pln49Z-xO3GBX9i1LHoqI&sensor=false"></script>
+<script>
+    $('#myModal').modal('toggle');
+        
+    var p1 = new google.maps.LatLng(44.5403, 20);
 
-    
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2YN0hK1nUK_Pln49Z-xO3GBX9i1LHoqI&sensor=false"></script>
-    <script>/*
-        var p1 = new google.maps.LatLng(44.5403, 20);
-        var p2 = new google.maps.LatLng(44.5403, 50);
-        var p3 = new google.maps.LatLng(44.54, 75);
+    var map_options = {
+        center: p1, zoom: 2,
+        mapTypeId: google.maps.MapTypeId.TERRAIN,
+        panControl: false, zoomControl: false, mapTypeControl: false,
+        scaleControl: false, streetViewControl: false,
+        //overviewMapControl: boolean
+    };
 
-
-        var map_options = {
-            center: p1, zoom: 2,
-            mapTypeId: google.maps.MapTypeId.TERRAIN,
-            panControl: false, zoomControl: false, mapTypeControl: false,
-            scaleControl: false, streetViewControl: false,
-            //overviewMapControl: boolean
-        };
-
-        var map = new google.maps.Map(document.getElementById('map_canvas'), map_options);
-
-
-        function initialize() {
-            var azul = new google.maps.Marker({ position: p1, map: map, icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png', title: 'Clique para info' });
-            var vermelho = new google.maps.Marker({ position: p2, map: map, title: 'Responder a Desafio' });
-
-            var contentString =
-              '<div id="content">' + '<div id="siteNotice">' + 'asdasjd' + '</div>' +
-              '<h1 id="firstHeading" class="firstHeading">Area, Pais</h1>' +
-              '<div id="bodyContent">' + '<p>A <b>63</b> é linda</p>' +
-              '<p>Attribution: Uluru, ' + '<a href="http://en.wikipedia.org"</a>' +
-              '(last visited June 22, 2009).' + '</p>' + '</div>' + '</div>';
-
-            var infowindow = new google.maps.InfoWindow({ content: contentString });
-
-            //Função que muda a "camara" para o ponto marcado, 3 segundos depois de mudar de sítio.
-            /*google.maps.event.addListener(
-                map, 'center_changed', function(){
-                    window.setTimeout( function(){map.panTo(marker.getPosition());}, 3000);
-                }
-            );
-
-
-
-
-            //zoom vermelho + abre pergunta
-            google.maps.event.addDomListener(document.getElementById("ap1"), "click", function () {
-                map.setCenter(vermelho.getPosition());
-                map.setZoom(6);
-                //getQuestao().click();
-                //document.getElementById('question-dialog', getQuestao).click();
-            });
-
-
-
-
-            //Janela de info no azul
-            google.maps.event.addListener(
-                azul, 'click', function () {
-                    infowindow.open(map, azul); s
-                }
-            );
-
-            //Janela de info no azul
-            google.maps.event.addListener(
-                vermelho, 'click', function () {
-                    infowindow.open(map, vermelho);
-                }
-            );
-
-
-            //linha vermelha
-            /*var flightPlanCoordinates = [p1, p2, p3];
-
-            var flightPath = new google.maps.Polyline({
-                path: flightPlanCoordinates,
-                geodesic: true,
-                strokeColor: '#FF0000',
-                strokeOpacity: 1.0,
-                strokeWeight: 2
-            });
-
-            flightPath.setMap(map);
-        }
-
-
-        google.maps.event.addDomListener(window, 'load', initialize);
-        */
-    </script>
+    var map = new google.maps.Map(document.getElementById('map_canvas'), map_options);
+    google.maps.event.addDomListener(window, 'load');
+</script>
