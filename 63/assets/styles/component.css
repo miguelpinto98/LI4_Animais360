@@ -20,7 +20,7 @@
 	position: fixed;
 	top: 50%;
 	left: 64%;
-	width: 50%;
+	width: 45%;
 	max-width: 630px;
 	min-width: 320px;
 	height: auto;
@@ -92,64 +92,36 @@
 	padding: 10px 0;
 }
 
-.md-content > div ul {
+
+
+.md-content > div>form{
 	margin: 0;
-	padding: 0 0 30px 20px;
-}
-
-
-.md-content > div ul li {
+	margin-top: 10px;
+	text-align: left;
 	position: relative;
 	display: inline-block;
-	padding: 10px 0;
-	width:190px;
-	height:40px;
-	margin-left:30px;
-	margin-right:20px;
-	margin-bottom:10px;
-	margin-top:20px;
-	list-style: none;
-	font-size: 12px;
-	text-align: center;
-	background-color: #fff;
-	border: 2px solid #333;
-	border-radius: 10px;
+	width: auto;
+	height: auto;
 	vertical-align: middle;
 }
-
-
-
-
-
-
-.md-content > div ul>li>a{
-	display:block;
-	clear: both;
-	margin:0;
-	color: #333;
-	cursor: pointer;
-	overflow: hidden;
-}
-
-
-
 
 
 .md-content button {
 	display: block;
 	margin: 0 auto;
+	margin-top: 30px;
+	margin-left: 200px;
 	font-size: 0.8em;
 }
 
 button {
 	border: none;
 	padding: 0.6em 1.2em;
-	background: #c0392b;
+	background: #27AE60;
 	color: #fff;
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 	font-size: 1em;
 	letter-spacing: 1px;
-	text-transform: uppercase;
 	cursor: pointer;
 	display: inline-block;
 	margin: 3px 2px;
@@ -157,8 +129,9 @@ button {
 }
 
 button:hover {
-	background: #A5281B;
+	background: #2ECC71;
 }
+
 
 
 /* Effect 4: Newspaper */

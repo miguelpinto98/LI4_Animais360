@@ -43,13 +43,17 @@ namespace Animais360.Controllers
             return View();
         }
 
-        public ActionResult Play(int id, int? continente) {
+        public ActionResult Play(int id, int continente, int? pontos) {
+            ViewBag.Pontos = pontos;
+            @ViewBag.NumContinentes = 3;
+
             Jogo jogo = db.Jogos.Find(id);
 
             ViewBag.ContinenteID = continente;
             ViewBag.Continentes = db.Continentes.ToList();
             //ViewBag.Paises = db.Pais.Count();
             ViewBag.Areas = db.AreaProtegidas.ToList();
+            
             
             return View(jogo);
         }
@@ -84,7 +88,7 @@ namespace Animais360.Controllers
                     jg.User.Jogos.Add(jg);
                     db.SaveChanges();
 
-                    return RedirectToAction("Play", "Jogo", new { id = jg.JogoId , continente = jogo.ContinenteID });
+                    return RedirectToAction("Play", "Jogo", new { id = jg.JogoId , continente = jogo.ContinenteID, pontos = 0});
                 }
                 return HttpNotFound();   
             }

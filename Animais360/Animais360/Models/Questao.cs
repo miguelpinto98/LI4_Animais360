@@ -25,6 +25,8 @@ namespace Animais360.Models
     }
 
     public class CreateQuestao {
+        public int id { get; set; }
+
         [Required]
         public int Tipo { get; set; }
 

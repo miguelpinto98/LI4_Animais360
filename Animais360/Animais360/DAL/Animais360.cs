@@ -19,9 +19,7 @@ namespace Animais360.Models
         public DbSet<Classificacao> Classificacoes { get; set; }
 
         public DbSet<Ajuda> Ajudas { get; set; }
-
         public DbSet<AreaProtegida> AreaProtegidas { get; set; }
-
         public DbSet<Questao> Questoes { get; set; }
 
         public DbSet<UserAreaProtegida> UserAreaProtegidas { get; set; }
