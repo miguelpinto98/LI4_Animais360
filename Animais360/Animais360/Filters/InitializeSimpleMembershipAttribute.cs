@@ -37,7 +37,7 @@ namespace Animais360.Filters
                             ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
                         }
                     }
-                    WebSecurity.InitializeDatabaseConnection("Animais360Context", "Users", "UserId", "UserName", autoCreateTables: true);
+                    WebSecurity.InitializeDatabaseConnection("Animais360Context1000", "Users", "UserId", "UserName", autoCreateTables: true);
                 }
                 catch (Exception ex)
                 {

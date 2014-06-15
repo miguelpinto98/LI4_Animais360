@@ -187,6 +187,7 @@
     <Compile Include="Controllers\JogoController.cs" />
     <Compile Include="Controllers\PaisController.cs" />
     <Compile Include="Controllers\QuestaoController.cs" />
+    <Compile Include="Controllers\UserAreaProtegidaController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\Animais360.cs" />
@@ -203,6 +204,7 @@
     <Compile Include="Models\Pais.cs" />
     <Compile Include="Models\Questao.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserAreaProtegida.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="App_Data\Animais360.mdf" />
     <Content Include="App_Data\Animais360_log.ldf">

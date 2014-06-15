@@ -8,7 +8,7 @@ namespace Animais360.Models
 {
     public class Animais360Context : DbContext {
         public Animais360Context()
-            : base("Animais360Context")
+            : base("Animais360Context1000")
         {
         }
 
@@ -23,5 +23,7 @@ namespace Animais360.Models
         public DbSet<AreaProtegida> AreaProtegidas { get; set; }
 
         public DbSet<Questao> Questoes { get; set; }
+
+        public DbSet<UserAreaProtegida> UserAreaProtegidas { get; set; }
     }
 }

@@ -127,6 +127,7 @@ namespace Animais360.Controllers
 
             ViewBag.IdUser = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
             ViewBag.Jogos = jogos;
+            ViewBag.TabelaUA = db.UserAreaProtegidas.ToList();
 
             //ViewBag.Tipo = u.Tipo;
 
