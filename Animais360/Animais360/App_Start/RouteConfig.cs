@@ -21,8 +21,8 @@ namespace Animais360
 
             routes.MapRoute(
                 name: "PlayJogo",
-                url: "Jogo/{action}/{id}/{continente}",
-                defaults: new { controller = "Jogo", action = "Play", continente = UrlParameter.Optional }
+                url: "Jogo/{action}/{id}/{continente}/{pontos}",
+                defaults: new { controller = "Jogo", action = "Play", pontos = UrlParameter.Optional }
             );
 
             routes.MapRoute(
