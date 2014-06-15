@@ -10,7 +10,7 @@
     
     Continente c = contis.Where(x => x.ContinenteId == SelectCont).First();
     int np = c.Paises.Count();
-    
+    /*
     Random n = new Random();
     List<int> aux = new List<int>();
     List<Pais> paises = new List<Pais>();
@@ -30,13 +30,13 @@
         int a = n.Next(0, x);
 
         areas.Add(paises[i].AreaProtegidas.ToList()[a]);
-    }
+    }*/
 }
 <script>
-    function getQuestao(idArea) {
+    function getQuestao() {
         $.ajax({
             url: '@Url.Action("GetQuestaoArea", "Questao")',
-            data: { id: idArea },
+            data: { id: 8 },
             type: 'GET',
             success: function (data) {
                 $('#Pergunta').text(data.Pergunta);
@@ -55,22 +55,14 @@
 
         alert(resp);
     }
-
-    function verificaPontos(opcao, pontos) {
-        if (pontos >= opcao)
-            alert("Ajuda X");
-        else
-            alert("Não tens pontos suficientes! :(")
-
-    }
 </script>
 
-
+<!--
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width:45%">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="Pergunta"> Pergunta </h3>
+                <h3 class="modal-title" id="Pergunta">Sabe-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amorosa. Quem é essa pessoa?</h3>
             </div>
             <div class="modal-body">
                 <div class="coluu1">
@@ -86,18 +78,57 @@
             <div class="modal-footer">
                 <div class="fcol1">
                 Ajudas:<br/><br/>
-                <button type="button" class="btn btn-warning" style="margin-left:0px;" onclick="verificaPontos(50,'@ViewBag.Pontos')"> 50 pontos </button>
-                <button type="button" class="btn btn-warning" > 75 pontos </button>
-                <button type="button" class="btn btn-warning" > 100 pontos </button>
+                <button type="button" class="btn btn-warning" style="margin-left:0px;" data-dismiss="modal">50 pontos</button>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">75 pontos</button>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">100 pontos</button>
                 </div>
-                <div class="fcol2" id="AjudaDIV" style="display: none;">
-                    Ajuda ABC
+                <div class="fcol2">
+                    A ajuda és esta: be-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amobe-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amobe-se e está escrito que existe apenas uma pessoa considerada mais linda, maravilhosa, gira e amo
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div>-->
+<!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:45%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Decisões iniciais</h3>
+            </div>
+            <div class="modal-body">
+                 Dificuldade:
+                        <select style="color:#333;">
+                            <option value="f">Fácil</option>
+                            <option value="m">Média</option>
+                            <option value="d">Difícil</option>
+                        </select>
+                        <br/><br/><br/>
 
+                        <div>
+                            Personagem:&nbsp
+                            <input style ="margin-right:10px;" type="radio" name="s" value="m"><img src="assets/images/personagens/p1.png" width="28" height="30"/>&nbsp&nbsp
+
+                            <input style ="margin-right:10px;" type="radio" name="s" value="m"><img src="assets/images/personagens/p1.png" width="28" height="30"/>&nbsp&nbsp
+
+                            <input style ="margin-right:10px;" type="radio" name="s" value="m"><img src="assets/images/personagens/p1.png" width="28" height="30"/>&nbsp&nbsp
+                        </div><br/><br/>
+
+                        Continente:
+                        <select style="color:#333;">
+                            <option value="af">África</option>
+                            <option value="am">América</option>
+                            <option value="an">Antártida</option>
+                            <option value="as">Ásia</option>
+                            <option value="e">Europa</option>
+                            <option value="o">Oceania</option>
+                        </select>
+
+            </div>
+            <button type="button" class="btn btn-success" style="margin-left:42%; margin-bottom:5%;" data-dismiss="modal">Confirmar.</button>
+
+        </div>
+    </div>
+</div>-->
 <!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width:45%">
         <div class="modal-content">
@@ -133,7 +164,7 @@
     </div>
 </div>-->
 
-<!--
+
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width:45%">
         <div class="modal-content">
@@ -167,24 +198,10 @@
             </div>
         </div>
     </div>
-</div>*/
--->
+</div>
+
 
 <!-- Parte Essencial -->
-@{
-    string str = null;
-    if(Model.DifQualitativa == 1) {
-        str = "Fácil";
-    } else {
-        if (Model.DifQualitativa == 2) {
-            str = "Média";
-        } else {
-            str = "Difícil";
-        }
-    }
-
-    int progresso = 0;
-}
 <div class="content">
     <div class="content-body">
         <div class="coluna" style="width:20%; display:block; position:absolute">
@@ -195,19 +212,27 @@
                 <ul class="list-group bordered-bottom" style="font-size:12px;">
                     <li class="list-group-item text-center">
                         <span>Dificuldade: </span>
-                        <a style="text-decoration:none; color:#F39C12"> @str </a>
+                        <a style="text-decoration:none; color:#F39C12">Fácil</a>
                     </li>
                     <li class="list-group-item text-center">
                         <span>Continentes Concluídos: </span>
-                        <a style="text-decoration:none; color:#F39C12"> @ViewBag.NumContinentes/6 </a>
+                        <a style="text-decoration:none; color:#F39C12">0/6</a>
                     </li>
                     <li class="list-group-item text-center">
                         <span>Progresso neste Coninente: </span>
-                        <a style="text-decoration:none; color:#F39C12"> @progresso/6 </a>
+                        <a style="text-decoration:none; color:#F39C12">3/6</a>
                     </li>
                     <li class="list-group-item text-center">
                         <span>Pontuação: </span>
-                        <a style="text-decoration:none; color:#F39C12"> @ViewBag.Pontos </a>
+                        <a style="text-decoration:none; color:#F39C12">123</a>
+                    </li>
+                    <li class="list-group-item text-center">
+                        <span>Outras coisas: </span>
+                        <a style="text-decoration:none; color:#F39C12">63linda</a>
+                    </li>
+                    <li class="list-group-item text-center">
+                        <span>Outras coisas: </span>
+                        <a style="text-decoration:none; color:#F39C12">63linda</a>
                     </li>
                 </ul>
             </div>
@@ -216,16 +241,14 @@
                     Destinos Sugeridos
                 </div>
                 <ul class="list-group bordered-bottom">
-                    @foreach(AreaProtegida a in areas) {
-                        <li class="list-group-item text-center" style="font-size:12px;" onclick="getQuestao('@a.AreaProtegidaID')"> @a.AreaNome </li>
-                    }
+                    <li class="list-group-item text-center" style="font-size:12px;" onclick="getQuestao()">Parque Nacional da Peneda Geres</li>
                 </ul>
             </div>
         </div>
 
 
-        <div class="coluna" style="width:77%; display:block; position:absolute; right:13px;">
-            <div id="map_canvas" style="height:650px;"></div>
+        <div class="coluna" display:block; position:absolute; right:13px;">
+            <div id="map_canvas" style="height:790px;"></div>
         </div>
     </div>
 </div>
@@ -233,121 +256,36 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2YN0hK1nUK_Pln49Z-xO3GBX9i1LHoqI&sensor=false"></script>
 <script>
-    var p1 = new google.maps.LatLng('@areas[0].Latitude','@areas[0].Longitude');
-    var p2 = new google.maps.LatLng('@areas[1].Latitude','@areas[1].Longitude');
-    var p3 = new google.maps.LatLng('@areas[2].Latitude','@areas[2].Longitude');
-    var p4 = new google.maps.LatLng('@areas[3].Latitude','@areas[3].Longitude');
-    var p5 = new google.maps.LatLng('@areas[4].Latitude','@areas[4].Longitude');
-    var p6 = new google.maps.LatLng('@areas[5].Latitude','@areas[5].Longitude');
+    /*
+            var p1 = new google.maps.LatLng(44.5403, 20);
+            var p2 = new google.maps.LatLng(44.5403, 50);
+            var p3 = new google.maps.LatLng(44.54, 75);
 
-    var map_options = {
-        center: p1, zoom: 2,
-        mapTypeId: google.maps.MapTypeId.TERRAIN,
-        panControl: false, zoomControl: false, mapTypeControl: true,
-        scaleControl: false, streetViewControl: false,
-        //overviewMapControl: boolean
-    };
 
-    var map = new google.maps.Map(document.getElementById('map_canvas'), map_options);
+            var map_options = {
+                center: p1, zoom: 2,
+                mapTypeId: google.maps.MapTypeId.TERRAIN,
+                panControl: false, zoomControl: false, mapTypeControl: false,
+                scaleControl: false, streetViewControl: false,
+                //overviewMapControl: boolean
+            };
 
-    function initialize() {
-        /* PONTO 1*/
-        var pp1 = new google.maps.Marker({ position: p1, map: map, icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png', title: 'Clique para info' });
+            var map = new google.maps.Map(document.getElementById('map_canvas'), map_options);
 
-        var contentString =
-                  '<div id="content">' +
-                  '<h1 id="firstHeading" class="firstHeading"> @areas[0].AreaNome , @areas[0].Pais.PaisNome </h1>' +
-                  '<div id="bodyContent">' + '@areas[0].Descricao' + '</div>' + '</div>';
 
-        var infowindow1 = new google.maps.InfoWindow({ content: contentString });
+            function initialize() {
+                var azul = new google.maps.Marker({ position: p1, map: map, icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png', title: 'Clique para info' });
+                var vermelho = new google.maps.Marker({ position: p2, map: map, title: 'Responder a Desafio' });
 
-        google.maps.event.addListener(pp1, 'click', function () {
-            map.setCenter(pp1.getPosition());
-            //map.setZoom(6);
-            infowindow1.open(map, pp1);
-        });
+                var contentString =
+                  '<div id="content">' + '<div id="siteNotice">' + 'asdasjd' + '</div>' +
+                  '<h1 id="firstHeading" class="firstHeading">Area, Pais</h1>' +
+                  '<div id="bodyContent">' + '<p>A <b>63</b> é linda</p>' +
+                  '<p>Attribution: Uluru, ' + '<a href="http://en.wikipedia.org"</a>' +
+                  '(last visited June 22, 2009).' + '</p>' + '</div>' + '</div>';
 
-        /* PONTO 2*/
-        var pp2 = new google.maps.Marker({ position: p2, map: map, icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png', title: 'Clique para info' });
+                var infowindow = new google.maps.InfoWindow({ content: contentString });
 
-        var contentString =
-                  '<div id="content">' +
-                  '<h1 id="firstHeading" class="firstHeading"> @areas[1].AreaNome , @areas[1].Pais.PaisNome </h1>' +
-                  '<div id="bodyContent">' + '@areas[1].Descricao' + '</div>' + '</div>';
-
-        var infowindow2 = new google.maps.InfoWindow({ content: contentString });
-
-        google.maps.event.addListener(pp2, 'click', function () {
-            map.setCenter(pp2.getPosition());
-            //map.setZoom(6);
-            infowindow2.open(map, pp2);
-        });
-
-        /* PONTO 3*/
-        var pp3 = new google.maps.Marker({ position: p3, map: map, icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png', title: 'Clique para info' });
-
-        var contentString =
-                  '<div id="content">' +
-                  '<h1 id="firstHeading" class="firstHeading"> @areas[2].AreaNome , @areas[2].Pais.PaisNome </h1>' +
-                  '<div id="bodyContent">' + '@areas[2].Descricao' + '</div>' + '</div>';
-
-        var infowindow3 = new google.maps.InfoWindow({ content: contentString });
-
-        google.maps.event.addListener(pp3, 'click', function () {
-            map.setCenter(pp3.getPosition());
-            //map.setZoom(6);
-            infowindow3.open(map, pp3);
-        });
-
-        /* PONTO 4*/
-        var pp4 = new google.maps.Marker({ position: p4, map: map, icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png', title: 'Clique para info' });
-
-        var contentString =
-                  '<div id="content">' +
-                  '<h1 id="firstHeading" class="firstHeading"> @areas[3].AreaNome , @areas[3].Pais.PaisNome </h1>' +
-                  '<div id="bodyContent">' + '@areas[3].Descricao' + '</div>' + '</div>';
-
-        var infowindow4 = new google.maps.InfoWindow({ content: contentString });
-
-        google.maps.event.addListener(pp4, 'click', function () {
-            map.setCenter(pp4.getPosition());
-            //map.setZoom(6);
-            infowindow4.open(map, pp4);
-        });
-
-        /* PONTO 5*/
-        var pp5 = new google.maps.Marker({ position: p5, map: map, icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png', title: 'Clique para info' });
-
-        var contentString =
-                  '<div id="content">' +
-                  '<h1 id="firstHeading" class="firstHeading"> @areas[4].AreaNome , @areas[4].Pais.PaisNome </h1>' +
-                  '<div id="bodyContent">' + '@areas[4].Descricao' + '</div>' + '</div>';
-
-        var infowindow5 = new google.maps.InfoWindow({ content: contentString });
-
-        google.maps.event.addListener(pp5, 'click', function () {
-            map.setCenter(pp5.getPosition());
-            //map.setZoom(6);
-            infowindow5.open(map, pp5);
-        });
-
-        /* PONTO 6*/
-        var pp6 = new google.maps.Marker({ position: p6, map: map, icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png', title: 'Clique para info' });
-
-        var contentString =
-                  '<div id="content">' +
-                  '<h1 id="firstHeading" class="firstHeading"> @areas[5].AreaNome , @areas[5].Pais.PaisNome </h1>' +
-                  '<div id="bodyContent">' + '@areas[5].Descricao' + '</div>' + '</div>';
-
-        var infowindow6 = new google.maps.InfoWindow({ content: contentString });
-
-        google.maps.event.addListener(pp6, 'click', function () {
-            map.setCenter(pp6.getPosition());
-            //map.setZoom(6);
-            infowindow6.open(map, pp6);
-        });
-
-        //var vermelho = new google.maps.Marker({ position: p2, map: map, title: 'Responder a Desafio' });
                 //Função que muda a "camara" para o ponto marcado, 3 segundos depois de mudar de sítio.
                 /*google.maps.event.addListener(
                     map, 'center_changed', function(){
@@ -368,11 +306,11 @@
 
 
 
-               
+
                 //Janela de info no azul
                 google.maps.event.addListener(
                     azul, 'click', function () {
-                        infowindow.open(map, azul); 
+                        infowindow.open(map, azul); s
                     }
                 );
 
@@ -383,8 +321,9 @@
                     }
                 );
 
+
                 //linha vermelha
-                var flightPlanCoordinates = [p1, p2, p3];
+                /*var flightPlanCoordinates = [p1, p2, p3];
 
                 var flightPath = new google.maps.Polyline({
                     path: flightPlanCoordinates,
@@ -394,7 +333,10 @@
                     strokeWeight: 2
                 });
 
-                flightPath.setMap(map);*/
+                flightPath.setMap(map);
             }
-    google.maps.event.addDomListener(window, 'load', initialize); 
+
+
+            google.maps.event.addDomListener(window, 'load', initialize);
+            */
 </script>
