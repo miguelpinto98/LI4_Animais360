@@ -4,34 +4,9 @@
     ViewBag.Title = "Play";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 
-    int SelectCont = ViewBag.ContinenteID;
-    IList<Continente> contis = ViewBag.Continentes;
-    IList<AreaProtegida> areass = ViewBag.Areas;
-    
-    Continente c = contis.Where(x => x.ContinenteId == SelectCont).First();
-    int np = c.Paises.Count();
-    
-    Random n = new Random();
-    List<int> aux = new List<int>();
-    List<Pais> paises = new List<Pais>();
-    for (int i = 0; i < 6; i++) {
-        int r = n.Next(0, np);
-
-        while (aux.Contains(r)) {
-            r = n.Next(0, np);
-        }
-        paises.Add(c.Paises.ToList()[r]);
-        aux.Add(r);
-    }
-
-    List<AreaProtegida> areas = new List<AreaProtegida>();
-    for (int i = 0; i < 6; i++) {
-        int x = paises[i].AreaProtegidas.Count();
-        int a = n.Next(0, x);
-
-        areas.Add(paises[i].AreaProtegidas.ToList()[a]);
-    }
+    List<AreaProtegida> areas = ViewBag.Areas;
 }
+
 <script>
     function getQuestao(idArea) {
         $.ajax({
