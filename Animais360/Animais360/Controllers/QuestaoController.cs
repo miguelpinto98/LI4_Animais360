@@ -96,11 +96,23 @@ namespace Animais360.Controllers
                 q.AreaProtegida = db.AreaProtegidas.Find(id);
                 q.AreaProtegida.Questoes.Add(q);
                
-                Ajuda aj = new Ajuda();
-                aj.Grau = 1;
-                aj.Pista = questao.Ajuda1 +";"+questao.Ajuda2+";"+questao.Ajuda3;
-                aj.Questao = q;
-                db.Ajudas.Add(aj);
+                Ajuda aj1 = new Ajuda();
+                aj1.Grau = 1;
+                aj1.Pista = questao.Ajuda1;
+                aj1.Questao = q;
+                db.Ajudas.Add(aj1);
+
+                Ajuda aj2 = new Ajuda();
+                aj2.Grau = 2;
+                aj2.Pista = questao.Ajuda2;
+                aj2.Questao = q;
+                db.Ajudas.Add(aj2);
+
+                Ajuda aj3 = new Ajuda();
+                aj3.Grau = 3;
+                aj3.Pista = questao.Ajuda3;
+                aj3.Questao = q;
+                db.Ajudas.Add(aj3);
                
                 db.Questoes.Add(q);
                 db.SaveChanges();
@@ -212,9 +224,10 @@ namespace Animais360.Controllers
             cq.Resposta4 = words[3];
             cq.Tipo = q.Tipo;
             cq.Imagem = q.Imagem;
-            cq.Ajuda1 = "1";
-            cq.Ajuda2 = "2";
-            cq.Ajuda3 = "3";
+
+            cq.Ajuda1 = q.Ajudas.Where(x => x.Questao.QuestaoID == cq.id && x.Grau == 1).First().Pista;
+            cq.Ajuda2 = q.Ajudas.Where(x => x.Questao.QuestaoID == cq.id && x.Grau == 2).First().Pista;
+            cq.Ajuda3 = q.Ajudas.Where(x => x.Questao.QuestaoID == cq.id && x.Grau == 3).First().Pista;
 
             return Json(cq, JsonRequestBehavior.AllowGet);
         }
