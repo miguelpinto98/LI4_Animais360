@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using Animais360.Models;
 using System.IO;
+using System.Web.Security;
 
 namespace Animais360.Controllers
 {
@@ -254,18 +255,44 @@ namespace Animais360.Controllers
             return Json(cq, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult ValidaQuestao(int id, int opcao, int pontos) {
-            Questao q = db.Questoes.Find(id);
+        int verificaOpcao(String hipotese, String resposta, int opcao) {
             int flag = 0;
-            string[] words = q.Hipoteses.Split(';');
+            string[] words = hipotese.Split(';');
 
             string res = words[opcao - 1];
-            if (res.Equals(q.Resposta))
+            if (res.Equals(resposta))
                 flag = 1;
 
-            ViewBag.Pontos = 1000;
+            return flag;
+        }
 
-            return Json(flag,JsonRequestBehavior.AllowGet);
+        public ActionResult ValidaQuestao(int id, int opcao, int pontos, int idjogo) {
+            Questao q = db.Questoes.Find(id);
+            AreaProtegida ap = db.AreaProtegidas.Find(q.AreaProtegida.AreaProtegidaID);
+            User u = db.Users.Find(Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString()));
+            Jogo j = db.Jogos.Find(idjogo);
+
+            int flag = verificaOpcao(q.Hipoteses, q.Resposta, opcao);
+            ValidaQuestao vq = new ValidaQuestao();
+            vq.res = flag;
+            vq.idArea = ap.AreaProtegidaID;
+
+            if (flag==1) { //Acertou
+                //UserAreaProtegida uap = db.UserAreaProtegidas.Where(x => x.User.UserId == u.UserId && x.AreaProtegida.AreaProtegidaID == ap.AreaProtegidaID).First();
+               
+                pontos += 100;
+                vq.pontos = pontos;
+
+            } else {    //Errou
+                pontos -= 100;
+                vq.pontos = pontos;
+            }
+
+            if (pontos <= 0) {
+                vq.gameOver = 1;
+            }
+
+            return Json(vq,JsonRequestBehavior.AllowGet);
         }
     }
 }

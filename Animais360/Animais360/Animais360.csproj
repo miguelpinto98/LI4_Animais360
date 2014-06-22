@@ -275,7 +275,7 @@
     <Content Include="Views\Jogo\Play.cshtml" />
     <Content Include="Views\Jogo\Create.cshtml" />
     <Content Include="Views\Jogo\Edit.cshtml" />
-    <Content Include="Views\Jogo\Delete.cshtml" />
+    <Content Include="Views\Jogo\GameOver.cshtml" />
     <Content Include="Views\Questao\Index.cshtml" />
     <Content Include="Views\Questao\Details.cshtml" />
     <Content Include="Views\Questao\Create.cshtml" />

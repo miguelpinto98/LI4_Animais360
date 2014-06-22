@@ -8,6 +8,8 @@
 }
 
 <script>
+    $('#PontosAV').text('@ViewBag.Pontos');
+
     function getQuestao(idArea) {
         $.ajax({
             url: '@Url.Action("GetQuestaoArea", "Questao")',
@@ -31,18 +33,27 @@
     function validaQuestao() {
         var resp = $('input[name=resposta]:checked').val();
         var idp = $('#PerguntaID').val();
-        
+
         $.ajax({
             url: '@Url.Action("ValidaQuestao", "Questao")',
-            data: { id: idp, opcao: resp, pontos:'@ViewBag.Pontos' },
+            data: { id: idp, opcao: resp, pontos:'@ViewBag.Pontos', idjogo:'@Model.JogoId' },
             type: 'GET',
             success: function (data) {
-                if (data == 0)
-                    alert('FAIL');
-                else
-                    alert('CERTO');
+                if (data.gameOver == 1) {
+                    var url = '@Url.Action("GameOver", "Jogo")';
+                    //window.location.href = url;
+                }
 
-                
+                if (data.res == 1) {
+                    alert("Resposta Correta");
+                    document.getElementById(data.idArea).style.visibility = 'visible';
+                    $('#myModal').modal('hide');
+                    
+                } else {
+                    alert("Resposta Errada");
+                    $('#myModal').modal('hide');
+                    //getQuestao(data.idArea);
+                }
             }
         });
     }
@@ -200,7 +211,7 @@
                     </li>
                     <li class="list-group-item text-center">
                         <span>Pontuação: </span>
-                        <a style="text-decoration:none; color:#F39C12"> @ViewBag.Pontos </a>
+                        <a style="text-decoration:none; color:#F39C12" id="PontosAV"> Pontos </a>
                     </li>
                 </ul>
             </div>
@@ -209,9 +220,10 @@
                     Destinos Sugeridos
                 </div>
                 <ul class="list-group bordered-bottom">
-                    @foreach(AreaProtegida a in areas) {
-                        <li class="list-group-item text-center" style="font-size:12px;" onclick="getQuestao('@a.AreaProtegidaID')"> @a.AreaNome </li>
-                    }
+                    @foreach (AreaProtegida a in areas)
+{
+    <li id="teste" class="list-group-item text-center" style="font-size:12px; visibility: visible;" onclick="if(getQuestao('@a.AreaProtegidaID')==1) this.onclick=null; "> @a.AreaNome <div id="@a.AreaProtegidaID" style="visibility:hidden">V</div> </li>
+}
                 </ul>
             </div>
         </div>

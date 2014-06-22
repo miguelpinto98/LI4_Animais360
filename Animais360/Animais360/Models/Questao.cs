@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -86,5 +87,9 @@ namespace Animais360.Models
     public class ValidaQuestao {
         public int res { get; set; }
         public int pontos { get; set; }
+        public int idArea { get; set; }
+
+        [DefaultValue(0)]
+        public int gameOver { get; set; }
     }
 }

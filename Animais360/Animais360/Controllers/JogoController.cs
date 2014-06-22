@@ -190,6 +190,10 @@ namespace Animais360.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult GameOver() {
+            return View();
+        }
+
         protected override void Dispose(bool disposing)
         {
             db.Dispose();
