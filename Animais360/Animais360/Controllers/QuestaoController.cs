@@ -17,7 +17,8 @@ namespace Animais360.Controllers
         //
         // GET: /Questao/
 
-        public ActionResult Index(int id=0) {
+        public ActionResult Index(int id = 0)
+        {
 
             if (id == 0)
                 HttpNotFound();
@@ -43,7 +44,8 @@ namespace Animais360.Controllers
         //
         // GET: /Questao/Create
 
-        public ActionResult Create(int id = 0 ) {
+        public ActionResult Create(int id = 0)
+        {
 
             ViewBag.ID = id;
             return View();
@@ -53,49 +55,66 @@ namespace Animais360.Controllers
         // POST: /Questao/Create
 
         [HttpPost]
-        public ActionResult Create(int id, int tipo, CreateQuestao questao) {
-            if (ModelState.IsValid) {
+        public ActionResult Create(int id, int tipo, CreateQuestao questao)
+        {
+            if (ModelState.IsValid)
+            {
 
                 Questao q = new Questao();
                 q.DifQuantitativa = questao.DifQuantitativa;
                 q.Pergunta = questao.Pergunta;
-                if (tipo == 1) {
+                if (tipo == 1)
+                {
                     q.Resposta = questao.RespCorreta1 + ";" + questao.RespCorreta2;
-                    q.Hipoteses = questao.Resposta1 + ";" + questao.Resposta2 +";"+questao.Resposta3 + ";" + questao.Resposta4 +";"+questao.Resposta5 + ";" + questao.Resposta6;
+                    q.Hipoteses = questao.Resposta1 + ";" + questao.Resposta2 + ";" + questao.Resposta3 + ";" + questao.Resposta4 + ";" + questao.Resposta5 + ";" + questao.Resposta6;
                     q.Tipo = tipo;
-                } else {
-                    if (tipo == 2) {
+                }
+                else
+                {
+                    if (tipo == 2)
+                    {
                         q.Resposta = questao.RespCorreta1;
                         q.Hipoteses = questao.Resposta1 + ";" + questao.Resposta2 + ";" + questao.Resposta3 + ";" + questao.Resposta4;
                         q.Tipo = tipo;
-                    } else {
-                        if (tipo == 3) {
+                    }
+                    else
+                    {
+                        if (tipo == 3)
+                        {
                             q.Resposta = questao.RespCorreta1;
                             q.Hipoteses = questao.Resposta1 + ";" + questao.Resposta2 + ";" + questao.Resposta3 + ";" + questao.Resposta4;
                             q.Imagem = "/../images/desafios/" + questao.Imagem;
                             q.Tipo = tipo;
-                        } else {
-                            if (tipo == 4) {
+                        }
+                        else
+                        {
+                            if (tipo == 4)
+                            {
                                 q.Resposta = questao.RespCorreta1;
                                 q.Hipoteses = questao.Resposta1 + ";" + questao.Resposta2 + ";" + questao.Resposta3 + ";" + questao.Resposta4;
-                                
+
                                 q.Tipo = tipo;
-                            } else {
-                                if (tipo == 5) {
+                            }
+                            else
+                            {
+                                if (tipo == 5)
+                                {
                                     q.Resposta = questao.RespCorreta1;
                                     q.Hipoteses = questao.Resposta1 + ";" + questao.Resposta2 + ";" + questao.Resposta3 + ";" + questao.Resposta4;
 
                                     q.Tipo = tipo;
-                                } else {
+                                }
+                                else
+                                {
                                     return HttpNotFound();
                                 }
-                            } 
+                            }
                         }
                     }
                 }
                 q.AreaProtegida = db.AreaProtegidas.Find(id);
                 q.AreaProtegida.Questoes.Add(q);
-               
+
                 Ajuda aj1 = new Ajuda();
                 aj1.Grau = 1;
                 aj1.Pista = questao.Ajuda1;
@@ -113,12 +132,12 @@ namespace Animais360.Controllers
                 aj3.Pista = questao.Ajuda3;
                 aj3.Questao = q;
                 db.Ajudas.Add(aj3);
-               
+
                 db.Questoes.Add(q);
                 db.SaveChanges();
-                
+
                 return RedirectToAction("Index", "Questao", new { id = id });
-            } 
+            }
 
             return View(questao);
         }
@@ -126,7 +145,8 @@ namespace Animais360.Controllers
         //
         // GET: /Questao/Edit/5
 
-        public ActionResult Edit(int id = 0, int tipo=0) {
+        public ActionResult Edit(int id = 0, int tipo = 0)
+        {
             Questao questao = db.Questoes.Find(id);
             ViewBag.ID = id;
 
@@ -186,12 +206,13 @@ namespace Animais360.Controllers
             int x = questao.AreaProtegida.AreaProtegidaID;
 
             IList<Ajuda> ajs = questao.Ajudas.Where(m => m.Questao.QuestaoID == id).ToList();
-            foreach(Ajuda a in ajs) {
+            foreach (Ajuda a in ajs)
+            {
                 db.Ajudas.Remove(a);
             }
             db.Questoes.Remove(questao);
             db.SaveChanges();
-            return RedirectToAction("Index", "Questao", new { id = x});
+            return RedirectToAction("Index", "Questao", new { id = x });
         }
 
         protected override void Dispose(bool disposing)
@@ -201,7 +222,8 @@ namespace Animais360.Controllers
         }
 
 
-        public ActionResult GetQuestaoArea(int id) {
+        public ActionResult GetQuestaoArea(int id)
+        {
             List<Questao> qarea = db.Questoes.Where(x => x.AreaProtegida.AreaProtegidaID == id).ToList();
 
             Random n = new Random();
@@ -211,7 +233,7 @@ namespace Animais360.Controllers
             Questao q = qarea[r];
 
             //if (q.Tipo == 2) 
-                string[] words = q.Hipoteses.Split(';');
+            string[] words = q.Hipoteses.Split(';');
 
             CreateQuestao cq = new CreateQuestao();
             cq.id = q.QuestaoID;
@@ -230,6 +252,20 @@ namespace Animais360.Controllers
             cq.Ajuda3 = q.Ajudas.Where(x => x.Questao.QuestaoID == cq.id && x.Grau == 3).First().Pista;
 
             return Json(cq, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult ValidaQuestao(int id, int opcao, int pontos) {
+            Questao q = db.Questoes.Find(id);
+            int flag = 0;
+            string[] words = q.Hipoteses.Split(';');
+
+            string res = words[opcao - 1];
+            if (res.Equals(q.Resposta))
+                flag = 1;
+
+            ViewBag.Pontos = 1000;
+
+            return Json(flag,JsonRequestBehavior.AllowGet);
         }
     }
 }

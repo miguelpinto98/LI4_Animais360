@@ -45,12 +45,24 @@ namespace Animais360.Controllers
 
         int devolveRandomInt(List<int> aux, int npaises) {
             Random n = new Random();
+            
             int r = n.Next(0, npaises);
-            while (aux.Contains(r)) {
+            while (aux.Contains(r))
+            {
                 r = n.Next(0, npaises);
             }
             aux.Add(r);
+
             return r;
+        }
+
+        List<Pais> getPaisesContinentes(int idc) {
+            List<Pais> aux = new List<Pais>();
+
+            foreach(Pais p in db.Pais.Where(x => x.Continente.ContinenteId == idc))
+                aux.Add(p);
+
+            return aux;
         }
 
         public ActionResult Play(int id, int continente, int? pontos) {
@@ -66,17 +78,19 @@ namespace Animais360.Controllers
             Random n = new Random();
   
             for (int i = 0; i < 6; i++) {
-                r = devolveRandomInt(aux, npaises); break;
-
+                r = devolveRandomInt(aux, npaises);
                 Pais p = ps[r];
                 nareas = p.AreaProtegidas.Count();
 
-                if (nareas > 0) {
-                    idarea = n.Next(0, nareas);
+                while (nareas == 0) {
+                    r = devolveRandomInt(aux, npaises);
+                    p = ps[r];
+                    nareas = p.AreaProtegidas.Count();
+                }                
 
-                    AreaProtegida a = p.AreaProtegidas.ToList()[idarea];
-                    aps.Add(a);
-                }
+                idarea = n.Next(0, nareas);
+                AreaProtegida a = p.AreaProtegidas.ToList()[idarea];
+                aps.Add(a);
             }
             ViewBag.Areas = aps;
             

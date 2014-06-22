@@ -14,12 +14,15 @@
             data: { id: idArea },
             type: 'GET',
             success: function (data) {
+                $('#PerguntaID').val(data.id);
                 $('#Pergunta').text(data.Pergunta);
                 $('#Hipotese1').text(data.Resposta1);
                 $('#Hipotese2').text(data.Resposta2);
                 $('#Hipotese3').text(data.Resposta3);
                 $('#Hipotese4').text(data.Resposta4);
-                //alert(data.Pergunta);
+                $('#Ajuda1').text(data.Ajuda1);
+                $('#Ajuda2').text(data.Ajuda2);
+                $('#Ajuda3').text(data.Ajuda3);
             }
         });
         $('#myModal').modal('toggle');
@@ -27,23 +30,38 @@
 
     function validaQuestao() {
         var resp = $('input[name=resposta]:checked').val();
+        var idp = $('#PerguntaID').val();
+        
+        $.ajax({
+            url: '@Url.Action("ValidaQuestao", "Questao")',
+            data: { id: idp, opcao: resp, pontos:'@ViewBag.Pontos' },
+            type: 'GET',
+            success: function (data) {
+                if (data == 0)
+                    alert('FAIL');
+                else
+                    alert('CERTO');
 
-        alert(resp);
+                
+            }
+        });
     }
 
-    function verificaPontos(opcao, pontos) {
-        if (pontos >= opcao)
-            alert("Ajuda X");
-        else
-            alert("Não tens pontos suficientes! :(")
+    function verificaPontos(opcao, pontos, i) {
+        //if (pontos >= opcao) {
+        //  FazerPedidoAjaxParaAlterarNumerosdePontos
+            document.getElementById(i).style.visibility = 'visible';
+        // } else
+          //  alert("Não tens pontos suficientes! :(")
 
+        
     }
 </script>
 
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width:45%">
-        <div class="modal-content">
+        <div class="modal-content" id="PerguntaID">
             <div class="modal-header">
                 <h3 class="modal-title" id="Pergunta"> Pergunta </h3>
             </div>
@@ -61,13 +79,13 @@
             <div class="modal-footer">
                 <div class="fcol1">
                 Ajudas:<br/><br/>
-                <button type="button" class="btn btn-warning" style="margin-left:0px;" onclick="verificaPontos(50,'@ViewBag.Pontos')"> 50 pontos </button>
-                <button type="button" class="btn btn-warning" > 75 pontos </button>
-                <button type="button" class="btn btn-warning" > 100 pontos </button>
+                    <button type="button" class="btn btn-warning" style="margin-left:0px;" onclick="verificaPontos(50,'@ViewBag.Pontos', 'aj1')"> 50 pontos </button>
+                    <button type="button" class="btn btn-warning" onclick="verificaPontos(75,'@ViewBag.Pontos','aj2')"> 75 pontos </button>
+                    <button type="button" class="btn btn-warning" onclick="verificaPontos(100,'@ViewBag.Pontos','aj3')"> 100 pontos </button>
                 </div>
-                <div class="fcol2" id="AjudaDIV" style="display: none;">
-                    Ajuda ABC
-                </div>
+                <div class="fcol2" id="aj1" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda1" }) </div><br />
+                <div class="fcol2" id="aj2" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda2" }) </div><br />
+                <div class="fcol2" id="aj3" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda3" }) </div><br />
             </div>
         </div>
     </div>
@@ -321,6 +339,7 @@
             //map.setZoom(6);
             infowindow6.open(map, pp6);
         });
+    
 
         //var vermelho = new google.maps.Marker({ position: p2, map: map, title: 'Responder a Desafio' });
                 //Função que muda a "camara" para o ponto marcado, 3 segundos depois de mudar de sítio.

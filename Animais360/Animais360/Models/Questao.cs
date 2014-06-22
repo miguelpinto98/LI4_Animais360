@@ -82,4 +82,9 @@ namespace Animais360.Models
         [Display(Name = "Imagem *")]
         public string Imagem { get; set; }
     }
+
+    public class ValidaQuestao {
+        public int res { get; set; }
+        public int pontos { get; set; }
+    }
 }
