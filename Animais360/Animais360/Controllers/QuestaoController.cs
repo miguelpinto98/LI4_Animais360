@@ -278,13 +278,23 @@ namespace Animais360.Controllers
             vq.idArea = ap.AreaProtegidaID;
 
             if (flag==1) { //Acertou
-                //UserAreaProtegida uap = db.UserAreaProtegidas.Where(x => x.User.UserId == u.UserId && x.AreaProtegida.AreaProtegidaID == ap.AreaProtegidaID).First();
-               
-                pontos += 100;
-                vq.pontos = pontos;
+                //Coisas Para a nova tabela
+                if (j.DifQualitativa == 1)
+                    pontos += 5;
+                if (j.DifQualitativa == 2)
+                    pontos += 20;
+                if (j.DifQualitativa == 3)
+                    pontos += 200;
 
+                vq.pontos = pontos;
             } else {    //Errou
-                pontos -= 100;
+                if (j.DifQualitativa == 1)
+                    pontos -= 5;
+                if (j.DifQualitativa == 2)
+                    pontos -= 20;
+                if (j.DifQualitativa == 3)
+                    pontos -= 200;
+
                 vq.pontos = pontos;
             }
 

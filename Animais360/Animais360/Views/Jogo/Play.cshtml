@@ -8,8 +8,6 @@
 }
 
 <script>
-    $('#PontosAV').text('@ViewBag.Pontos');
-
     function getQuestao(idArea) {
         $.ajax({
             url: '@Url.Action("GetQuestaoArea", "Questao")',
@@ -30,42 +28,73 @@
         $('#myModal').modal('toggle');
     }
 
+    function gameOver(fim) {
+        var pp = $("#PontosAV").text();
+        var certo = parseInt($("#CorretoID").text());
+        var errado = parseInt($("#ErradoID").text());
+
+        $.ajax({
+            url: '@Url.Action("PostGameOver", "Jogo")',
+            data: { id: '@Model.JogoId', pontos: pp, sucess: fim, certas:certo, erradas:errado },
+            type: 'POST',
+            success: function (data) {
+                var url = '@Url.Action("GameOver", "Jogo", new {id = @Model.JogoId })';
+                window.location.href = url;
+            }
+        }); 
+    }
+
     function validaQuestao() {
         var resp = $('input[name=resposta]:checked').val();
         var idp = $('#PerguntaID').val();
+        var pp = $("#PontosAV").text();
+        var prog = parseInt($("#ProgressoID").text());
+        var certo = parseInt($("#CorretoID").text());
+        var errado = parseInt($("#ErradoID").text());
 
         $.ajax({
             url: '@Url.Action("ValidaQuestao", "Questao")',
-            data: { id: idp, opcao: resp, pontos:'@ViewBag.Pontos', idjogo:'@Model.JogoId' },
+            data: { id: idp, opcao: resp, pontos:pp, idjogo:'@Model.JogoId' },
             type: 'GET',
             success: function (data) {
-                if (data.gameOver == 1) {
-                    var url = '@Url.Action("GameOver", "Jogo")';
-                    //window.location.href = url;
-                }
-
+                $("#PontosAV").text(data.pontos);
+                if (data.gameOver == 1)
+                    gameOver(0);
+                
                 if (data.res == 1) {
-                    alert("Resposta Correta");
+                    //alert("Resposta Correta");
+                    prog++; certo++;
+                    $("#ProgressoID").text(prog);
+                    $("#CorretoID").text(certo);
+
                     document.getElementById(data.idArea).style.visibility = 'visible';
                     $('#myModal').modal('hide');
-                    
                 } else {
+                    errado++;
+                    $("#ErradoID").text(errado);
+
                     alert("Resposta Errada");
                     $('#myModal').modal('hide');
                     //getQuestao(data.idArea);
+                }
+
+                if (prog == 6) {
+                    //novoContinente();
+                    gameOver(1);
                 }
             }
         });
     }
 
-    function verificaPontos(opcao, pontos, i) {
-        //if (pontos >= opcao) {
-        //  FazerPedidoAjaxParaAlterarNumerosdePontos
-            document.getElementById(i).style.visibility = 'visible';
-        // } else
-          //  alert("Não tens pontos suficientes! :(")
+    function verificaPontos(opcao, i) {
+        var pts = parseInt($("#PontosAV").text());
 
-        
+        if (pts >= opcao) {
+            pts = pts - opcao;
+            $("#PontosAV").text(pts);
+            document.getElementById(i).style.visibility = 'visible';
+         } else
+            alert("Não tens pontos suficientes! :(")
     }
 </script>
 
@@ -90,9 +119,25 @@
             <div class="modal-footer">
                 <div class="fcol1">
                 Ajudas:<br/><br/>
-                    <button type="button" class="btn btn-warning" style="margin-left:0px;" onclick="verificaPontos(50,'@ViewBag.Pontos', 'aj1')"> 50 pontos </button>
-                    <button type="button" class="btn btn-warning" onclick="verificaPontos(75,'@ViewBag.Pontos','aj2')"> 75 pontos </button>
-                    <button type="button" class="btn btn-warning" onclick="verificaPontos(100,'@ViewBag.Pontos','aj3')"> 100 pontos </button>
+                    @{
+                        if (Model.DifQualitativa == 1) { 
+                            <button type="button" class="btn btn-warning" style="margin-left:0px;" onclick="verificaPontos(6,'aj1')"> 6 pontos </button>
+                            <button type="button" class="btn btn-warning" onclick="verificaPontos(8,'aj2')"> 8 pontos </button>
+                            <button type="button" class="btn btn-warning" onclick="verificaPontos(10,'aj3')"> 10 pontos </button>
+                        }
+                        
+                        if (Model.DifQualitativa == 2) { 
+                            <button type="button" class="btn btn-warning" style="margin-left:0px;" onclick="verificaPontos(40,'aj1')"> 40 pontos </button>
+                            <button type="button" class="btn btn-warning" onclick="verificaPontos(50,'aj2')"> 50 pontos </button>
+                            <button type="button" class="btn btn-warning" onclick="verificaPontos(60,'aj3')"> 60 pontos </button>
+                        }
+                        
+                        if (Model.DifQualitativa == 3) { 
+                            <button type="button" class="btn btn-warning" style="margin-left:0px;" onclick="verificaPontos(300,'aj1')"> 300 pontos </button>
+                            <button type="button" class="btn btn-warning" onclick="verificaPontos(500,'aj2')"> 500 pontos </button>
+                            <button type="button" class="btn btn-warning" onclick="verificaPontos(600,'aj3')"> 600 pontos </button>
+                        }
+                    }
                 </div>
                 <div class="fcol2" id="aj1" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda1" }) </div><br />
                 <div class="fcol2" id="aj2" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda2" }) </div><br />
@@ -179,15 +224,16 @@
     string str = null;
     if(Model.DifQualitativa == 1) {
         str = "Fácil";
+        ViewBag.Pontos = 50;
     } else {
         if (Model.DifQualitativa == 2) {
             str = "Média";
+            ViewBag.Pontos = 300;
         } else {
             str = "Difícil";
+            ViewBag.Pontos = 1000;
         }
     }
-
-    int progresso = 0;
 }
 <div class="content">
     <div class="content-body">
@@ -207,11 +253,20 @@
                     </li>
                     <li class="list-group-item text-center">
                         <span>Progresso neste Coninente: </span>
-                        <a style="text-decoration:none; color:#F39C12"> @progresso/6 </a>
+                        <a style="text-decoration:none; color:#F39C12"> <span id="ProgressoID">0</span>/6 </a>
                     </li>
                     <li class="list-group-item text-center">
+                        <span>Resposta Corretas: </span>
+                        <a style="text-decoration:none; color:#F39C12"> <span id="CorretoID"> 0 </span></a>
+                    </li>
+                    <li class="list-group-item text-center">
+                        <span>Respostas Erradas: </span>
+                        <a style="text-decoration:none; color:#F39C12"> <span id="ErradoID"> 0 </span></a>
+                    </li>
+
+                    <li class="list-group-item text-center">
                         <span>Pontuação: </span>
-                        <a style="text-decoration:none; color:#F39C12" id="PontosAV"> Pontos </a>
+                        <a style="text-decoration:none; color:#F39C12" id="PontosAV"> @ViewBag.Pontos </a>
                     </li>
                 </ul>
             </div>
@@ -222,7 +277,7 @@
                 <ul class="list-group bordered-bottom">
                     @foreach (AreaProtegida a in areas)
 {
-    <li id="teste" class="list-group-item text-center" style="font-size:12px; visibility: visible;" onclick="if(getQuestao('@a.AreaProtegidaID')==1) this.onclick=null; "> @a.AreaNome <div id="@a.AreaProtegidaID" style="visibility:hidden">V</div> </li>
+    <li id="teste" class="list-group-item text-center" style="font-size:12px; visibility: visible;" onclick="if(getQuestao('@a.AreaProtegidaID')==1) this.onclick=null; "> @a.AreaNome <span id="@a.AreaProtegidaID" style="visibility:hidden">V</span> </li>
 }
                 </ul>
             </div>

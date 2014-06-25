@@ -190,8 +190,32 @@ namespace Animais360.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult GameOver() {
-            return View();
+        public ActionResult GameOver(int id) {
+            Jogo j = db.Jogos.Find(id);
+
+            return View(j);
+        }
+
+        //POST
+        public ActionResult PostGameOver(int id, int pontos, int sucess, int certas, int erradas) {
+            Jogo j = db.Jogos.Find(id);
+
+            j.DataFim = DateTime.Now;
+            j.Estado = 1; //1 - Concluído 0- A decorrer
+            j.Sucesso = sucess;
+            j.RespCertas = certas;
+            j.RespErradas = erradas;
+            j.Nivel = 5;
+
+            if (pontos <= 0)
+                j.Pontos = 0;
+            else
+                j.Pontos = pontos;
+
+            db.Entry(j).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return Json(j, JsonRequestBehavior.AllowGet);
         }
 
         protected override void Dispose(bool disposing)

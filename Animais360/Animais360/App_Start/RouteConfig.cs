@@ -14,6 +14,11 @@ namespace Animais360
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "GameOverJogo",
+                url: "Jogo/PostGameOver/{id}/{pontos}/{sucess}"
+            );
+
+            routes.MapRoute(
                 name: "CreateQuestao",
                 url: "Questao/{action}/{id}/{tipo}",
                 defaults: new { controller = "Questao", action = "Create", tipo = UrlParameter.Optional }
