@@ -93,7 +93,7 @@ namespace Animais360.Controllers
                             {
                                 q.Resposta = questao.RespCorreta1;
                                 q.Hipoteses = questao.Resposta1 + ";" + questao.Resposta2 + ";" + questao.Resposta3 + ";" + questao.Resposta4;
-
+                                q.Imagem = "/../sounds/desafios/" + questao.Imagem;
                                 q.Tipo = tipo;
                             }
                             else

@@ -385,27 +385,27 @@
                                     </div>
                                 </div>
                                 
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label" for="fileinput_inline">Som *</label>
-                                    <div class="col-sm-5">
-                                        <div class="fileinput fileinput-new" data-provides="fileinput">
-                                            <div class="input-group">
-                                                <div class="form-control uneditable-input span3" data-trigger="fileinput">
-                                                    <i class="glyphicon glyphicon-file fileinput-exists"></i>
-                                                    <span class="fileinput-filename"></span>
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Imagem, new { @class = "col-sm-3 control-label" })
+                                        <div class="col-sm-5">
+                                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                <div class="input-group">
+                                                    <div class="form-control uneditable-input span3" data-trigger="fileinput">
+                                                        <i class="glyphicon glyphicon-file fileinput-exists"></i>
+                                                        <span class="fileinput-filename"></span>
+                                                    </div>
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-default fileinput-exists" rel="tooltip" title="remover" data-dismiss="fileinput"><i class="fa fa-times"></i></button>
+                                                        <button class="btn btn-default btn-file">
+                                                            <span class="fileinput-new">Carregar</span>
+                                                            <span class="fileinput-exists">Alterar</span>
+                                                            <input type="file" name="Imagem" id="Imagem">
+                                                        </button>
+                                                    </span>
                                                 </div>
-                                                <span class="input-group-btn">
-                                                    <button class="btn btn-default fileinput-exists" rel="tooltip" title="remover" data-dismiss="fileinput"><i class="fa fa-times"></i></button>
-                                                    <button class="btn btn-default btn-file">
-                                                        <span class="fileinput-new">Selecione Ficheiro</span>
-                                                        <span class="fileinput-exists">Alterar</span>
-                                                        <input type="file" name="fileinput_widget" id="fileinput_widget">
-                                                    </button>
-                                                </span>
-                                            </div>
-                                        </div><!-- /fileinput -->
-                                    </div><!-- /cols -->
-                                </div>
+                                            </div><!-- /fileinput -->
+                                        </div><!-- /cols -->
+                                    </div>
 
                                 <div class="form-group">
                                     @Html.LabelFor(m => m.Resposta1, new { @class = "col-sm-3 control-label" })

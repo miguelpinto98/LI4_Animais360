@@ -12,27 +12,38 @@
         document.getElementById('aj1').style.visibility = 'hidden';
         document.getElementById('aj2').style.visibility = 'hidden';
         document.getElementById('aj3').style.visibility = 'hidden';
-
+        
         $.ajax({
             url: '@Url.Action("GetQuestaoArea", "Questao")',
             data: { id: idArea },
             type: 'GET',
             success: function (data) {
                 $('#PerguntaID').val(data.id);
-                $('#Tipo').val(data.Tipo);
                 $('#Pergunta').text(data.Pergunta);
                 $('#Hipotese1').text(data.Resposta1);
                 $('#Hipotese2').text(data.Resposta2);
                 $('#Hipotese3').text(data.Resposta3);
                 $('#Hipotese4').text(data.Resposta4);
-                $('#Imagem').attr("src", data.Imagem);
                 $('#Ajuda1').text(data.Ajuda1);
                 $('#Ajuda2').text(data.Ajuda2);
                 $('#Ajuda3').text(data.Ajuda3);
+
+                if (data.Tipo == 3 || data.Tipo == 4) {
+                    if(data.Tipo == 3) {
+                        $('#Imagem').attr("src", data.Imagem);
+                        document.getElementById('Imagem').style.display = 'initial';
+                    } else {
+                        $('#Som').attr("src", data.Imagem);
+                        document.getElementById('Som').style.display = 'initial';
+                    }
+                } else {
+                    document.getElementById('Som').style.display = 'none';
+                    document.getElementById('Imagem').style.display = 'none'
+                }
             }
         });
-
         $('#myModal').modal('toggle');
+        
     }
 
     function getQuestao(idArea) {
@@ -125,7 +136,12 @@
     <div class="modal-dialog" id="Tipo" style="width:45%">
         <div class="modal-content" id="PerguntaID">
             <div class="modal-header">
-                <h3 class="modal-title" id="Pergunta"> Pergunta </h3>
+                <h3 class="modal-title" id="Pergunta"> Pergunta </h3> <br />
+                <img src="" id="Imagem" style="display: none" width="180" height="180" />
+
+                <audio id="Som" controls="controls" style="display: none">
+                    <source id="Som" src="">
+                </audio>
             </div>
             <div class="modal-body">
                 <div class="coluu1">
@@ -172,70 +188,12 @@
 </div>
 </div>
 
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" id="Tipo" style="width:45%">
-        <div class="modal-content" id="PerguntaID">
-            <div class="modal-header">
-                <h3 class="modal-title" id="Pergunta"> Pergunta 
-                    <img src="" id="Imagem" width="180" height="180" />
-                </h3>
-            </div>
-            <div class="modal-body">
-                <div class="coluu1">
-                    @Html.RadioButton("resposta", "1", new { id = "Resposta1", style = "margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese1" }) <br />
-                    @Html.RadioButton("resposta", "2", new { id = "Resposta2", style = "margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese2" }) <br />
-                </div>
-                <div class="coluu2">
-                    @Html.RadioButton("resposta", "3", new { id = "Resposta3", style = "margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese3" }) <br />
-                    @Html.RadioButton("resposta", "4", new { id = "Resposta4", style = "margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese4" }) <br />
-                </div>
-            </div>
-            <button type="button" class="btn btn-success" style="margin-left:42%;" onclick="validaQuestao()"> Confirmar </button>
-            <div class="modal-footer">
-                <div class="ajuda">
-
-                    Ajudas:&nbsp
-                    @{
-                        if (Model.DifQualitativa == 1)
-                        {
-                            <button type="button" class="btn btn-warning" style="margin-left:0px;" onclick="verificaPontos(6,'aj1')"> 6 pontos </button>
-                            <button type="button" class="btn btn-warning" onclick="verificaPontos(8,'aj2')"> 8 pontos </button>
-                            <button type="button" class="btn btn-warning" onclick="verificaPontos(10,'aj3')"> 10 pontos </button>
-                        }
-
-                        if (Model.DifQualitativa == 2)
-                        {
-                            <button type="button" class="btn btn-warning" style="margin-left:0px;" onclick="verificaPontos(40,'aj1')"> 40 pontos </button>
-                            <button type="button" class="btn btn-warning" onclick="verificaPontos(50,'aj2')"> 50 pontos </button>
-                            <button type="button" class="btn btn-warning" onclick="verificaPontos(60,'aj3')"> 60 pontos </button>
-                        }
-
-                        if (Model.DifQualitativa == 3)
-                        {
-                            <button type="button" class="btn btn-warning" style="margin-left:0px;" onclick="verificaPontos(300,'aj1')"> 300 pontos </button>
-                            <button type="button" class="btn btn-warning" onclick="verificaPontos(500,'aj2')"> 500 pontos </button>
-                            <button type="button" class="btn btn-warning" onclick="verificaPontos(600,'aj3')"> 600 pontos </button>
-                        }
-                    }
-                </div>
-                <div class="textoajuda">
-                    <span id="aj1" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda1" })</span>
-                    <span id="aj2" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda2" })</span>
-                    <span id="aj3" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda3" })</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width:45%">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title" id="">A que animal corresponde o som?<br/><br/>
-                    <audio controls="controls">
-                        <source src="assets/desafios/audio/macaco.mp3">
-                    </audio></h3>
+                    
             </div>
             <div class="modal-body">
                 <div class="coluu1">

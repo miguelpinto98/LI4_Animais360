@@ -80,7 +80,7 @@ namespace Animais360.Models
         [Display(Name = "Ajuda 3 [URL]*")]
         public string Ajuda3 { get; set; }
 
-        [Display(Name = "Imagem *")]
+        [Display(Name = "Media *")]
         public string Imagem { get; set; }
     }
 
