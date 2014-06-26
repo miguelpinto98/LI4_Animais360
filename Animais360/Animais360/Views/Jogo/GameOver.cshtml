@@ -6,7 +6,7 @@
 }
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="width:45%">
+    <div class="modal-dialog" style="width:25%">
         @using (Html.BeginForm("GameOver", "Jogo", new { id = ViewBag.IdUser }, FormMethod.Post))
         {
             <div class="modal-content">
@@ -15,10 +15,10 @@
                 </div>
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary()
-                <div class="modal-body">                   
+                <div class="modal-body" style="text-align:center;">    
+                     <button class="md-close" style="margin-bottom:5%;">Nova Aventura</button><br/>
+                    <button class="md-close">Voltar à Dashboard</button>
                 </div>
-                <button class="md-close" style="margin-left:42%; margin-bottom:5%;"> Nova Aventura      </button>
-                <button class="md-close" style="margin-left:42%; margin-bottom:5%;"> Voltar à Dashboard </button>
             </div>
         }
     </div>
