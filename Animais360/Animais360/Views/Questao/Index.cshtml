@@ -1,12 +1,13 @@
 ﻿@model IEnumerable<Animais360.Models.Questao>
-
+@using Animais360.Models
 @{
+    Questao q = Model.First();
     ViewBag.Title = "Desafios";
 }
 
 <div class="content">
     <div class="content-header">
-        <h2 class="content-title"><i class="fa fa-dashboard"></i>Dashboard</h2>
+        <h2 class="content-title"><i class="fa fa-dashboard"></i> Gestão dos Desafios </h2>
     </div>
     <div class="content-body">
         <div id="panel-tablesorter" class="panel panel-default">
@@ -18,7 +19,7 @@
                         </li>
                     </a>
                 </div>
-                <h3 class="panel-title" style="color:#F39C12">Gerir Desafios</h3>
+                <h3 class="panel-title" style="color:#F39C12"> Gerir Desafios de @q.AreaProtegida.AreaNome </h3>
             </div>
 
             <div class="panel-body">
