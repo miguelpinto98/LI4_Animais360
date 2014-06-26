@@ -8,7 +8,7 @@
 }
 
 <script>
-    function getQuestao(idArea) {
+    function getQuestaoAux(idArea) {
         document.getElementById('aj1').style.visibility = 'hidden';
         document.getElementById('aj2').style.visibility = 'hidden';
         document.getElementById('aj3').style.visibility = 'hidden';
@@ -32,6 +32,12 @@
         $('#myModal').modal('toggle');
     }
 
+    function getQuestao(idArea) {
+        var $child = $("#"+idArea);
+        if (!($child.css("display") != "none" && $child.css("visibility") != "hidden"))
+            getQuestaoAux(idArea);
+    }
+
     function gameOver(fim) {
         var pp = $("#PontosAV").text();
         var certo = parseInt($("#CorretoID").text());
@@ -50,6 +56,7 @@
 
     function novoContinente() {
         alert("É necessário mudar de continente!");
+        gameOver(1);
     }
 
     function validaQuestao() {
