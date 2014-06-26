@@ -1,7 +1,6 @@
 ﻿@model IEnumerable<Animais360.Models.Questao>
 @using Animais360.Models
-@{
-    Questao q = Model.First();
+@{      
     ViewBag.Title = "Desafios";
 }
 
@@ -19,7 +18,12 @@
                         </li>
                     </a>
                 </div>
-                <h3 class="panel-title" style="color:#F39C12"> Gerir Desafios de @q.AreaProtegida.AreaNome </h3>
+                @if (Model.Count() > 0) {
+                    <h3 class="panel-title" style="color:#F39C12"> Gerir Desafios de @Model.First().AreaProtegida.AreaNome </h3>
+                } else {
+                    <h3 class="panel-title" style="color:#F39C12"> Ainda não existem desafios, adiciona agora! </h3>
+                }
+                    
             </div>
 
             <div class="panel-body">
