@@ -65,15 +65,30 @@ namespace Animais360.Controllers
             return aux;
         }
 
-        public ActionResult Play(int id, int continente, int? pontos) {
+        public int getNumeroContinente() {
+            return 0;
+        }
+
+        public ActionResult Play(int id, string continente, int? pontos) {
+            string[] words = continente.Split('+');
+            int wc = words.Length;
+            
             ViewBag.Pontos = pontos;
+            ViewBag.NumConts = wc;
+
             Jogo jogo = db.Jogos.Find(id);
             int dif = jogo.DifQualitativa;
 
             List<int> aux = new List<int>();
             List<AreaProtegida> aps = new List<AreaProtegida>();
 
-            List<Pais> ps = db.Pais.Where(x => x.Continente.ContinenteId == continente).ToList();
+            int co;
+            if (wc == 1)
+                co = Int32.Parse(continente);
+            else
+                co = Int32.Parse(words[wc - 1]);
+
+            List<Pais> ps = db.Pais.Where(x => x.Continente.ContinenteId == co).ToList();
             int npaises = ps.Count(), r, nareas, idarea;
             Random n = new Random();
   
@@ -95,6 +110,11 @@ namespace Animais360.Controllers
             ViewBag.Areas = aps;
             
             return View(jogo);
+        }
+
+        private int ToInt32(string p)
+        {
+            throw new NotImplementedException();
         }
 
         //
@@ -127,7 +147,7 @@ namespace Animais360.Controllers
                     jg.User.Jogos.Add(jg);
                     db.SaveChanges();
 
-                    return RedirectToAction("Play", "Jogo", new { id = jg.JogoId , continente = jogo.ContinenteID, pontos = 0});
+                    return RedirectToAction("Play", "Jogo", new { id = jg.JogoId , continente = jogo.ContinenteID.ToString() });
                 }
                 return HttpNotFound();   
             }

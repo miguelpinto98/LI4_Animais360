@@ -9,6 +9,10 @@
 
 <script>
     function getQuestao(idArea) {
+        document.getElementById('aj1').style.visibility = 'hidden';
+        document.getElementById('aj2').style.visibility = 'hidden';
+        document.getElementById('aj3').style.visibility = 'hidden';
+
         $.ajax({
             url: '@Url.Action("GetQuestaoArea", "Questao")',
             data: { id: idArea },
@@ -44,6 +48,10 @@
         }); 
     }
 
+    function novoContinente() {
+        alert("É necessário mudar de continente!");
+    }
+
     function validaQuestao() {
         var resp = $('input[name=resposta]:checked').val();
         var idp = $('#PerguntaID').val();
@@ -51,6 +59,7 @@
         var prog = parseInt($("#ProgressoID").text());
         var certo = parseInt($("#CorretoID").text());
         var errado = parseInt($("#ErradoID").text());
+        var conts = parseInt($("ContID").text());
 
         $.ajax({
             url: '@Url.Action("ValidaQuestao", "Questao")',
@@ -78,9 +87,12 @@
                     //getQuestao(data.idArea);
                 }
 
-                if (prog == 6) {
-                    //novoContinente();
+                if (prog == 6 && conts == 6) {
                     gameOver(1);
+                }
+
+                if (prog == 6) {
+                    novoContinente();
                 }
             }
         });
@@ -249,11 +261,11 @@
                     </li>
                     <li class="list-group-item text-center">
                         <span>Continentes Concluídos: </span>
-                        <a style="text-decoration:none; color:#F39C12"> @ViewBag.NumContinentes/6 </a>
+                        <a style="text-decoration:none; color:#F39C12"> <span id="ContID"> @ViewBag.NumConts </span>/ 6 </a>
                     </li>
                     <li class="list-group-item text-center">
                         <span>Progresso neste Coninente: </span>
-                        <a style="text-decoration:none; color:#F39C12"> <span id="ProgressoID">0</span>/6 </a>
+                        <a style="text-decoration:none; color:#F39C12"> <span id="ProgressoID"> 0 </span>/ 6 </a>
                     </li>
                     <li class="list-group-item text-center">
                         <span>Resposta Corretas: </span>
@@ -277,7 +289,7 @@
                 <ul class="list-group bordered-bottom">
                     @foreach (AreaProtegida a in areas)
 {
-    <li id="teste" class="list-group-item text-center" style="font-size:12px; visibility: visible;" onclick="if(getQuestao('@a.AreaProtegidaID')==1) this.onclick=null; "> @a.AreaNome <span id="@a.AreaProtegidaID" style="visibility:hidden">V</span> </li>
+    <li id="teste" class="list-group-item text-center" style="font-size:12px; visibility: visible;" onclick="getQuestao('@a.AreaProtegidaID')"> @a.AreaNome <span id="@a.AreaProtegidaID" style="visibility:hidden">V</span> </li>
 }
                 </ul>
             </div>
