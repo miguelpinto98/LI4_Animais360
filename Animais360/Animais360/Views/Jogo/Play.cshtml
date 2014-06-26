@@ -129,8 +129,9 @@
             </div>
             <button type="button" class="btn btn-success" style="margin-left:42%;" onclick="validaQuestao()"> Confirmar </button>
             <div class="modal-footer">
-                <div class="fcol1">
-                Ajudas:<br/><br/>
+                <div class="ajuda">
+                
+                Ajudas:&nbsp
                     @{
                         if (Model.DifQualitativa == 1) { 
                             <button type="button" class="btn btn-warning" style="margin-left:0px;" onclick="verificaPontos(6,'aj1')"> 6 pontos </button>
@@ -150,14 +151,16 @@
                             <button type="button" class="btn btn-warning" onclick="verificaPontos(600,'aj3')"> 600 pontos </button>
                         }
                     }
+             </div>
+                <div class="textoajuda">
+                    <span id="aj1" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda1" })</span>
+                    <span id="aj2" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda2" })</span>
+                    <span id="aj3" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda3" })</span>
                 </div>
-                <div class="fcol2" id="aj1" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda1" }) </div><br />
-                <div class="fcol2" id="aj2" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda2" }) </div><br />
-                <div class="fcol2" id="aj3" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda3" }) </div><br />
-            </div>
         </div>
     </div>
 </div>
+    </div>
 
 <!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width:45%">
@@ -287,10 +290,11 @@
                     Destinos Sugeridos
                 </div>
                 <ul class="list-group bordered-bottom">
-                    @foreach (AreaProtegida a in areas)
-{
-    <li id="teste" class="list-group-item text-center" style="font-size:12px; visibility: visible;" onclick="getQuestao('@a.AreaProtegidaID')"> @a.AreaNome <span id="@a.AreaProtegidaID" style="visibility:hidden">V</span> </li>
-}
+                    @foreach (AreaProtegida a in areas) {
+    					<li id="teste" class="list-group-item text-center" style="font-size:12px; visibility: visible;" onclick="getQuestao('@a.AreaProtegidaID')"> @a.AreaNome 
+							<i class="fa fa-check" id="@a.AreaProtegidaID" style="visibility:hidden; margin-left:20px; color:#00ff21;"></i>
+    					</li>
+					}
                 </ul>
             </div>
         </div>
