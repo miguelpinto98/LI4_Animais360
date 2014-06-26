@@ -5600,21 +5600,14 @@ button.close {
     height:150px;
 }
 
-.modal-footer .fcol1 {
-    position:fixed;
-    padding:20px;
-    width:63%;
-    padding-right:5px;
+.modal-footer .ajuda {
+    padding-left:27%;
 }
 
-.modal-footer .fcol2 {
-    position:fixed;
-    width:35%;
+
+.modal-footer .textoajuda {
     padding:20px;
-    padding-top:5px;
-    margin-left:60%;
-    height: 110px;
-    overflow:hidden;
+    height:auto;
 }
 
 
