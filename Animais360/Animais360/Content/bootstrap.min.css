@@ -5207,6 +5207,7 @@ a.list-group-item-danger {
     .panel > .list-group .list-group-item {
         border-width: 1px 0;
         border-radius: 0;
+        cursor:pointer;
     }
 
     .panel > .list-group:first-child .list-group-item:first-child {
@@ -5515,7 +5516,7 @@ button.close {
 
 .modal-dialog {
     position: fixed;
-	top: 25%;
+	top: 8%;
 	left: 40%;
 	height: auto;
 	z-index: 2000;
@@ -5595,18 +5596,19 @@ button.close {
 .modal-footer {
     margin-top: 15px;
     padding: 19px 20px 20px;
-    text-align: left;
+    text-align: center;
     border-top: 1px solid #e5e5e5;
     height:150px;
 }
 
 .modal-footer .ajuda {
-    padding-left:20%;
+    padding:10px;
 }
 
 
 .modal-footer .textoajuda {
     padding:20px;
+    padding-top:0px;
     height:auto;
 }
 

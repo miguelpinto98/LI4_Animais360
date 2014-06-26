@@ -179,9 +179,9 @@
                     }
              </div>
                 <div class="textoajuda">
-                    <span id="aj1" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda1" })</span>
-                    <span id="aj2" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda2" })</span>
-                    <span id="aj3" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda3" })</span>
+                    <span id="aj1" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda1" })</span><br/>
+                    <span id="aj2" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda2" })</span><br/>
+                    <a id="aj3" style="visibility: hidden" href="@Html.Label("Text Content", new { id = "Ajuda3" })"></a>
                 </div>
         </div>
     </div>
@@ -282,9 +282,9 @@
                 </div>
                 <ul class="list-group bordered-bottom">
                     @foreach (AreaProtegida a in areas) {
-    					<li id="teste" class="list-group-item text-center" style="font-size:12px; visibility: visible;" onclick="getQuestao('@a.AreaProtegidaID')"> @a.AreaNome 
-							<i class="fa fa-check" id="@a.AreaProtegidaID" style="visibility:hidden; margin-left:20px; color:#00ff21;"></i>
-    					</li>
+    					<li id="teste" class="list-group-item text-center" style="font-size:12px; visibility: visible;" onclick="getQuestao('@a.AreaProtegidaID')"> @a.AreaNome
+                            <i class="fa fa-check" id="@a.AreaProtegidaID" style="visibility:hidden; margin-left:6px; color:#00ff21;"></i>
+                        </li>
 					}
                 </ul>
             </div>
