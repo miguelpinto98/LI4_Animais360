@@ -280,7 +280,12 @@
                 <ul class="list-group bordered-bottom">
                     @foreach (AreaProtegida a in areas)
 {
-    <li id="teste" class="list-group-item text-center" style="font-size:12px; visibility: visible;" onclick="if(getQuestao('@a.AreaProtegidaID')==1) this.onclick=null; "> @a.AreaNome <span id="@a.AreaProtegidaID" style="visibility:hidden">V</span> </li>
+    <li id="teste" class="list-group-item text-center" style="font-size:12px; visibility: visible;" onclick="if(getQuestao('@a.AreaProtegidaID')==1) this.onclick=null; ">
+        @a.AreaNome
+        <i class="fa fa-check" id="@a.AreaProtegidaID" style="visibility:hidden; margin-left:20px; color:#00ff21;"></i>
+        
+    </li>
+                        
 }
                 </ul>
             </div>
