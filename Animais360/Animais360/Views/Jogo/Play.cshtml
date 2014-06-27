@@ -38,7 +38,7 @@
                     }
                 } else {
                     document.getElementById('Som').style.display = 'none';
-                    document.getElementById('Imagem').style.display = 'none'
+                    document.getElementById('Imagem').style.display = 'none';
                 }
             }
         });
@@ -96,8 +96,7 @@
                     prog++; certo++;
                     $("#ProgressoID").text(prog);
                     $("#CorretoID").text(certo);
-
-                    document.getElementById(data.idArea).style.visibility = 'visible';
+                    document.getElementById(data.idArea).style.display = 'initial';
                     $('#myModal').modal('hide');
                 } else {
                     errado++;
@@ -153,6 +152,11 @@
                     @Html.RadioButton("resposta", "4", new { id = "Resposta4" , style ="margin-right: 20px; margin-bottom:20px;" }) @Html.Label("Text Content", new { id = "Hipotese4" }) <br />
                 </div>
             </div>
+
+          
+
+
+
             <button type="button" class="btn btn-success" style="margin-left:42%;" onclick="validaQuestao()"> Confirmar </button>
             <div class="modal-footer">
                 <div class="ajuda">
@@ -181,7 +185,7 @@
                 <div class="textoajuda">
                     <span id="aj1" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda1" })</span><br/>
                     <span id="aj2" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda2" })</span><br/>
-                    <span id="aj3" style="visibility: hidden"><a id="Ajuda3" href="">Link</a></span>
+                    <span id="aj3" style="visibility: hidden"><a id="Ajuda3" href="" target="_blank">Nathional Geographic</a></span>
                 </div>
         </div>
     </div>
@@ -282,10 +286,12 @@
                 </div>
                 <ul class="list-group bordered-bottom">
                     @foreach (AreaProtegida a in areas) {
-    					<li id="teste" class="list-group-item text-center" style="font-size:12px; visibility: visible;" onclick="getQuestao('@a.AreaProtegidaID')"> @a.AreaNome
-                            <i class="fa fa-check" id="@a.AreaProtegidaID" style="visibility:hidden; margin-left:6px; color:#00ff21;"></i>
+    					<li id="teste" class="list-group-item text-center" style="font-size:12px; visibility: visible; cursor:pointer;" onclick="getQuestao('@a.AreaProtegidaID')"> @a.AreaNome
+                            <i class="fa fa-check" id="@a.AreaProtegidaID" style="display:none; margin-left:6px; color:#00ff21;"></i>
                         </li>
 					}
+
+                    
                 </ul>
             </div>
         </div>
