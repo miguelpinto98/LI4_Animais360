@@ -272,13 +272,26 @@ namespace Animais360.Controllers
             User u = db.Users.Find(Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString()));
             Jogo j = db.Jogos.Find(idjogo);
 
+            int update = 1;
+            UserAreaProtegida uap = db.UserAreaProtegidas.Where(x => x.AreaProtegida.AreaProtegidaID == ap.AreaProtegidaID && x.User.UserId == u.UserId).FirstOrDefault();
+            if (uap == null) {
+                uap = new UserAreaProtegida();
+                uap.User = u;
+                uap.AreaProtegida = ap;
+                uap.NrVezes = 0;
+                uap.RespCertas = 0;
+                uap.RespErradas = 0;
+                update = 0;
+            }
+            
             int flag = verificaOpcao(q.Hipoteses, q.Resposta, opcao);
             ValidaQuestao vq = new ValidaQuestao();
             vq.res = flag;
             vq.idArea = ap.AreaProtegidaID;
+            uap.NrVezes += 1;
 
             if (flag==1) { //Acertou
-                //Coisas Para a nova tabela
+                uap.RespCertas += 1;
                 if (j.DifQualitativa == 1)
                     pontos += 5;
                 if (j.DifQualitativa == 2)
@@ -288,6 +301,7 @@ namespace Animais360.Controllers
 
                 vq.pontos = pontos;
             } else {    //Errou
+                uap.RespErradas += 1;
                 if (j.DifQualitativa == 1)
                     pontos -= 5;
                 if (j.DifQualitativa == 2)
@@ -297,6 +311,12 @@ namespace Animais360.Controllers
 
                 vq.pontos = pontos;
             }
+
+            if (update==0) 
+                db.UserAreaProtegidas.Add(uap);
+            else
+                db.Entry(uap).State = EntityState.Modified;
+            db.SaveChanges();
 
             if (pontos <= 0) {
                 vq.gameOver = 1;

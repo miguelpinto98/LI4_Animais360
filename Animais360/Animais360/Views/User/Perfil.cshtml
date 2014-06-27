@@ -177,7 +177,7 @@
                                                 <p class="text-lg"><strong>
                                                 @{
                                                     TimeSpan ts = j.DataFim.Subtract(j.DataInicio);
-                                                }   @ts
+                                                }   @ts.Hours:@ts.Minutes:@ts.Seconds
                                                 </strong></p>
                                             </li>
                                             <li class="col-xs-4">
