@@ -5597,7 +5597,8 @@ button.close {
     padding: 19px 20px 20px;
     text-align: center;
     border-top: 1px solid #e5e5e5;
-    height:150px;
+    min-height:100px;
+    height:auto;
 }
 
 .modal-footer .ajuda {
@@ -5606,9 +5607,11 @@ button.close {
 
 
 .modal-footer .textoajuda {
+    height:10%;
     padding:20px;
-    padding-top:0px;
     height:auto;
+    padding-bottom:5px;
+    padding-top:10px;
 }
 
 
