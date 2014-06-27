@@ -5572,6 +5572,14 @@ button.close {
     line-height: 1.42857143;
 }
 
+.modal-titlee {
+    margin: 0;
+    font-size: 1.0em;
+    font-weight: 200;
+    line-height: 1.42857143;
+}
+
+
 .modal-body {
     min-height:130px;
     height:auto;
