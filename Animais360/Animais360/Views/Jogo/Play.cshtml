@@ -26,7 +26,7 @@
                 $('#Hipotese4').text(data.Resposta4);
                 $('#Ajuda1').text(data.Ajuda1);
                 $('#Ajuda2').text(data.Ajuda2);
-                $('#Ajuda3').text(data.Ajuda3);
+                $('#Ajuda3').attr("href", data.Ajuda3);
 
                 if (data.Tipo == 3 || data.Tipo == 4) {
                     if(data.Tipo == 3) {
@@ -181,7 +181,7 @@
                 <div class="textoajuda">
                     <span id="aj1" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda1" })</span><br/>
                     <span id="aj2" style="visibility: hidden"> @Html.Label("Text Content", new { id = "Ajuda2" })</span><br/>
-                    <a id="aj3" style="visibility: hidden" href="@Html.Label("Text Content", new { id = "Ajuda3" })"></a>
+                    <span id="aj3" style="visibility: hidden"><a id="Ajuda3" href="">Link</a></span>
                 </div>
         </div>
     </div>
