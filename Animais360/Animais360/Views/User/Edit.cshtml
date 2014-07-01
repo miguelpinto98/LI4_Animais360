@@ -1,4 +1,4 @@
-﻿@model Animais360.Models.EditModel
+﻿@model Animais360.Models.User
 
 @{
     ViewBag.Title = "Edit";
@@ -6,38 +6,41 @@
 }
 
 <div class="content">
-                <div class="content-header">
-                    <h2 class="content-title"><i class="fa fa-dashboard"></i>Dashboard</h2>
-                </div>
-                <div class="content-body">
-                    <div id="panel-tablesorter" class="panel panel-default">
-                        <div class="panel-heading bg-white">
-                            <h3 class="panel-title" style="color:#F39C12; width:250px;">Editar Utilizador</h3>
-                        </div>
+    <div class="content-header">
+        <h2 class="content-title"><i class="fa fa-dashboard"></i>Dashboard</h2>
+    </div>
+    <div class="content-body">
+        <div id="panel-tablesorter" class="panel panel-default">
+            <div class="panel-heading bg-white">
+                <h3 class="panel-title" style="color: #F39C12; width: 250px;">Editar Utilizador</h3>
+            </div>
 
-                         <div class="panel-body">
-                             <div class="content-body">
+            <div class="panel-body">
+                <div class="content-body">
                     <!-- APP CONTENT
                     ================================================== -->
-                                        <!-- FORM WIZARD
+                    <!-- FORM WIZARD
                     ================================================== -->
                     <!-- Form Wizard -->
-                    
-                                <form data-form="wizard" data-validate="form" role="form" class="form-horizontal">
-                                    @Html.HiddenFor(m => m.UserId)
-                                    <div data-wizard="">
-                                        <section>
-                                            <div class="form-group">
-                                            <label class="col-sm-3 control-label" for="username">Username *</label>
-                                                <div class="col-sm-7">
-                                                     <div class="input-group input-group-in">
-                                            <span class="input-group-addon text-silver"></span>
-                                                         @Html.TextBoxFor(m => m.UserName, new { @class="form-control", id="username", name="username", type="text", minlength="2", required="" })
-                                                     </div>
-                                                </div>
-                                            </div><!-- /form-group -->
 
-                                            <div class="form-group">
+                    @using (Html.BeginForm("EditUser", "User", FormMethod.Post, new { @class = "form-horizontal" }))
+                    {
+                        @Html.HiddenFor(m => m.UserId);
+                        
+                        <div data-wizard="">
+                            <section>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="username">Username *</label>
+                                    <div class="col-sm-7">
+                                        <div class="input-group input-group-in">
+                                            <span class="input-group-addon text-silver"></span>
+                                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", id = "username", name = "username", type = "text", minlength = "2", required = "" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /form-group -->
+
+                                <div class="form-group">
                                     <label class="col-sm-3 control-label" for="email">Email *</label>
                                     <div class="col-sm-7">
                                         <div class="input-group input-group-in">
@@ -51,45 +54,48 @@
                                     <div class="col-sm-7">
                                         <div class="input-group input-group-in">
                                             <span class="input-group-addon text-silver"><i class="fa fa-rss"></i></span>
-                                            @Html.TextBoxFor(m => m.Password, new { @class="form-control", id="passwd", name="passwd", type="password", minlength="2", required="" })
+                                            @Html.TextBox("userpassword", "", new { @class = "form-control", type = "password" })
                                         </div>
                                     </div>
-                                </div><!-- /form-group -->
+                                </div>
+                                <!-- /form-group -->
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label" for="confirm_passwd">Confirmar Password *</label>
                                     <div class="col-sm-7">
                                         <div class="input-group input-group-in">
                                             <span class="input-group-addon text-silver"><i class="fa fa-rss"></i></span>
-                                            <input class="form-control" id="confirm_passwd" name="confirm_passwd" type="password" equalto="#passwd">
-                                            @Html.TextBoxFor(m => m.ConfirmPassword, new { @class="form-control", id="confirm_passwd", name="confirm_passwd", type="password", equalto="#passwd" })
+                                            @Html.TextBox("userpasswordconfirm", "", new { @class = "form-control", type = "password" })
                                         </div>
                                     </div>
-                                </div><!-- /form-group -->
-                                 <div class="form-group">
+                                </div>
+                                <!-- /form-group -->
+                                <div class="form-group">
                                     <label class="col-sm-3 control-label" for="firstname">Informação *</label>
                                     <div class="col-sm-7">
                                         <div class="input-group input-group-in">
                                             <span class="input-group-addon text-silver"><i class="fa fa-user"></i></span>
-                                            @Html.TextBoxFor(m => m.Descricao, new { @class="form-control", id="firstname", name="firstname", type="text", required="" })
+                                            @Html.TextBoxFor(m => m.Descricao, new { @class = "form-control", id = "firstname", name = "firstname", type = "text", required = "" })
                                         </div>
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>
-                                        </section>
-                            
+                            </section>
+
+                            @Html.ValidationSummary()
+
                             <div class="form-group">
-                                    <div class="col-sm-offset-3 col-sm-5">
-                                        <input class="btn btn-primary" type="submit" value="Confirmar">
-                                    </div><!--/cols-->
+                                <div class="col-sm-offset-3 col-sm-5">
+                                    <input class="btn btn-primary" type="submit" value="Confirmar">
                                 </div>
-
-
-
-                                    </div><!-- /wizard -->
-                                </form><!-- /form wizard -->                
-                            </div><!--/content-body -->
+                                <!--/cols-->
+                            </div>
                         </div>
-                    </div>
+                    }
+                    q
                 </div>
+                <!--/content-body -->
             </div>
-         </section>
+        </div>
+    </div>
+</div>
+</section>

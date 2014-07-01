@@ -40,6 +40,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MvcInstaller.MVC4">
+      <HintPath>..\packages\MvcInstaller.MVC4.1.1.1.1\lib\net40\MvcInstaller.MVC4.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -50,6 +53,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -228,6 +234,9 @@
     <Content Include="Images\background\ss.jpg" />
     <Content Include="Images\default.jpg" />
     <Content Include="Images\logo.png" />
+    <Content Include="MvcInstaller\ajax-loader.gif" />
+    <Content Include="MvcInstaller\jquery-1.6.1.min.js" />
+    <Content Include="MvcInstaller\Site.css" />
     <Content Include="Scripts\1581b2aa.vendor-maps.js" />
     <Content Include="Scripts\2ce1156c.vendor-graph.js" />
     <Content Include="Scripts\37a77790.vendor-table.js" />
@@ -264,7 +273,9 @@
     <Content Include="Views\AreaProtegida\Delete.cshtml" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="installer.config" />
     <None Include="Views\Home\_TutorialPartial.cshtml" />
+    <Content Include="Views\Install\Index.aspx" />
     <Content Include="Views\User\Perfil.cshtml" />
     <Content Include="Views\User\_HeaderPartial.cshtml" />
     <Content Include="Views\User\_sidebar.cshtml" />

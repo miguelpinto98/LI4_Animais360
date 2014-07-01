@@ -24,7 +24,8 @@ namespace Animais360.Controllers
     {
         private Animais360Context db = new Animais360Context();
 
-        public ActionResult Index() {
+        public ActionResult Index()
+        {
             int id = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
             User us = db.Users.Find(id);
 
@@ -44,47 +45,6 @@ namespace Animais360.Controllers
             return new User();
         }
         /**
-                protected void Page_Load(object sender, EventArgs e)
-                {
-                    if (!IsPostBack)
-                    {
-                        string[] filePaths = Directory.GetFiles(Server.MapPath("~/Images/"));
-                        List<ListItem> files = new List<ListItem>();
-                        foreach (string filePath in filePaths)
-                        {
-                            string fileName = Path.GetFileName(filePath);
-                            files.Add(new ListItem(fileName, "~/Images/" + fileName));
-                        }
-                        GridView1.DataSource = files;
-                        GridView1.DataBind();
-                    }
-                }
-                protected void Upload(object sender, EventArgs e)
-                {
-                    if (FileUpload1.HasFile)
-                    {
-                        string fileName = Path.GetFileName(FileUpload1.PostedFile.FileName);
-                        FileUpload1.PostedFile.SaveAs(Server.MapPath("~/Images/") + fileName);
-                        Response.Redirect(Request.Url.AbsoluteUri);
-                    }
-                }
-
-                protected void OnUpload_Click(object sender, EventArgs e)
-                {
-                    var path = Server.MapPath("~/pics");
-                    var directory = new DirectoryInfo(path);
-
-                    if (directory.Exists == false)
-                    {
-                        directory.Create();
-                    }
-
-                    var file = Path.Combine(path, upload.FileName);
-
-                    upload.SaveAs(file);
-                }
-
-
                 [HttpPost]
                 [ValidateAntiForgeryToken]
                 public ActionResult Create(ImageUpload imageupload)
@@ -117,9 +77,10 @@ namespace Animais360.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Perfil(int id = -9999) {
+        public ActionResult Perfil(int id = -9999)
+        {
 
-            if(id==-9999)
+            if (id == -9999)
                 return HttpNotFound();
 
             User u = db.Users.Find(id);
@@ -134,15 +95,17 @@ namespace Animais360.Controllers
             return View(u);
         }
 
-        public ActionResult Regras() {
+        public ActionResult Regras()
+        {
             ViewBag.IdUser = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
             return View();
         }
 
-        public ActionResult Gerir() {
+        public ActionResult Gerir()
+        {
             int id = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
             User us = db.Users.Find(id);
-           
+
             Session["User"] = us;
             ViewBag.IdUser = id;
             ViewBag.Tipo = us.Tipo;
@@ -158,6 +121,36 @@ namespace Animais360.Controllers
                 return HttpNotFound();
             }
             return View(us);
+        }
+
+        [HttpPost]
+        public ActionResult EditUser(User u)
+        {
+            User newUser = db.Users.Find(u.UserId);
+            newUser.UserName = u.UserName;
+            newUser.Email = u.Email;
+            newUser.Descricao = u.Descricao;
+            db.Entry(newUser).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Gerir");
+        }
+
+        [HttpPost]
+        public ActionResult EditProfile(User u, HttpPostedFileBase fileinput_thumb = null)
+        {
+            User newUser = db.Users.Find(u.UserId);
+            if (fileinput_thumb != null && fileinput_thumb.ContentLength > 0)
+            {
+                string fileName = Path.GetFileName(fileinput_thumb.FileName);
+                string path = Path.Combine(Server.MapPath("~/Images/"), fileName);
+                fileinput_thumb.SaveAs(path);
+                newUser.Avatar = fileName;
+            }
+            newUser.Email = u.Email;
+            newUser.Descricao = u.Descricao;
+            db.Entry(newUser).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Perfil", new { id = u.UserId });
         }
 
         public ActionResult Editar(int id = -9999)
@@ -179,14 +172,17 @@ namespace Animais360.Controllers
             }
             return View(u);
         }
-        
+
         //
         // POST: /User/Create
 
         [HttpPost]
-        public ActionResult Create(CreateModel model) {
-            if (ModelState.IsValid) {
-                WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new {
+        public ActionResult Create(CreateModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new
+                {
                     Email = model.Email,
                     Avatar = "/../images/default.jpg",
                     Descricao = "Sou eu que mando nisto tudo",
@@ -220,7 +216,8 @@ namespace Animais360.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: false)) {
+            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: false))
+            {
                 //return RedirectToLocal(returnUrl);
 
                 return RedirectToAction("Index", "User");
@@ -265,9 +262,17 @@ namespace Animais360.Controllers
                 // Attempt to register the user
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new {
-                        Email = model.Email, Avatar = "/../images/default.jpg", Descricao = "Escreve aqui alguma coisa sobre ti...", 
-                        NrVoltas = 0, NrJogos = 0, Estado=0, DataRegisto = DateTime.Now, Tipo=0  });
+                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new
+                    {
+                        Email = model.Email,
+                        Avatar = "/../images/default.jpg",
+                        Descricao = "Escreve aqui alguma coisa sobre ti...",
+                        NrVoltas = 0,
+                        NrJogos = 0,
+                        Estado = 0,
+                        DataRegisto = DateTime.Now,
+                        Tipo = 0
+                    });
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "User");
                 }

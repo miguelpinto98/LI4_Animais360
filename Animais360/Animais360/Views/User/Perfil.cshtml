@@ -3,300 +3,339 @@
 
 @{
     IList<Jogo> jogos = ViewBag.Jogos;
-    
+
     bool flag = false;
-    if (ViewBag.IdUser != Model.UserId) {
+    if (ViewBag.IdUser != Model.UserId)
+    {
         flag = true;
     }
     string text = null;
 }
-        <div class="content">
-            <div class="content-header">
-                <h2 class="content-title"><i class="sidebar-icon fa fa-user"></i> Perfil</h2>
+<div class="content">
+    <div class="content-header">
+        <h2 class="content-title"><i class="sidebar-icon fa fa-user"></i>Perfil</h2>
+    </div>
+
+    <div class="content-body">
+        <div class="row margin-top">
+            <div class="col-md-12 margin-bottom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#sobremim" data-toggle="tab">Sobre mim</a></li>
+                    <li><a href="#historico" data-toggle="tab">Histórico</a></li>
+                    @if (!flag)
+                    {
+                        <li><a href="#gerirconta" data-toggle="tab">Gerir conta</a></li>
+                    }
+                </ul>
             </div>
 
-            <div class="content-body">
-                <div class="row margin-top">
-                    <div class="col-md-12 margin-bottom">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#sobremim" data-toggle="tab">Sobre mim</a></li>
-                            <li><a href="#historico" data-toggle="tab">Histórico</a></li>
-                            @if (!flag) {
-                                <li><a href="#gerirconta" data-toggle="tab">Gerir conta</a></li>
-                            }
-                        </ul>
-                    </div>
+            <div class="tab-content">
 
-                    <div class="tab-content">
-
-                        <!--/sobre mim-->
-                        <div id="sobremim" class="tab-pane active in"> 
-                            <div class="row">
-                                <div class="col-md-4" style="width:580px;">
-                                    <div id="contentfeeds2" class="panel panel-default">
-                                        <div class="panel-body bordered-bottom bg-danger">
-                                            <div class="profile-line clearfix">
-                                                <img class="img-circle pull-left" src="@Model.Avatar" alt="uifaces19" width="120px" width="120px">
-                                                <div class="text-14" style="font-size:42px; padding-left:180px; padding-top:23px;"><strong> Informação </strong></div>
-                                            </div>
-                                            <div class="no-padding jumbotron">
-                                                <p class="lead" style="color:#333; font-size:14px;">Username: <asf style="font-size:14px; color:#7F8C8D;"> @Model.UserName </asf></p>
-                                                <p class="lead" style="color:#333; font-size:14px;">Registado desde: <asf style="font-size:14px; color:#7F8C8D;"> @Model.DataRegisto </asf></p>
-                                                <p class="lead" style="color:#333; font-size:14px;">Sobre mim:  <asf style="font-size:14px; color:#7F8C8D;"> @Model.Descricao </asf></p>
-                                            </div>
-                                        </div>
+                <!--/sobre mim-->
+                <div id="sobremim" class="tab-pane active in">
+                    <div class="row">
+                        <div class="col-md-4" style="width: 580px;">
+                            <div id="contentfeeds2" class="panel panel-default">
+                                <div class="panel-body bordered-bottom bg-danger">
+                                    <div class="profile-line clearfix">
+                                        <img class="img-circle pull-left" src="~/Images/@Model.Avatar" alt="uifaces19" width="120px" width="120px">
+                                        <div class="text-14" style="font-size: 42px; padding-left: 180px; padding-top: 23px;"><strong>Informação </strong></div>
+                                    </div>
+                                    <div class="no-padding jumbotron">
+                                        <p class="lead" style="color: #333; font-size: 14px;">
+                                            Username:
+                                            <asf style="font-size: 14px; color: #7F8C8D;"> @Model.UserName </asf>
+                                        </p>
+                                        <p class="lead" style="color: #333; font-size: 14px;">
+                                            Registado desde:
+                                            <asf style="font-size: 14px; color: #7F8C8D;"> @Model.DataRegisto </asf>
+                                        </p>
+                                        <p class="lead" style="color: #333; font-size: 14px;">
+                                            Sobre mim: 
+                                            <asf style="font-size: 14px; color: #7F8C8D;"> @Model.Descricao </asf>
+                                        </p>
                                     </div>
                                 </div>
-
-
-                                <div class="col-md-4" style="width:580px;">
-                                    <div id="contentfeeds2" class="panel panel-default">
-                                        <div class="panel-body bordered-bottom bg-success">
-                                            <div class="profile-line clearfix" style="height:115px;">
-                                                <div class="text-14" style="font-size:42px; padding-top:20px;padding-left:10px;"><strong>Estatísticas</strong></div>
-                                            </div>
-
-                                            <div class="no-padding jumbotron" style="padding-bottom:10px; padding-top:35px;">
-                                                <p class="lead" style="color:#333; font-size:14px;">Número de jogos: <asf style="font-size:14px; color:#7F8C8D;"><br>&nbsp&nbsp&nbsp @Model.NrJogos</asf></p>
-
-                                                <p class="lead" style="color:#333; font-size:14px;">Número de voltas ao Mundo: <asf style="font-size:14px; color:#7F8C8D;"><br>&nbsp&nbsp&nbsp @Model.NrVoltas</asf></p>
-
-                                                 @{
-                                                     int s1 = 0; int s2 = 0; int s3 = 0; int moda = 0; String stri = "";
-                                                     foreach (Jogo j in jogos){
-                                                         if (j.DifQualitativa == 1) { s1++; }
-                                                         if (j.DifQualitativa == 2) { s2++; }
-                                                         if (j.DifQualitativa == 3) { s3++; }
-                                                                                                                
-                                                    }
-                                                     if (Model.NrJogos != 0)
-                                                     {
-                                                         if (s1 > s2) { 
-                                                             if (s1 > s3) { moda = s1; stri = "Fácil"; } 
-                                                             else { moda = s3;  stri = "Difícil"; }
-                                                         }
-                                                         else { 
-                                                             if (s2 > s3) { moda = s2;  stri = "Médio"; }
-                                                             else { moda = s3; stri = "Difícil"; }
-                                                         }
-                                                     }
-                                                     
-                                                     else { moda = 0; stri = "Ainda não jogou"; }
-                                                <p class="lead" style="color:#333; font-size:14px;">Dificuldade mais escolhida: <asf style="font-size:14px; color:#7F8C8D;"><br>&nbsp&nbsp&nbsp @stri </asf></p>
-                                                 }
-                                                @{
-                                                    IList<UserAreaProtegida> lista = ViewBag.TabelaUA;
-                                                    int maxCertas=0, maxErradas = 0, nrVisitas = 0;
-                                                    String areaC = "", areaD = "", areaV = "";
-
-                                                    int nrElems = lista.Count();
-                                                    
-                                                    if(nrElems != 0){
-                                                    
-                                                        foreach (UserAreaProtegida ua in lista){
-                                                            if(ua.User.UserId == Model.UserId)
-                                                            {
-                                                                if (maxCertas < ua.RespCertas) { maxCertas = ua.RespCertas; areaC = ua.AreaProtegida.AreaNome; }
-
-                                                                if (maxErradas < ua.RespErradas) { maxErradas = ua.RespErradas; areaD = ua.AreaProtegida.AreaNome; }
-
-                                                                if (nrVisitas < ua.NrVezes) { nrVisitas = ua.NrVezes; areaV = ua.AreaProtegida.AreaNome; }
-                                                            }
-                                                        }
-                                                    }
-
-                                                    if (areaC.Equals("")) { areaC = "Ainda não respondeu certo em nenhuma área"; }
-                                                    if (areaD.Equals("")) { areaD = "Ainda não respondeu errado em nenhuma área"; }
-                                                    if (areaV.Equals("")) { areaV = "Ainda não visitou nenhuma área"; }
-                                                    
-                                                    if(maxCertas==0) {
-                                                        <p class="lead" style="color:#333; font-size:14px;">Área com mais respostas certas: <asf style="font-size:14px; color:#7F8C8D;"><br>&nbsp&nbsp&nbsp @areaC</asf></p>
-                                                    } else {
-                                                        <p class="lead" style="color:#333; font-size:14px;">Área com mais respostas certas: <asf style="font-size:14px; color:#7F8C8D;"><br>&nbsp&nbsp&nbsp @areaC - @maxCertas</asf></p>
-                                                    }
-                                                    if(maxErradas==0) {
-                                                        <p class="lead" style="color:#333; font-size:14px;">Área com mais respostas erradas: <asf style="font-size:14px; color:#7F8C8D;"><br>&nbsp&nbsp&nbsp @areaD</asf></p>
-                                                    } else {
-                                                        <p class="lead" style="color:#333; font-size:14px;">Área com mais respostas erradas: <asf style="font-size:14px; color:#7F8C8D;"><br>&nbsp&nbsp&nbsp @areaD - @maxErradas</asf></p>
-                                                    }
-                                                    if(nrVisitas==0) {
-                                                        <p class="lead" style="color:#333; font-size:14px;">Área mais visitada: <asf style="font-size:14px; color:#7F8C8D;"><br>&nbsp&nbsp&nbsp @areaV</asf></p>
-                                                    } else {
-                                                        <p class="lead" style="color:#333; font-size:14px;">Área mais visitada: <asf style="font-size:14px; color:#7F8C8D;"><br>&nbsp&nbsp&nbsp @areaV - @nrVisitas</asf></p>
-                                                    }
-                                                 }
-                                                 @{
-                                                     int maior = 0; int di = 0; String difi = "";
-                                                     foreach (Classificacao c in Model.Classificacoes){
-                                                         if (c.pontos > maior) { maior = c.pontos; di = c.Dificuldade; }
-                                                        
-                                                    }
-                                                     if (di == 1) { difi = "Fácil"; }
-                                                     if (di == 2) { difi = "Médio"; }
-                                                     if (di == 3) { difi = "Difícil"; }
-                                                     if (di == 0) { difi = "nenhuma"; }
-
-                                                <p class="lead" style="color:#333; font-size:14px;">Pontuação máxima obtida: <asf style="font-size:14px; color:#7F8C8D;"><br>&nbsp&nbsp&nbsp @maior pontos em dificuldade @difi</asf></p>
-                                                 }
-
-                                            </div>
-
-                                        </div><!--panel-body-->
-                                    </div><!--/panel-->
-
-
-                                </div><!--/cols-->
                             </div>
                         </div>
-                        <!--/sobre mim-->
-                        <!--/historico-->
-                        <div id="historico" class="tab-pane">
-                            <!--/caixa-->
-                            @foreach(Jogo j in jogos) {
-                            <div class="col-md-4">
-                                <div id="overall-users" class="panel panel-info bg-info">
-                                    <div class="panel-body">
-                                        <p class="lead" style="text-align:center; color:#333"> @j.DataInicio.Day / @j.DataInicio.Month / @j.DataInicio.Year </p>
-                                        <ul class="list-percentages row">
-                                            <li class="col-xs-4">
-                                                <p class="text-ellipsis">Dificuldade</p>
-                                                <p class="text-lg"> <strong>
-                                                    @if(j.DifQualitativa == 1) {
+
+
+                        <div class="col-md-4" style="width: 580px;">
+                            <div id="contentfeeds2" class="panel panel-default">
+                                <div class="panel-body bordered-bottom bg-success">
+                                    <div class="profile-line clearfix" style="height: 115px;">
+                                        <div class="text-14" style="font-size: 42px; padding-top: 20px; padding-left: 10px;"><strong>Estatísticas</strong></div>
+                                    </div>
+
+                                    <div class="no-padding jumbotron" style="padding-bottom: 10px; padding-top: 35px;">
+                                        <p class="lead" style="color: #333; font-size: 14px;">
+                                            Número de jogos:
+                                            <asf style="font-size: 14px; color: #7F8C8D;"><br>&nbsp&nbsp&nbsp @Model.NrJogos</asf>
+                                        </p>
+
+                                        <p class="lead" style="color: #333; font-size: 14px;">
+                                            Número de voltas ao Mundo:
+                                            <asf style="font-size: 14px; color: #7F8C8D;"><br>&nbsp&nbsp&nbsp @Model.NrVoltas</asf>
+                                        </p>
+
+                                        @{
+                                            int s1 = 0; int s2 = 0; int s3 = 0; int moda = 0; String stri = "";
+                                            foreach (Jogo j in jogos)
+                                            {
+                                                if (j.DifQualitativa == 1) { s1++; }
+                                                if (j.DifQualitativa == 2) { s2++; }
+                                                if (j.DifQualitativa == 3) { s3++; }
+
+                                            }
+                                            if (Model.NrJogos != 0)
+                                            {
+                                                if (s1 > s2)
+                                                {
+                                                    if (s1 > s3) { moda = s1; stri = "Fácil"; }
+                                                    else { moda = s3; stri = "Difícil"; }
+                                                }
+                                                else
+                                                {
+                                                    if (s2 > s3) { moda = s2; stri = "Médio"; }
+                                                    else { moda = s3; stri = "Difícil"; }
+                                                }
+                                            }
+
+                                            else { moda = 0; stri = "Ainda não jogou"; }
+                                            <p class="lead" style="color: #333; font-size: 14px;">
+                                                Dificuldade mais escolhida:
+                                                <asf style="font-size: 14px; color: #7F8C8D;"><br>&nbsp&nbsp&nbsp @stri </asf>
+                                            </p>
+                                        }
+                                        @{
+                                            IList<UserAreaProtegida> lista = ViewBag.TabelaUA;
+                                            int maxCertas = 0, maxErradas = 0, nrVisitas = 0;
+                                            String areaC = "", areaD = "", areaV = "";
+
+                                            int nrElems = lista.Count();
+
+                                            if (nrElems != 0)
+                                            {
+
+                                                foreach (UserAreaProtegida ua in lista)
+                                                {
+                                                    if (ua.User.UserId == Model.UserId)
+                                                    {
+                                                        if (maxCertas < ua.RespCertas) { maxCertas = ua.RespCertas; areaC = ua.AreaProtegida.AreaNome; }
+
+                                                        if (maxErradas < ua.RespErradas) { maxErradas = ua.RespErradas; areaD = ua.AreaProtegida.AreaNome; }
+
+                                                        if (nrVisitas < ua.NrVezes) { nrVisitas = ua.NrVezes; areaV = ua.AreaProtegida.AreaNome; }
+                                                    }
+                                                }
+                                            }
+
+                                            if (areaC.Equals("")) { areaC = "Ainda não respondeu certo em nenhuma área"; }
+                                            if (areaD.Equals("")) { areaD = "Ainda não respondeu errado em nenhuma área"; }
+                                            if (areaV.Equals("")) { areaV = "Ainda não visitou nenhuma área"; }
+
+                                            if (maxCertas == 0)
+                                            {
+                                            <p class="lead" style="color: #333; font-size: 14px;">
+                                                Área com mais respostas certas:
+                                                <asf style="font-size: 14px; color: #7F8C8D;"><br>&nbsp&nbsp&nbsp @areaC</asf>
+                                            </p>
+                                            }
+                                            else
+                                            {
+                                            <p class="lead" style="color: #333; font-size: 14px;">
+                                                Área com mais respostas certas:
+                                                <asf style="font-size: 14px; color: #7F8C8D;"><br>&nbsp&nbsp&nbsp @areaC - @maxCertas</asf>
+                                            </p>
+                                            }
+                                            if (maxErradas == 0)
+                                            {
+                                            <p class="lead" style="color: #333; font-size: 14px;">
+                                                Área com mais respostas erradas:
+                                                <asf style="font-size: 14px; color: #7F8C8D;"><br>&nbsp&nbsp&nbsp @areaD</asf>
+                                            </p>
+                                            }
+                                            else
+                                            {
+                                            <p class="lead" style="color: #333; font-size: 14px;">
+                                                Área com mais respostas erradas:
+                                                <asf style="font-size: 14px; color: #7F8C8D;"><br>&nbsp&nbsp&nbsp @areaD - @maxErradas</asf>
+                                            </p>
+                                            }
+                                            if (nrVisitas == 0)
+                                            {
+                                            <p class="lead" style="color: #333; font-size: 14px;">
+                                                Área mais visitada:
+                                                <asf style="font-size: 14px; color: #7F8C8D;"><br>&nbsp&nbsp&nbsp @areaV</asf>
+                                            </p>
+                                            }
+                                            else
+                                            {
+                                            <p class="lead" style="color: #333; font-size: 14px;">
+                                                Área mais visitada:
+                                                <asf style="font-size: 14px; color: #7F8C8D;"><br>&nbsp&nbsp&nbsp @areaV - @nrVisitas</asf>
+                                            </p>
+                                            }
+                                        }
+                                        @{
+                                            int maior = 0; int di = 0; String difi = "";
+                                            foreach (Classificacao c in Model.Classificacoes)
+                                            {
+                                                if (c.pontos > maior) { maior = c.pontos; di = c.Dificuldade; }
+
+                                            }
+                                            if (di == 1) { difi = "Fácil"; }
+                                            if (di == 2) { difi = "Médio"; }
+                                            if (di == 3) { difi = "Difícil"; }
+                                            if (di == 0) { difi = "nenhuma"; }
+
+                                            <p class="lead" style="color: #333; font-size: 14px;">
+                                                Pontuação máxima obtida:
+                                                <asf style="font-size: 14px; color: #7F8C8D;"><br>&nbsp&nbsp&nbsp @maior pontos em dificuldade @difi</asf>
+                                            </p>
+                                        }
+
+                                    </div>
+
+                                </div>
+                                <!--panel-body-->
+                            </div>
+                            <!--/panel-->
+
+
+                        </div>
+                        <!--/cols-->
+                    </div>
+                </div>
+                <!--/sobre mim-->
+                <!--/historico-->
+                <div id="historico" class="tab-pane">
+                    <!--/caixa-->
+                    @foreach (Jogo j in jogos)
+                    {
+                        <div class="col-md-4">
+                            <div id="overall-users" class="panel panel-info bg-info">
+                                <div class="panel-body">
+                                    <p class="lead" style="text-align: center; color: #333">@j.DataInicio.Day / @j.DataInicio.Month / @j.DataInicio.Year </p>
+                                    <ul class="list-percentages row">
+                                        <li class="col-xs-4">
+                                            <p class="text-ellipsis">Dificuldade</p>
+                                            <p class="text-lg">
+                                                <strong>
+                                                    @if (j.DifQualitativa == 1)
+                                                    {
                                                         text = "Fácil";
-                                                    } else {
-                                                        if(j.DifQualitativa == 2) {
+                                                    }
+                                                    else
+                                                    {
+                                                        if (j.DifQualitativa == 2)
+                                                        {
                                                             text = "Médio";
-                                                        } else {
+                                                        }
+                                                        else
+                                                        {
                                                             text = "Díficil";
                                                         }
                                                     } @text
-                                                </strong></p>
-                                            </li>
-                                            <li class="col-xs-4">
-                                                <p class="text-ellipsis">Tempo Gasto</p>
-                                                <p class="text-lg"><strong>
-                                                @{
+                                                </strong>
+                                            </p>
+                                        </li>
+                                        <li class="col-xs-4">
+                                            <p class="text-ellipsis">Tempo Gasto</p>
+                                            <p class="text-lg">
+                                                <strong>
+                                                    @{
                                                     TimeSpan ts = j.DataFim.Subtract(j.DataInicio);
-                                                }   @ts.Hours:@ts.Minutes:@ts.Seconds
-                                                </strong></p>
-                                            </li>
-                                            <li class="col-xs-4">
-                                                <p class="text-ellipsis">Pontuação</p>
-                                                <p class="text-lg"><strong> @j.Pontos </strong></p>
-                                            </li>
-                                        </ul><!--/list-percentages PARA 48 QUESTOES -->         
-                                        <p class="helper-block">
-                                            <div class="progress progress-xs progress-flat progress">
-                                                <div class="progress-bar progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: @((j.RespCertas*100)/48)%">
-                                                </div>
+                                                    }@ts.Hours:@ts.Minutes:@ts.Seconds
+                                                </strong>
+                                            </p>
+                                        </li>
+                                        <li class="col-xs-4">
+                                            <p class="text-ellipsis">Pontuação</p>
+                                            <p class="text-lg"><strong>@j.Pontos </strong></p>
+                                        </li>
+                                    </ul>
+                                    <!--/list-percentages PARA 48 QUESTOES -->
+                                    <p class="helper-block">
+                                        <div class="progress progress-xs progress-flat progress">
+                                            <div class="progress-bar progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: @((j.RespCertas * 100) / 48)%">
                                             </div>
-                                        </p><p class="text-ellipsis"><small>@(((j.RespCertas*360)/48)) graus completos</small></p>
-                                        <!--/help-block-->
-                                    </div>
+                                        </div>
+                                    </p>
+                                    <p class="text-ellipsis"><small>@(((j.RespCertas * 360) / 48)) graus completos</small></p>
+                                    <!--/help-block-->
                                 </div>
                             </div>
-                            }
-
-                            <!--/caixa-->
                         </div>
-                        <!--/historico-->
-                        <!--/gerir conta-->
-                        @if (!flag) {
-                        <div id="gerirconta" class="tab-pane">
-                            <div class="col-md-12">
-                                <div id="panel-fvalidate2" class="panel panel-default sortable-widget-item">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">Alteração de Dados</h3>
-                                    </div>
-                                    <div class="panel-body">
+                    }
 
-                                    @using (Html.BeginForm("Manage", "User", new { ReturnUrl = ViewBag.ReturnUrl },
-                                        FormMethod.Post, new { @class = "form-horizontal form-bordered", role = "form", id = "signupForm" }))
+                    <!--/caixa-->
+                </div>
+                <!--/historico-->
+                <!--/gerir conta-->
+                @if (!flag)
+                {
+                    <div id="gerirconta" class="tab-pane">
+                        <div class="col-md-12">
+                            <div id="panel-fvalidate2" class="panel panel-default sortable-widget-item">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Alteração de Dados</h3>
+                                </div>
+                                <div class="panel-body">
+
+                                    @using (Html.BeginForm("EditProfile", "User",
+                                        FormMethod.Post, new { @class = "form-horizontal form-bordered", role = "form", enctype = "multipart/form-data" }))
                                     {
                                         @Html.AntiForgeryToken()
                                         @Html.ValidationSummary(true)
-                                            <div class="form-group">
-                                                @Html.LabelFor(m => m.Email, new { @class = "col-sm-3 control-label" })
-                                                <div class="col-sm-5">
-                                                    <div class="input-group input-group-in">
-                                                        <span class="input-group-addon text-silver"><i class="fa fa-envelope-o"></i> </span>
-                                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", id = "Email", required = "", autocomplete = "on" })
-                                                    </div>
-                                                </div><!--/cols-->
-                                            </div><!--/form-group-->
 
-
-
-                                            <div class="form-group">
-                                                <label class="col-sm-3 control-label" for="lastname">Sobre mim</label>
-                                                <div class="col-sm-5">
-                                                    <textarea id="ccomment" name="ccomment" class="form-control autogrow" style="" required=""></textarea>
-                                                </div><!--/cols-->
-                                            </div><!--/form-group-->
-
-
-                                            <div class="form-group">
-                                                <label class="col-sm-3 control-label" for="password">Password</label>
-                                                <div class="col-sm-5">
-                                                    <div class="input-group input-group-in">
-                                                        <span class="input-group-addon text-silver"><i class="fa fa-circle"></i></span>
-                                                        <input type="password" id="password" name="password" class="form-control">
-                                                    </div>
-                                                </div><!--/cols-->
-                                            </div><!--/form-group-->
-
-                                            <div class="form-group">
-                                                <label class="col-sm-3 control-label" for="confirm_password">Confirmar password</label>
-                                                <div class="col-sm-5">
-                                                    <div class="input-group input-group-in">
-                                                        <span class="input-group-addon text-silver"><i class="fa fa-circle"></i></span>
-                                                        <input type="password" id="confirm_password" name="confirm_password" class="form-control">
-                                                    </div>
-                                                </div><!--/cols-->
+                                        @Html.HiddenFor(m => m.UserId);
+                                        
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.Email, new { @class = "col-sm-3 control-label" })
+                                            <div class="col-sm-5">
+                                                <div class="input-group input-group-in">
+                                                    <span class="input-group-addon text-silver"><i class="fa fa-envelope-o"></i></span>
+                                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", id = "Email", required = "", autocomplete = "on" })
+                                                </div>
                                             </div>
+                                            <!--/cols-->
+                                        </div>
+                                        <!--/form-group-->
 
-                                            <div class="form-group">
-                                                <label class="col-sm-3 control-label" for="fileinput_thumb">Avatar</label>
-                                                <div class="col-sm-5">
-                                                    <div class="fileinput fileinput-new" data-provides="fileinput">
-                                                        <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px">
-                                                            <img data-src="@Model.Avatar" alt="">
-                                                        </div>
-                                                        <div>
-                                                            <span class="btn btn-sm btn-icon btn-inverse btn-file">
-                                                                <i class="fa fa-cloud-upload"></i>
-                                                                <span class="fileinput-new">Selecionar</span>
-                                                                <span class="fileinput-exists">Change</span>
-                                                                <input type="file" name="fileinput_thumb" id="fileinput_thumb" accept="image/*">
-                                                                @Html.TextBoxFor(m => m.Avatar)
-                                                            </span>
-                                                            <button class="btn btn-sm btn-icon btn-danger fileinput-exists" data-dismiss="fileinput">
-                                                                <i class="fa fa-times"></i>
-                                                                Remove
-                                                            </button>
-                                                        </div>
-                                                    </div><!-- /fileinput -->
-                                                </div><!-- /cols -->
-                                            </div><!-- /form-group -->
-
-                                            <div class="form-group">
-                                                <div class="col-sm-offset-3 col-sm-5" style="margin-left:1000px;">
-                                                    <input class="btn btn-inverse bg-warning" type="submit" value="Alterar">
-                                                </div><!--/cols-->
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="lastname">Sobre mim</label>
+                                            <div class="col-sm-5">
+                                                @Html.TextAreaFor(m => m.Descricao, new { @class = "form-control autogrow" })
                                             </div>
-                                }
+                                            <!--/cols-->
+                                        </div>
+                                        <!--/form-group-->
 
-                                    </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="fileinput_thumb">Avatar</label>
+                                            <div class="col-sm-5">
+                                                <input type="file" name="fileinput_thumb" id="fileinput_thumb" />
+                                                <!-- /fileinput -->
+                                            </div>
+                                            <!-- /cols -->
+                                        </div>
+                                        <!-- /form-group -->
+
+                                        <input type="submit" />
+                                    }
+
+
                                 </div>
                             </div>
                         </div>
-                        }
-                        <!--/gerir conta-->
-
-
-
                     </div>
-                </div>
+                }
+                <!--/gerir conta-->
+
+
             </div>
         </div>
-    </section>
+    </div>
+</div>
+</section>
