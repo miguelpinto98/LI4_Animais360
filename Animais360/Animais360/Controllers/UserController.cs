@@ -144,7 +144,7 @@ namespace Animais360.Controllers
                 string fileName = Path.GetFileName(fileinput_thumb.FileName);
                 string path = Path.Combine(Server.MapPath("~/Images/"), fileName);
                 fileinput_thumb.SaveAs(path);
-                newUser.Avatar = fileName;
+                newUser.Avatar = "/../images/"+fileName;
             }
             newUser.Email = u.Email;
             newUser.Descricao = u.Descricao;

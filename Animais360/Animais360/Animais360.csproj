@@ -275,7 +275,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="installer.config" />
     <None Include="Views\Home\_TutorialPartial.cshtml" />
-    <Content Include="Views\Install\Index.aspx" />
     <Content Include="Views\User\Perfil.cshtml" />
     <Content Include="Views\User\_HeaderPartial.cshtml" />
     <Content Include="Views\User\_sidebar.cshtml" />
