@@ -12,7 +12,7 @@
         document.getElementById('aj1').style.visibility = 'hidden';
         document.getElementById('aj2').style.visibility = 'hidden';
         document.getElementById('aj3').style.visibility = 'hidden';
-        
+
         $.ajax({
             url: '@Url.Action("GetQuestaoArea", "Questao")',
             data: { id: idArea },
@@ -43,7 +43,7 @@
             }
         });
         $('#myModal').modal('toggle');
-        
+
     }
 
     function getQuestao(idArea) {
@@ -65,14 +65,24 @@
                 var url = '@Url.Action("GameOver", "Jogo", new { id = @Model.JogoId })';
                 window.location.href = url;
             }
-        }); 
+        });
     }
 
     function novoContinente() {
-        alert("É necessário mudar de continente!");
+        alert("A Aventura Neste Continente Terminou!\nEstá na altura de subires mais alto!")
+        var pp = $("#PontosAV").text();
+        var certo = parseInt($("#CorretoID").text());
+        var errado = parseInt($("#ErradoID").text());
 
-        var url = '@Url.Action("NovoContinente", "Jogo")';
-        window.location.href = url;
+        $.ajax({
+            url: '@Url.Action("UpdateJogo", "Jogo")',
+            data: { id: '@Model.JogoId', pontos: pp, certas: certo, erradas: errado },
+            type: 'POST',
+            success: function (data) {
+                var url = '@Url.Action("NovoContinente", "Jogo", new { id = Model.JogoId, pconts = Model.percorridos })';
+                window.location.href = url;
+            }
+        });
     }
 
     function validaQuestao() {
@@ -92,7 +102,7 @@
                 $("#PontosAV").text(data.pontos);
                 if (data.gameOver == 1)
                     gameOver(0);
-                
+
                 if (data.res == 1) {
                     //alert("Resposta Correta");
                     prog++; certo++;
@@ -109,7 +119,7 @@
                     //getQuestao(data.idArea);
                 }
 
-                if (prog == 6 && conts == 6) {
+                if (prog == 6 && conts == 5) {
                     gameOver(1);
                 }
 
@@ -250,19 +260,16 @@
     if (Model.DifQualitativa == 1)
     {
         str = "Fácil";
-        ViewBag.Pontos = 50;
     }
     else
     {
         if (Model.DifQualitativa == 2)
         {
             str = "Média";
-            ViewBag.Pontos = 300;
         }
         else
         {
             str = "Difícil";
-            ViewBag.Pontos = 1000;
         }
     }
 }

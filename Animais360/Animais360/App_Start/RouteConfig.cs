@@ -23,13 +23,13 @@ namespace Animais360
                 url: "Questao/{action}/{id}/{tipo}",
                 defaults: new { controller = "Questao", action = "Create", tipo = UrlParameter.Optional }
             );
-
+            /*
             routes.MapRoute(
                 name: "PlayJogo",
                 url: "Jogo/{action}/{id}/{continente}/{pontos}",
                 defaults: new { controller = "Jogo", action = "Play", pontos = UrlParameter.Optional }
             );
-
+            */
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

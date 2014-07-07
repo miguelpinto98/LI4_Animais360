@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using Animais360.Models;
 using System.Web.Security;
+using System.Web.Routing;
 
 namespace Animais360.Controllers
 {
@@ -65,61 +66,83 @@ namespace Animais360.Controllers
             return aux;
         }
 
-        public int getNumeroContinente() {
-            return 0;
-        }
-
-        public ActionResult Play(int id, string continente, int? pontos) {
-            string[] words = continente.Split('+');
-            int wc = words.Length;
-            
-            ViewBag.Pontos = pontos;
-            ViewBag.NumConts = wc;
-
-            Jogo jogo = db.Jogos.Find(id);
-            int dif = jogo.DifQualitativa;
+        public ActionResult Play(Jogo jogo) {
+            ViewBag.Pontos = jogo.Pontos;
+            ViewBag.NumConts = jogo.Nivel;
 
             List<int> aux = new List<int>();
             List<AreaProtegida> aps = new List<AreaProtegida>();
 
-            int co;
-            if (wc == 1)
-                co = Int32.Parse(continente);
-            else
-                co = Int32.Parse(words[wc - 1]);
-
-            List<Pais> ps = db.Pais.Where(x => x.Continente.ContinenteId == co).ToList();
+            List<Pais> ps = db.Pais.Where(x => x.Continente.ContinenteId == jogo.ContinenteID).ToList();
             int npaises = ps.Count(), r, nareas, idarea;
             Random n = new Random();
-  
-            for (int i = 0; i < 6; i++) {
-                r = devolveRandomInt(aux, npaises);
-                Pais p = ps[r];
-                nareas = p.AreaProtegidas.Count();
 
-                while (nareas == 0) {
+            if (npaises > 5) {  
+                for (int i = 0; i < 6; i++) {
                     r = devolveRandomInt(aux, npaises);
-                    p = ps[r];
+                    Pais p = ps[r];
                     nareas = p.AreaProtegidas.Count();
-                }                
 
-                idarea = n.Next(0, nareas);
-                AreaProtegida a = p.AreaProtegidas.ToList()[idarea];
-                aps.Add(a);
+                    while (nareas == 0) {
+                        r = devolveRandomInt(aux, npaises);
+                        p = ps[r];
+                        nareas = p.AreaProtegidas.Count();
+                    }                
+
+                    idarea = n.Next(0, nareas);
+                    AreaProtegida a = p.AreaProtegidas.ToList()[idarea];
+                    aps.Add(a);
+                }
+            } else {
+                ;
             }
             ViewBag.Areas = aps;
             
             return View(jogo);
         }
 
-        private int ToInt32(string p)
+        int devolveIDContinente(string pconts)
         {
-            throw new NotImplementedException();
+            string[] words = pconts.Split('+');
+            Random r = new Random();
+            int n = r.Next(1, 6);
+            while (words.Contains(Convert.ToString(n)))
+                n = r.Next(1, 6);
+
+            return n;
+        }
+
+        public ActionResult NovoContinente(int id, string pconts) {
+            Jogo j = db.Jogos.Find(id);
+            j.ContinenteID = devolveIDContinente(pconts);
+            j.percorridos = pconts = pconts + "+" + Convert.ToString(j.ContinenteID);
+
+            return RedirectToAction("Play", "Jogo", new RouteValueDictionary(j));
+        }
+
+        public ActionResult UpdateJogo(int id, int pontos, int certas, int erradas) {
+            Jogo j = db.Jogos.Find(id);
+            j.Pontos = pontos;
+            j.RespCertas += certas;
+            j.RespErradas += erradas;
+            j.Nivel++;
+
+            db.Entry(j).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return Json(j, JsonRequestBehavior.AllowGet);
+        }
+
+
+        int getPontosDificuldade(int dif) {
+            if (dif == 1) return 50;
+            if (dif == 2) return 300;
+            if (dif == 3) return 1000;
+            else return -1;
         }
 
         //
         // POST: /Jogo/Create
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(int id, Jogo jogo)
@@ -130,24 +153,25 @@ namespace Animais360.Controllers
                 jg.DataInicio = DateTime.Now;
                 jg.DataFim = DateTime.Now;
                 jg.Nivel = 0;
-                jg.Personagem = "LINDO";
+                jg.Personagem = "Tarzan";
                 jg.RespCertas = 0;
                 jg.RespErradas = 0;
-                jg.Pontos = 0;
+                jg.Pontos = getPontosDificuldade(jogo.DificuldadeID);
                 jg.DifQualitativa = jogo.DificuldadeID;
                 jg.Estado = 0; /* Apagado ou não */
                 jg.Sucesso = 0; /* 0 Não Concluído e 1 se concluído */
+                jg.ContinenteID = jogo.ContinenteID;
+                jg.percorridos = Convert.ToString(jogo.ContinenteID);
 
                 if (id != 0) {
                     User us = db.Users.Find(id);
                     jg.User = us;
                     
-                    //db.Jogos.Add(jg);
                     us.Jogos.Add(jg);
                     jg.User.Jogos.Add(jg);
                     db.SaveChanges();
 
-                    return RedirectToAction("Play", "Jogo", new { id = jg.JogoId , continente = jogo.ContinenteID.ToString() });
+                    return RedirectToAction("Play", "Jogo", new RouteValueDictionary(jg));
                 }
                 return HttpNotFound();   
             }
@@ -223,9 +247,9 @@ namespace Animais360.Controllers
             j.DataFim = DateTime.Now;
             j.Estado = 1; //1 - Concluído 0- A decorrer
             j.Sucesso = sucess;
-            j.RespCertas = certas;
-            j.RespErradas = erradas;
-            j.Nivel = 5;
+            j.RespCertas += certas;
+            j.RespErradas += erradas;
+            j.Nivel++;
 
             if (pontos <= 0)
                 j.Pontos = 0;
