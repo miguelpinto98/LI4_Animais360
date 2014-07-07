@@ -28,6 +28,7 @@ namespace Animais360.Models
         [NotMapped]
         public virtual int DificuldadeID { get; set; }
 
-        //Secalhar vai ser preciso adicionar um atributo, se perder, dizer em que área foi
+        [NotMapped]
+        public virtual string percorridos { get; set; }
     }
 }

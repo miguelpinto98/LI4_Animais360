@@ -150,6 +150,8 @@ namespace Animais360.Controllers
             newUser.Descricao = u.Descricao;
             db.Entry(newUser).State = EntityState.Modified;
             db.SaveChanges();
+
+            Session["User"] = newUser;
             return RedirectToAction("Perfil", new { id = u.UserId });
         }
 

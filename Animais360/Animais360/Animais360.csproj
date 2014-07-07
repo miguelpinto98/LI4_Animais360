@@ -273,7 +273,6 @@
     <Content Include="Views\AreaProtegida\Delete.cshtml" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="installer.config" />
     <None Include="Views\Home\_TutorialPartial.cshtml" />
     <Content Include="Views\User\Perfil.cshtml" />
     <Content Include="Views\User\_HeaderPartial.cshtml" />

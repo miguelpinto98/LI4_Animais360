@@ -62,7 +62,7 @@
             data: { id: '@Model.JogoId', pontos: pp, sucess: fim, certas:certo, erradas:errado },
             type: 'POST',
             success: function (data) {
-                var url = '@Url.Action("GameOver", "Jogo", new {id = @Model.JogoId })';
+                var url = '@Url.Action("GameOver", "Jogo", new { id = @Model.JogoId })';
                 window.location.href = url;
             }
         }); 
@@ -70,7 +70,9 @@
 
     function novoContinente() {
         alert("É necessário mudar de continente!");
-        gameOver(1);
+
+        var url = '@Url.Action("NovoContinente", "Jogo")';
+        window.location.href = url;
     }
 
     function validaQuestao() {
