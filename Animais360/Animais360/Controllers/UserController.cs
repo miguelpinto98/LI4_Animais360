@@ -28,7 +28,6 @@ namespace Animais360.Controllers
         {
             int id = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
             User us = db.Users.Find(id);
-
             Session["User"] = us;
 
             ViewBag.IMAGE = us.Avatar;
@@ -40,26 +39,7 @@ namespace Animais360.Controllers
             return View(us);
         }
 
-        public User x()
-        {
-            return new User();
-        }
-        /**
-                [HttpPost]
-                [ValidateAntiForgeryToken]
-                public ActionResult Create(ImageUpload imageupload)
-                {
-                    if (ModelState.IsValid)
-                    {
-                        db.ImageUploads.Add(imageupload);
-                        db.SaveChanges();
-                        return RedirectToAction("Index");
-                    }
-
-                    return View(imageupload);
-                }
-*/
-
+        
         [HttpPost]
         public ActionResult Upload(HttpPostedFileBase[] files)
         {
@@ -77,16 +57,17 @@ namespace Animais360.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Perfil(int id = -9999)
-        {
-
+        public ActionResult Perfil(int id = -9999) {
             if (id == -9999)
                 return HttpNotFound();
-
             User u = db.Users.Find(id);
+
             IList<Jogo> jogos = db.Jogos.Where(j => (j.User.UserId == id)).ToList();
 
-            ViewBag.IdUser = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
+            int idx = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
+            ViewBag.IdUser = idx;
+            User us = db.Users.Find(idx);
+            ViewBag.Tipo = us.Tipo;
             ViewBag.Jogos = jogos;
             ViewBag.TabelaUA = db.UserAreaProtegidas.ToList();
 
@@ -120,6 +101,11 @@ namespace Animais360.Controllers
             {
                 return HttpNotFound();
             }
+
+            int idx = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
+            User u = db.Users.Find(idx);
+            ViewBag.Tipo = u.Tipo;
+
             return View(us);
         }
 
@@ -331,8 +317,11 @@ namespace Animais360.Controllers
             return View(model);
         }
 
-        public ActionResult Create()
-        {
+        public ActionResult Create() {
+            int id = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
+            User us = db.Users.Find(id);
+            ViewBag.Tipo = us.Tipo;
+
             return View();
         }
 

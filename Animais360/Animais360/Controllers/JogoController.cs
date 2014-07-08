@@ -66,6 +66,15 @@ namespace Animais360.Controllers
             return aux;
         }
 
+        public List<AreaProtegida> getTotalAreas(List<Pais> paises) {
+            List<AreaProtegida> aux = new List<AreaProtegida>();
+            foreach (Pais p in paises) {
+                foreach (AreaProtegida ap in p.AreaProtegidas)
+                    aux.Add(ap);
+            }
+            return aux;
+        }
+
         public ActionResult Play(Jogo jogo) {
             ViewBag.Pontos = jogo.Pontos;
             ViewBag.NumConts = jogo.Nivel;
@@ -94,10 +103,21 @@ namespace Animais360.Controllers
                     aps.Add(a);
                 }
             } else {
-                ;
+                List<AreaProtegida> auxAP = getTotalAreas(ps);
+                nareas = auxAP.Count();
+                aux = new List<int>();
+
+                for (int i = 0; i < 6; i++) {
+                    r = n.Next(0, nareas);
+                    while (aux.Contains(r)) {
+                        r = n.Next(0, nareas);
+                    }
+                    aps.Add(auxAP[r]);
+                }
             }
             ViewBag.Areas = aps;
-            
+            ViewBag.NomeContinente = db.Continentes.Find(jogo.ContinenteID).ContinenteName;
+
             return View(jogo);
         }
 
@@ -105,9 +125,9 @@ namespace Animais360.Controllers
         {
             string[] words = pconts.Split('+');
             Random r = new Random();
-            int n = r.Next(1, 6);
+            int n = r.Next(1, 7);
             while (words.Contains(Convert.ToString(n)))
-                n = r.Next(1, 6);
+                n = r.Next(1, 7);
 
             return n;
         }
@@ -126,13 +146,13 @@ namespace Animais360.Controllers
             j.RespCertas += certas;
             j.RespErradas += erradas;
             j.Nivel++;
+            j.DataFim = DateTime.Now;
 
             db.Entry(j).State = EntityState.Modified;
             db.SaveChanges();
 
             return Json(j, JsonRequestBehavior.AllowGet);
         }
-
 
         int getPontosDificuldade(int dif) {
             if (dif == 1) return 50;

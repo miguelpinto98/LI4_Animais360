@@ -25,6 +25,10 @@ namespace Animais360.Controllers
                 HttpNotFound();
 
             ViewBag.ID = id;
+            
+            int idx = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
+            User us = db.Users.Find(idx);
+            ViewBag.Tipo = us.Tipo;
 
             return View(db.Questoes.Where(de => de.AreaProtegida.AreaProtegidaID == id).ToList());
         }
@@ -49,6 +53,11 @@ namespace Animais360.Controllers
         {
 
             ViewBag.ID = id;
+
+            int idx = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
+            User us = db.Users.Find(idx);
+            ViewBag.Tipo = us.Tipo;
+
             return View();
         }
 
@@ -158,6 +167,11 @@ namespace Animais360.Controllers
             {
                 return HttpNotFound();
             }
+
+            int idx = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
+            User us = db.Users.Find(idx);
+            ViewBag.Tipo = us.Tipo;
+
             return View(questao);
         }
 
@@ -194,6 +208,11 @@ namespace Animais360.Controllers
             {
                 return HttpNotFound();
             }
+
+            int idx = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
+            User us = db.Users.Find(idx);
+            ViewBag.Tipo = us.Tipo;
+
             return View(questao);
         }
 

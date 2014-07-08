@@ -14,10 +14,13 @@
     } else {
         tipo = ViewBag.Tipo;
     } */
+   
+   
 }
 
 <aside class="side-left">
     <ul class="sidebar">
+        @if(ViewBag.Tipo!=1) {
         <li>
             <a href="@Url.Action("Index", "User")" data-pjax=".content-body" style="background-color:#3498DB;">
                 <i class="sidebar-icon fa fa-dashboard"></i>
@@ -36,8 +39,10 @@
                 <span class="sidebar-text"> Jogar </span>
             </a>
         </li> 
-
+        }
+        
         <!-- PARA O ADMIN -->
+        @if(ViewBag.Tipo==1) {
         <li>
             <a href="@Url.Action("Gerir","User")" data-pjax=".content-body" style="background-color:#F1C40F;">
                 <i class="sidebar-icon fa fa-group"></i>
@@ -50,5 +55,6 @@
                 <span class="sidebar-text">Gerir Áreas Protegidas</span>
             </a>
         </li>
+        }
     </ul>
 </aside>

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Animais360.Models;
+using System.Web.Security;
 
 namespace Animais360.Controllers
 {
@@ -17,6 +18,10 @@ namespace Animais360.Controllers
         // GET: /AreaProtegida/
 
         public ActionResult Index() {
+            int id = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
+            User us = db.Users.Find(id);
+            ViewBag.Tipo = us.Tipo;
+
             ViewBag.Continentes = db.Continentes.ToList();
             ViewBag.Paises = db.Pais.ToList();
 
@@ -42,6 +47,10 @@ namespace Animais360.Controllers
         public ActionResult Create() {
             ViewBag.Continentes = db.Continentes.ToList();
             ViewBag.Paises = db.Pais.ToList();
+
+            int idx = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
+            User us = db.Users.Find(idx);
+            ViewBag.Tipo = us.Tipo;
 
             return View();
         }
@@ -95,6 +104,11 @@ namespace Animais360.Controllers
             {
                 return HttpNotFound();
             }
+
+            int idx = Convert.ToInt32(Membership.GetUser().ProviderUserKey.ToString());
+            User us = db.Users.Find(idx);
+            ViewBag.Tipo = us.Tipo;
+
             return View(areaprotegida);
         }
 
