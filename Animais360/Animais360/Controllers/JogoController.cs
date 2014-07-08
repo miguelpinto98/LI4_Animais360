@@ -76,49 +76,63 @@ namespace Animais360.Controllers
         }
 
         public ActionResult Play(Jogo jogo) {
-            ViewBag.Pontos = jogo.Pontos;
-            ViewBag.NumConts = jogo.Nivel;
 
-            List<int> aux = new List<int>();
-            List<AreaProtegida> aps = new List<AreaProtegida>();
+            if (Request.IsAuthenticated)
+            {
+                ViewBag.Pontos = jogo.Pontos;
+                ViewBag.NumConts = jogo.Nivel;
 
-            List<Pais> ps = db.Pais.Where(x => x.Continente.ContinenteId == jogo.ContinenteID).ToList();
-            int npaises = ps.Count(), r, nareas, idarea;
-            Random n = new Random();
+                List<int> aux = new List<int>();
+                List<AreaProtegida> aps = new List<AreaProtegida>();
 
-            if (npaises > 5) {  
-                for (int i = 0; i < 6; i++) {
-                    r = devolveRandomInt(aux, npaises);
-                    Pais p = ps[r];
-                    nareas = p.AreaProtegidas.Count();
+                List<Pais> ps = db.Pais.Where(x => x.Continente.ContinenteId == jogo.ContinenteID).ToList();
+                int npaises = ps.Count(), r, nareas, idarea;
+                Random n = new Random();
 
-                    while (nareas == 0) {
+                if (npaises > 5)
+                {
+                    for (int i = 0; i < 6; i++)
+                    {
                         r = devolveRandomInt(aux, npaises);
-                        p = ps[r];
+                        Pais p = ps[r];
                         nareas = p.AreaProtegidas.Count();
-                    }                
 
-                    idarea = n.Next(0, nareas);
-                    AreaProtegida a = p.AreaProtegidas.ToList()[idarea];
-                    aps.Add(a);
-                }
-            } else {
-                List<AreaProtegida> auxAP = getTotalAreas(ps);
-                nareas = auxAP.Count();
-                aux = new List<int>();
+                        while (nareas == 0)
+                        {
+                            r = devolveRandomInt(aux, npaises);
+                            p = ps[r];
+                            nareas = p.AreaProtegidas.Count();
+                        }
 
-                for (int i = 0; i < 6; i++) {
-                    r = n.Next(0, nareas);
-                    while (aux.Contains(r)) {
-                        r = n.Next(0, nareas);
+                        idarea = n.Next(0, nareas);
+                        AreaProtegida a = p.AreaProtegidas.ToList()[idarea];
+                        aps.Add(a);
                     }
-                    aps.Add(auxAP[r]);
                 }
-            }
-            ViewBag.Areas = aps;
-            ViewBag.NomeContinente = db.Continentes.Find(jogo.ContinenteID).ContinenteName;
+                else
+                {
+                    List<AreaProtegida> auxAP = getTotalAreas(ps);
+                    nareas = auxAP.Count();
+                    aux = new List<int>();
 
-            return View(jogo);
+                    for (int i = 0; i < 6; i++)
+                    {
+                        r = n.Next(0, nareas);
+                        while (aux.Contains(r))
+                        {
+                            r = n.Next(0, nareas);
+                        }
+                        aux.Add(r);
+                        aps.Add(auxAP[r]);
+                    }
+                }
+                ViewBag.Areas = aps;
+                ViewBag.NomeContinente = db.Continentes.Find(jogo.ContinenteID).ContinenteName;
+
+                return View(jogo);
+            }
+            else
+                return RedirectToAction("Login", "User");
         }
 
         int devolveIDContinente(string pconts)
