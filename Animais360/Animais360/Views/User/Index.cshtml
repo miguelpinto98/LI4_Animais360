@@ -33,8 +33,8 @@
                                 <td> @u.UserName </td>
                                     @{
                                         int m=0;
-                                        foreach (Classificacao c in u.Classificacoes){
-                                            if (c.pontos > m) { m = c.pontos; }
+                                        foreach (Jogo j in u.Jogos){
+                                            if (j.Pontos > m) { m = j.Pontos; }
 
                                         }
                                      }
