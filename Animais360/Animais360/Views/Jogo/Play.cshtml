@@ -8,11 +8,19 @@
 }
 
 <script>
+    var count = 0, dif = parseInt('@Model.DifQualitativa');
+    var counter;
+
     function getQuestaoAux(idArea) {
+        clearInterval(counter);
+
+        if (dif == 1) count = 121;
+        if (dif == 2) count = 61;
+        if (dif == 3) count = 31;
         document.getElementById('aj1').style.visibility = 'hidden';
         document.getElementById('aj2').style.visibility = 'hidden';
         document.getElementById('aj3').style.visibility = 'hidden';
-
+        
         $.ajax({
             url: '@Url.Action("GetQuestaoArea", "Questao")',
             data: { id: idArea },
@@ -43,7 +51,7 @@
             }
         });
         $('#myModal').modal('toggle');
-
+        counter = setInterval(timer, 1000);
     }
 
     function getQuestao(idArea) {
@@ -85,7 +93,18 @@
         });
     }
 
+    function func_errado() {
+        var errado = parseInt($("#ErradoID").text());
+        errado++;
+        $("#ErradoID").text(errado);
+
+        alert("Resposta Errada");
+        $('#myModal').modal('hide');
+    }
+
     function validaQuestao() {
+        clearInterval(counter);
+
         var resp = $('input[name=resposta]:checked').val();
         var idp = $('#PerguntaID').val();
         var pp = $("#PontosAV").text();
@@ -114,11 +133,7 @@
                     document.getElementById('progressbar').style.width = auxp + '%';
                     $('#myModal').modal('hide');
                 } else {
-                    errado++;
-                    $("#ErradoID").text(errado);
-
-                    alert("Resposta Errada");
-                    $('#myModal').modal('hide');
+                    func_errado();
                 }
 
                 if (prog == 6 && conts == 5) {
@@ -141,6 +156,17 @@
             document.getElementById(i).style.visibility = 'visible';
          } else
             alert("Não tens pontos suficientes! :(")
+    }
+
+    function timer() {
+        count = count - 1;
+        if (count <= 0) {
+            clearInterval(counter);
+            func_errado();
+            
+            return;
+        }
+        document.getElementById("timer").innerHTML = count + " secs";
     }
 </script>
 
@@ -166,6 +192,8 @@
                 <audio id="Som" controls="controls" style="display: none">
                     <source id="Som" src="">
                 </audio>
+                <br />
+                <b><span id="timer"></span></b>
             </div>
             <div class="modal-body">
                 <div class="coluu1">
